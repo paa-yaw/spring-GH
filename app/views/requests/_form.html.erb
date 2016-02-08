@@ -1,0 +1,8 @@
+<%= simple_form_for (request) do |f| %>
+  <%= f.input :company,label: "Company name/home name" %>
+  <%= f.input :job_description , label: "Job Description" %>
+  <%= f.input :date, label: "Date" %>
+  <%= f.input :time, label: "Time" %>
+
+  <%= f.button :submit, "submit" %>
+<% end %>
