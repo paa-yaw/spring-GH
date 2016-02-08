@@ -9,19 +9,39 @@ class RequestsController < ApplicationController
   end
 
   def new
-    @request = Request.new
+    if current_client
+      @request = current_client.request.new
+    else
+      @request = Request.new
+    end
   end
 
   def create
-    @request = Request.new(request_params)
 
-    if @request.save
-      flash[:notice] = "Request has been made!"
-      redirect_to @request
+    if current_client
+
+      @request = current_client.request.new(request_params)
+
+      if @request.save
+        flash[:notice] = "Request has been made!"
+        redirect_to @request
+      else
+        flash.now[:alert] = "Your request failed. Please submit it again."
+        render 'new'
+      end
+
     else
-      flash.now[:alert] = "Your request failed. Please submit it again."
-      render 'new'
+      @request = Request.new(request_params)
+
+      if @request.save
+        flash[:notice] = "Request has been made! Continue to create an account!"
+        redirect_to @request
+      else
+        flash.now[:alert] = "Your request failed. Please submit it again."
+        render 'new'
+      end
     end
+
   end 
 
   def edit
