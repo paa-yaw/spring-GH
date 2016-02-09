@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
 
   def new
     if current_client
-      @request = current_client.request.new
+      @request = current_client.requests.new
     else
       @request = Request.new
     end
@@ -18,9 +18,22 @@ class RequestsController < ApplicationController
 
   def create
 
+
     if current_client
 
-      @request = current_client.request.new(request_params)
+      @request = current_client.requests.new(request_params)
+
+      if @request.save
+        flash[:notice] = "#{current_client.email} Request has been made!"
+        redirect_to @request
+      else
+        flash.now[:alert] = "Your request failed. Please submit it again."
+        render 'new'
+      end
+
+    else
+     
+      @request = Request.new(request_params)
 
       if @request.save
         flash[:notice] = "Request has been made!"
@@ -29,19 +42,7 @@ class RequestsController < ApplicationController
         flash.now[:alert] = "Your request failed. Please submit it again."
         render 'new'
       end
-
-    else
-      @request = Request.new(request_params)
-
-      if @request.save
-        flash[:notice] = "Request has been made! Continue to create an account!"
-        redirect_to @request
-      else
-        flash.now[:alert] = "Your request failed. Please submit it again."
-        render 'new'
-      end
     end
-
   end 
 
   def edit
@@ -70,6 +71,7 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:company, :job_description, :date, :time)
+    params.require(:request).permit(:company, :job_description, :date, :phone_number, :address)
   end
+
 end

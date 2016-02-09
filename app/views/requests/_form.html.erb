@@ -1,8 +1,13 @@
 <%= simple_form_for (request) do |f| %>
   <%= f.input :company,label: "Company name/home name" %>
   <%= f.input :job_description , label: "Job Description" %>
-  <%= f.input :date, label: "Date" %>
-  <%= f.input :time, label: "Time" %>
+  <%= f.input :phone_number, label: "Phone Number" %>
+  <%= f.input :address, label: "Address" %>
+  <h4>
+    Select Date and Time
+  </h4>
+  <%= f.date_select :date, :order => [:day, :month, :year] %><br>
+
 
   <%= f.button :submit, "submit" %>
 <% end %>

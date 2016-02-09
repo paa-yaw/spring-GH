@@ -6,4 +6,6 @@ class Client < ActiveRecord::Base
 
 
 has_many :requests, dependent: :delete_all 
+
+# accepts_nested_attributes_for :requests
 end
