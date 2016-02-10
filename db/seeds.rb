@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+@array = ["derek@workforce.com", "blessing@workforce.com", "laud@workforce.com", "afi@workforce.com"]
+
+@array.each do |email|
+	unless Client.exists?(email: email)
+		Client.create!(email: email, password: "workforce", admin: true)
+	end
+end
