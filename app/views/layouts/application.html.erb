@@ -7,10 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Sign Up", new_client_registration_path %> | 
+
 <% if current_client %>
   <%= link_to "Sign Out", destroy_client_session_path, method: :delete,
   			data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
+<% else %>
+  <%= link_to "Sign Up", new_client_registration_path %> | <%= link_to "Sign In", new_client_session_path %> 
 <% end %>
 
 
