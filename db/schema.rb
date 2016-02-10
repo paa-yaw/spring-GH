@@ -37,12 +37,13 @@ ActiveRecord::Schema.define(version: 20160209162006) do
   create_table "requests", force: :cascade do |t|
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "company"
     t.text     "job_description"
     t.integer  "client_id"
     t.datetime "date"
     t.string   "phone_number"
     t.string   "address"
+    t.string   "name"
+    t.datetime "date_time"
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
