@@ -36,8 +36,8 @@ class RequestsController < ApplicationController
       @request = Request.new(request_params)
 
       if @request.save
-        flash[:notice] = "Request has been made!"
-        redirect_to @request
+        flash[:notice] = "Request has been made! Please finish up by creating an account."
+        redirect_to new_client_registration_path
       else
         flash.now[:alert] = "Your request failed. Please submit it again."
         render 'new'
