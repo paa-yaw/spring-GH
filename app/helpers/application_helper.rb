@@ -1,13 +1,6 @@
 module ApplicationHelper
-	def resource_name
-		:client
-	end
-
-	def resource
-		@resource ||= Client.new
-	end
-
-	def devise_mapping
-		@devise_mapping ||= Devise.mappings[:client]
+	
+	def admins_only(&block)
+      block.call if current_client.try(:admin?)
 	end
 end
