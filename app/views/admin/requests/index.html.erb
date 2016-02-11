@@ -3,10 +3,21 @@
 
 <h3>Below are requests pending processing.</h3>
 
-<% Request.all.each do |request| %>
+<% @requests.each do |request| %>
   <h4><%= request.name %></h4>
   <p><%= request.job_description %></p>
   <p>request created at <%= request.created_at %></p>
 
   <%= link_to "Show", admin_request_path(request) %> | <%= link_to "resolve", [:resolve, :admin, request], method: :patch, data: {confirm: "Please make sure this request is resolved?"} %>
+<% end %>
+<br>
+
+<h1>Resolved Requests</h1>
+<% @resolved_requests.each do |request| %>
+  <h4><%= request.name %></h4> 
+  <p><%= request.job_description %></p>
+  <p>request created at <%= request.created_at %></p>
+
+  <%= link_to "Show", admin_request_path(request) %> | <%= link_to "unresolve", [:unresolve, 
+  	:admin, request], method: :patch, data: {confirm: "Are you making it unresolved?"} %>
 <% end %>

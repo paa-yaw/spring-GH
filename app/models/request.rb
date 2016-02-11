@@ -3,10 +3,15 @@ class Request < ActiveRecord::Base
 
 	validates :name, :job_description, :phone_number, :address, :date_time, presence: true
 
-	scope :excluding_resolved_requests, lambda {where(resolved_at: !nil)}
+	scope :resolved_requests, lambda {where(resolved: true)}
+
 
 
 	def resolve
-	  self.update(resolved_at: Time.now)
+	  self.update(resolved: true)
+	end
+
+	def unresolve
+	  self.update(resolved: false)
 	end
 end

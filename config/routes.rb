@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :requests do 
       member do 
         patch :resolve
+        patch :unresolve
       end
     end
 

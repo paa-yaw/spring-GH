@@ -1,8 +1,9 @@
 class Admin::RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :resolve]	
-  
+  before_action :set_request, only: [:show, :resolve, :unresolve]	
+
   def index
-  	@requests = Request.all
+  	@requests = Request.all.where(resolved: false)
+    @resolved_requests= Request.all.where(resolved: true)
   end
 
   def show
@@ -13,6 +14,13 @@ class Admin::RequestsController < ApplicationController
 
   	flash[:notice] = "This request has been resolved."
   	redirect_to admin_root_path
+  end
+
+  def unresolve
+    @request.unresolve
+
+    flash[:notice] = "This request has not been resolved"
+    redirect_to admin_root_path
   end
 
   private

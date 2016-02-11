@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20160211001314) do
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
 
   create_table "requests", force: :cascade do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.text     "job_description"
     t.integer  "client_id"
     t.datetime "date"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160211001314) do
     t.string   "address"
     t.string   "name"
     t.datetime "date_time"
-    t.datetime "resolved_at"
+    t.boolean  "resolved",        default: false
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
