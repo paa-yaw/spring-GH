@@ -1,0 +1,12 @@
+<h1>This is the admin's page. For authorized individuals ONLY!</h1>
+<h2>Welcome to Workforce.</h2>
+
+<h3>Below are requests pending processing.</h3>
+
+<% Request.all.each do |request| %>
+  <h4><%= request.name %></h4>
+  <p><%= request.job_description %></p>
+  <p>request created at <%= request.created_at %></p>
+
+  <%= link_to "Show", admin_request_path(request) %> | <%= link_to "resolve", [:resolve, :admin, request], method: :patch, data: {confirm: "Please make sure this request is resolved?"} %>
+<% end %>

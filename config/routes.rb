@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
+  # namespace :admin do
+  # get 'requests/index'
+  # end
+
   namespace :admin do
-    root 'application#index'
+    root 'requests#index'
+
+    resources :requests do 
+      member do 
+        patch :resolve
+      end
+    end
+
+
   end
 
   # devise_for :clients
