@@ -1,0 +1,7 @@
+<h2>Hi <%= current_client.email %>, Here are your requests.</h2>
+
+<% @my_requests.each do |my_request| %>
+  <h2><%= link_to my_request.name, my_request %></h2>
+<% end %>
+
+<%= link_to "Back", root_path %>

@@ -1,2 +1,13 @@
+<h1>Place Your Request</h1>
 <%= render 'form', request: @request %><br>
-<%= link_to "View All Requests", requests_path %>
+
+
+<% if current_client && Request.exists?(Request.last) %>
+  <%= link_to "View details of last request", request_path(Request.last) %> |
+
+  <% if current_client.requests.count >= 1 %>
+  <%= link_to "View all your requests", my_requests_path %>
+  <% end %>
+
+<% end %>
+

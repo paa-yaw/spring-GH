@@ -1,0 +1,33 @@
+<h1>Your request is being processed. We'll get back to you soon.</h1>
+<!-- <h2>Request Details Below</h2>
+
+<h3><%#= @request.name %></h3>
+<h4>Job Description</h4>
+<p><%#= @request.job_description %></p>
+
+<h4>Phone Number</h4>
+<p><%#= @request.phone_number %></p>
+
+<h4>Address</h4>
+<p><%#= @request.address %></p>
+
+<h4>Date</h4>
+<p><%#= @request.date_time.strftime("%B %d, %Y") %></p>
+
+<h4>Time</h4>
+<p><%#= @request.date_time.strftime("%T") %></p>
+
+<%#=  link_to "Edit", [:edit, @request] %> | 
+<%#= link_to "Delete", @request, method: :delete, 
+			data: { confirm: "Are you sure want delete #{@request.name}'s details?" } %> 
+ -->
+<% if @request.client_id != Client.last.id %>
+<h2>Click Enter to Complete the Process.</h2>
+
+ <%= link_to "Enter", [:add, @request], method: :patch, 
+ 					data: { confirm: "Thank You for using our service. We will get back to you as soon as possible." } %>
+<% else %>
+ <%= link_to "Back", root_path %>
+<% end %>
+
+

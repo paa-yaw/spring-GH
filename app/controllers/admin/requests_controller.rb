@@ -2,6 +2,7 @@ class Admin::RequestsController < ApplicationController
   before_action :set_request, only: [:show, :resolve, :unresolve]	
 
   def index
+    @all_requests = Request.all
   	@requests = Request.all.where(resolved: false)
     @resolved_requests= Request.all.where(resolved: true)
   end

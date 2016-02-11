@@ -24,7 +24,14 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'requests#new'
 
-   resources :requests
+   resources :requests do 
+    member do
+      patch :add
+    end
+  end
+
+  get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
+  get 'my_requests/', to: 'requests#my_requests', as: :my_requests
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

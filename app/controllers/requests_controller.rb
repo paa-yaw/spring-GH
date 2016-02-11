@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_request, only: [:show, :edit, :update, :destroy, :add, :display_request]
   
   def index
     @requests = Request.all
@@ -9,6 +9,7 @@ class RequestsController < ApplicationController
   end
 
   def new
+
     if current_client
       @request = current_client.requests.new
     else
@@ -24,8 +25,8 @@ class RequestsController < ApplicationController
       @request = current_client.requests.new(request_params)
 
       if @request.save
-        flash[:notice] = "#{current_client.email} Request has been made!"
-        redirect_to @request
+        flash[:notice] = "#{current_client.email}, your request has been made!"
+        redirect_to display_request_path(@request)
       else
         flash.now[:alert] = "Your request failed. Please submit it again."
         render 'new'
@@ -62,6 +63,23 @@ class RequestsController < ApplicationController
     @request.destroy
     flash[:notice] = "request has been deleted."
     redirect_to root_path 
+  end
+
+  def add
+    @request.add
+    flash[:notice] = "this request has been added to your account."
+    redirect_to new_request_path
+  end
+
+  def display_request
+  end
+
+  def my_requests
+    if current_client
+      @my_requests = current_client.requests.all
+    else
+
+    end
   end
 
   private   

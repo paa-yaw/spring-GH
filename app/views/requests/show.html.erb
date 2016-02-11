@@ -14,6 +14,4 @@
 <h4>Time</h4>
 <p><%= @request.date_time.strftime("%T") %></p>
 
-<%=  link_to "Edit", [:edit, @request] %> | 
-<%= link_to "Delete", @request, method: :delete, 
-			data: { confirm: "Are you sure want delete #{@request.name}'s details?" } %>
+<%=  link_to "Edit", [:edit, @request] %> | <%= link_to "Back", root_path %>

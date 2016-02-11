@@ -1,9 +1,7 @@
-<h1>Place Your Request</h1>
-
 <%= simple_form_for (request) do |f| %>
   <%= f.input :name,label: "Company name/Name of home owner" %>
-  <%= f.input :job_description , label: "Job Description" %>
   <%= f.input :phone_number, label: "Phone Number" %>
+  <%= f.input :job_description , label: "Job Description" %>
   <%= f.input :address, label: "Address" %>
   <h4>
     Select Date and Time

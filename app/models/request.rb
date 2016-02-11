@@ -14,4 +14,8 @@ class Request < ActiveRecord::Base
 	def unresolve
 	  self.update(resolved: false)
 	end
+
+	def add
+	  self.update(client_id: Client.last.id)
+	end
 end
