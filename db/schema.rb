@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211122037) do
+ActiveRecord::Schema.define(version: 20160212102152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,12 @@ ActiveRecord::Schema.define(version: 20160211122037) do
     t.text     "job_description"
     t.integer  "client_id"
     t.string   "phone_number"
-    t.string   "address"
+    t.string   "location"
     t.string   "name"
     t.datetime "date_time"
     t.boolean  "resolved",        default: false
+    t.datetime "start_time"
+    t.datetime "endtime"
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree

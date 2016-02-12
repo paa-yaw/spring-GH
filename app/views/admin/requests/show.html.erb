@@ -6,13 +6,17 @@
 <p><%= @request.phone_number %></p>
 
 <h4>Address</h4>
-<p><%= @request.address %></p>
+<p><%= @request.location %></p>
 
 <h4>Date</h4>
 <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
 
 <h4>Time</h4>
 <p><%= @request.date_time.strftime("%T") %></p>
+
+<h4>Start and End Time</h4>
+<p>start time: <%= @request.start_time %></p>
+<p>end time: <%= @request.endtime %></p>
 
 <%=  link_to "Edit", [:edit, :admin, @request] %> | 
 <%= link_to "Delete", [:admin, @request], method: :delete, 

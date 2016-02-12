@@ -75,11 +75,7 @@ class RequestsController < ApplicationController
   end
 
   def my_requests
-    if current_client
-      @my_requests = current_client.requests.all
-    else
-
-    end
+    @my_requests = current_client.requests.all
   end
 
   private   
@@ -89,7 +85,7 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:name, :job_description, :phone_number, :address, :date_time)
+    params.require(:request).permit(:name, :job_description, :phone_number, :location, :date_time, :start_time, :endtime)
   end
 
 end
