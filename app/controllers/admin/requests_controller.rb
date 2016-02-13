@@ -1,4 +1,4 @@
-class Admin::RequestsController < ApplicationController
+class Admin::RequestsController < Admin::ApplicationController
   before_action :set_request, only: [:show, :resolve, :unresolve]	
 
   def index

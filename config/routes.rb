@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
   # namespace :admin do
+  # get 'workers/index'
+  # end
+
+  # resources :workers
+  # namespace :admin do
   # get 'requests/index'
   # end
 
   namespace :admin do
     root 'requests#index'
+    # get 'workers/index'
+    
+    resources :workers
 
     resources :requests do 
       member do 
