@@ -47,3 +47,6 @@ end
 
 gem 'devise', '~>3.5'
 gem 'simple_form'
+
+#rails twitter bootstrap 
+gem "twitter-bootstrap-rails"
