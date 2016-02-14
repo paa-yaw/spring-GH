@@ -34,12 +34,28 @@ li.page-scroll > a {
 .form-content {
   border: solid 1px #c0c0c0;
   background-color: #eee;
+  padding-top: 20px;
+  border-radius: 2px;
 }
 
 .content-box {
   padding-top: 80px;
 }
 
-.content-box > p{
+.content-box > h1 {
   font-family: 'SANS-SERIF';
+  font-size: 32px;
+  /*text-transform: uppercase;*/
+}
+
+/*.content-box > strong {
+  text-transform: capitalize;
+}*/
+
+div.form-top-left > p, div.form-top-left > ol > li > p, div.form-top-left > ol > p {
+  font-family: 'SANS-SERIF';
+}
+
+.simple_form label{
+
 }
