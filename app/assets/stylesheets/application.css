@@ -17,3 +17,29 @@
 body{
   background-image: url('pattern.jpg');
 }
+
+abbr {
+  display: none;
+}
+
+a.navbar-brand{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+li.page-scroll > a {
+  text-transform: uppercase;
+}
+
+.form-content {
+  border: solid 1px #c0c0c0;
+  background-color: #eee;
+}
+
+.content-box {
+  padding-top: 80px;
+}
+
+.content-box > p{
+  font-family: 'SANS-SERIF';
+}
