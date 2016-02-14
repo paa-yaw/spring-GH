@@ -82,6 +82,9 @@ class RequestsController < ApplicationController
 
   def set_request
     @request = Request.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "the resource you are looking for can't be found."
+    redirect_to root_path
   end
 
   def request_params

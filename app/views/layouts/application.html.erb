@@ -28,11 +28,13 @@
 <% admins_only do %>
   <%= link_to "Admin", admin_root_path %>
   <%= link_to "Worker Registration", new_admin_worker_path %>
+  <%= link_to "Workers", admin_workers_path %>
 <% end %>
 
+<% flash.each do |key, message| %>
+  <div><%= message %></div>
+<% end %>
 
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
    <%= yield %>
 
 </body>
