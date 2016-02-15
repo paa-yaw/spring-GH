@@ -27,12 +27,12 @@ nav#navigation {
 a.navbar-brand{
   text-transform: uppercase;
   font-weight: bold;
-  color: #0090C1;
+  color: #fff !important;
 }
 
 li.page-scroll > a {
   text-transform: uppercase;
-  color:#0090C1;
+  color:#0090C1 !important;
 }
 
 .form-content {
@@ -71,7 +71,9 @@ div.form-top-left > p, div.form-top-left > ol > li > p, div.form-top-left > ol >
 }
 
 hr {
-  border-color: #0081AF;
+  /*border-color: #0081AF;*/
+  border-color: #0090C1;
+
 }
 
 .btn-block {background-color: #0090C1; color:#fff; border-color: #0090C1;}
