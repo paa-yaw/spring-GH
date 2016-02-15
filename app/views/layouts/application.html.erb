@@ -8,27 +8,6 @@
 </head>
 <body>
 
-<%= link_to "Workforce", root_path %>
-
-<% if current_client %>
-  <%= link_to "Log Out", destroy_client_session_path, method: :delete,
-  			data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %> |
-<% else %>
-  <%= link_to "Log In", new_client_session_path %> 
-<% end %>
-
-<% if current_client && current_client.admin == false %>
-  <%= link_to "View all your requests", my_requests_path %>
-<% end %>
-
-
-
-
-
-<% admins_only do %>
-  <%= link_to "Admin", admin_root_path %>
-  <%= link_to "Worker Registration", new_admin_worker_path %>
-<% end %>
 
 <nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -40,22 +19,32 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand" href="#page-top">Workforce</a>
+                <%= link_to "Workforce", root_path ,:class =>"navbar-brand"%>
             </div>
             <!-- //.navbar-header -->
             
             <div class="navbar-collapse collapse navbar-rj-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="page-scroll">
-                        <a href="#Requests">Requests</a>
+                        <% if current_client && current_client.admin == false %>
+                          <%= link_to "Requests", my_requests_path %>
+                        <% end %>
                     </li>
 
                     <li class="page-scroll">
-                        <a href="#who-we-are">About</a>
+                        <% if current_client %>
+                          <%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %> |
+                          <% else %>
+                            <%= link_to "Log In", new_client_session_path %> 
+                        <% end %>
                     </li>
                     
                     <li class="page-scroll">
-                        <a href="#Log-in">Login</a>
+                      <% admins_only do %>
+                        <%= link_to "Admin", admin_root_path %>
+                        <%= link_to "Worker Registration", new_admin_worker_path %>
+                      <% end %>
                     </li>
                 </ul>
             </div>
