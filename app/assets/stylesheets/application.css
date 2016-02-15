@@ -15,7 +15,7 @@
  */
 
 body{
-  background-image: url('pattern.jpg');
+  background-image: url('pattern2.jpg');
 }
 
 abbr {
@@ -45,7 +45,6 @@ li.page-scroll > a {
 .content-box > h1 {
   font-family: 'SANS-SERIF';
   font-size: 32px;
-  /*text-transform: uppercase;*/
 }
 
 /*.content-box > strong {
@@ -57,5 +56,11 @@ div.form-top-left > p, div.form-top-left > ol > li > p, div.form-top-left > ol >
 }
 
 .simple_form label{
+  font-family: 'SANS-SERIF';
+  font-weight: 200;
+}
 
+ h4.form-content-label, h4.form-content-time{
+  font-family: 'SANS-SERIF';
+  font-size: 14px;
 }

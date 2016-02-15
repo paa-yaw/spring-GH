@@ -1,21 +1,21 @@
 <%= simple_form_for (request) do |f| %>
-  <%= f.input :name,label: "Company name/Name of home owner" %>
+  <%= f.input :name,label: "Name" %>
   <%= f.input :phone_number, label: "Phone Number" %>
   <%= f.input :job_description , label: "Job Description" %>
   <%= f.input :location, label: "Location" %>
-  <h4>
-    Select Date and Time
+  <h4 class="form-content-label">
+    Select Date & Time
   </h4>
   <%= f.datetime_select :date_time, :ampm => true, :minute_step => 15 %><br><br>
-  <h4>Select your start and end time</h4>
+  <h4 class="form-content-label">Select your Start & End time</h4>
   <div class="row">
     <div class="col-md-6">
-       <h4> Start: <%= f.time_select :start_time, {:ampm => true}, {:default => {:hour => '00', :minute => '00'}} %></h4>
+       <h4 class="form-content-time"> Start: <%= f.time_select :start_time, {:ampm => true}, {:default => {:hour => '00', :minute => '00'}} %></h4>
     </div>
     <div class="col-md-6">
-       <h4> End: <%= f.time_select :endtime, {:ampm => true}, {:default => {:hour => '00', :minute => '00'}} %></h4>
+       <h4 class="form-content-time"> End: <%= f.time_select :endtime, {:ampm => true}, {:default => {:hour => '00', :minute => '00'}} %></h4>
     </div>
   </div>
 
-  <%= f.button :submit, "GET A CLEANER!", :class=>"btn-block btn-lg" %>
+  <%= f.button :submit, "GET A CLEANER NOW", :class=>"btn-block btn-lg" %>
 <% end %>
