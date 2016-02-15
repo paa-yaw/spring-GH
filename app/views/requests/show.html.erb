@@ -22,11 +22,8 @@
             <p>end time: <%= @request.endtime.strftime("%H %M %p") %></p>
             <p>duration: <%= @request.endtime.strftime("%H").to_i - @request.start_time.strftime("%H").to_i %> hours</p>
 
-            <% if @request.resolve == true %>
-            <%= link_to "Back", root_path %>
-            <% else %>
-              <%=  link_to "Edit", [:edit, @request] %> | <%= link_to "Back", root_path %>
-            <% end %>
-         </div>
-        </div>
-  </div>
+<% if @request.resolved == true %>
+<%= link_to "Back", root_path %>
+<% else %>
+  <%=  link_to "Edit", [:edit, @request] %> | <%= link_to "Back", root_path %>
+<% end %>

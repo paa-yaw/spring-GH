@@ -19,6 +19,6 @@
 <p>end time: <%= @request.endtime %></p>
 
 <%=  link_to "Edit", [:edit, :admin, @request] %> | 
-<%= link_to "Delete", [:admin, @request], method: :delete, 
+<%= link_to "Cancel Request", [:admin, @request], method: :delete, 
 			data: { confirm: "Are you sure want delete #{@request.name}'s details?" } %> |
 <%= link_to "resolve", [:resolve, :admin, @request], method: :patch, data: {confirm: "Please make sure this request is resolved?"} %>

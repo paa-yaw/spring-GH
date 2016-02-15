@@ -17,6 +17,6 @@ class Request < ActiveRecord::Base
 	end
 
 	def add
-	  self.update(client_id: Client.last.id)
+	  self.update(client_id: Client.current.id)
 	end
 end
