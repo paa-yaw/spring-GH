@@ -21,14 +21,18 @@ body{
 abbr {
   display: none;
 }
-
+nav#navigation {
+  background-color: #022F40;
+}
 a.navbar-brand{
   text-transform: uppercase;
   font-weight: bold;
+  color: #0090C1;
 }
 
 li.page-scroll > a {
   text-transform: uppercase;
+  color:#0090C1;
 }
 
 .form-content {
@@ -45,6 +49,7 @@ li.page-scroll > a {
 .content-box > h1 {
   font-family: 'SANS-SERIF';
   font-size: 32px;
+  color: #0090C1;
 }
 
 /*.content-box > strong {
@@ -63,4 +68,19 @@ div.form-top-left > p, div.form-top-left > ol > li > p, div.form-top-left > ol >
  h4.form-content-label, h4.form-content-time{
   font-family: 'SANS-SERIF';
   font-size: 14px;
+}
+
+hr {
+  border-color: #0081AF;
+}
+
+.btn-block {background-color: #0090C1; color:#fff; border-color: #0090C1;}
+.btn-block:hover{ background-color: #fff; color:#0090C1; border-color: #0090C1;}
+
+div.content-box > h1 {
+  color: #022F40;
+}
+
+div.content-box > h1 > strong {
+  color: #0090C1;
 }
