@@ -1,15 +1,23 @@
-<h2>Hi <%= current_client.email %>, Here are your requests.</h2>
+<div class="container" >
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form-box wow fadeInUp content-box text-center">
 
-<% if @my_requests.count == 0 %>
-<h2>No Request has been made.</h2>
-<% elsif @my_requests.count > 0 %>
-<% @my_requests.each do |my_request| %>
-  <% if my_request.resolve == true %>
-    <h3><%= my_request.name %> | status: This request has been resolved. Your cleaner will be with you shortly. | <%= link_to "View", my_request %> </h3>
-  <% else %>
-    <h3><%= my_request.name %> | <%= link_to "View", my_request %> | <%= link_to "Edit", [:edit, my_request] %> </h3>
-  <% end %>
-<% end %>
-<% end %>
+            <h2>Hi <%= current_client.email %>, Here are your requests.</h2>
 
-<%= link_to "Back", root_path %>
+            <% if @my_requests.count == 0 %>
+            <h2>No Request has been made.</h2>
+            <% elsif @my_requests.count > 0 %>
+            <% @my_requests.each do |my_request| %>
+              <% if my_request.resolve == true %>
+                <h3><%= my_request.name %> | status: This request has been resolved. Your cleaner will be with you shortly. | <%= link_to "View", my_request %> </h3>
+              <% else %>
+                <h3><%= my_request.name %> | <%= link_to "View", my_request %> | <%= link_to "Edit", [:edit, my_request] %> </h3>
+              <% end %>
+            <% end %>
+            <% end %>
+
+            <%= link_to "Back", root_path %>
+
+        </div>
+    </div>
+</div>
