@@ -1,6 +1,9 @@
 class RequestsController < ApplicationController
+  # before_filter :require_client
+  # this code is required for request model to have access to current_client
+  before_filter :set_current_client
   before_action :set_request, only: [:show, :edit, :update, :destroy, :add, :display_request]
-  
+
   def index
     @requests = Request.all
   end
@@ -90,5 +93,4 @@ class RequestsController < ApplicationController
   def request_params
     params.require(:request).permit(:name, :job_description, :phone_number, :location, :date_time, :start_time, :endtime)
   end
-
 end
