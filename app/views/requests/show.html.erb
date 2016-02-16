@@ -1,29 +1,73 @@
 <div class="container" >
       <div class="row">
-         <div class="col-sm-6 col-sm-offset-3 form-box wow content-box text-center">
-            <h3><%= @request.name %></h3>
-            <h4>Job Description</h4>
-            <p><%= @request.job_description %></p>
+         <div class="col-sm-8 col-sm-offset-2 form-box wow content-box text-center">
+         <div class="panel panel-default">
+  <!-- Default panel contents -->
+ <div class="panel-heading"><h3><%= @request.name %></h3></div> 
 
-            <h4>Phone Number</h4>
-            <p><%= @request.phone_number %></p>
-
-            <h4>Address</h4>
-            <p><%= @request.location %></p>
-
-            <h4>Date</h4>
-            <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
-
-            <h4>Time</h4>
-            <p><%= @request.date_time.strftime("%T") %></p>
-
-            <h4>Start and End Time</h4>
-            <p>start time: <%= @request.start_time.strftime("%H %M %p") %></p>
-            <p>end time: <%= @request.endtime.strftime("%H %M %p") %></p>
-            <p>duration: <%= @request.endtime.strftime("%H").to_i - @request.start_time.strftime("%H").to_i %> hours</p>
-
-<% if @request.resolved == true %>
-<%= link_to "Back", root_path %>
-<% else %>
-  <%=  link_to "Edit", [:edit, @request] %> | <%= link_to "Back", root_path %>
-<% end %>
+  <!-- Table -->
+  <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                   Job Description  
+                </th>
+                <th>
+                   Phone Number 
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Time
+                </th>
+                <th colspan="2">
+                    &nbsp;&nbsp;&nbsp;Start &nbsp;&nbsp;&&nbsp;&nbsp; End Time
+                </th>
+                <th>
+                    Duration
+                </th>
+            <tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p><%= @request.job_description %></p>
+                </td>
+                <td>
+                    <p><%= @request.phone_number %></p>
+                </td>
+                <td>
+                    <p><%= @request.location %></p>
+                </td>
+                <td>
+                    <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
+                </td>
+                <td>
+                    <p><%= @request.date_time.strftime("%T") %></p>
+                </td>
+                <td>
+                    <p><%= @request.start_time.strftime("%H %M %p") %></p>
+                </td>
+                <td>
+                    <p><%= @request.endtime.strftime("%H %M %p") %></p>
+                </td>
+                <td>
+                    <p><%= @request.endtime.strftime("%H").to_i - @request.start_time.strftime("%H").to_i %> hours</p>
+                </td>
+            </tr>
+        </tbody>
+  </table>            
+<hr style="border-color:#eee;">
+        <% if @request.resolved == true %>
+        <%= link_to "Back", root_path %>
+        <% else %>
+          <%=  link_to "Edit", [:edit, @request] %> | <%= link_to "Back", root_path %>
+        <% end %>
+</div>
+</div>
+</div>
+</div>
