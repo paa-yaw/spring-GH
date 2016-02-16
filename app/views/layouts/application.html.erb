@@ -26,7 +26,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="page-scroll">
                         <% if current_client && current_client.admin == false %>
-                          <%= link_to "Requests", my_requests_path %>
+                          <%= link_to "Requests", my_requests_path, :class=>'btn' %>
                         <% end %>
                     </li>
 

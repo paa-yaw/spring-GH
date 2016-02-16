@@ -16,6 +16,7 @@
 
 body{
   background-image: url('pattern2.jpg');
+  background-size: 10%;
 }
 
 abbr {
@@ -33,6 +34,11 @@ a.navbar-brand{
 li.page-scroll > a {
   text-transform: uppercase;
   color:#0090C1 !important;
+  
+}
+
+li.page-scroll > a.btn:hover {
+  color:#fff !important;
 }
 
 .form-content {
@@ -45,6 +51,7 @@ li.page-scroll > a {
 
 .content-box {
   padding-top: 80px;
+  margin-top: 60px;
 }
 
 .content-box > h1 {
@@ -77,7 +84,6 @@ hr {
 }
 
 .btn-block {background-color: #0090C1; color:#fff; border-color: #0090C1;}
-.btn-block:hover{ background-color: #fff; color:#0090C1; border-color: #0090C1;}
 
 div.content-box > h1 {
   color: #022F40;
@@ -89,5 +95,10 @@ div.content-box > h1 > strong {
 }
 
 .signUpIn {
-  margin-top: 80px;
+  margin-top: 120px;
+  padding-bottom: 20px;
+}
+
+.login-label{
+  color: #022F40;
 }
