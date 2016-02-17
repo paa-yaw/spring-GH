@@ -12,7 +12,7 @@
   <p><%= request.job_description %></p>
   <p>request created at <%= request.created_at %></p>
 
-  <%= link_to "Show", admin_request_path(request) %> | <%= link_to "resolve", [:resolve, :admin, request], method: :patch, data: { confirm: "Please make sure this request is resolved?" } %>
+  <%= link_to "Click here to assign a worker to this request", admin_request_path(request) %>
 <% end %>
 
 <% else %>
@@ -29,7 +29,7 @@
   <p><%= request.job_description %></p>
   <p>request created at <%= request.created_at %></p>
 
-  <%= link_to "Show", admin_request_path(request) %> | <%= link_to "unresolve", [:unresolve, 
+  <%= link_to "View", admin_request_path(request) %> | <%= link_to "unresolve", [:unresolve, 
   	:admin, request], method: :patch, data: { confirm: "Are you making it unresolved?" } %>
 <% end %>
 

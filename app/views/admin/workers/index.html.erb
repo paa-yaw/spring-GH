@@ -1,5 +1,9 @@
 <h1>A List of Workers</h1>
 
 <% @workers.each do |worker| %>
-  <%= link_to worker.first_name, admin_worker_path(worker) %> | <%= link_to "assign" %><br>
+<% if worker.requests.any? %>
+  <h2><%= worker.first_name %>  <%= worker.last_name %> status: assigned! <%= link_to "View", admin_worker_path(worker) %></h2>
+<% else %>
+  <h2><%= worker.first_name %>  <%= worker.last_name %> unassigned! <%= link_to "View", admin_worker_path(worker) %></h2>
+<% end %>
 <% end %>

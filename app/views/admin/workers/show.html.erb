@@ -1,11 +1,31 @@
+<% if @worker.requests.any? %>
+  <h1><%= @worker.first_name %> has already been assigned!</h1>
+<% else %>
+  <h1><%= @worker.first_name %> is currently not assigned!</h1>
+<% end %>
 
-<%= @worker.first_name %>
-<%= @worker.last_name %>
-<%= @worker.email %>
-<%= @worker.age %>
-<%= @worker.sex %>
-<%= @worker.phone_number %>
-<%= @worker.location %>
-<%= @worker.education %>
-<%= @worker.minimum_wage %>
-<%= @worker.extra_info %>
+<p><strong>First Name:</strong> <%= @worker.first_name %></p>
+<p><strong>Last Name:</strong> <%= @worker.last_name %>
+<p><strong>Email:</strong> <%= @worker.email %></p> 
+<p><strong>Age:</strong> <%= @worker.age %></p> 
+<p><strong>Sex:</strong> <%= @worker.sex %></p>
+<p><strong>Phone Number:</strong> <%= @worker.phone_number %></p>
+<p><strong>Location:</strong> <%= @worker.location %></p>
+<p><strong>Education:</strong> <%= @worker.education %></p>
+<p><strong>Salary Expectation:</strong> <%= @worker.minimum_wage %></p>
+<p><strong>Work Experience:</strong> <%= @worker.experience %></p>
+<p><strong>Extra Info:</strong> <%= @worker.extra_info %></p>
+
+
+--------------------------------------------------------------------
+
+<h1>Worker's History</h1>
+<h3><%= @worker.first_name%> has been assigned to the following requests:</h3>
+
+<% if @worker.requests.any? %>
+  <% @worker.requests.each do |request| %>
+    <p><%= request.name %></p>
+  <% end %>
+<% else %>
+  <p>No requests yet!</p>
+<% end %>

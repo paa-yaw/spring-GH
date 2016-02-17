@@ -1,3 +1,4 @@
+<h1>Assign worker(s) to this request.</h1>
 <h3><%= @request.name %></h3>
 <h4>Job Description</h4>
 <p><%= @request.job_description %></p>
@@ -20,5 +21,25 @@
 
 <%=  link_to "Edit", [:edit, :admin, @request] %> | 
 <%= link_to "Cancel Request", [:admin, @request], method: :delete, 
-			data: { confirm: "Are you sure want delete #{@request.name}'s details?" } %> |
-<%= link_to "resolve", [:resolve, :admin, @request], method: :patch, data: {confirm: "Please make sure this request is resolved?"} %>
+			data: { confirm: "Are you sure want delete #{@request.name}'s details?" } %> 
+<!--<#%= link_to "click to resolve", [:resolve, :admin, @request], method: :patch, data: {confirm: "Please make sure this request is resolved?"} %>--><br>
+
+
+<% if @workers.any? %>
+
+<% @workers.each do |worker| %>
+
+<% if worker.requests.any? %>
+  <h2><%= worker.first_name %> | <%= link_to "View", admin_worker_path(worker) %></h2>
+<% else %>
+  <h2><%= worker.first_name %> | <%= link_to "View", admin_worker_path(worker) %>| <%= link_to "Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
+      data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{@request.name}?"}  %></h2>
+<% end %>
+
+<% end %>
+
+<% else %>
+
+<h2>No workers currently available!</h2>
+
+<% end %>
