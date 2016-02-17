@@ -1,23 +1,26 @@
-<h3><%= @request.name %></h3>
-<h4>Job Description</h4>
-<p><%= @request.job_description %></p>
+<div class="container" >
+      <div class="row">
+         <div class="col-sm-6 col-sm-offset-3 form-box wow content-box text-center">
+            <h3><%= @request.name %></h3>
+            <h4>Job Description</h4>
+            <p><%= @request.job_description %></p>
 
-<h4>Phone Number</h4>
-<p><%= @request.phone_number %></p>
+            <h4>Phone Number</h4>
+            <p><%= @request.phone_number %></p>
 
-<h4>Address</h4>
-<p><%= @request.location %></p>
+            <h4>Address</h4>
+            <p><%= @request.location %></p>
 
-<h4>Date</h4>
-<p><%= @request.date_time.strftime("%B %d, %Y") %></p>
+            <h4>Date</h4>
+            <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
 
-<h4>Time</h4>
-<p><%= @request.date_time.strftime("%T") %></p>
+            <h4>Time</h4>
+            <p><%= @request.date_time.strftime("%T") %></p>
 
-<h4>Start and End Time</h4>
-<p>start time: <%= @request.start_time.strftime("%H %M %p") %></p>
-<p>end time: <%= @request.endtime.strftime("%H %M %p") %></p>
-<p>duration: <%= @request.endtime.strftime("%H").to_i - @request.start_time.strftime("%H").to_i %> hours</p>
+            <h4>Start and End Time</h4>
+            <p>start time: <%= @request.start_time.strftime("%H %M %p") %></p>
+            <p>end time: <%= @request.endtime.strftime("%H %M %p") %></p>
+            <p>duration: <%= @request.endtime.strftime("%H").to_i - @request.start_time.strftime("%H").to_i %> hours</p>
 
 <% if @request.resolved == true %>
 <%= link_to "Back", root_path %>

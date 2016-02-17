@@ -13,3 +13,81 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+  background-image: url('pattern2.jpg');
+}
+
+abbr {
+  display: none;
+}
+nav#navigation {
+  background-color: #022F40;
+}
+a.navbar-brand{
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff !important;
+}
+
+li.page-scroll > a {
+  text-transform: uppercase;
+  color:#0090C1 !important;
+}
+
+.form-content {
+  border: solid 1px #c0c0c0;
+  background-color: #eee;
+  padding-top: 20px;
+  border-radius: 2px;
+  margin-top: 80px;
+}
+
+.content-box {
+  padding-top: 80px;
+}
+
+.content-box > h1 {
+  font-family: 'SANS-SERIF';
+  font-size: 32px;
+  color: #0090C1;
+}
+
+/*.content-box > strong {
+  text-transform: capitalize;
+}*/
+
+div.form-top-left > p, div.form-top-left > ol > li > p, div.form-top-left > ol > p {
+  font-family: 'SANS-SERIF';
+}
+
+.simple_form label{
+  font-family: 'SANS-SERIF';
+  font-weight: 200;
+}
+
+ h4.form-content-label, h4.form-content-time{
+  font-family: 'SANS-SERIF';
+  font-size: 14px;
+}
+
+hr {
+  border-color: #0090C1;
+
+}
+
+.btn-block {background-color: #0090C1; color:#fff; border-color: #0090C1;}
+.btn-block:hover{ background-color: #fff; color:#0090C1; border-color: #0090C1;}
+
+div.content-box > h1 {
+  color: #022F40;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+div.content-box > h1 > strong {
+  color: #0090C1;
+}
+
+.signUpIn {
+  margin-top: 80px;
+}
