@@ -1,15 +1,26 @@
 <%= simple_form_for([:admin, worker]) do |f| %>
-  <%= f.input :first_name, label: "First Name" %>
-  <%= f.input :last_name, label: "Last Name" %>
-  <%= f.input :email, label: "Email" %>
-  <%= f.input :sex, :collection => ["Male","Female"], :as => :radio_buttons, :checked =>"Male",:item_wrapper_class => 'inline' ,:label => "Sex" %>
-  <%= f.input :age, label: "Age" %>
-  <%= f.input :phone_number, label: "Phone Number" %>
-  <%= f.input :location, label: "Location" %>
-  <%= f.input :education, label: "Level of education" %>
-  <%= f.input :minimum_wage, label: "Salary Expectation" %>
-  <%= f.input :extra_info, label: "Extra Info" %>
-  
-  <%= f.button :submit %>
+ <div class="row">
+   <div class="col-md-4">
+       <%= f.input :first_name, label: "First Name" %>
+       <%= f.input :last_name, label: "Last Name" %>
+       <%= f.input :email, label: "Email" %>
+       <%= f.input :sex, :collection => ["Male","Female"], :as => :radio_buttons, :checked =>"Male",:item_wrapper_class => 'inline' ,:label => "Sex" %>
+       <%= f.input :age, label: "Age" %>
+  </div>
 
+  <div class="col-md-4">
+      <%= f.input :phone_number, label: "Phone Number" %>
+      <%= f.input :location, label: "Location" %>
+      <%= f.input :education, label: "Level of education" %>
+      <%= f.input :minimum_wage, label: "Salary Expectation" %>
+      <%= f.input :experience, label: "Experience" %>
+  </div>
+
+  <div class="col-md-4">
+      <%= f.input :extra_info, label: "Extra Info" %>
+  </div>
+ </div>
+ <div class="text-center">
+  <%= f.button :submit, :class=>"btn btn-primary " %>
+ </div>
 <% end %>

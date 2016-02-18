@@ -1,6 +1,6 @@
 class Request < ActiveRecord::Base
 	belongs_to :client
-	has_many :workers
+	has_and_belongs_to_many :workers
 
 	validates :name, :job_description, :phone_number, :location, :date_time, presence: true
 

@@ -1,0 +1,17 @@
+<%= simple_form_for (request) do |f| %>
+  <%= f.input :name,label: "Company name/Name of home owner" %>
+  <%= f.input :phone_number, label: "Phone Number" %>
+  <%= f.input :job_description , label: "Job Description" %>
+  <%= f.input :location, label: "Location" %>
+  <h4>Select your start and end time</h4>
+ <h4> start time: <%= f.time_select :start_time, {:ampm => true}, {:default => {:hour => '00', :minute => '00'}} %></h4>
+ <h4> end time: <%= f.time_select :endtime, {:ampm => true}, {:default => {:hour => '00', :minute => '00'}} %></h4>
+
+  <h4>
+    Select Date and Time
+  </h4>
+  <%= f.datetime_select :date_time, :ampm => true, :minute_step => 15 %><br><br>
+
+
+  <%= f.button :submit, "submit" %>
+<% end %>

@@ -11,20 +11,21 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'requests#index'
     # get 'workers/index'
-    
-    resources :workers
+
+    get 'requests/:id/assign', to: 'requests#assign', as: :assign
+
+    resources :workers 
 
     resources :requests do 
       member do 
         patch :resolve
         patch :unresolve
       end
-      resources :workers
+      # resources :workers
     end
-
-
   end
 
+  
   # devise_for :clients
   devise_for :clients, controllers: {registrations: "registrations"}
   # The priority is based upon order of creation: first created -> highest priority.
@@ -41,7 +42,8 @@ Rails.application.routes.draw do
 
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
   get 'my_requests/', to: 'requests#my_requests', as: :my_requests
-
+  # get 'move/', to: 'admin/workers#move', as: :move
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

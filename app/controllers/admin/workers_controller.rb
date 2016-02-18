@@ -1,5 +1,5 @@
 class Admin::WorkersController < Admin::ApplicationController
-	before_action :set_worker, only: [:show, :edit, :update, :destroy]
+	before_action :set_worker, only: [:show, :edit, :update, :destroy, :assign]
 
   def index
   	@workers = Worker.all
@@ -23,6 +23,7 @@ class Admin::WorkersController < Admin::ApplicationController
   	  render 'new'
   	end
   end
+
 
   def edit
   end
@@ -53,6 +54,6 @@ class Admin::WorkersController < Admin::ApplicationController
 
   def worker_params
   	params.require(:worker).permit(:first_name, :last_name, :sex, :age, :phone_number, :education, 
-  	:location, :experienc, :minimum_age, :email, :extra_info)
+  	:location, :experience, :minimum_wage, :email, :extra_info)
   end
 end

@@ -1,5 +1,19 @@
-<h1>A List of Workers</h1>
+<div class="admin-page">
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-1 form-box">
 
-<% @workers.each do |worker| %>
-  <%= link_to worker.first_name, admin_worker_path(worker) %> | <%= link_to "assign" %><br>
-<% end %>
+  <h1>A List of Workers</h1>
+
+  <% @workers.each do |worker| %>
+  <% if worker.requests.any? %>
+    <h2><%= worker.first_name %>  <%= worker.last_name %> status: assigned! <%= link_to "View", admin_worker_path(worker) %></h2>
+  <% else %>
+    <h2><%= worker.first_name %>  <%= worker.last_name %> unassigned! <%= link_to "View", admin_worker_path(worker) %></h2>
+  <% end %>
+  <% end %>
+
+</div>
+</div>
+</div>
+</div>
