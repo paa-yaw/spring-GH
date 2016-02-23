@@ -1,12 +1,14 @@
 <%= simple_form_for (request) do |f| %>
  <!--  <#%= f.input :category, :collection => ["Company","Individual"], :as => :radio_buttons, :checked =>"Company", :item_wrapper_class => 'inline' ,:label => "Category" %> -->
+  <%= f.input :job_description , label: "Job Description" %>
  <div class="row">
    <div class="col-md-6">
   <%= f.input :phone_number, label: "Phone Number", maxlength: "10", placeholder:"024 123 4567", type:"tel" %>
    </div>
+   <div class="col-md-6">
+    <%= f.input :frequency, label: "Frequency", placeholder:"Once in a week, Twice in a week" %>
+   </div>
  </div>
-  <%= f.input :job_description , label: "Job Description" %>
-  <%= f.input :frequency, label: "Frequency", placeholder:"Once in a week, Twice in a week" %>
   <%= f.input :location, label: "Location", placeholder:"Street Address, House Number, Area" %>
   <h4 class="form-content-label">
     Select Date & Time
