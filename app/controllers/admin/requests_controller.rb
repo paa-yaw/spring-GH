@@ -29,7 +29,7 @@ class Admin::RequestsController < Admin::ApplicationController
 
     @request.workers << @worker
     @request.resolve 
-    flash[:alert] = "You just assigned #{@worker.first_name} to #{@request.name}."
+    flash[:alert] = "You just assigned #{@worker.first_name} to #{@request.job_description}."
 
     redirect_to admin_root_path
   end
@@ -67,6 +67,6 @@ class Admin::RequestsController < Admin::ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:name, :job_description, :phone_number, :location, :date_time, :start_time, :endtime)
+    params.require(:request).permit(:category, :job_description, :phone_number, :location, :date_time)
   end
 end

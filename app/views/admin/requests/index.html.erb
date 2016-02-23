@@ -15,7 +15,7 @@
         <% @requests.each do |request| %>
           <div class="row">
             <div class="col-md-3">
-              <h4><%= request.name %></h4>
+              <h4>Request No.<%= request.id %></h4>
             </div>
             <div class="col-md-3">
               <p><%= request.job_description %></p>
@@ -41,9 +41,9 @@
   <h2><%= pluralize(@resolved_requests.count, "request") %> resolved. </h2>
   <% @resolved_requests.each do |request| %>
   <div class="row">
-    <div class="col-md-3">
-      <h4><%= request.name %></h4> 
-    </div>
+    <!-- <div class="col-md-3">
+      <h4><#%= request.name %></h4> 
+    </div> -->
     <div class="col-md-3">
       <p><%= request.job_description %></p>
     </div>

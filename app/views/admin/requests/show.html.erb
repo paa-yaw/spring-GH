@@ -4,7 +4,7 @@
       <div class="col-sm-9 col-sm-offset-1 form-box">  
 
 <h1>Assign worker(s) to this request.</h1>
-<h3><%= @request.name %></h3>
+<!-- <h3><#%= @request.name %></h3> -->
 <h4>Job Description</h4>
 <p><%= @request.job_description %></p>
 
@@ -20,13 +20,10 @@
 <h4>Time</h4>
 <p><%= @request.date_time.strftime("%T") %></p>
 
-<h4>Start and End Time</h4>
-<p>start time: <%= @request.start_time %></p>
-<p>end time: <%= @request.endtime %></p>
 
 <%=  link_to "Edit", [:edit, :admin, @request] %> | 
 <%= link_to "Cancel Request", [:admin, @request], method: :delete, 
-			data: { confirm: "Are you sure want delete #{@request.name}'s details?" } %> 
+			data: { confirm: "Are you sure want delete #{truncate(@request.job_description)}'s details?" } %> 
 <!--<#%= link_to "click to resolve", [:resolve, :admin, @request], method: :patch, data: {confirm: "Please make sure this request is resolved?"} %>--><br>
 
 
@@ -38,7 +35,7 @@
   <h2><%= worker.first_name %> | <%= link_to "View", admin_worker_path(worker) %></h2>
 <% else %>
   <h2><%= worker.first_name %> | <%= link_to "View", admin_worker_path(worker) %>| <%= link_to "Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
-      data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{@request.name}?"}  %></h2>
+      data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{truncate(@request.job_description)}?"}  %></h2>
 <% end %>
 
 <% end %>

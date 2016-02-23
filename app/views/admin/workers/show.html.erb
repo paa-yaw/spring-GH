@@ -29,7 +29,7 @@
 
       <% if @worker.requests.any? %>
         <% @worker.requests.each do |request| %>
-          <p><%= request.name %></p>
+          <p>Request No. <%= request.id %> <%= link_to truncate(request.job_description, length: 17), request %></p>
         <% end %>
       <% else %>
         <p>No requests yet!</p>

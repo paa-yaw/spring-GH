@@ -2,7 +2,7 @@ class Request < ActiveRecord::Base
 	belongs_to :client
 	has_and_belongs_to_many :workers
 
-	validates :name, :job_description, :phone_number, :location, :date_time, presence: true
+	validates :job_description, :phone_number, :location, :date_time, :frequency, presence: true
 
 	scope :resolved_requests, lambda {where(resolved: true)}
 

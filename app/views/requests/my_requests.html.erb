@@ -2,7 +2,7 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3 form-box wow fadeInUp content-box text-center">
 <div class="well">
-            <h2>Hi <strong><%= current_client.email %></strong>,<br> Here are your requests.</h2>
+            <h2>Hi <strong><%= current_client.fullname %></strong>,<br> Here are your requests.</h2>
 
               <% if @my_requests.count == 0 %>
               <h2>No Request has been made.</h2>
@@ -11,12 +11,12 @@
                 <% if my_request.resolved == true %>
                   <h3><strong><%= my_request.name %></strong></h3><h3>status: This request has been resolved. Your cleaner will be with you shortly. <br> <%= link_to "View", my_request, :class=>"btn btn-primary" %> </h3>
                 <% else %>
-                  <h3><strong> <%= my_request.name %></strong></h3> <h3><%= link_to "View", my_request, :class=>"btn btn-primary" %> <%= link_to "Edit", [:edit, my_request], :class=>"btn btn-primary" %> </h3>
+                  <h3><strong> <%= truncate(my_request.job_description) %></strong></h3> <h3><%= link_to "View", my_request, :class=>"btn btn-primary" %> <%= link_to "Edit", [:edit, my_request], :class=>"btn btn-primary" %> </h3>
                 <% end %>
               <% end %>
             <% end %>
 
-              <%= link_to "Back", root_path, :class=>"btn btn-danger" %>
+              <%= link_to "Home", root_path, :class=>"btn btn-danger" %>
 
             </div>
         </div>

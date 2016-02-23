@@ -91,6 +91,6 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:name, :job_description, :phone_number, :location, :date_time, :start_time, :endtime)
+    params.require(:request).permit(:job_description, :phone_number, :location, :date_time, :frequency)
   end
 end

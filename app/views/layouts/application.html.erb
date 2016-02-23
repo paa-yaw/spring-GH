@@ -47,7 +47,10 @@
                           <%= link_to "Log Out", destroy_client_session_path, method: :delete,
                                 data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %> 
                           <% else %>
-                            <%= link_to "Log In", new_client_session_path %> 
+                            <%= link_to "About" %>
+                          <li class="page-scroll">  
+                            <%= link_to "Log In", new_client_session_path %>
+                          </li> 
                         <% end %>
                     </li>
                 </ul>

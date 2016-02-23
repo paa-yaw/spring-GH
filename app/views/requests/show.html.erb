@@ -3,7 +3,6 @@
          <div class="col-sm-8 col-sm-offset-2 form-box wow content-box text-center">
          <div class="panel panel-default">
   <!-- Default panel contents -->
- <div class="panel-heading"><h3><%= @request.name %></h3></div> 
 
   <!-- Table -->
   <table class="table table-bordered">
@@ -24,12 +23,6 @@
                 <th>
                     Time
                 </th>
-                <th colspan="2">
-                    &nbsp;&nbsp;&nbsp;Start &nbsp;&nbsp;&&nbsp;&nbsp; End Time
-                </th>
-                <th>
-                    Duration
-                </th>
             <tr>
         </thead>
         <tbody>
@@ -48,15 +41,6 @@
                 </td>
                 <td>
                     <p><%= @request.date_time.strftime("%T") %></p>
-                </td>
-                <td>
-                    <p><%= @request.start_time.strftime("%H %M %p") %></p>
-                </td>
-                <td>
-                    <p><%= @request.endtime.strftime("%H %M %p") %></p>
-                </td>
-                <td>
-                    <p><%= @request.endtime.strftime("%H").to_i - @request.start_time.strftime("%H").to_i %> hours</p>
                 </td>
             </tr>
         </tbody>
