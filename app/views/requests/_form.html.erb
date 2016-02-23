@@ -1,13 +1,17 @@
 <%= simple_form_for (request) do |f| %>
  <!--  <#%= f.input :category, :collection => ["Company","Individual"], :as => :radio_buttons, :checked =>"Company", :item_wrapper_class => 'inline' ,:label => "Category" %> -->
-  <%= f.input :phone_number, label: "Phone Number" %>
+ <div class="row">
+   <div class="col-md-6">
+  <%= f.input :phone_number, label: "Phone Number", maxlength: "10", placeholder:"024 123 4567", type:"tel" %>
+   </div>
+ </div>
   <%= f.input :job_description , label: "Job Description" %>
-  <%= f.input :frequency, label: "Frequency" %>
-  <%= f.input :location, label: "Location" %>
+  <%= f.input :frequency, label: "Frequency", placeholder:"Once in a week, Twice in a week" %>
+  <%= f.input :location, label: "Location", placeholder:"Street Address, House Number, Area" %>
   <h4 class="form-content-label">
     Select Date & Time
   </h4>
   <%= f.datetime_select :date_time, :ampm => true, :minute_step => 15 %><br><br>
 
-  <%= f.button :submit, "GET A CLEANER NOW", :class=>"btn-block btn-lg" %>
+  <%= f.button :submit, "GET A CLEANER", :class=>"btn-block btn-lg" %>
 <% end %>
