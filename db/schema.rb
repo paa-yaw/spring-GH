@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160226112510) do
     t.integer  "bathrooms"
     t.integer  "kitchens"
     t.integer  "hall"
+    t.string   "provide"
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree

@@ -4,5 +4,6 @@ class AddFieldsToRequestModel < ActiveRecord::Migration
   	add_column :requests, :bathrooms, :integer
   	add_column :requests, :kitchens, :integer
   	add_column :requests, :hall, :integer
+  	add_column :requests, :provide, :string
   end
 end

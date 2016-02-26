@@ -26,6 +26,9 @@
    <div class="col-md-6">
     <%= f.input :frequency, label: "Frequency", placeholder:"Once in a week, Twice in a week" %>
    </div>
+   <div class="col-md-12">
+     <%= f.input :provide, :collection => ["Provide cleaning products", "I'll use my own cleaning products"], :as => :radio_buttons, :checked => "Provide cleaning products", :item_wrapper_class => 'inline' ,:label => "Which would you prefer?" %>
+   </div>
    <!-- <div class="col-md-6">
      <%#= f.select :frequency, options_for_select([[""]]) %>
    </div> -->
