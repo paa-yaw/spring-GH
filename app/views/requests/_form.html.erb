@@ -1,6 +1,24 @@
 <%= simple_form_for (request) do |f| %>
  <!--  <#%= f.input :category, :collection => ["Company","Individual"], :as => :radio_buttons, :checked =>"Company", :item_wrapper_class => 'inline' ,:label => "Category" %> -->
-  <%= f.input :job_description , label: "Job Description" %>
+  <!--<#%= f.input :job_description , label: "Job Description" %>-->
+
+  
+  <h3>Tell Us About Your House</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.select :bedrooms, options_for_select([["1 bedroom", 1], ["2 bedrooms", 2], ["3 bedrooms", 3], ["4 bedrooms", 4], ["5+ bedrooms", 5]]) %>
+
+      <%= f.select :bathrooms, options_for_select([["1 bathroom", 1], ["2 bathrooms", 2], ["3 bathrooms", 3], ["4 bathrooms", 4], ["5+ bathrooms", 5]]) %>
+
+      <%= f.select :kitchens, options_for_select([["1 kitchen", 1], ["2 kitchens", 2], ["3 kitchens", 3], ["4 kitchens", 4], ["5+ kitchens", 5]]) %>
+
+      <%= f.select :hall, options_for_select([["1 living room", 1], ["2 living rooms", 2], ["3 living rooms", 3], ["4 living rooms", 4], ["5+ living rooms", 5]]) %>
+    </div>
+  </div>
+   
+
+  <h4><%= f.input :job_description, label: "Anything else you want us to do?" %></h4>
+
  <div class="row">
    <div class="col-md-6">
   <%= f.input :phone_number, label: "Phone Number", maxlength: "10", placeholder:"024 123 4567", type:"tel" %>
@@ -8,10 +26,13 @@
    <div class="col-md-6">
     <%= f.input :frequency, label: "Frequency", placeholder:"Once in a week, Twice in a week" %>
    </div>
+   <!-- <div class="col-md-6">
+     <%#= f.select :frequency, options_for_select([[""]]) %>
+   </div> -->
  </div>
   <%= f.input :location, label: "Location", placeholder:"Street Address, House Number, Area" %>
   <h4 class="form-content-label">
-    Select Date & Time
+    When Do You Want Us To Come?
   </h4>
   <%= f.datetime_select :date_time, :ampm => true, :minute_step => 15 %><br><br>
 
