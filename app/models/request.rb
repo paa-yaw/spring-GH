@@ -4,6 +4,7 @@ class Request < ActiveRecord::Base
 
 	validates :provide, :bathrooms, :bedrooms, :kitchens, :hall, :phone_number, :location, :date_time, :frequency, presence: true
     validates_numericality_of :phone_number
+    
 
 	scope :resolved_requests, lambda {where(resolved: true)}
   

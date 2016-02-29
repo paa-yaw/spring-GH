@@ -37,20 +37,21 @@ ActiveRecord::Schema.define(version: 20160226112510) do
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
 
   create_table "requests", force: :cascade do |t|
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.text     "job_description"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.text     "other_task"
     t.integer  "client_id"
     t.string   "phone_number"
     t.string   "location"
     t.datetime "date_time"
-    t.boolean  "resolved",        default: false
+    t.boolean  "resolved",     default: false
     t.string   "frequency"
-    t.integer  "bedrooms"
-    t.integer  "bathrooms"
-    t.integer  "kitchens"
-    t.integer  "hall"
+    t.integer  "bedrooms",     default: 0
+    t.integer  "bathrooms",    default: 0
+    t.integer  "kitchens",     default: 0
+    t.integer  "hall",         default: 0
     t.string   "provide"
+    t.integer  "days",         default: 0
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree

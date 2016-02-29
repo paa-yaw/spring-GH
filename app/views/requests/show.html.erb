@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>
-                   Job Description  
+                   Other Tasks  
                 </th>
                 <th>
                    Phone Number 
@@ -28,7 +28,7 @@
         <tbody>
             <tr>
                 <td>
-                    <p><%= @request.job_description %></p>
+                    <p><%= @request.other_task %></p>
                 </td>
                 <td>
                     <p><%= @request.phone_number %></p>
@@ -51,6 +51,16 @@
         <% else %>
           <%=  link_to "Edit", [:edit, @request] %> | <%= link_to "Back", root_path %>
         <% end %>
+
+        <% @rooms = @request.bathrooms + @request.bedrooms + @request.hall + @request.kitchens %>
+        <% @base_price = 45 %>
+        <% if @request.bathrooms == 1 && @request.bedrooms==1 && @request.hall==1 && @request.kitchens==1 %>
+        <h2>Your price is GHS <%= @request.days %></h2>
+
+        <% elsif  @request.bathrooms >= 1 && @request.bedrooms >= 1 && @request.hall>=1 && @request.kitchens >=1 %>
+        <% @price = (@rooms - 4 )* 15 * @request.days %>
+        <h2>Your price is GHS <%= @price + @base_price %></h2>
+        <% end %> 
 </div>
 </div>
 </div>

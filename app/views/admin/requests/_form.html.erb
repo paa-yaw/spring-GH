@@ -1,6 +1,6 @@
 <%= simple_form_for (request) do |f| %>
   <%= f.input :phone_number, label: "Phone Number" %>
-  <%= f.input :job_description , label: "Job Description" %>
+  <%= f.input :other_task , label: "Job Description" %>
   <%= f.input :location, label: "Location" %>
   <h4>Select your start and end time</h4>
  <h4> start time: <%= f.time_select :start_time, {:ampm => true}, {:default => {:hour => '00', :minute => '00'}} %></h4>
