@@ -52,15 +52,24 @@
           <%=  link_to "Edit", [:edit, @request] %> | <%= link_to "Back", root_path %>
         <% end %>
 
+        <!--Business Algorithm -->
+ 
         <% @rooms = @request.bathrooms + @request.bedrooms + @request.hall + @request.kitchens %>
+
         <% @base_price = 45 %>
-        <% if @request.bathrooms == 1 && @request.bedrooms==1 && @request.hall==1 && @request.kitchens==1 %>
-        <h2>Your price is GHS <%= @request.days %></h2>
+
+        <% if @request.bathrooms >= 1 || @request.bedrooms >= 1 || @request.hall >=1 || @request.kitchens >= 1 %>
+
+        <h2> Your price is GHS <%= @base_price * @request.days %></h2>
+
+        <% elsif @request.bathrooms == 1 && @request.bedrooms==1 && @request.hall==1 && @request.kitchens==1 %>
+        <h2>Your price is GHS <%= @base_price * @request.days %></h2>
 
         <% elsif  @request.bathrooms >= 1 && @request.bedrooms >= 1 && @request.hall>=1 && @request.kitchens >=1 %>
         <% @price = (@rooms - 4 )* 15 * @request.days %>
         <h2>Your price is GHS <%= @price + @base_price %></h2>
         <% end %> 
+        <!-- business algorithm -->
 </div>
 </div>
 </div>

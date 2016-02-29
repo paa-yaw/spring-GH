@@ -19,13 +19,14 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
+  
+development:
+  <<: *default
   pool: 5
   host: localhost
   username: workforce
   password: workforce
 
-development:
-  <<: *default
   database: workforce_development
 
   # The specified database role being used to connect to postgres.
