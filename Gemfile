@@ -50,3 +50,4 @@ gem 'simple_form'
 
 #rails twitter bootstrap 
 gem "twitter-bootstrap-rails"
+gem "rails_12factor"
