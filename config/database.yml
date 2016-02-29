@@ -24,9 +24,8 @@ development:
   <<: *default
   pool: 5
   host: localhost
-  username: workforce
-  password: workforce
-
+  username: <%= ENV['WORKFORCE_DATABASE_USERNAME'] %>
+  password: <%= ENV['WORKFORCE_DATABASE_PASSWORD'] %>
   database: workforce_development
 
   # The specified database role being used to connect to postgres.
@@ -82,8 +81,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: workforce_production
-  username: workforce
-  password: <%= ENV['WORKFORCE_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: workforce_production
+#   username: workforce
+#   password: <%= ENV['WORKFORCE_DATABASE_PASSWORD'] %>
