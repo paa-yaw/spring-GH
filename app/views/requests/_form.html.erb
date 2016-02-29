@@ -3,9 +3,9 @@
   <!--<#%= f.input :job_description , label: "Job Description" %>-->
 
   
-  <h3>Tell Us About Your House</h3>
+  <h3>Tell Us About Your House <small id="daPrice" class="pull-right"></small></h3>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12" onclick="calculatePrice()">
       <%= f.select :bedrooms, options_for_select([["0 bedrooms", 0], ["1 bedroom", 1], ["2 bedrooms", 2], ["3 bedrooms", 3], ["4 bedrooms", 4], ["5+ bedrooms", 5]]) %>
 
       <%= f.select :bathrooms, options_for_select([["0 bathrooms", 0],["1 bathroom", 1], ["2 bathrooms", 2], ["3 bathrooms", 3], ["4 bathrooms", 4], ["5+ bathrooms", 5]]) %>
@@ -23,7 +23,7 @@
    <div class="col-md-12">
   <%= f.input :phone_number, label: "Phone Number", maxlength: "10", placeholder:"024 123 4567", type:"tel" %>
    </div>
-   <div class="col-md-6">
+   <div class="col-md-6" >
      <%= f.input :days, label: "Number of days" %>
    </div>
    <div class="col-md-6">
