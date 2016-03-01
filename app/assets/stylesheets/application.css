@@ -111,3 +111,26 @@ div.content-box > h1 > strong {
   color:#009900;
   font-size: 24px;
 }
+
+@media only screen and (max-width: 500px) {
+  .content-box{
+    padding-top: 30px;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  div.form-top-left > p:first-child {
+    display: none;
+  }
+
+  .form-content{
+    margin-top: 40px;
+  }
+
+  .form-left > ol {
+    text-align: left;
+  }
+
+}
