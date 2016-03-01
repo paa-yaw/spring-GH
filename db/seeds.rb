@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-@array = ["derek@workforce.com", "blessing@workforce.com", "laud@workforce.com", "afi@workforce.com"]
+@array = [["Derek Owusu-Frimpong", "derek@workforce.com"], ["Blessing Onomesino", "blessing@workforce.com"], ["Laud Bentil", "laud@workforce.com"], ["Afi Kwao", "afi@workforce.com"]]
 
-@array.each do |email|
+@array.each do |fullname, email|
 	unless Client.exists?(email: email)
-		Client.create!(email: email, password: "workforce", admin: true)
+		Client.create!(fullname: fullname, email: email, password: "workforce", admin: true)
 	end
 end
