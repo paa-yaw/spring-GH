@@ -1,13 +1,12 @@
 <%= simple_form_for (request) do |f| %>
  <!--  <#%= f.input :category, :collection => ["Company","Individual"], :as => :radio_buttons, :checked =>"Company", :item_wrapper_class => 'inline' ,:label => "Category" %> -->
   <!--<#%= f.input :job_description , label: "Job Description" %>-->
-<div class="container-fluid">
+<div class="container-fluid" >
   <div class="row">
     
   <h3>Tell Us About Your House <small id="daPrice" class="pull-right"></small></h3>
   <br><br>
   <div class="row text-center">
-
     <div class="col-md-12" onclick="calculatePrice()"> 
       <%= f.select :bedrooms, options_for_select([["0 bedrooms", 0], ["1 bedroom", 1], ["2 bedrooms", 2], ["3 bedrooms", 3], ["4 bedrooms", 4], ["5+ bedrooms", 5]]) %>
       <%= f.select :bathrooms, options_for_select([["0 bathrooms", 0],["1 bathroom", 1], ["2 bathrooms", 2], ["3 bathrooms", 3], ["4 bathrooms", 4], ["5+ bathrooms", 5]]) %>

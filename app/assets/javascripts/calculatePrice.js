@@ -1,5 +1,10 @@
-function calculatePrice(){
+function placeValue(){
+  if (window.location.pathname == "/"){
+    document.getElementById("daPrice").innerHTML = "Ghc"+0+".00";
+  }
+}
 
+function calculatePrice(){
   //get selected input fields
   var bedroom = parseInt(document.getElementById("request_bedrooms").value);
   var bathroom = parseInt(document.getElementById("request_bathrooms").value);
