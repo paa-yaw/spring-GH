@@ -1,10 +1,11 @@
 <div class="container" >
       <div class="row">
-         <div class="col-sm-8 col-sm-offset-2 form-box wow content-box text-center">
+         <div class="col-xs-12 col-sm-8 col-sm-offset-2 form-box content-box text-center">
          <div class="panel panel-default">
   <!-- Default panel contents -->
 
   <!-- Table -->
+  <div class="table-responsive">
   <table class="table table-bordered">
         <thead>
             <tr>
@@ -44,7 +45,8 @@
                 </td>
             </tr>
         </tbody>
-  </table>            
+  </table>           
+  </div> 
 <hr style="border-color:#eee;">
         <% if @request.resolved == true %>
         <%= link_to "Back", root_path %>

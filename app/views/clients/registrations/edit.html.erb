@@ -15,8 +15,8 @@
         </div>
 
         <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email %>
+          <%= f.label :email, :class=>"login-label" %><br />
+          <%= f.email_field :email, autofocus: true, :class=>"form-control" %>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -24,22 +24,22 @@
         <% end %>
 
         <div class="field">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-          <%= f.password_field :password, autocomplete: "off" %>
+          <%= f.label :password, :class=>"login-label" %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, autocomplete: "off", autofocus: true, :class=>"form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          <%= f.label :password_confirmation, :class=>"login-label" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", autofocus: true, :class=>"form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off" %>
+          <%= f.label :current_password, :class=>"login-label" %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "off", autofocus: true, :class=>"form-control" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Update" %>
+          <%= f.submit "Update", :class=>"btn-block btn-lg btn-login" %>
         </div>
       <% end %>
 
