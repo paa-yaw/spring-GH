@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160303150543) do
     t.integer  "hall",       default: 0
     t.string   "provide"
     t.integer  "days",       default: 0
-    t.text     "weekdays",   default: [],                 array: true
+    t.string   "weekdays",   default: [],                 array: true
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
