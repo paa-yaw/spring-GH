@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303140755) do
+ActiveRecord::Schema.define(version: 20160303191921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,18 +39,20 @@ ActiveRecord::Schema.define(version: 20160303140755) do
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
 
   create_table "requests", force: :cascade do |t|
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "client_id"
     t.datetime "date_time"
-    t.boolean  "resolved",   default: false
+    t.boolean  "resolved",       default: false
     t.string   "frequency"
-    t.integer  "bedrooms",   default: 0
-    t.integer  "bathrooms",  default: 0
-    t.integer  "kitchens",   default: 0
-    t.integer  "hall",       default: 0
+    t.integer  "bedrooms",       default: 0
+    t.integer  "bathrooms",      default: 0
+    t.integer  "kitchens",       default: 0
+    t.integer  "hall",           default: 0
     t.string   "provide"
-    t.integer  "days",       default: 0
+    t.integer  "days",           default: 0
+    t.string   "weekdays",                                    array: true
+    t.string   "extra_services",                              array: true
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
