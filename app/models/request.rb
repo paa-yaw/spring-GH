@@ -2,7 +2,7 @@ class Request < ActiveRecord::Base
 	belongs_to :client
 	has_and_belongs_to_many :workers
 
-	validates :days, :provide, :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
+	validates :days, :provide, :weekdays, :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
     
 
 
