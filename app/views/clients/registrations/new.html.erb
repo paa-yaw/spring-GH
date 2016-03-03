@@ -34,6 +34,16 @@
                     <%= f.password_field :password_confirmation, autocomplete: "off", :class=>"form-control"  %>
                   </div>
 
+                  <div class="field">
+                    <%= f.label :phone_number, :class=>"login-label"%><br />
+                    <%= f.text_field :phone_number, maxlength: "10", placeholder:"024 123 4567", type:"tel", :class=>"form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :location, :class=>"login-label" %><br />
+                    <%= f.text_field :location, placeholder:"Street Address, House Number, Area",:class=>"form-control" %>
+                  </div>
+
                   <div class="actions">
                     <%= f.submit "Sign up", :class=>"btn-block btn-lg btn-login" %>
                   </div>

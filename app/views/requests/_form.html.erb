@@ -1,6 +1,4 @@
 <%= simple_form_for (request) do |f| %>
- <!--  <#%= f.input :category, :collection => ["Company","Individual"], :as => :radio_buttons, :checked =>"Company", :item_wrapper_class => 'inline' ,:label => "Category" %> -->
-  <!--<#%= f.input :job_description , label: "Job Description" %>-->
 <div class="container-fluid" >
   <div class="row">
 
@@ -18,26 +16,23 @@
   </div>
    
 
-  <h4><%= f.input :other_task, label: "Anything else you want us to do?" %></h4>
+  
 
  <div class="row" onkeyup="calculatePricing()">
-   <div class="col-md-12">
-  <%= f.input :phone_number, label: "Phone Number", maxlength: "10", placeholder:"024 123 4567", type:"tel" %>
-   </div>
    <div class="col-md-6">
      <%= f.input :days, label: "Number of days" %>
    </div>
    <div class="col-md-6">
     <%= f.input :frequency, :collection => ["weekly", "monthly"], :as => :radio_buttons, :checked => "weekly", :item_wrapper_class => "inline", :label => "Frequency" %>
+
+    <%= f.input :weekdays, :collection => ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], :as => :check_boxes, :checked => "Monday", :item_wrapper_class => "inline", :label => "Pick a day" %>
    </div>
    <div class="col-md-12">
      <%= f.input :provide, :collection => ["Workforce provides cleaning products", "I'll use my own cleaning products"], :as => :radio_buttons, :checked => "Workforce provides cleaning products", :item_wrapper_class => 'inline', :label => "Which would you prefer?" %>
    </div>
-   <!-- <div class="col-md-6">
-     <%#= f.select :frequency, options_for_select([[""]]) %>
-   </div> -->
+   
  </div>
-  <%= f.input :location, label: "Location", placeholder:"Street Address, House Number, Area" %>
+  
   <h4 class="form-content-label">
     When Do You Want Us To Come?
   </h4>

@@ -10,15 +10,6 @@
         <thead>
             <tr>
                 <th>
-                   Other Tasks  
-                </th>
-                <th>
-                   Phone Number 
-                </th>
-                <th>
-                    Address
-                </th>
-                <th>
                     Date
                 </th>
                 <th>
@@ -27,16 +18,7 @@
             <tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <p><%= @request.other_task %></p>
-                </td>
-                <td>
-                    <p><%= @request.phone_number %></p>
-                </td>
-                <td>
-                    <p><%= @request.location %></p>
-                </td>
+            <tr>    
                 <td>
                     <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
                 </td>

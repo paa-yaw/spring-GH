@@ -38,6 +38,16 @@
           <%= f.password_field :current_password, autocomplete: "off", autofocus: true, :class=>"form-control" %>
         </div>
 
+        <div class="field">
+          <%= f.label :phone_number, :class=>"login-label"%><br />
+          <%= f.text_field :phone_number, :class=>"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :location, :class=>"login-label" %><br />
+          <%= f.text_field :location, :class=>"form-control" %>
+        </div>
+
         <div class="actions">
           <%= f.submit "Update", :class=>"btn-block btn-lg btn-login" %>
         </div>
