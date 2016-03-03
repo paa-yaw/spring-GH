@@ -1,6 +1,6 @@
 //makes the price appear in the form one page is loaded.
 function placeValue(){
-  if (window.location.pathname == "/"){
+  if (window.location.pathname == "/" || window.location.pathname == "/requests"){
     document.getElementById("daPrice").innerHTML = "Ghc"+45+".00";
   }
 // this value is returned when the function is called in calculatePricing.
@@ -43,29 +43,20 @@ function getDaysNumber(){
   return daysNumber;
 }
 
-// calculates pricing based on number of rooms
+// calculates pricing based on number of rooms.
 function calculatePricing(){
+  // add up all the rooms.
   var rooms = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
   if(rooms > 4){
+    // if rooms is more than 4 calculate pricing with number of days as a multiple.
     var pricing = ((((rooms-4)*15)+45)*getDaysNumber());
     document.getElementById("daPrice").innerHTML = "Ghc"+pricing+".00";
   } else {
-    // if value is equal to 4 or less use 45 as default and calculate pricing
+    // if rooms is equal to 4 or less use 45 as default and calculate pricing.
     document.getElementById("daPrice").innerHTML = "Ghc"+(placeValue()*(parseInt(getDaysNumber())))+".00"; 
   }
 }
 
-// variable declaration
-// var days;
-
-
-// function getNumberOfDays(){
-//   if (window.location.pathname == "/"){
-//     days = parseInt(document.getElementById("request_days").value);
-//   }
-//   console.log('days is', days);
-//     return days;
-// }
 
 // calculates the price as the user selects options.
 // function calculatePrice(){
