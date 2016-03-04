@@ -83,11 +83,11 @@
 
         <% if @request.bathrooms == 1 && @request.bedrooms==1 && @request.hall==1 && @request.kitchens==1 %>
 
-        <h2>Your price is GHS <%= @base_price * @request.days %></h2>
+        <h2>Your price is GHc <%= @base_price * @request.days %></h2>
 
         <% elsif  @request.bathrooms >= 1 && @request.bedrooms >= 1 && @request.hall>=1 && @request.kitchens >=1 %>
         <% @price = ((@rooms - 4 )* 15 ) + @base_price %>
-        <h2>Your price is GHS <%= @price * @request.days %></h2>
+        <h2>Your price is GHc <%= @price * @request.days %></h2>
         <% end %> 
         <!-- business algorithm -->
 </div>
