@@ -71,7 +71,7 @@ class RequestsController < ApplicationController
   def add
     @request.add
     flash[:notice] = "this request has been added to your account."
-    redirect_to new_request_path
+    redirect_to @request
   end
 
   def display_request

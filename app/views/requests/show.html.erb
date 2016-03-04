@@ -10,6 +10,21 @@
         <thead>
             <tr>
                 <th>
+                  House details
+                </th>
+                <th>
+                  Extra Services
+                </th>
+                <th>
+                  Selected Days
+                </th>
+                <th>
+                  Frequency
+                </th>
+                <th>
+                  Cleaning products
+                </th>
+                <th>
                     Date
                 </th>
                 <th>
@@ -18,7 +33,29 @@
             <tr>
         </thead>
         <tbody>
-            <tr>    
+            <tr>
+               <td>
+                 <%= pluralize(@request.bedrooms, "bedroom") %>, 
+                 <%= pluralize(@request.bathrooms, "bathroom") %>, 
+                 <%= pluralize(@request.kitchens, "kitchen") %>, 
+                 <%= pluralize(@request.hall, "living room") %>
+               </td> 
+               <td>
+                 <% @request.extra_services.each do |services| %>
+                   <p><%= services %></p>
+                 <% end %>
+               </td>
+               <td>
+                 <% @request.weekdays.each do |day| %>
+                   <p><%= day %></p>
+                 <% end %>
+               </td> 
+               <td>
+                 <%= @request.days %> times <%= @request.frequency %>
+               </td>  
+               <td>
+                 <p><%= @request.provide %></p>
+               </td>
                 <td>
                     <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
                 </td>
@@ -42,16 +79,15 @@
 
         <% @base_price = 45 %>
 
-        <% if @request.bathrooms >= 1 || @request.bedrooms >= 1 || @request.hall >=1 || @request.kitchens >= 1 %>
+        
 
-        <h2> Your price is GHS <%= @base_price * @request.days %></h2>
+        <% if @request.bathrooms == 1 && @request.bedrooms==1 && @request.hall==1 && @request.kitchens==1 %>
 
-        <% elsif @request.bathrooms == 1 && @request.bedrooms==1 && @request.hall==1 && @request.kitchens==1 %>
         <h2>Your price is GHS <%= @base_price * @request.days %></h2>
 
         <% elsif  @request.bathrooms >= 1 && @request.bedrooms >= 1 && @request.hall>=1 && @request.kitchens >=1 %>
-        <% @price = (@rooms - 4 )* 15 * @request.days %>
-        <h2>Your price is GHS <%= @price + @base_price %></h2>
+        <% @price = ((@rooms - 4 )* 15 ) + @base_price %>
+        <h2>Your price is GHS <%= @price * @request.days %></h2>
         <% end %> 
         <!-- business algorithm -->
 </div>

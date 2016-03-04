@@ -1,17 +1,15 @@
 <div class="container" >
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3 form-box content-box text-center">
-         <div class="well">
-            <h1>Your request is being processed. We'll get back to you soon.</h1>
-   
+         <div class="well">   
 
-           <hr>
           <% if @request.client_id != Client.last.id %>
-          <h2>If you are done, Click Finish to Complete the Process.</h2>
+          <h2>Click to View Your Request.</h2>
 
-           <%= link_to "Finish", [:add, @request], method: :patch, 
-                    data: { confirm: "Thank You for using our service. We will get back to you as soon as possible." }, :class => 'btn btn-block btn-lg' %>
+           <%= link_to "View Request", [:add, @request], method: :patch, 
+                 :class => 'btn btn-block btn-lg' %>
           <% else %>
+           <%= link_to "View Request", @request, :class => 'btn btn-block btn-lg'  %>          
            <%= link_to "Back", root_path %>
           <% end %>
           </div>

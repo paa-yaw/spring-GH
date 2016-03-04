@@ -5,25 +5,71 @@
 
 <h1>Assign worker(s) to this request.</h1>
 <!-- <h3><#%= @request.name %></h3> -->
-<h4>Job Description</h4>
-<p><%= @request.other_task %></p>
-
-<h4>Phone Number</h4>
-<p><%= @request.phone_number %></p>
-
-<h4>Address</h4>
-<p><%= @request.location %></p>
-
-<h4>Date</h4>
-<p><%= @request.date_time.strftime("%B %d, %Y") %></p>
-
-<h4>Time</h4>
-<p><%= @request.date_time.strftime("%T") %></p>
+<div class="table-responsive">
+  <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                  House details
+                </th>
+                <th>
+                  Extra Services
+                </th>
+                <th>
+                  Selected Days
+                </th>
+                <th>
+                  Frequency
+                </th>
+                <th>
+                  Cleaning products
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Time
+                </th>
+            <tr>
+        </thead>
+        <tbody>
+            <tr>
+               <td>
+                 <%= pluralize(@request.bedrooms, "bedroom") %>, 
+                 <%= pluralize(@request.bathrooms, "bathroom") %>, 
+                 <%= pluralize(@request.kitchens, "kitchen") %>, 
+                 <%= pluralize(@request.hall, "living room") %>
+               </td> 
+               <td>
+                 <% @request.extra_services.each do |services| %>
+                   <p><%= services %></p>
+                 <% end %>
+               </td>
+               <td>
+                 <% @request.weekdays.each do |day| %>
+                   <p><%= day %></p>
+                 <% end %>
+               </td> 
+               <td>
+                 <%= @request.days %> times <%= @request.frequency %>
+               </td>  
+               <td>
+                 <p><%= @request.provide %></p>
+               </td>
+                <td>
+                    <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
+                </td>
+                <td>
+                    <p><%= @request.date_time.strftime("%T") %></p>
+                </td>
+            </tr>
+        </tbody>
+  </table>         
 
 
 <%=  link_to "Edit", [:edit, :admin, @request] %> | 
 <%= link_to "Cancel Request", [:admin, @request], method: :delete, 
-			data: { confirm: "Are you sure want delete #{truncate(@request.other_task)}'s details?" } %> 
+			data: { confirm: "Are you sure want delete #{(@request.id)}'s details?" } %> 
 <!--<#%= link_to "click to resolve", [:resolve, :admin, @request], method: :patch, data: {confirm: "Please make sure this request is resolved?"} %>--><br>
 
 
@@ -35,7 +81,7 @@
   <h2><%= worker.first_name %> | <%= link_to "View", admin_worker_path(worker) %></h2>
 <% else %>
   <h2><%= worker.first_name %> | <%= link_to "View", admin_worker_path(worker) %>| <%= link_to "Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
-      data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{truncate(@request.other_task)}?"}  %></h2>
+      data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}  %></h2>
 <% end %>
 
 <% end %>
