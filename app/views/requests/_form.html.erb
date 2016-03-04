@@ -17,7 +17,7 @@
    
 
   
- <%= f.input :extra_services, :collection => [["Compound cleaning", "Compound cleaning"], ["Washing & Ironing", "Washing & Ironing"], ["Fridge", "Fridge"], ["Storeroom", "Storeroom"]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
+ <%= f.input :extra_services, :collection => [["Compound cleaning($8.00)", 8], ["Washing & Ironing($7.00)", 7], ["Fridge($3.00)", 3], ["Storeroom($5.00)", 5]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
 
  <div class="row" onkeyup="calculatePricing()">
    <div class="col-md-6">
@@ -31,7 +31,7 @@
    </div>
 
    <div class="col-md-12">
-     <%= f.input :provide, :collection => ["Workforce provides cleaning products", "I'll use my own cleaning products"], :as => :radio_buttons, :checked => "Workforce provides cleaning products", :item_wrapper_class => 'inline', :label => "Which would you prefer?" %>
+     <%= f.input :provide, :collection => ["Workforce provides cleaning products($2.99)", "I'll use my own cleaning products"], :as => :radio_buttons, :checked => "Workforce provides cleaning products", :item_wrapper_class => 'inline', :label => "Which would you prefer?" %>
    </div>
  </div>
   

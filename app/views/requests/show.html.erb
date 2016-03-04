@@ -42,7 +42,21 @@
                </td> 
                <td>
                  <% @request.extra_services.each do |services| %>
-                   <p><%= services %></p>
+                   <% if services == 8 %>
+                   <p>Compound Cleaning</p>
+                   <% end %>
+
+                   <% if services == 7 %>
+                   <p>Washing & Ironing</p>
+                   <% end %>
+
+                   <% if services == 3 %>
+                   <p>Fridge</p>
+                   <% end %>
+
+                   <% if services == 5 %>
+                   <p>Storeroom</p>
+                   <% end %>
                  <% end %>
                </td>
                <td>
@@ -77,17 +91,40 @@
  
         <% @rooms = @request.bathrooms + @request.bedrooms + @request.hall + @request.kitchens %>
 
-        <% @base_price = 45 %>
+        <% @base_price = 12 %>
 
-        
+
+        <% sum = 0 %>
+        <% a = @request.extra_services.length.to_i - 1 %>
 
         <% if @request.bathrooms == 1 && @request.bedrooms==1 && @request.hall==1 && @request.kitchens==1 %>
 
-        <h2>Your price is GHc <%= @base_price * @request.days %></h2>
+        
+
+        <% for i in 0...a %>
+          <% sum += @request.extra_services[i].to_i %>
+        <% end %>
+
+        <% if @request.provide == "Workforce provides cleaning products($2.99)" %>
+        <h2>Your price is  $<%= (@base_price + sum) * @request.days + 3 %></h2>
+        <% elsif @request.provide == "I'll use my own cleaning products" %>
+        <h2>Your price is  $<%= (@base_price + sum) * @request.days  %></h2>  
+        <% end %>
 
         <% elsif  @request.bathrooms >= 1 && @request.bedrooms >= 1 && @request.hall>=1 && @request.kitchens >=1 %>
-        <% @price = ((@rooms - 4 )* 15 ) + @base_price %>
-        <h2>Your price is GHc <%= @price * @request.days %></h2>
+
+        <% for i in 0...a %>
+          <% sum += @request.extra_services[i].to_i %>
+        <% end %>
+
+        <% @price = ((@rooms - 4 )* 5 ) + @base_price %>
+
+        <% if @request.provide == "Workforce provides cleaning products($2.99)" %>
+        <h2>Your price is  $<%= (@price + sum) * @request.days + 3  %></h2>
+        <% elsif @request.provide == "I'll use my own cleaning products" %>
+        <h2>Your price is  $<%= (@price + sum) * @request.days %></h2>
+        <% end %>
+          
         <% end %> 
         <!-- business algorithm -->
 </div>

@@ -9,8 +9,9 @@
               <% elsif @my_requests.count > 0 %>
               <% @my_requests.each do |my_request| %>
                 <% if my_request.resolved == true %>
-                  <h3><strong><%= truncate(my_request.other_task) %></strong></h3><h3>status: This request has been resolved. Your cleaner will be with you shortly. <br> <%= link_to "View", my_request, :class=>"btn btn-primary" %> </h3>
+                  <h3><strong><%= my_request.id %></strong></h3><h3>status: This request has been resolved. Your cleaner will be with you shortly. <br> <%= link_to "View", my_request, :class=>"btn btn-primary" %> </h3>
                 <% else %>
+                  <h3><strong>Request No.<%= my_request.id %></strong></h3>
                   <h3><%= link_to "View", my_request, :class=>"btn btn-primary" %> <%= link_to "Edit", [:edit, my_request], :class=>"btn btn-primary" %> </h3>
                 <% end %>
               <% end %>
