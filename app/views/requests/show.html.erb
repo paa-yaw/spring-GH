@@ -105,7 +105,7 @@
           <% sum += @request.extra_services[i].to_i %>
         <% end %>
 
-        <% if @request.provide == "Workforce provides cleaning products($2.99)" %>
+        <% if @request.provide == "Workforce provides cleaning products($3.00)" %>
         <h2>Your price is  $<%= (@base_price + sum) * @request.days + 3 %></h2>
         <% elsif @request.provide == "I'll use my own cleaning products" %>
         <h2>Your price is  $<%= (@base_price + sum) * @request.days  %></h2>  
@@ -124,7 +124,7 @@
         <% elsif @request.provide == "I'll use my own cleaning products" %>
         <h2>Your price is  $<%= (@price + sum) * @request.days %></h2>
         <% end %>
-          
+
         <% end %> 
         <!-- business algorithm -->
 </div>
