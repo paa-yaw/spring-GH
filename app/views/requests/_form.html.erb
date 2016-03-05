@@ -45,8 +45,12 @@
   <%= f.datetime_select :date_time, :ampm => true, :minute_step => 15 %><br><br>
   </div>
   </div>
-
-  <%= f.button :submit, "GET A CLEANER", :class=>"btn-block btn-lg" %>
+  
+  <% if request.persisted? %>
+  <%= f.button :submit, "Edit Request", :class=>"btn-block btn-lg" %>
+  <% elsif %>
+  <%= f.button :submit, "Get A Cleaner", :class=>"btn-block btn-lg" %>
+  <% end %>
   
   </div>
   </div>
