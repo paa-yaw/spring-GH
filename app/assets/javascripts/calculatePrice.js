@@ -1,11 +1,12 @@
 //makes the price appear in the form one page is loaded.
 function placeValue(){
   if (window.location.pathname == "/" || window.location.pathname == "/requests"){
-    document.getElementById("daPrice").innerHTML = "Ghc"+45+".00";
+    document.getElementById("daPrice").innerHTML = "$"+12+".00";
   }
 // this value is returned when the function is called in calculatePricing.
-  return 45;
+  return 12;
 }
+
 
 // converts value in the bedroom dropdown to integer and returns value on function call
 function getBedroomNumber(){
@@ -43,17 +44,57 @@ function getDaysNumber(){
   return daysNumber;
 }
 
+
+function getCheckBoxValue(){
+  //declare an array to store values
+  var extraServices = [0,0,0,0];
+  
+  // if checkbox is clicked assign its value to first array position [0] else assign 0
+  if (document.getElementById('request_extra_services_8').checked == true) {
+    extraServices[0] = parseInt(document.getElementById('request_extra_services_8').value);
+  }
+  else {
+    extraServices[0] = 0;
+  }
+
+  if(document.getElementById('request_extra_services_7').checked == true) {
+    extraServices[1] = parseInt(document.getElementById('request_extra_services_7').value);
+  }
+  else {
+    extraServices[1] = 0;
+  }
+
+  if (document.getElementById('request_extra_services_3').checked == true) {
+    extraServices[2] = parseInt(document.getElementById('request_extra_services_3').value);
+  }
+  else {
+    extraServices[2] = 0;
+  }
+
+  if (document.getElementById('request_extra_services_5').checked == true) {
+    extraServices[3] = parseInt(document.getElementById('request_extra_services_5').value);
+  }
+  else {
+    extraServices[3] = 0;
+  }
+
+  return extraServices;
+}
+
+
 // calculates pricing based on number of rooms.
 function calculatePricing(){
   // add up all the rooms.
+  var extra = ((getCheckBoxValue()[0]+getCheckBoxValue()[1]+getCheckBoxValue()[2]+getCheckBoxValue()[3])*getDaysNumber());
+  console.log(extra);
   var rooms = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
   if(rooms > 4){
     // if rooms is more than 4 calculate pricing with number of days as a multiple.
-    var pricing = ((((rooms-4)*15)+45)*getDaysNumber());
-    document.getElementById("daPrice").innerHTML = "Ghc"+pricing+".00";
+    var pricing = (((((rooms-4)*5)+12)*getDaysNumber())+extra);
+    document.getElementById("daPrice").innerHTML = "$"+pricing+".00";
   } else {
     // if rooms is equal to 4 or less use 45 as default and calculate pricing.
-    document.getElementById("daPrice").innerHTML = "Ghc"+(placeValue()*(parseInt(getDaysNumber())))+".00"; 
+    document.getElementById("daPrice").innerHTML = "$"+((placeValue()*(parseInt(getDaysNumber())))+extra)+".00"; 
   }
 }
 
