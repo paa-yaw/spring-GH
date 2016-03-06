@@ -82,19 +82,34 @@ function getCheckBoxValue(){
 }
 
 
+function getCleaningProduct() {
+  var cleaningProduct = 0;
+  if(document.getElementsByName('request[provide]')[0].checked == true ){
+    cleaningProduct = 3;
+    console.log(cleaningProduct);
+  } else if(document.getElementsByName('request[provide]')[1].checked == true ){
+    cleaningProduct = 0;
+    console.log(cleaningProduct);
+  }
+  return cleaningProduct;
+}
+
 // calculates pricing based on number of rooms.
 function calculatePricing(){
-  // add up all the rooms.
+  
+  // if a cleaning product is provided for or 
+  var cleanProduct = (getCleaningProduct()*getDaysNumber());
+  // extra services multiplying the number of days
   var extra = ((getCheckBoxValue()[0]+getCheckBoxValue()[1]+getCheckBoxValue()[2]+getCheckBoxValue()[3])*getDaysNumber());
-  console.log(extra);
+  // add up all the rooms.
   var rooms = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
   if(rooms > 4){
     // if rooms is more than 4 calculate pricing with number of days as a multiple.
-    var pricing = (((((rooms-4)*5)+12)*getDaysNumber())+extra);
+    var pricing = (((((rooms-4)*5)+12)*getDaysNumber())+extra+cleanProduct);
     document.getElementById("daPrice").innerHTML = "$"+pricing+".00";
   } else {
     // if rooms is equal to 4 or less use 45 as default and calculate pricing.
-    document.getElementById("daPrice").innerHTML = "$"+((placeValue()*(parseInt(getDaysNumber())))+extra)+".00"; 
+    document.getElementById("daPrice").innerHTML = "$"+((placeValue()*(parseInt(getDaysNumber())))+extra+cleanProduct)+".00"; 
   }
 }
 
