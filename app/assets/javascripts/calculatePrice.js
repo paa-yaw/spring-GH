@@ -79,56 +79,58 @@ function getCheckBoxValue() {
 }
 
 function checkDays() {
-  var inputDays = getDaysNumber();
-  var checkedDays = 0;
+  
+  var checkedDays = getDaysNumber();
   var listOfDays = document.getElementsByName("request[weekdays][]");
+  
 
   if(document.getElementById('request_weekdays_monday').checked == true) {
-    checkedDays += 1;
+    checkedDays -= 1;
   } else {
     checkedDays +=0;
   }
 
   if (document.getElementById('request_weekdays_tuesday').checked == true) {
-    checkedDays += 1;
+    checkedDays -= 1;
   } else {
     checkedDays += 0;
   }
 
   if (document.getElementById('request_weekdays_wednesday').checked == true) {
-    checkedDays += 1;
+    checkedDays -= 1;
   } else {
     checkedDays += 0;
   }
 
   if (document.getElementById('request_weekdays_thursday').checked == true) {
-    checkedDays += 1;
+    checkedDays -= 1;
   } else {
     checkedDays += 0;
   }
   
   if (document.getElementById('request_weekdays_friday').checked == true) {
-    checkedDays += 1;
+    checkedDays -= 1;
   } else {
     checkedDays += 0;
   }
   
   if (document.getElementById('request_weekdays_saturday').checked == true) {
-    checkedDays += 1;
+    checkedDays -= 1;
   } else {
     checkedDays += 0;
   }
     
   if (document.getElementById('request_weekdays_sunday').checked == true) {
-    checkedDays += 1;
+    checkedDays -= 1;
   } else {
     checkedDays += 0;
   }
   
-  if (checkedDays == inputDays) {
+  if (checkedDays < 0) {
     for (var i = 0; i < listOfDays.length; i++) {
-      listOfDays[i].disabled = true;
+      listOfDays[i].checked = false;
     };
+      alert("You can only choose "+getDaysNumber()+" days");
   }
   console.log(checkedDays);
 }
