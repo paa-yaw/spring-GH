@@ -1,6 +1,6 @@
 //makes the price appear in the form one page is loaded.
 function placeValue() {
-  if (window.location.pathname == "/" || window.location.pathname == "/requests"){
+  if (window.location.pathname == "/requests/new" || window.location.pathname == "/requests"){
     document.getElementById("daPrice").innerHTML = "$"+12+".00";
   }
 // this value is returned when the function is called in calculatePricing.
