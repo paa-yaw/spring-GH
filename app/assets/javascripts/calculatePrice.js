@@ -1,6 +1,6 @@
 //makes the price appear in the form one page is loaded.
 function placeValue(){
-  if (window.location.pathname == "/" || window.location.pathname == "/requests"){
+  if (window.location.pathname == "/" || window.location.pathname == "/requests/new"){
     document.getElementById("daPrice").innerHTML = "$"+12+".00";
   }
 // this value is returned when the function is called in calculatePricing.
@@ -112,39 +112,3 @@ function calculatePricing(){
     document.getElementById("daPrice").innerHTML = "$"+((placeValue()*(parseInt(getDaysNumber())))+extra+cleanProduct)+".00"; 
   }
 }
-
-
-// calculates the price as the user selects options.
-// function calculatePrice(){
-//   //get selected input fields
-  
-//   var bedroom = parseInt(document.getElementById("request_bedrooms").value);
-//   var bathroom = parseInt(document.getElementById("request_bathrooms").value);
-//   var kitchen = parseInt(document.getElementById("request_kitchens").value);
-//   var hall = parseInt(document.getElementById("request_hall").value);
-
-//   console.log(bedroom, bathroom, kitchen, hall, days);
-
-//   var cost = 0;
-//   var rooms = 0;
-//   var days = getNumberOfDays();
-
-//   // calculate the price based on chosen user input.
-//   if(bedroom==1 && bathroom==1 && kitchen==1 && hall==1 ) {
-//     document.getElementById("daPrice").innerHTML = "Ghc"+45+".00";
-//   }
-//   //   else if (bedroom >=1 && bathroom >=1 && kitchen >=1 && hall >=1) {
-//   //   rooms = (bedroom + bathroom + kitchen + hall);
-//   //   price = (((rooms - 4)*15)+45);
-//   //   document.getElementById("daPrice").innerHTML = "Ghc"+price+".00";
-//   // } 
-//   else if(bedroom >=1 && bathroom >=1 && kitchen >=1 && hall >=1 && days >=1) {
-//     rooms = (bedroom + bathroom + kitchen + hall);
-//     price = ((((rooms - 4)*15)*days)+45);
-//     console.log(price);
-//     document.getElementById("daPrice").innerHTML = "Ghc"+price+".00";
-//   }
-
-// }
-
-// trying to get value from the number of days input field.. argh!

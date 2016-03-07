@@ -1,2 +1,469 @@
-<h1>Landing Page</h1>
-<p><%= link_to "Place A Request", new_request_path %></p>
+ <head>
+    <meta charset="utf-8">
+    <title>Spring</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Principal styles -->
+    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
+    <style type="text/css">
+      @import url("css/style.css");
+    </style> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Skins styles -->
+    <link href="css/skins/default.css" rel="stylesheet" media="screen">  
+
+    <!-- Skins Changer-->
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+   
+  </head>
+ <body> 
+  
+    <header>
+
+      <!-- Main Jumbo -->
+        <div class="main_slide" id="intro">
+          <ul class="rslides" id="slider1">
+            <!--Junbo-->
+            <li>
+              <!-- <img src="img/home/home.jpg" alt=""> -->
+              <%= image_tag("img/home/home.jpg", :alt => "home jpg") %>
+              <div class="info_slide">
+                <div class="container">
+                  <div class="row-fluid">
+                    <div class="span6">
+                      <h1 class="animated delay1 fadeInLeft">Spring</h1>
+                      <p class="animated delay2 fadeInLeft">Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
+                      <a href="./requests/new" class="animated delay2 fadeInLeft botton">Book a Cleaning <i class="icon-long-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>                                                                              
+              </div>
+            </li>
+            <!--Jumbo-->
+          </ul>
+        </div> 
+       <!-- end Main Jumbo -->
+
+      <!--Menu-->
+      <nav>
+       <div class="container">
+        <div class="row-fluid">
+          <div class="span2">
+
+            <!-- Logo -->
+            <div id="logo">
+              <a href="index.html#intro">Spring</a>
+            </div>
+            <!-- Logo -->
+
+          </div>
+          <div class="span8">
+
+            <ul id="menu">
+              <li><a href="index.html#intro">Home</a></li>
+              <li><a href="index.html#services">Offerings</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+            </ul>
+
+          </div>
+          <div class="span2">
+
+            <ul class="phone">
+              <li><i class="fa fa-phone"> 0200610307</i></a></li>
+            </ul>
+
+          </div>
+        </div>
+       </div>
+      </nav>
+      <!--end Menu-->
+    </header>
+    
+    <!-- Services -->
+    <div class="container" id="services">
+
+      <div class="services">
+      <h2>OUR OFFERINGS</h2>
+      
+      <div class="border_bottom"></div>
+
+        <div class="row-fluid top">
+          <div class="span6">
+            <!--Services One-->
+            <div class="offerings">
+              <div class="border_right">
+                <!-- <img src="img/offering/lvrm.jpg" alt="living room"> -->
+              <%= image_tag("img/offering/lvrm.jpg", :alt => "lvrm jpg") %>
+              </div>
+            </div>
+            <!--Services One-->
+          </div>
+
+          <div class="span6">
+            <!--Services Two-->
+            <div class="offerings">
+              <div>
+                <h3>Living Room</h3>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+                <h1>Landing Page</h1>
+                <p><%= link_to "Place A Request", new_request_path %></p>
+              </div>
+            </div>
+            <!--Services Two-->  
+          </div>
+          
+        </div>
+
+      </div>
+      <!--Services-->
+
+       <div class="border_bottom"></div>
+
+      <div class="services top">
+        <div class="row-fluid">
+
+          <div class="span6">
+            <!--Services Three -->
+            <div class="offerings">
+              <h3>Kitchen</h3>
+              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+            </div>
+            <!--Services Three -->
+          </div>
+
+          <div class="span6">
+            <!--Services Four-->
+            <div class="offerings">
+              <div class="border_right">
+                <!-- <img src="img/offering/kitch.jpg" alt=""> -->
+                <%= image_tag("img/offering/kitch.jpg", :alt => "kitch jpg") %>
+              </div>
+            </div>
+             <!--Services Four--> 
+          </div>
+
+        </div>
+      </div>
+
+       <div class="border_bottom"></div>
+
+      <div class="services top">
+        <div class="row-fluid">
+
+          <div class="span6">
+            <!--Services Three -->
+            <div class="offerings">
+              <img src="img/offering/bed.jpg" alt="">
+              <%= image_tag("img/offering/bed.jpg", :alt => "bed jpg") %>
+            </div>
+            <!--Services Three -->
+          </div>
+
+          <div class="span6">
+            <!--Services Four-->
+            <div class="offerings">
+              <div>
+                <h3>Bedroom</h3>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+              </div>
+            </div>
+             <!--Services Four--> 
+          </div>
+
+        </div>
+      </div>
+
+      <div class="services top">
+        <div class="row-fluid">
+
+          <div class="span6">
+            <!--Services Three -->
+            <div class="offerings">
+              <h3>Bathroom</h3>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+            </div>
+            <!--Services Three -->
+          </div>
+
+          <div class="span6">
+            <!--Services Four-->
+            <div class="offerings">
+              <div class="border_right">
+                <!-- <img src="img/offering/bath.jpg" alt=""> -->
+                <%= image_tag("img/offering/bath.jpg", :alt => "bath jpg") %>
+              </div>
+            </div>
+             <!--Services Four--> 
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- Services -->
+
+    <!-- Color Section -->
+        <section class="title">
+          <div class="container">
+            <div class="row-fluid">
+              <h2>Pricing starting at GHC 45</h2>
+              <h3>Our cleaners have already been vetted and background checked.</h3>
+              <br>
+              <a href="index.html#services" class="animated fadeInLeft botton">Book a Cleaning <i class="icon-long-arrow-right"></i></a>
+            </div>
+          </div>
+        </section> 
+    <!-- Color Section -->
+
+      <!-- About -->
+         <div class="container" id="about">
+            
+          <div class="about">
+            <div class="row-fluid">
+
+              <ul class="ch-grid">
+                <!--Item about preview-->
+                <li>
+                  <div class="ch-item ch-img-01">
+                    <div class="ch-info">
+                      <h3>JOSEPH VOMDE</h3>
+                      <p>name@domain.com</p>
+                      <ul class="social">
+                        <li><a href="index.html#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="index.html#"><i class="icon-google-plus"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <!--Item about preview-->
+
+                <!--Item about preview-->
+                <li>
+                  <div class="ch-item ch-img-02">
+                    <div class="ch-info">
+                      <h3>CHAYRA LONCAU</h3>
+                      <p>name@domain.com</p>
+                      <ul class="social">
+                        <li><a href="index.html#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="index.html#"><i class="icon-google-plus"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <!--Item about preview-->
+
+                <!--Item about preview-->
+                <li>
+                  <div class="ch-item ch-img-03">
+                    <div class="ch-info">
+                      <h3>SOPHY LEKEBUSH</h3>
+                      <p>name@domain.com</p>
+                      <ul class="social">
+                        <li><a href="index.html#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="index.html#"><i class="icon-google-plus"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <!--Item about preview-->
+
+                <!--Item about preview-->
+                <li>
+                  <div class="ch-item ch-img-04">
+                    <div class="ch-info">
+                      <h3>JOSEPH VOMDE</h3>
+                      <p>name@domain.com</p>
+                      <ul class="social">
+                        <li><a href="index.html#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="index.html#"><i class="icon-google-plus"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <!--Item about preview-->
+                
+              </ul>
+
+            </div>
+
+          </div>
+
+          <div class="row-fluid top">
+              <div class="span8">
+                <!-- Sponosors -->
+                <div class="sponsors">
+                <h3>Sponsors</h3>
+                  <div class="row-fluid">
+                    <div class="span3">
+
+                      <div class="border_right">
+                        <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/04.jpg", :alt => "sponsor 4 jpg") %></a>
+                      </div>
+
+                    </div>
+                    <div class="span3">
+
+                      <div class="border_right">
+                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/02.jpg", :alt => "sponsor 2 jpg") %></a>
+                      </div>
+
+                    </div>
+                    <div class="span3">
+
+                      <div class="border_right">
+                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/03.jpg", :alt => "sponsor 3 jpg") %></a>
+                      </div>
+
+                    </div>
+                    <div class="span3">
+
+                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/04.jpg", :alt => "sponsor 4 jpg") %></a>
+
+                    </div>
+                  </div>
+
+                  <div class="border_bottom"></div>
+
+                  <div class="row-fluid">
+                    <div class="span3">
+
+                      <div class="border_right">
+                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/02.jpg", :alt => "sponsor 2 jpg") %></a>
+                      </div>
+
+                    </div>
+                    <div class="span3">
+
+                      <div class="border_right">
+                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/03.jpg", :alt => "sponsor 03 jpg") %></a>
+                      </div>
+
+                    </div>
+                    <div class="span3">
+
+                      <div class="border_right">
+                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/04.jpg", :alt => "sponsor 4 jpg") %></a>
+                      </div>
+
+                    </div>
+                    <div class="span3">
+
+                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/03.jpg", :alt => "sponsor 3 jpg") %></a>
+
+                    </div>
+                  </div>
+
+                </div>
+                <!-- Sponosors -->
+              </div>
+
+              <div class="span4">
+                <!-- Text Widget -->
+                <div class="text_widget">
+                  <h3>Text about yours</h3>
+                  <i class="icon-dropbox"></i>
+                  <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a.</p>
+                </div>
+                <!-- Text Widget -->
+              </div>
+            </div>
+
+         </div>
+      <!-- About -->
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="container">
+        <div class="row-fluid">
+          <h2>Get it in touch</h2>
+          <p>Always we offer all your aptitudes for give you the best results.</p>
+
+              <ul class="phone">
+                <li><a href="index.html#"><i class="icon-facebook"></i></a></li>
+                <li><a href="index.html#"><i class="icon-twitter"></i></a></li>
+                <li><a href="index.html#"><i class="icon-linkedin"></i></a></li>
+                <li><a href="index.html#"><i class="icon-pinterest"></i></a></li>
+              </ul>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span8">            
+
+            <div class="row-fluid">
+              <div>
+                <!-- Form -->
+                  <form id="form" class="form_online top" action="http://html.imaginacionweb.net/folkin/send_mail.php">
+                    <input type="email" placeholder="Email" name="email" required="">
+                    <textarea placeholder="Your Message" name="message" required=""></textarea>
+                    <input type="submit" name="Submit" value="Send" class="botton">
+                  </form>
+                  <div id="result"></div>
+                <!-- Form -->
+              </div>
+            </div>
+          </div>
+
+          <div class="span4">
+            <div>
+              <div class="row-fluid">
+                <div>
+                  <!-- call to action  -->
+                  text and button go here
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </footer>
+    <!-- Footer -->
+
+    <!-- Copy -->
+    <footer class="coopring">
+      <p>Copyright 2016 Spring.</p>
+    </footer>
+    <!-- Copy -->
+
+      
+      <!-- ======================= JQuery libs =========================== -->
+        <!-- Always latest version of jQuery-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>         
+        <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+       <!--Nav-->
+        <script type="text/javascript" src="js/nav/tinynav.js"></script>
+        <script type="text/javascript" src="js/nav/jquery.nav.js" ></script>
+        <script type="text/javascript" src="js/nav/jquery.sticky.js"></script>     
+        <!--Scroll-->      
+        <script src="js/scroll/smooth-scroll.js" type="text/javascript"></script> 
+        <!--Lightbox--> 
+        <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script> 
+        <!-- Carrousel -->
+        <script src="js/modernizr.js"></script>
+         
+        <!-- Slide.js-->
+        <script src="js/slide/responsiveslides.js"></script> 
+        <!--Totop-->
+        <script type="text/javascript" src="js/totop/jquery.ui.totop.js" ></script>   
+        <!-- Bootstrap.js-->
+        <script src="js/bootstrap.js"></script>
+        <!--fUNCTIONS-->
+        <script type="text/javascript" src="js/jquery-func.js"></script>
+      <!-- ======================= End JQuery libs =========================== -->
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $(document).bind("contextmenu",function(e){
+                return false;
+            });
+        });
+        </script>
+
+    </body>
