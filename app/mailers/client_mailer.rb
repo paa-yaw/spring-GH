@@ -1,5 +1,5 @@
 class ClientMailer < ApplicationMailer
-  default to: Proc.new{Client.all.where(admin: false)},
+  default to: Proc.new{ Client.all.where(admin: false) },
   		  from: "Spring.com" 	
 
   def welcome_email(client)
