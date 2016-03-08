@@ -1,0 +1,28 @@
+/*Backgrounds Color*/
+.title,
+.carrousel,
+.title_portfolio,
+.flex-control-paging li a:hover,
+.flex-control-paging li a,
+.flex-control-paging li a.flex-active,
+.botton
+{
+	background-color: #E65069;
+}
+/*Color*/
+footer .social li a:hover,
+.social li a:hover,
+nav #menu li.active a,
+nav #menu li a:hover,
+#about:hover .text_widget i,
+#logo a,nav .menu_simple li a:hover
+{
+	color: #e65069;
+}
+.arrow{
+	background: url(../../img/portfolio/arrow_default.png) no-repeat center center;
+}
+.botton:hover{
+	color: #fff;
+	background-color: #c34257;
+}

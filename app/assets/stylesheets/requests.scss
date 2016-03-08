@@ -1,3 +1,50 @@
 // Place all the styles related to the requests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+select{
+  width:15%;
+}
+
+input#client_fullname.form-control{
+  height: 40px;
+}
+
+input#client_email.form-control{
+  height: 40px;
+}
+
+input#client_password.form-control{
+  height: 40px;
+}
+
+input#client_password_confirmation.form-control{
+  height: 40px;
+}
+
+input#client_phone_number.form-control{
+  height: 40px;
+}
+
+input#client_location.form-control{
+  height: 40px;
+}
+
+input#request_days{
+  height: 30px;
+}
+
+.simple_form label.control-label{
+  font-weight: bold
+}
+
+span.radio.inline{
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+span.checkbox.inline{
+  margin-top: 0px;
+  padding-top: 0px; 
+}

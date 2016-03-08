@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workforce</title>
+  <title>Spring</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body onload="placeValue()">
+<body onload="placeValue();">
 <nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <%= link_to "Workforce", root_path ,:class =>"navbar-brand"%>
+                <%= link_to "Spring", root_path ,:class =>"navbar-brand"%>
             </div>
             <!-- //.navbar-header -->
             
@@ -26,11 +26,10 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="page-scroll">
                         <% if current_client && current_client.admin == false %>
-                          <%= link_to "Requests", my_requests_path, :class=>'btn' %>
+                          <%= link_to "Requests", my_requests_path %>
                         <% end %>
                     </li>
 
-                    
                       <% admins_only do %>
                     <li class="page-scroll">
                         <%= link_to "Admin", admin_root_path %>
@@ -70,6 +69,5 @@
   <p><%= message %></p>
  <% end %>
    <%= yield %>
-
 </body>
 </html>

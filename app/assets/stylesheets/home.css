@@ -1,0 +1,83 @@
+
+ a.navbar-brand{
+  color: #FFD207!important;
+ }
+
+ nav#navigation{
+  background-color: #fff;
+ }
+
+ div#logo a {
+  color: #FFD207!important;
+ }
+
+ section.title{
+  background-color: #006DF0;
+ }
+
+ .botton{
+  background-color: #FFD207!important;
+  color:#fff;
+ }
+
+ .botton:hover{
+  background-color: #FFD207!important;
+  color:#fff;
+ }
+
+ hr{
+  border-color:  #FFD207!important;
+ }
+
+ ul#menu > li > a {
+  color:#122772;
+ }
+
+ ul.phone{
+  color:#122772;
+ }
+
+ div.services h2 {
+  color:#122772;
+ }
+
+ div.offerings h3,p{
+  color:#122772;
+ }
+
+ section.title{
+  background-color: #122772;
+ }
+
+ div.row-fluid > p {
+  color: #fff;
+ }
+
+ div.border_bottom{
+  border-color: #122772;
+ }
+
+ div.bottom_last{
+  border-color: #FFD207;
+ }
+
+
+ footer#contact{
+  background-color: #122772;
+ }
+
+ footer#contact p{
+  color: #fff;
+ }
+
+ footer#contact a{
+  color:#fff;
+ }
+
+ .icon-left{
+  text-align: left;
+ }
+
+ .icon-right{
+  text-align: right;
+ }

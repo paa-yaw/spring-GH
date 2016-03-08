@@ -1,7 +1,9 @@
 //makes the price appear in the form one page is loaded.
+
 function placeValue() {
-  if (window.location.pathname == "/requests/new" || window.location.pathname == "/requests"){
+  if (window.location.pathname == "/requests/new" || window.location.pathname == "/requests" || window.location.pathname == "/"){
     document.getElementById("daPrice").innerHTML = "$"+12+".00";
+    document.getElementById("daRooms").innerHTML = 0;
   }
 // this value is returned when the function is called in calculatePricing.
   return 12;
@@ -154,6 +156,7 @@ function calculatePricing() {
   var extra = ((getCheckBoxValue()[0]+getCheckBoxValue()[1]+getCheckBoxValue()[2]+getCheckBoxValue()[3])*getDaysNumber());
   // add up all the rooms.
   var rooms = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
+  document.getElementById("daRooms").innerHTML = rooms;
   if(rooms > 4){
     // if rooms is more than 4 calculate pricing with number of days as a multiple.
     var pricing = (((((rooms-4)*5)+12)*getDaysNumber())+extra+cleanProduct);
@@ -163,5 +166,8 @@ function calculatePricing() {
     document.getElementById("daPrice").innerHTML = "$"+((placeValue()*(parseInt(getDaysNumber())))+extra+cleanProduct)+".00"; 
   }
 }
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> master
