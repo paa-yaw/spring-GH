@@ -1,46 +1,21 @@
- <head>
-    <meta charset="utf-8">
-    <title>Spring</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    
-    <!-- Principal styles -->
-    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
-    <style type="text/css">
-      @import url("css/style.css");
-    </style> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <!-- Skins styles -->
-    <link href="css/skins/default.css" rel="stylesheet" media="screen">  
-
-    <!-- Skins Changer-->
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-   
-  </head>
- <body> 
-  
-    <header>
-
+ <header>
       <!-- Main Jumbo -->
         <div class="main_slide" id="intro">
           <ul class="rslides" id="slider1">
             <!--Junbo-->
             <li>
               <!-- <img src="img/home/home.jpg" alt=""> -->
-              <%= image_tag("img/home/home.jpg", :alt => "home jpg") %>
+              <%= image_tag("img/home/home2blackcrop2.jpg", :alt => "home2black jpg") %>
               <div class="info_slide">
                 <div class="container">
                   <div class="row-fluid">
-                    <div class="span6">
-                      <h1 class="animated delay1 fadeInLeft">Spring</h1>
-                      <p class="animated delay2 fadeInLeft">Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
-                      <a href="./requests/new" class="animated delay2 fadeInLeft botton">Book a Cleaning <i class="icon-long-arrow-right"></i></a>
+                    <div class="span8">
+                      <h1 class="animated delay1 fadeInLeft">BOOK A TRUSTED CLEANER</h1>
+                      <hr class="animated delay2 fadeInLeft">
+                      <a href="./requests/new" class="animated delay2 fadeInLeft botton btn-lg">Book a Cleaner <i class="icon-long-arrow-right"></i></a>
                     </div>
                   </div>
-                </div>                                                                              
+                </div>                                                                    
               </div>
             </li>
             <!--Jumbo-->
@@ -61,30 +36,29 @@
             <!-- Logo -->
 
           </div>
-          <div class="span8">
+          <div class="span5 offset5">
 
             <ul id="menu">
               <li><a href="index.html#intro">Home</a></li>
               <li><a href="index.html#services">Offerings</a></li>
               <li><a href="index.html#about">About</a></li>
-              <li><a href="index.html#contact">Contact</a></li>
-              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="index.html#contact">Login</a></li>
             </ul>
 
           </div>
-          <div class="span2">
+         <!--  <div class="span2">
 
             <ul class="phone">
               <li><i class="fa fa-phone"> 0200610307</i></a></li>
             </ul>
 
-          </div>
+          </div> -->
         </div>
        </div>
       </nav>
       <!--end Menu-->
     </header>
-    
+
     <!-- Services -->
     <div class="container" id="services">
 
@@ -110,7 +84,15 @@
             <div class="offerings">
               <div>
                 <h3>Living Room</h3>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+                <ul class="icon-align icon-left" type="none">
+                  <li><i class="fa fa-hand-o-right"></i> Wiping of Windows</li><br>
+                  <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
+                  <li><i class="fa fa-hand-o-right"></i> Vacumming of carpet if needed</li><br>
+                  <li><i class="fa fa-hand-o-right"></i> Sweeping and mopping of floors</li><br>
+                  <li><i class="fa fa-hand-o-right"></i> Dusting of furniture and surfaces</li><br>
+                  <li><i class="fa fa-hand-o-right"></i> Dusting and wiping of electronics, picture frames etc</li><br>
+                  <li><i class="fa fa-hand-o-right"></i> Dusting and wiping of light switches and other fixtures</li>
+                </ul>
                 <h1>Landing Page</h1>
                 <p><%= link_to "Place A Request", new_request_path %></p>
               </div>
@@ -132,7 +114,15 @@
             <!--Services Three -->
             <div class="offerings">
               <h3>Kitchen</h3>
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+               <ul class= "icon-align icon-left" type="none">
+                <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Putting together displaced items</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Dusting of surfaces and appliances</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Emptying bins and cleaning bin area</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Wiping outside of cupboards and fridge</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Cleaning of sink,and washing of dishes</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Sweeping, mopping of floor and wiping of walls</li>
+              </ul>
             </div>
             <!--Services Three -->
           </div>
@@ -159,7 +149,7 @@
           <div class="span6">
             <!--Services Three -->
             <div class="offerings">
-              <img src="img/offering/bed.jpg" alt="">
+              <!-- <img src="img/offering/bed.jpg" alt=""> -->
               <%= image_tag("img/offering/bed.jpg", :alt => "bed jpg") %>
             </div>
             <!--Services Three -->
@@ -170,7 +160,14 @@
             <div class="offerings">
               <div>
                 <h3>Bedroom</h3>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+                <ul class= "icon-align icon-left" type="none">
+                  <li><i class="fa fa-hand-o-right"></i>  Making bed</li><br>
+                  <li><i class="fa fa-hand-o-right"></i> Wiping of windows</li><br>
+                  <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
+                  <li><i class="fa fa-hand-o-right"></i> Dusting of furniture and surfaces</li><br>
+                  <li><i class="fa fa-hand-o-right"></i> Folding or hanging of clothes in bedroom</li><br>
+                  <li><i class="fa fa-hand-o-right"></i> Sweeping or Vacuuming and/or mopping floors</li><br>
+                </ul>
               </div>
             </div>
              <!--Services Four--> 
@@ -178,7 +175,8 @@
 
         </div>
       </div>
-
+      
+      <div class="border_bottom"></div>
       <div class="services top">
         <div class="row-fluid">
 
@@ -186,7 +184,17 @@
             <!--Services Three -->
             <div class="offerings">
               <h3>Bathroom</h3>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+                <ul class= "icon-align icon-left" type="none">
+
+                <li><i class="fa fa-hand-o-right"></i> Mopping floors</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Wiping of walls and mirrors</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Folding or hanging of clean towels</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Emptying bins and cleaning bin area</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Wiping of windows, counters and taps</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Cleaning of shower, bath, sinks and toilet</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Wiping outside of cupboards and cabinets</li>
+              </ul>
             </div>
             <!--Services Three -->
           </div>
@@ -208,188 +216,29 @@
     </div>
     <!-- Services -->
 
-    <!-- Color Section -->
-        <section class="title">
-          <div class="container">
-            <div class="row-fluid">
-              <h2>Pricing starting at GHC 45</h2>
-              <h3>Our cleaners have already been vetted and background checked.</h3>
-              <br>
-              <a href="index.html#services" class="animated fadeInLeft botton">Book a Cleaning <i class="icon-long-arrow-right"></i></a>
-            </div>
-          </div>
-        </section> 
-    <!-- Color Section -->
-
       <!-- About -->
-         <div class="container" id="about">
-            
-          <div class="about">
-            <div class="row-fluid">
-
-              <ul class="ch-grid">
-                <!--Item about preview-->
-                <li>
-                  <div class="ch-item ch-img-01">
-                    <div class="ch-info">
-                      <h3>JOSEPH VOMDE</h3>
-                      <p>name@domain.com</p>
-                      <ul class="social">
-                        <li><a href="index.html#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="index.html#"><i class="icon-google-plus"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <!--Item about preview-->
-
-                <!--Item about preview-->
-                <li>
-                  <div class="ch-item ch-img-02">
-                    <div class="ch-info">
-                      <h3>CHAYRA LONCAU</h3>
-                      <p>name@domain.com</p>
-                      <ul class="social">
-                        <li><a href="index.html#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="index.html#"><i class="icon-google-plus"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <!--Item about preview-->
-
-                <!--Item about preview-->
-                <li>
-                  <div class="ch-item ch-img-03">
-                    <div class="ch-info">
-                      <h3>SOPHY LEKEBUSH</h3>
-                      <p>name@domain.com</p>
-                      <ul class="social">
-                        <li><a href="index.html#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="index.html#"><i class="icon-google-plus"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <!--Item about preview-->
-
-                <!--Item about preview-->
-                <li>
-                  <div class="ch-item ch-img-04">
-                    <div class="ch-info">
-                      <h3>JOSEPH VOMDE</h3>
-                      <p>name@domain.com</p>
-                      <ul class="social">
-                        <li><a href="index.html#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="index.html#"><i class="icon-google-plus"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <!--Item about preview-->
-                
-              </ul>
-
-            </div>
-
-          </div>
-
-          <div class="row-fluid top">
-              <div class="span8">
-                <!-- Sponosors -->
-                <div class="sponsors">
-                <h3>Sponsors</h3>
-                  <div class="row-fluid">
-                    <div class="span3">
-
-                      <div class="border_right">
-                        <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/04.jpg", :alt => "sponsor 4 jpg") %></a>
-                      </div>
-
-                    </div>
-                    <div class="span3">
-
-                      <div class="border_right">
-                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/02.jpg", :alt => "sponsor 2 jpg") %></a>
-                      </div>
-
-                    </div>
-                    <div class="span3">
-
-                      <div class="border_right">
-                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/03.jpg", :alt => "sponsor 3 jpg") %></a>
-                      </div>
-
-                    </div>
-                    <div class="span3">
-
-                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/04.jpg", :alt => "sponsor 4 jpg") %></a>
-
-                    </div>
-                  </div>
-
-                  <div class="border_bottom"></div>
-
-                  <div class="row-fluid">
-                    <div class="span3">
-
-                      <div class="border_right">
-                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/02.jpg", :alt => "sponsor 2 jpg") %></a>
-                      </div>
-
-                    </div>
-                    <div class="span3">
-
-                      <div class="border_right">
-                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/03.jpg", :alt => "sponsor 03 jpg") %></a>
-                      </div>
-
-                    </div>
-                    <div class="span3">
-
-                      <div class="border_right">
-                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/04.jpg", :alt => "sponsor 4 jpg") %></a>
-                      </div>
-
-                    </div>
-                    <div class="span3">
-
-                         <a href="index.html#" class="tooltip_hover" title="Name Sponsor"><%= image_tag("img/sponsor/03.jpg", :alt => "sponsor 3 jpg") %></a>
-
-                    </div>
-                  </div>
-
-                </div>
-                <!-- Sponosors -->
-              </div>
-
-              <div class="span4">
-                <!-- Text Widget -->
-                <div class="text_widget">
-                  <h3>Text about yours</h3>
-                  <i class="icon-dropbox"></i>
-                  <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a.</p>
-                </div>
-                <!-- Text Widget -->
-              </div>
-            </div>
-
-         </div>
+      
       <!-- About -->
 
     <!-- Footer -->
     <footer id="contact">
       <div class="container">
         <div class="row-fluid">
-          <h2>Get it in touch</h2>
-          <p>Always we offer all your aptitudes for give you the best results.</p>
-
-              <ul class="phone">
-                <li><a href="index.html#"><i class="icon-facebook"></i></a></li>
-                <li><a href="index.html#"><i class="icon-twitter"></i></a></li>
-                <li><a href="index.html#"><i class="icon-linkedin"></i></a></li>
-                <li><a href="index.html#"><i class="icon-pinterest"></i></a></li>
-              </ul>
+          <h2>Let's Get in touch</h2>
+          <hr class="primary">
+          <p>Need more information, or want to the conversation more personal? Call or send us an email.</p>
+        </div>
+        <div class="col-lg-4 col-lg-offset-2 text-center">
+          <i class="fa fa-phone fa-3x wow bounceIn">
+          </i>
+          <p>020-061-0307</p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <i class="fa fa-envelope-o fa-3x wow bounceIn">
+          </i>
+          <p>
+            <a href="mailto:your-email@your-domain.com">hello@spring.com</a>
+          </p>
         </div>
 
         <div class="row-fluid">
@@ -397,14 +246,7 @@
 
             <div class="row-fluid">
               <div>
-                <!-- Form -->
-                  <form id="form" class="form_online top" action="http://html.imaginacionweb.net/folkin/send_mail.php">
-                    <input type="email" placeholder="Email" name="email" required="">
-                    <textarea placeholder="Your Message" name="message" required=""></textarea>
-                    <input type="submit" name="Submit" value="Send" class="botton">
-                  </form>
-                  <div id="result"></div>
-                <!-- Form -->
+               
               </div>
             </div>
           </div>
@@ -413,16 +255,16 @@
             <div>
               <div class="row-fluid">
                 <div>
-                  <!-- call to action  -->
-                  text and button go here
+                  
                 </div>
               </div>
             </div>
           </div>
 
         </div>
-
       </div>
+
+      <!-- </div> -->
     </footer>
     <!-- Footer -->
 
@@ -465,5 +307,3 @@
             });
         });
         </script>
-
-    </body>
