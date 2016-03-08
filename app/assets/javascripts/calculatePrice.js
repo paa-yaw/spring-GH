@@ -3,7 +3,7 @@
 function placeValue() {
   if (window.location.pathname=="/requests/new" || window.location.pathname=="/requests"){
     document.getElementById("daPrice").innerHTML = "$"+12+".00";
-    document.getElementById("daRooms").innerHTML = 0;
+    document.getElementById("daRooms").innerHTML = 4;
   }
 // this value is returned when the function is called in calculatePricing.
   return 12;
