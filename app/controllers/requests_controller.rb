@@ -29,12 +29,12 @@ class RequestsController < ApplicationController
 
       if @request.save
         flash[:notice] = "#{current_client.email}, your request has been made!"
-        # Client.where(admin: true).each do |recipient|
-        #   AdminNotifier.notification(recipient).deliver
-        # end
-      Client.where(admin: true).each do |recipient|
-        NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient)
-      end
+        
+        # sends email to admin after a logged in client places a request
+        Client.where(admin: true).each do |recipient|
+          NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient)
+        end
+
         redirect_to display_request_path(@request)
       else
         flash.now[:alert] = "Your request failed. Please submit it again."
@@ -47,12 +47,6 @@ class RequestsController < ApplicationController
 
       if @request.save
         flash[:notice] = "Request has been made! Please finish up by creating an account."
-        # Client.where(admin: true).each do |recipient|
-        #   AdminNotifier.notification(recipient).deliver
-        # end 
-      Client.where(admin: true).each do |recipient| 
-        NotifyAdminJob.set(wait: 20.seconds).perform_later(recipient)
-      end
         redirect_to new_client_registration_path
       else
         flash.now[:alert] = "Your request failed. Please submit it again."
