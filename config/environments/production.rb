@@ -79,6 +79,9 @@ Rails.application.configure do
 
   config.serve_static_assets = true
   config.assets.compile = true
+  
+  # for active job
+  config.active_job.queue_adapter = :delayed_job
 
   config.action_mailer.default_url_options = { host: 'workforce16.herokuapp.com' }
 
