@@ -51,3 +51,4 @@ gem 'simple_form'
 #rails twitter bootstrap 
 gem "twitter-bootstrap-rails"
 gem "rails_12factor"
+gem "delayed_job_active_record"

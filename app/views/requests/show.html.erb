@@ -82,9 +82,9 @@
   </div> 
 <hr style="border-color:#eee;">
         <% if @request.resolved == true %>
-        <%= link_to "Back", root_path %>
+        <%= link_to "Back", :back %>
         <% else %>
-          <%=  link_to "Edit", [:edit, @request] %> | <%= link_to "Back", root_path %>
+          <%=  link_to "Edit", [:edit, @request] %> | <%= link_to "Back", :back %>
         <% end %>
 
         <!--Business Algorithm -->

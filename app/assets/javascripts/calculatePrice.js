@@ -1,6 +1,7 @@
 //makes the price appear in the form one page is loaded.
-function placeValue(){
-  if (window.location.pathname == "/" || window.location.pathname == "/requests/new"){
+
+function placeValue() {
+  if (window.location.pathname == "/requests/new" || window.location.pathname == "/requests" || window.location.pathname == "/"){
     document.getElementById("daPrice").innerHTML = "$"+12+".00";
     document.getElementById("daRooms").innerHTML = 0;
   }
@@ -8,45 +9,43 @@ function placeValue(){
   return 12;
 }
 
-
 // converts value in the bedroom dropdown to integer and returns value on function call
-function getBedroomNumber(){
+function getBedroomNumber() {
   var bedroomNumber = 0;
   var bedroomNumber = parseInt(document.getElementById("request_bedrooms").value);
   return bedroomNumber;
 }
 
 // converts value in the bathroom dropdown to integer and returns value on function call
-function getBathroomNumber(){
+function getBathroomNumber() {
   var bathroomNumber = 0;
   var bathroomNumber = parseInt(document.getElementById("request_bathrooms").value);
   return bathroomNumber;
 }
 
 // converts value in the kitchen dropdown to integer and returns value on function call
-function getKitchenNumber(){
+function getKitchenNumber() {
   var kitchenNumber = 0;
   var kitchenNumber = parseInt(document.getElementById("request_kitchens").value);
   return kitchenNumber;
 }
 
 // converts value in the Hall dropdown to integer and returns value on function call
-function getHallNumber(){
+function getHallNumber() {
   var hallNumber = 0;
   var hallNumber = parseInt(document.getElementById("request_hall").value);
   return hallNumber;
 }
 
 // converts value in Number of Days input field to integer and returns value on function call or 1 as default.
-function getDaysNumber(){
+function getDaysNumber() {
   var daysNumber = 0;
   var daysNumber = (parseInt(document.getElementById("request_days").value) || 1);
-  console.log(daysNumber);
   return daysNumber;
 }
 
 
-function getCheckBoxValue(){
+function getCheckBoxValue() {
   //declare an array to store values
   var extraServices = [0,0,0,0];
   
@@ -78,26 +77,79 @@ function getCheckBoxValue(){
   else {
     extraServices[3] = 0;
   }
-
   return extraServices;
 }
 
+function checkDays() {
+  
+  var checkedDays = getDaysNumber();
+  var listOfDays = document.getElementsByName("request[weekdays][]");
+  
+
+  if(document.getElementById('request_weekdays_monday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays +=0;
+  }
+
+  if (document.getElementById('request_weekdays_tuesday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+
+  if (document.getElementById('request_weekdays_wednesday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+
+  if (document.getElementById('request_weekdays_thursday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+  
+  if (document.getElementById('request_weekdays_friday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+  
+  if (document.getElementById('request_weekdays_saturday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+    
+  if (document.getElementById('request_weekdays_sunday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+  
+  if (checkedDays < 0) {
+    for (var i = 0; i < listOfDays.length; i++) {
+      listOfDays[i].checked = false;
+    };
+      alert("You can only choose "+getDaysNumber()+" days");
+  }
+  console.log(checkedDays);
+}
 
 function getCleaningProduct() {
   var cleaningProduct = 0;
-  if(document.getElementsByName('request[provide]')[0].checked == true ){
+  if(document.getElementsByName('request[provide]')[0].checked == true ) {
     cleaningProduct = 3;
-    console.log(cleaningProduct);
-  } else if(document.getElementsByName('request[provide]')[1].checked == true ){
+  } else if(document.getElementsByName('request[provide]')[1].checked == true ) {
     cleaningProduct = 0;
-    console.log(cleaningProduct);
   }
   return cleaningProduct;
 }
 
 // calculates pricing based on number of rooms.
-function calculatePricing(){
-  
+function calculatePricing() {
+  checkDays();
   // if a cleaning product is provided for or 
   var cleanProduct = (getCleaningProduct()*getDaysNumber());
   // extra services multiplying the number of days
@@ -114,3 +166,8 @@ function calculatePricing(){
     document.getElementById("daPrice").innerHTML = "$"+((placeValue()*(parseInt(getDaysNumber())))+extra+cleanProduct)+".00"; 
   }
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master

@@ -22,5 +22,9 @@ module Workforce
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    #for action mailer
+    config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
+
   end
 end
