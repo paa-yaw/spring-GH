@@ -32,6 +32,9 @@ class RequestsController < ApplicationController
         # Client.where(admin: true).each do |recipient|
         #   AdminNotifier.notification(recipient).deliver
         # end
+      Client.where(admin: true).each do |recipient|
+        NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient)
+      end
         redirect_to display_request_path(@request)
       else
         flash.now[:alert] = "Your request failed. Please submit it again."
@@ -47,6 +50,9 @@ class RequestsController < ApplicationController
         # Client.where(admin: true).each do |recipient|
         #   AdminNotifier.notification(recipient).deliver
         # end 
+      Client.where(admin: true).each do |recipient| 
+        NotifyAdminJob.set(wait: 2.seconds).perform_later
+      end
         redirect_to new_client_registration_path
       else
         flash.now[:alert] = "Your request failed. Please submit it again."
