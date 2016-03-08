@@ -44,7 +44,9 @@ class RequestsController < ApplicationController
 
       if @request.save
         flash[:notice] = "Request has been made! Please finish up by creating an account."
-         AdminNotifier.notification.deliver
+        Client.where(admin: true).each do |recipient|
+          AdminNotifier.notification(recipient).deliver
+        end 
         redirect_to new_client_registration_path
       else
         flash.now[:alert] = "Your request failed. Please submit it again."
