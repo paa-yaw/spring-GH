@@ -1,10 +1,10 @@
 <%= simple_form_for (request) do |f| %>
 <div class="container-fluid" >
   <div class="row">
-
+   
     
-  <h3>Tell Us About Your House <small id="daPrice" class="pull-right"></small></h3>
-  <br><br>
+  <h3>Tell Us About Your House </h3>
+  <br>
   <div class="row text-center">
     <div class="col-md-12" onclick="calculatePricing()"> 
       <%= f.select :bedrooms, options_for_select([["1 bedroom", 1], ["2 bedrooms", 2], ["3 bedrooms", 3], ["4 bedrooms", 4], ["5+ bedrooms", 5]], :selected => f.object.bedrooms) %>
@@ -14,24 +14,29 @@
     </div>
     </div>
   </div>
-   
 
  <div onclick="calculatePricing()">
-   <%= f.input :extra_services, :collection => [["Compound cleaning($8.00)", 8], ["Washing & Ironing($7.00)", 7], ["Fridge($3.00)", 3], ["Storeroom($5.00)", 5]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
+   <div class="col-md-12">
+     <%= f.input :extra_services, :collection => [["Compound cleaning($8.00)", 8], ["Washing & Ironing($7.00)", 7], ["Fridge($3.00)", 3], ["Storeroom($5.00)", 5]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
+   </div>
  </div> 
 
- <div class="row" onchange="calculatePricing();">
-   <div class="col-md-6">
-     <%= f.input :days, label: "Number of days" %>
+   <br>
+   <div class="row" onchange="calculatePricing()">
+     <div class="col-md-6">
+       <%= f.input :days, label: "Number of days" %>
+     </div>
+
+     <div class="col-md-6">
+      <%= f.input :frequency, :collection => ["weekly", "monthly"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "Frequency" %>
+     </div>
    </div>
 
-   <div class="col-md-6">
-    <%= f.input :frequency, :collection => ["weekly", "monthly"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "Frequency" %>
-    
-    <div onclick="calculatePricing()">
+   <div class="row" onkeyup="calculatePricing()">
+  <div class="col-md-12">
     <%= f.input :weekdays, :collection => [["Monday", "Monday"], ["Tuesday", "Tuesday"], ["Wednesday", "Wednesday"], ["Thursday", "Thursday"], ["Friday", "Friday"], ["Saturday", "Saturday"], ["Sunday", "Sunday"]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Pick a day" %>
-    </div>
-   </div>
+  </div>
+
 
    <div class="col-md-12" onclick="calculatePricing()">
      <%= f.input :provide, :collection => ["Workforce provides cleaning products($3.00)", "I'll use my own cleaning products"], :as => :radio_buttons, :item_wrapper_class => 'inline', :label => "Which would you prefer?" %>
