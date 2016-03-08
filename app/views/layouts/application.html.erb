@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workforce</title>
+  <title>Spring</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <%= link_to "Workforce", root_path ,:class =>"navbar-brand"%>
+                <%= link_to "Spring", root_path ,:class =>"navbar-brand"%>
             </div>
             <!-- //.navbar-header -->
             
@@ -30,7 +30,6 @@
                         <% end %>
                     </li>
 
-                    
                       <% admins_only do %>
                     <li class="page-scroll">
                         <%= link_to "Admin", admin_root_path %>
