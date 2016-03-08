@@ -1,0 +1,26 @@
+
+ a.navbar-brand{
+  color: #FFD207!important;
+ }
+
+ nav#navigation{
+  background-color: #fff;
+ }
+
+ div#logo a {
+  color: #fff;
+ }
+
+ section.title{
+  background-color: #006DF0;
+ }
+
+ .botton{
+  background-color: #006DF0;
+  color:#FFD207;
+ }
+
+ .botton:hover{
+  background-color: #006DF0;
+  color:#FFD207;
+ }
