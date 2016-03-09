@@ -2,33 +2,35 @@
       <div class="row">
 
           <div class="col-xs-12 col-sm-8 form-box form-content landing-page-form">
-            <div class="form-top">
             <div class="form-bottom">
                 <div class="col-xs-12">
                  <%= render 'form', request: @request %><br>
                 </div>
             </div>
-        </div>
+          </div>
 
-
-
-        <div class="col-xs-12 col-sm-3 col-sm-offset-1 form-box form-content">
-           <h3>Pricing</h3>
-           <div class="table-responsive">
-              <table class="table">
-                <tr>
-                  <td>Rooms</td>
-                  <td></td>
-                  <td><b id="daRooms"></b></td>
-                </tr>
-                <tr>
-                  <td><b>Total</b></td>
-                  <td></td>
-                  <td><b id="daPrice"></b></td>
-                </tr>
-              </table>
-            </div>
-        </div>
+          <div class="col-xs-12 col-sm-3 col-sm-offset-1 form-box form-content pre-scrollable" id="pricingBox">
+             <h3>Pricing</h3>
+             <div class="table-responsive">
+                <table class="table">
+                  <tr>
+                    <td>Rooms</td>
+                    <td></td>
+                    <td><b id="daRooms"></b></td>
+                  </tr>
+                  <tr>
+                    <td>Days&nbsp;<b id="daDays">(x)</b></td>
+                    <td></td>
+                    <td><b id="selectedDays"></b></td>
+                  </tr>
+                  <tr>
+                    <td><b>Total</b></td>
+                    <td></td>
+                    <td><b id="daPrice"></b></td>
+                  </tr>
+                </table>
+              </div>
+          </div>
 
       </div>
     </div>

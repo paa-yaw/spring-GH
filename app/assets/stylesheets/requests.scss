@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body{
+  background-color: #cecece;
+}
+
+select{
+  height: 45px;
+}
 
 select#request_bedrooms{
   width:24%;
@@ -64,7 +71,7 @@ input#client_location.form-control{
 }
 
 input#request_days{
-  height: 30px;
+  height: 45px;
 }
 
 .simple_form label.control-label{
@@ -72,6 +79,7 @@ input#request_days{
 }
 
 span.radio.inline{
+  padding-left: 0px;
   margin-top: 0px;
   padding-top: 0px;
 }

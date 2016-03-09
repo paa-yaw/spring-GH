@@ -21,10 +21,13 @@ abbr {
 nav#navigation {
   background-color: #022F40;
 }
+
 a.navbar-brand{
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 400;
   color: #fff !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 li.page-scroll > a {
@@ -78,7 +81,7 @@ hr {
 
 }
 
-.btn-block {background-color: #0090C1; color:#fff; border-color: #0090C1;}
+/*.btn-block {background-color: #0090C1; color:#fff; border-color: #0090C1;}*/
 
 div.content-box > h1 {
   color: #022F40;
@@ -107,6 +110,18 @@ div.content-box > h1 > strong {
   font-size: 24px;
 }
 
+.btn{
+  background-color: #ffd207;
+}
+
+#cleanButton{
+  height: 48px;
+}
+
+/*#pricingBox{
+  position:fixed;
+}
+*/
 @media only screen and (max-width: 500px) {
   .content-box{
     padding-top: 30px;
