@@ -81,3 +81,12 @@
  .icon-right{
   text-align: right;
  }
+
+
+h1.animated.delay1.fadeInLeft{
+  font-weight: 200;
+}
+
+@media only screen and (max-device-width: 480px){
+  
+}
