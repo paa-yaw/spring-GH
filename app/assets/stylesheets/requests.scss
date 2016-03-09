@@ -94,3 +94,21 @@ span.checkbox.inline{
   padding-bottom: 15px;
   margin-bottom: 20px;
 }
+
+
+// Table page
+div.panel.panel-default > div.table-responsive{
+  border-bottom:solid 1px #333;
+}
+
+th {
+  background-color: #E8E8E8;
+}
+
+td {
+  background-color: #E8E8E8;
+}
+
+.panel-default{
+  border-color: #333;
+}
