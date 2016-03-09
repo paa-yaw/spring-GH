@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308130806) do
+ActiveRecord::Schema.define(version: 20160308230448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(version: 20160308130806) do
     t.integer  "kitchens",       default: 0
     t.integer  "hall",           default: 0
     t.string   "provide"
-    t.integer  "days",           default: 0
+    t.integer  "days",           default: 1
     t.string   "weekdays",       default: [],                 array: true
-    t.string   "extra_services", default: [],                 array: true
+    t.integer  "extra_services", default: [],                 array: true
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree

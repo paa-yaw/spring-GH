@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # namespace :admin do
+  # get 'clients/index'
+  # end
+
   # get 'home/index'
 
   # namespace :admin do
@@ -16,6 +20,7 @@ Rails.application.routes.draw do
 
     get 'requests/:id/assign', to: 'requests#assign', as: :assign
 
+    resources :clients 
     resources :workers 
 
     resources :requests do 
