@@ -42,7 +42,21 @@
                </td> 
                <td>
                  <% @request.extra_services.each do |services| %>
-                   <p><%= services %></p>
+                   <% if services == 8 %>
+                   <p>Compound Cleaning</p>
+                   <% end %>
+
+                   <% if services == 7 %>
+                   <p>Washing & Ironing</p>
+                   <% end %>
+
+                   <% if services == 3 %>
+                   <p>Fridge</p>
+                   <% end %>
+
+                   <% if services == 5 %>
+                   <p>Storeroom</p>
+                   <% end %>
                  <% end %>
                </td>
                <td>
@@ -67,9 +81,9 @@
   </table>         
 
 
-<%=  link_to "Edit", [:edit, :admin, @request] %> | 
+<%=  link_to "Edit", [:edit, :admin, @request], class: "btn btn-primary" %> 
 <%= link_to "Cancel Request", [:admin, @request], method: :delete, 
-			data: { confirm: "Are you sure want delete #{(@request.id)}'s details?" } %> 
+			data: { confirm: "Are you sure want delete #{(@request.id)}'s details?" }, class: "btn btn-primary" %> 
 <!--<#%= link_to "click to resolve", [:resolve, :admin, @request], method: :patch, data: {confirm: "Please make sure this request is resolved?"} %>--><br>
 
 
@@ -78,10 +92,10 @@
 <% @workers.each do |worker| %>
 
 <% if worker.requests.any? %>
-  <h2><%= worker.first_name %> | <%= link_to "View", admin_worker_path(worker) %></h2>
+  <h2><%= worker.first_name %> <%= link_to "View", admin_worker_path(worker), class: "btn btn-primary" %></h2>
 <% else %>
-  <h2><%= worker.first_name %> | <%= link_to "View", admin_worker_path(worker) %>| <%= link_to "Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
-      data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}  %></h2>
+  <h2><%= worker.first_name %><%= link_to "View", admin_worker_path(worker), class: "btn btn-primary" %><%= link_to "Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
+      data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-secondary"  %></h2>
 <% end %>
 
 <% end %>
