@@ -58,36 +58,5 @@ $(document).ready(function(){
 	   	maxItems: 1
       });
 	
-	//=================================== Tooltips ====================================//
-
-	if( $.fn.tooltip() ) {
-		$('[class="tooltip_hover"]').tooltip();
-	}
-   
-    
 });
 
- //=================================== Skins Changer ====================================//
-	google.setOnLoadCallback(function()
-	{
-	    // Color changer
-	    $(".colordefault").click(function(){
-	        $("link").attr("href", "css/skins/default.css");
-	        return false;
-	    });
-	    
-	    $(".color1").click(function(){
-	        $("link").attr("href", "css/skins/blue.css");
-	        return false;
-	    });
-	    
-	    $(".color2").click(function(){
-	        $("link").attr("href", "css/skins/red.css");
-	        return false;
-	    });
-
-	     $(".color3").click(function(){
-	        $("link").attr("href", "css/skins/gray.css");
-	        return false;
-	    });
-	});

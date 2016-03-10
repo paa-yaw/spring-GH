@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// REQUEST PAGE
+
 body{
   background-color: #cecece;
 }
@@ -54,6 +56,10 @@ input#client_email.form-control{
   height: 40px;
 }
 
+input#client_current_password.form-control{
+  height: 40px;
+}
+
 input#client_password.form-control{
   height: 40px;
 }
@@ -96,6 +102,22 @@ span.checkbox.inline{
   margin-bottom: 20px;
 }
 
+#navigation > div.container > div.navbar-header.page-scroll > a.navbar-brand{
+  padding-top: 0px;
+}
+
+ul.nav.navbar-nav.navbar-right > li.page-scroll > a{
+  padding-bottom: 0px;
+  padding-top: 15px;
+}
+
+.navbar-inverse{
+  border:none;
+}
+
+img.img-responsive{
+  width: 10%;
+}
 
 // Table page
 div.panel.panel-default > div.table-responsive{
@@ -117,5 +139,6 @@ td {
 // Display Request Page 
 
 div.well{
-  border:solid 1px #333;
+  border:solid 1px #c0c0c0;
 }
+
