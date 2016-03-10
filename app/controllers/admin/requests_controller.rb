@@ -29,7 +29,7 @@ class Admin::RequestsController < Admin::ApplicationController
 
     @request.workers << @worker
     @request.resolve 
-    flash[:alert] = "You just assigned #{@worker.first_name} to #{@request.other_task}."
+    flash[:alert] = "You just assigned #{@worker.first_name} to #{@request.id}."
 
     redirect_to admin_root_path
   end
