@@ -6,7 +6,7 @@
 				<h1>A list of Clients</h1>
 
 				<% @clients.each do |client| %>
-				<p><%= link_to client.fullname, admin_client_path(client) %></p>
+				<h3><%= client.fullname  %> <%= link_to "View", admin_client_path(client), class: "btn btn-primary" %></h3>
 				<% end %>
 
 
