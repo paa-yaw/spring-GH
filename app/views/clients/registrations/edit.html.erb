@@ -40,7 +40,7 @@
 
         <div class="field">
           <%= f.label :phone_number, :class=>"login-label"%><br />
-          <%= f.text_field :phone_number, :class=>"form-control" %>
+          <%= f.text_field :phone_number, maxlength: "10", placeholder:"024 123 4567", type:"tel", :class=>"form-control" %>
         </div>
 
         <div class="field">

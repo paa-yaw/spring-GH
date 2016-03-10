@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   # namespace :admin do
+  # get 'home/home'
+  # end
+
+  # namespace :admin do
   # get 'clients/index'
   # end
 
@@ -15,8 +19,8 @@ Rails.application.routes.draw do
   # end
 
   namespace :admin do
-    root 'requests#index'
-    # get 'workers/index'
+    
+    root 'home#index'
 
     get 'requests/:id/assign', to: 'requests#assign', as: :assign
 
@@ -41,7 +45,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'home#index'
   # root 'requests#new'
-   resources :requests do 
+   resources :requests, except: [:index] do 
     member do
       patch :add
     end

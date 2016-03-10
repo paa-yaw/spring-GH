@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if current_client.admin == true
-    	admin_requests_path
+    	admin_root_path
     else
       if current_client.requests.count >= 1
         flash[:notice] = "Welcome back, #{current_client.email}! Please place another request."
