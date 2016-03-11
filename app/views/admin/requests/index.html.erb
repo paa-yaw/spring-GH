@@ -48,8 +48,8 @@
       <p>request created at <%= request.created_at %></p>
     </div>
     <div class="col-md-3">
-      <%= link_to "View", admin_request_path(request), class: "btn btn-primary" %> <%= link_to "unassign", admin_unassign_path(request), method: :delete,  
-     data: { confirm: "Are you sure you want unassign Request No.#{request.id}?"}, class: "btn btn-success" %> 
+      <%= link_to fa_icon("eye") + "View", admin_request_path(request), class: "btn btn-primary" %> <%= link_to fa_icon("minus-circle") + "unassign", admin_unassign_path(request), method: :delete,  
+     data: { confirm: "Are you sure you want unassign Request No.#{request.id}?"}, class: "btn btn-warning" %> 
     </div>
   </div>
   <% end %>

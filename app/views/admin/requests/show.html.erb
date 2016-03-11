@@ -81,13 +81,13 @@
   </table>         
 
 
-<%=  link_to "Edit", [:edit, :admin, @request], class: "btn btn-primary" %> 
-<%= link_to "Cancel Request", [:admin, @request], method: :delete, 
-			data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, class: "btn btn-primary" %>
+<%=  link_to fa_icon("pencil") + "Edit", [:edit, :admin, @request], class: "btn btn-primary" %> 
+<%= link_to fa_icon("ban") + "Cancel Request", [:admin, @request], method: :delete, 
+			data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, class: "btn btn-danger" %>
 
 <% if @request.workers.any? %>      
-<%= link_to "unassign", admin_unassign_path(@request), method: :delete,  
-     data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-success" %>  
+<%= link_to fa_icon("minus-circle") + "unassign", admin_unassign_path(@request), method: :delete,  
+     data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-warning" %>  
 <% end %>          
 <br>
 
@@ -97,9 +97,9 @@
 <% @workers.each do |worker| %>
 
 <% if worker.requests.any? %>
-  <h2><%= worker.first_name %> <%= link_to "View", admin_worker_path(worker), class: "btn btn-primary" %> </h2>
+  <h2><%= worker.first_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %> </h2>
 <% else %>
-  <h2><%= worker.first_name %> <%= link_to "View", admin_worker_path(worker), class: "btn btn-primary" %> <%= link_to "Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
+  <h2><%= worker.first_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %> <%= link_to "Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
       data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-success"  %></h2>
 <% end %>
 
