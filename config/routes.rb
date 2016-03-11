@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'errors/not_found'
+
+  get 'errors/internal_server_error'
+
   # namespace :admin do
   # get 'home/home'
   # end
@@ -54,6 +58,8 @@ Rails.application.routes.draw do
 
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
   get 'my_requests/', to: 'requests#my_requests', as: :my_requests
+  
+
   # get 'move/', to: 'admin/workers#move', as: :move
   
   # Example of regular route:
@@ -104,4 +110,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
 end

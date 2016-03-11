@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
     Client.current = current_client
   end
 
+  
+
   protected
 
   def configure_permitted_parameters

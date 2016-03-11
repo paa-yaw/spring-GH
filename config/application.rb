@@ -26,5 +26,8 @@ module Workforce
     #for action mailer
     config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
 
+    # allows rails to serve error pages from the app itself
+    config.exceptions_app = self.routes
+
   end
 end
