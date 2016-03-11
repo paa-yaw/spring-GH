@@ -1,28 +1,34 @@
     <div class="container" >
       <div class="row">
 
-          <div class="col-xs-12 col-sm-9 form-box form-content landing-page-form">
-            <div class="form-bottom">
-                <div class="col-xs-12">
-                 <%= render 'form', request: @request %><br>
-                </div>
-            </div>
-          </div>
+      <div class="col-xs-12 col-sm-8 form-box form-content landing-page-form">
+          <div class="form-bottom">
+            
+             <%= render 'form', request: @request %><br>
+           
+         </div>
+       </div>
 
-          <div class="col-xs-12 col-sm-3  form-box form-content" id="pricingBox">
-             <h3>Pricing</h3>
-             <div class="table-responsive">
-                <table class="table">
-                  <tr>
-                    <td><b>4&nbsp;</b>Rooms</td>
-                    <td>X&nbsp;&nbsp;<b>1&nbsp;</b>Day</td>
-                    <td><b>$12.00</b></td>
-                  </tr>
-                  <tr>
-                    <td><b id="daRooms"></b>&nbsp;Rooms</td>
-                    <td>&nbsp;<b id="daDays">-</b>&nbsp;Days</td>
-                    <td><b id="daProduct"></b></td>
-                  </tr>
+       <div class="col-xs-12 col-sm-4  form-box form-content" id="pricingBox">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title"><h3>Pricing</h3></h3>
+          </div>
+          <div class="panel-body">
+
+
+           <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <td><b>4&nbsp;</b>Rooms</td>
+                <td>X&nbsp;&nbsp;<b>1&nbsp;</b>Day</td>
+                <td><b>$12.00</b></td>
+              </tr>
+              <tr>
+                <td><b id="daRooms"></b>&nbsp;Rooms</td>
+                <td>&nbsp;<b id="daDays">-</b>&nbsp;Days</td>
+                <td><b id="daProduct"></b></td>
+              </tr>
                 <!--   <tr>
                     <td><b>Extra Services</b></td>
                   </tr>
@@ -44,10 +50,10 @@
                   </tr>
                 </table>
               </div>
-          </div>
+            </div>
 
+          </div>
         </div>
-      </div>
 
 
 

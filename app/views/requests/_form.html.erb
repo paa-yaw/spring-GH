@@ -22,7 +22,6 @@
           </div>
         </div> 
       </div>
-
     </div>
 
     <br>
@@ -70,15 +69,16 @@
     </div>
 
     <br>
-    <button type="button" class="btn btn-default">button</button>
+    <div class="col-xs-12" style="margin-top: 15px;">
+      
   <%#= f.button :button, :class => "btn-primary btn-block btn-lg", :id => "back-to-schedule" %>
     <% if request.persisted? %>
-    <%= f.button :submit, "Edit Request", :class=>"btn-primary btn-block btn-lg", :id =>"cleanButton"%>
+    <%= f.button :submit, "Edit Request", :class=>"btn-primary btn-lg  col-md-3", :id =>"cleanButton"%>
     <% elsif %>
-    <%= f.button :submit, "Get A Cleaner", :class=>"btn submit_button btn-block",:id =>"cleanButton" %>
+    <%= f.button :submit, "Get A Cleaner", :class=>"btn btn-block submit_button  col-md-3",:id =>"cleanButton" %>
     <% end %>
-
   
+    </div>
 
     </div>
   </div>
