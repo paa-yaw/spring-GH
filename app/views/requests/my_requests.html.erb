@@ -3,7 +3,6 @@
         <div class="col-sm-6 col-sm-offset-3 form-box content-box text-center">
 <div class="well">
             <h2>Hi <strong><%= current_client.fullname %></strong>,<br><br> Here are your requests.</h2>
-
               <% if @my_requests.count == 0 %>
               <h2>No Request has been made.</h2>
               <% elsif @my_requests.count > 0 %>
@@ -12,27 +11,27 @@
                   <h3><strong><%= my_request.id %></strong></h3><h3>status: This request has been resolved. Your cleaner will be with you shortly. <br> <%= link_to "View", my_request, :class=>"btn-primary" %> </h3>
                 <% else %>
                   <div class="table-responsive">
-  <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>
-                 <h3><strong>Request No.<%= my_request.id %></strong></h3>
-                </th>
-                <th>
-                 <h3><%= link_to "View", my_request, :class=>"btn btn-primary" %> </h3>
-                </th>
-                <th>
-                 <h3><%= link_to "Edit", [:edit, my_request], :class=>"btn btn-primary" %> </h3>
-                </th>
-            </tr>
-        </thead>
-        </table>
-        </div>
+                    <table class="table table-bordered">
+                      <tbody>
+                          <tr>
+                            <td>
+                             <h3><strong>Request No.<%= my_request.id %></strong></h3>
+                            </td>
+                            <td>
+                             <h3><%= link_to "View", my_request, :class=>"btn btn-primary" %> </h3>
+                            </td>
+                            <td>
+                             <h3><%= link_to "Edit", [:edit, my_request], :class=>"btn btn-primary" %> </h3>
+                            </td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 <% end %>
               <% end %>
             <% end %>
 
-              <%= link_to "Create A Request", new_request_path, :class=>"btn btn-danger" %>
+              <%= link_to "Create A Request", new_request_path, :class=>"btn btn_submit btn-info btn-block" %>
 
             </div>
         </div>

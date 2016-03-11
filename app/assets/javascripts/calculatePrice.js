@@ -1,11 +1,3 @@
-document.onreadystatechange = function(){
-  if(window.location.pathname=="/requests/new" || window.location.pathname=="/requests/new" ){
-   if(document.readyState === 'complete'){
-    document.getElementById("daDays").defaultValue = 1;
-  }
- }
-}
-
 
 //makes the price appear in the form one page is loaded.
 
@@ -13,11 +5,12 @@ function placeValue() {
   if (window.location.pathname=="/requests/new" || window.location.pathname=="/requests"){
     document.getElementById("daPrice").innerHTML = "$"+12+".00";
     document.getElementById("daRooms").innerHTML = 4;
-    document.getElementById("daDays").innerHTML = "("+getDaysNumber()+")";
+    document.getElementById("daDays").innerHTML = getDaysNumber();
   }
 // this value is returned when the function is called in calculatePricing.
   return 12;
 }
+
 
 // converts value in the bedroom dropdown to integer and returns value on function call
 function getBedroomNumber() {
@@ -90,56 +83,47 @@ function getCheckBoxValue() {
 }
 
 function checkDays() {
-  var selectedDays = [];
   var checkedDays = getDaysNumber();
   var listOfDays = document.getElementsByName("request[weekdays][]");
   
   if(document.getElementById('request_weekdays_monday').checked == true) {
     checkedDays -= 1;
-    selectedDays.push(document.getElementById('request_weekdays_monday').value);
-
   } else {
     checkedDays +=0;
   }
 
   if (document.getElementById('request_weekdays_tuesday').checked == true) {
     checkedDays -= 1;
-    selectedDays.push(document.getElementById('request_weekdays_tuesday').value);
   } else {
     checkedDays += 0;
   }
 
   if (document.getElementById('request_weekdays_wednesday').checked == true) {
     checkedDays -= 1;
-    selectedDays.push(document.getElementById('request_weekdays_wednesday').value);
   } else {
     checkedDays += 0;
   }
 
   if (document.getElementById('request_weekdays_thursday').checked == true) {
     checkedDays -= 1;
-    selectedDays.push(document.getElementById('request_weekdays_thursday').value);
   } else {
     checkedDays += 0;
   }
   
   if (document.getElementById('request_weekdays_friday').checked == true) {
     checkedDays -= 1;
-    selectedDays.push(document.getElementById('request_weekdays_friday').value);
   } else {
     checkedDays += 0;
   }
   
   if (document.getElementById('request_weekdays_saturday').checked == true) {
     checkedDays -= 1;
-    selectedDays.push(document.getElementById('request_weekdays_saturday').value);
   } else {
     checkedDays += 0;
   }
     
   if (document.getElementById('request_weekdays_sunday').checked == true) {
     checkedDays -= 1;
-    selectedDays.push(document.getElementById('request_weekdays_sunday').value);
   } else {
     checkedDays += 0;
   }
@@ -148,12 +132,9 @@ function checkDays() {
     alert("You can only choose "+getDaysNumber()+" days");
     for (var i = 0; i < listOfDays.length; i++) {
       listOfDays[i].checked = false;
-      selectedDays = [];
     };
   }
-  document.getElementById('selectedDays').innerHTML = selectedDays;
   console.log(checkedDays);
-  console.log(selectedDays);
 }
 
 function getCleaningProduct() {

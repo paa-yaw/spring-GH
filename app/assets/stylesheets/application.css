@@ -40,7 +40,7 @@ li.page-scroll > a.btn:hover {
 }
 
 .form-content {
-  border: solid 1px #c0c0c0;
+  border: solid 1px #122772;
   background-color: #eee;
   padding-top: 20px;
   border-radius: 2px;
@@ -78,7 +78,6 @@ div.form-top-left > p, div.form-top-left > ol > li > p, div.form-top-left > ol >
 
 hr {
   border-color: #0090C1;
-
 }
 
 /*.btn-block {background-color: #0090C1; color:#fff; border-color: #0090C1;}*/
@@ -110,18 +109,15 @@ div.content-box > h1 > strong {
   font-size: 24px;
 }
 
-.btn{
+.btn.submit_button{
+  background:#ffd207 !important;
+}
+
+.simple_form #cleanButton{
+  height: 48px;
   background-color: #ffd207;
 }
 
-#cleanButton{
-  height: 48px;
-}
-
-/*#pricingBox{
-  position:fixed;
-}
-*/
 @media only screen and (max-width: 500px) {
   .content-box{
     padding-top: 30px;

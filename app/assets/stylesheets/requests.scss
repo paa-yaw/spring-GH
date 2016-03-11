@@ -104,6 +104,7 @@ span.checkbox.inline{
   margin-bottom: 20px;
 }
 
+
 #navigation > div.container > div.navbar-header.page-scroll > a.navbar-brand{
   padding-top: 0px;
 }
@@ -121,40 +122,51 @@ img.img-responsive{
   width: 10%;
 }
 
+
 input[type=checkbox]{
-  -ms-transform: scale(1.3); /* IE */
-  -moz-transform: scale(1.3); /* FF */
-  -webkit-transform: scale(1.3); /* Safari and Chrome */
-  -o-transform: scale(1.3); /* Opera */
+  -ms-transform: scale(1.4); /* IE */
+  -moz-transform: scale(1.4); /* FF */
+  -webkit-transform: scale(1.4); /* Safari and Chrome */
+  -o-transform: scale(1.4); /* Opera */
 }
 
 input[type=radio]{
-  -ms-transform: scale(1.3); /* IE */
-  -moz-transform: scale(1.3); /* FF */
-  -webkit-transform: scale(1.3); /* Safari and Chrome */
-  -o-transform: scale(1.3); /* Opera */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
 }
 
 // Table page
 div.panel.panel-default > div.table-responsive{
-  border-bottom:solid 1px #333;
+  border-bottom:solid 1px #0E1E59;
 }
 
+// table.table.table-bordered > tbody > tr > td{
+//   border-right: solid 1px #0E1E59;
+// }
+
+// table.table.table-bordered > thead > tr > th{
+//   border-right: solid 1px #0E1E59;
+// }
+
 th {
-  background-color: #E8E8E8;
+  background-color: #324072;
+  color:#fff;
+//   border: solid 1px #0E1E59;
 }
 
 td {
+  // border-right: solid 1px #0E1E59;
   background-color: #E8E8E8;
 }
 
-.panel-default{
-  border-color: #333;
+div.panel.panel-default{
+  border: solid 1px #0E1E59;
 }
 
 // Display Request Page 
 
 div.well{
-  border:solid 1px #c0c0c0;
+  border:solid 1px #0E1E59;
 }
-

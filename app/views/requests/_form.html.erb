@@ -19,12 +19,10 @@
    <br>
    
    <div class="row" onchange="calculatePricing()">
-     <div class="col-md-3 col-md-offset-4">
+     <div class="col-md-4 col-md-offset-1">
        <%= f.input :days, label: "Number of days" %>
      </div>
-   </div>
-   <div class="row" onchange="calculatePricing()">
-     <div class="col-md-4 col-md-offset-4" >
+     <div class="col-md-4 col-md-offset-2" >
       <%= f.input :frequency, :collection => ["weekly", "monthly"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "Frequency" %>
      </div>
    </div>
@@ -51,7 +49,7 @@
       <% if request.persisted? %>
       <%= f.button :submit, "Edit Request", :class=>"btn-block btn-lg", :id =>"cleanButton"%>
       <% elsif %>
-      <%= f.button :submit, "Get A Cleaner", :class=>"btn-block btn-lg",:id =>"cleanButton" %>
+      <%= f.button :submit, "Get A Cleaner", :class=>"btn submit_button btn-block",:id =>"cleanButton" %>
       <% end %>
     
   </div>
