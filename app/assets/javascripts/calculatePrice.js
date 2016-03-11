@@ -1,4 +1,3 @@
-
 //makes the price appear in the form one page is loaded.
 
 function placeValue() {

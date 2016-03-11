@@ -1,39 +1,38 @@
 <div class="container-fluid">
-<div class="row">
-
-<div class="col-xs-12 col-sm-6 col-sm-offset-1 form-content edit-form">
-            <div class="form-top">
-              <div class="form-top-left">
-                <h3>Edit Your Request</h3>
-              </div>
-            </div>
-            <div class="form-bottom">
-             <%= render 'form', request: @request %><br>
-              <%= link_to "Back", root_path %>
-            </div>
-          </div>
-
- <div class="col-xs-12 col-sm-3 col-sm-offset-1 form-box form-content" id="pricingBox">
-             <h3>Pricing</h3>
-             <div class="table-responsive">
-                <table class="table">
-                  <tr>
-                    <td>Rooms</td>
-                    <td></td>
-                    <td><b id="daRooms"></b></td>
-                  </tr>
-                  <tr>
-                    <td>Days&nbsp;<b id="daDays">(x)</b></td>
-                    <td></td>
-                    <td><b id="selectedDays"></b></td>
-                  </tr>
-                  <tr>
-                    <td><b>Total</b></td>
-                    <td></td>
-                    <td><b id="daPrice"></b></td>
-                  </tr>
-                </table>
-              </div>
-            </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-1 form-content edit-form">
+        <div class="form-top">
+          <div class="form-top-left">
+            <h3>Edit Your Request</h3>
           </div>
         </div>
+        <div class="form-bottom">
+          <%= render 'form', request: @request %><br>
+          <%= link_to "Back", root_path %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-3 col-sm-offset-1 form-box form-content" id="pricingBox">
+        <h3>Pricing</h3>
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <td>Rooms</td>
+                <td></td>
+                <td><b id="daRooms"></b></td>
+              </tr>
+              <tr>
+                <td>Days&nbsp;<b id="daDays">(x)</b></td>
+                <td></td>
+                <td><b id="selectedDays"></b></td>
+              </tr>
+              <tr>
+                <td><b>Total</b></td>
+                <td></td>
+                <td><b id="daPrice"></b></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
