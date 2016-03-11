@@ -28,6 +28,5 @@ class Request < ActiveRecord::Base
 	def add
 	  self.update(client_id: Client.current.id)
 	end
-
 	
 end

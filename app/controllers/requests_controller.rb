@@ -4,9 +4,6 @@ class RequestsController < ApplicationController
   before_filter :set_current_client
   before_action :set_request, only: [:show, :edit, :update, :destroy, :add, :display_request]
 
-  def index
-    @requests = Request.all
-  end
   
   def show
   end

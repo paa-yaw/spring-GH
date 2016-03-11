@@ -25,14 +25,13 @@
       --------------------------------------------------------------------
 
       <h1>Worker's History</h1>
-      <h3><%= @worker.first_name%> has been assigned to the following requests:</h3>
 
       <% if @worker.requests.any? %>
         <% @worker.requests.each do |request| %>
-          <p><%= link_to "Request No. #{request.id}", request %> </p>
+          <p><%= link_to "Request No. #{request.id}", admin_request_path(request) %> </p>
         <% end %>
       <% else %>
-        <p>No requests yet!</p>
+        <h3><%= @worker.first_name%> has not been assigned to any requests yet!</h3>
       <% end %>
 
 </div>
