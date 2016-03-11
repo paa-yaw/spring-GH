@@ -83,7 +83,7 @@
         <% if @request.resolved == true %>
         <%= link_to "Back", :back %>
         <% else %>
-          <%=  link_to "Edit", [:edit, @request], :class => "btn btn-info" %> | <%= link_to "Back", :back, :class => "btn btn-danger" %>
+          <%=  link_to "Edit", [:edit, @request], :class => "btn btn-info" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
         <% end %>
 
         <!--Business Algorithm -->
