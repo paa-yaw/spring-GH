@@ -46,23 +46,23 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <i class="fa fa-fw fa-dashboard"></i> <%= link_to "Dashboard", admin_root_path %> </a>
+                    <li>
+                       <%= link_to "Dashboard", admin_root_path %>
                     </li>
                     <li>
-                        <i class="fa fa-fw fa-book"></i><%= link_to "Requests", admin_requests_path %></a>
+                       <%= link_to "Requests", admin_requests_path %>
                     </li>
                     <li>
-                        <i class="fa fa-fw fa-book"></i><%= link_to "Worker Registration", new_admin_worker_path %></a>
+                       <%= link_to "Worker Registration", new_admin_worker_path %>
                     </li>
                     <li>
-                        <i class="fa fa-fw fa-male"></i><%= link_to "Workers", admin_workers_path %></a>
+                       <%= link_to "Workers", admin_workers_path %>
                     </li>
                     <li>
-                        <i class="fa fa-fw fa-user"></i><%= link_to "Clients", admin_clients_path %></a>
+                       <%= link_to "Clients", admin_clients_path %>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i>Analytics<i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"></i>Analytics<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
                                 <a href="#">Graph</a>

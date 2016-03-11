@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     root 'home#index'
 
     get 'requests/:id/assign', to: 'requests#assign', as: :assign
+    delete 'requests/:id/unassign', to: 'requests#unassign', as: :unassign
 
     resources :clients 
     resources :workers 

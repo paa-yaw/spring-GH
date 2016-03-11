@@ -7,9 +7,9 @@
 
   <% @workers.each do |worker| %>
   <% if worker.requests.any? %>
-    <h2><%= worker.first_name %>  <%= worker.last_name %> status: assigned! <%= link_to "View", admin_worker_path(worker) %></h2>
+    <h2><%= worker.first_name %>  <%= worker.last_name %> status: assigned! <%= link_to "View", admin_worker_path(worker), class: "btn btn-primary" %></h2>
   <% else %>
-    <h2><%= worker.first_name %>  <%= worker.last_name %> unassigned! <%= link_to "View", admin_worker_path(worker) %></h2>
+    <h2><%= worker.first_name %>  <%= worker.last_name %> unassigned! <%= link_to "View", admin_worker_path(worker), class: "btn btn-primary" %></h2>
   <% end %>
   <% end %>
 

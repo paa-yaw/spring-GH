@@ -1,5 +1,5 @@
 class Admin::RequestsController < Admin::ApplicationController
-  before_action :set_request, only: [:edit, :show, :resolve, :unresolve, :destroy, :assign]	
+  before_action :set_request, only: [:edit, :show, :resolve, :unresolve, :destroy, :assign, :unassign]	
 
   def index
     @all_requests = Request.all
@@ -34,23 +34,14 @@ class Admin::RequestsController < Admin::ApplicationController
     redirect_to admin_root_path
   end
 
-  # def resolve
-  # 	@request.resolve
-    
-  #   if @request.save 
-  # 	  flash[:notice] = "This request has been resolved."
-  #     redirect_to admin_workers_path
-  #   else
-  #     admin_root_path
-  #   end
-  # end
+  def unassign
+    @worker = @request.workers
 
-  def unresolve
+    @request.workers.delete(@worker)
     @request.unresolve
-
-    flash[:notice] = "This request has not been resolved"
     redirect_to admin_root_path
   end
+
 
   def destroy
     @request.destroy
@@ -67,6 +58,6 @@ class Admin::RequestsController < Admin::ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:category, :other_task, :phone_number, :location, :date_time)
+    params.require(:request).permit(:category, :phone_number, :location, :date_time)
   end
 end
