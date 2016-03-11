@@ -1,4 +1,4 @@
-class Admin::ClientsController < ApplicationController
+class Admin::ClientsController < Admin::ApplicationController
 
   def index
   	@clients = Client.all.where(admin: false)
