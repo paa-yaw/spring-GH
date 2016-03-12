@@ -1,18 +1,28 @@
 <div class="container" >
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3 form-box content-box text-center">
-         <div class="well">   
+        
+         <div class="panel-group">
+   <div class="panel panel-default">
+  <!-- Default panel contents -->
+   <div class="panel-heading"></div>
+  
+         <div class="panel-body">
 
-          <% if @request.client_id != Client.last.id %>
-          <h2>Click to View Your Request.</h2>
+             <div class="well">   
 
-           <%= link_to "View Request", [:add, @request], method: :patch, 
-                 :class => 'btn btn-block btn-lg' %>
-          <% else %>
-           <%= link_to "View Request", @request, :class => 'btn-block btn-lg'  %>          
-           <%= link_to "Back", :back %>
-          <% end %>
+              <% if @request.client_id != Client.last.id %>
+              <h2>Click to View Your Request.</h2>
+
+               <%= link_to "View Request", [:add, @request], method: :patch, 
+                     :class => 'btn btn-block btn-lg' %>
+              <% else %>
+               <%= link_to "View Request", @request, :class => 'btn-block btn-lg'  %>          
+               <%= link_to "Back", :back %>
+              <% end %>
+              </div>
           </div>
+          
         </div>
       </div>
     </div>
