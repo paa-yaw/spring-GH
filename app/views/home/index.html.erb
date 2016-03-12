@@ -43,7 +43,14 @@
               <li><%= link_to "Home", root_path %></li>
               <!-- <li><a href="index.html#services">Offerings</a></li> -->
               <li><%= link_to "About" %></li>
-              <li><%= link_to "Login", new_client_session_path %></li>
+
+              <% if client_signed_in? %>
+                <li><%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li>
+              <% else %>
+                <li><%= link_to "Login", new_client_session_path %></li>
+              <% end %>
+
             </ul>
 
           </div>
