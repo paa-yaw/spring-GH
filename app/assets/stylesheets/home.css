@@ -100,15 +100,19 @@ h1.animated.delay1.fadeInLeft{
   font-weight: 200;
 }
 
+.lg-screen-hide{
+  display:none;
+}
+
 @media only screen and (max-device-width: 480px){
 
   /*Image Order*/
-  .picture-top{
-    float: top;
+ /* .mobile-show{
+    display: visible;
   }
-
-  .text-top{
-    float:bottom;
+*/
+  .mobile-hide{
+    display:none;
   }
   
 }
