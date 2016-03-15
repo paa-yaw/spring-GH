@@ -8,10 +8,11 @@
               <div class="smallButton text-center">
                 <a href="./requests/new" class="botton btn-block btn-lg">Book a Cleaner <i class="icon-long-arrow-right"></i></a>
               </div>
+              
               <div class="info_slide">
                 <div class="container">
                   <div class="row-fluid">
-                    <div class="span8">
+                    <div class="col-sm-12">
                       <h1 class="animated delay1 fadeInLeft">BOOK A TRUSTED CLEANER</h1>
                       <hr class="delay2 fadeInLeft" style="border:transparent;">
                       <a href="./requests/new" class="animated delay2 fadeInLeft botton btn-lg">Book a Cleaner <i class="icon-long-arrow-right"></i></a>
@@ -29,7 +30,7 @@
       <nav>
        <div class="container">
         <div class="row-fluid">
-          <div class="span2">
+          <div class="col-sm-2">
 
             <!-- Logo -->
             <div id="logo">
@@ -39,7 +40,8 @@
             <!-- Logo -->
 
           </div>
-          <div class="span5 offset5">
+          <div class="col-sm-8">
+          <!-- <div class="span5 offset5"> -->
 
             <ul id="menu">
 
@@ -71,8 +73,10 @@
       
       <div class="border_bottom"></div>
 
-        <div class="row-fluid top">
-          <div class="span6">
+        <div class="row top">
+          <!-- <div class="span6"> -->
+          <div class="col-sm-6">
+
             <!--Services One-->
             <div class="offerings">
               <div class="border_right">
@@ -80,9 +84,11 @@
               </div>
             </div>
             <!--Services One-->
+
           </div>
 
-          <div class="span6">
+          <!-- <div class="span6"> -->
+          <div class="col-sm-6">          
             <!--Services Two-->
             <div class="offerings">
               <div>
@@ -100,6 +106,7 @@
               </div>
             </div>
             <!--Services Two-->  
+
           </div>
           
         </div>
@@ -110,9 +117,9 @@
        <div class="border_bottom"></div>
 
       <div class="services top">
-        <div class="row-fluid">
-
-          <div class="span6">
+        <div class="row">
+          <!-- <div class="span6"> -->
+          <div class="col-sm-6 text-top">
             <!--Services Three -->
             <div class="offerings">
               <h3>Kitchen</h3>
@@ -129,7 +136,7 @@
             <!--Services Three -->
           </div>
 
-          <div class="span6">
+          <div class="col-sm-6 picture-top">
             <!--Services Four-->
             <div class="offerings">
               <div class="border_right">
@@ -137,6 +144,7 @@
               </div>
             </div>
              <!--Services Four--> 
+
           </div>
 
         </div>
@@ -145,9 +153,9 @@
        <div class="border_bottom"></div>
 
       <div class="services top">
-        <div class="row-fluid">
+        <div class="row">
 
-          <div class="span6">
+          <div class="col-sm-6">
             <!--Services Three -->
             <div class="offerings">
               <%= image_tag("img/offering/bed.jpg", :alt => "bed jpg") %>
@@ -155,7 +163,7 @@
             <!--Services Three -->
           </div>
 
-          <div class="span6">
+          <div class="col-sm-6">
             <!--Services Four-->
             <div class="offerings">
               <div>
@@ -178,9 +186,9 @@
       
       <div class="border_bottom"></div>
       <div class="services top">
-        <div class="row-fluid">
+        <div class="row">
 
-          <div class="span6">
+          <div class="col-sm-6 text-top">
             <!--Services Three -->
             <div class="offerings">
               <h3>Bathroom</h3>
@@ -199,7 +207,7 @@
             <!--Services Three -->
           </div>
 
-          <div class="span6">
+          <div class="col-sm-6 picture-top">
             <!--Services Four-->
             <div class="offerings">
               <div class="border_right">
@@ -215,14 +223,79 @@
     </div>
     <!-- Services -->
 
+     <div class="border_bottom"></div>
+      <div class="container">
+        <div class="row">
+          <div class="extra-services text-center">
+            <h3>EXTRA SERVICES</h3>
+            <br>
+            <div class="col-sm-3 extra-laundry">
+              <p>Laundry</p>
+              <%= image_tag("img/offering/fold1.jpg", :alt => "fold1 jpg", width: "60px", height: "60px") %>
+              <!-- <img src="img/offering/fold1.jpg" alt="" width="60px" height="60px" /> -->
+                <p>$8.00</p>
+            </div>
+            <div class="col-sm-3 extra-fridge">
+                <p>Inside Fridge Cleaning</p>
+              <%= image_tag("img/offering/insidefridge.png", :alt => "insidefridge jpg", width:"60px", height:"60px") %>
+              <!-- <img src="img/offering/insidefridge.png" alt="" width="60px" height="60px" /> -->
+                <p>$8.00</p>
+            </div>
+            <div class="col-sm-3 extra-store">
+                <p>Store Room Cleaning</p>
+              <%= image_tag("img/offering/storeRoom1.jpg", :alt => "storeRoom1 jpg",width: "60px",height: "60px") %>
+              <!-- <img src="img/offering/storeRoom1.jpg" alt="" width="60px" height="60px" /> -->
+                <p>$8.00</p>
+            </div>
+            <div class="col-sm-3 extra-compound">
+                <p>Compound Cleaning</p>
+              <%= image_tag("img/offering/compound.png", :alt => "compound jpg",width:"60px", height:"60px") %>
+              <!-- <img src="img/offering/compound.png" alt="" width="60px" height="60px" /> -->
+                <p>$8.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    <!-- Services -->
+
       <!-- About -->
-      
+
+      <div class="border_bottom"></div>
+      <!-- <section id="about"> -->
+         <div class="container" id="about">
+           <div class="row">
+             <h3 class="about-title text-center">About Us</h3> <br>
+              <p class="about-paragraph">
+                Established in Ghana in 2008,
+                MEST offers aspiring African entrepreneurs a fully sponsored twelve month,
+                intensive full-time program. Sourced from top graduates in Ghana and Nigeria,
+                30 of these Entrepreneurs-In-Training (EITs) are selected each year and receive
+                comprehensive training across the spectrum of skills required to build successful tech businesses,
+                including computer programming, software development, product management, finance, marketing,
+                sales and leadership best practices.
+
+                After completion of the program, the EITs have the opportunity to pitch a concept.
+                Winning teams receive a seed round from the MEST incubator to pursue their idea.
+                Today, MEST is fully backed by The Meltwater Foundation, a not for profit arm of the Meltwater Group.
+                Headquartered in San Francisco with 900 employees and 50 offices across the world,
+                Meltwater is the global leader for online news and social media analytics.
+                Meltwater’s online intelligence platform analyzes billions of digital documents daily to extract precise,
+                timely business insights that help more than 20,000 companies understand their markets, engage their customers,
+                and master the new social business environment.
+                Established in Ghana in 2008,
+                </p>
+           </div>
+         </div>
+       <!-- </section> -->
+       <br>
       <!-- About -->
+
 
     <!-- Footer -->
     <footer id="contact">
       <div class="container">
-        <div class="row-fluid">
+        <div class="row">
           <h2>Let's Get in touch</h2>
           <hr class="primary">
           <p>Need more information, or want to the conversation more personal? Call or send us an email.</p>
@@ -240,19 +313,19 @@
           </p>
         </div>
 
-        <div class="row-fluid">
-          <div class="span8">            
+        <div class="row">
+          <div class="col-sm-8">            
 
-            <div class="row-fluid">
+            <div class="row">
               <div>
                
               </div>
             </div>
           </div>
 
-          <div class="span4">
+          <div class="col-sm-4">
             <div>
-              <div class="row-fluid">
+              <div class="row">
                 <div>
                   
                 </div>

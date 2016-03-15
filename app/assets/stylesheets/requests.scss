@@ -5,7 +5,6 @@
 // REQUEST PAGE
 
 body{
-  // background-color:rgba(18, 39, 114, 0.7);
   background-image: url('bluefloormops.png');
   background-size: cover;
 }
@@ -13,22 +12,6 @@ body{
 select{
   height: 45px;
 }
-
-// select#request_bedrooms{
-//   width:24%;
-// }
-
-// select#request_bathrooms{
-//   width:24%;
-// }
-
-// select#request_kitchens{
-//   width:24%;
-// }
-
-// select#request_hall{
-//   width:24%;
-// }
 
 select#request_date_time_1i{
   width:20%; 
@@ -104,7 +87,6 @@ span.checkbox.inline{
   margin-bottom: 20px;
 }
 
-
 #navigation > div.container > div.navbar-header.page-scroll > a.navbar-brand{
   padding-top: 0px;
 }
@@ -121,7 +103,6 @@ ul.nav.navbar-nav.navbar-right > li.page-scroll > a{
 img.img-responsive{
   width: 10%;
 }
-
 
 input[type=checkbox]{
   -ms-transform: scale(1.4); /* IE */
@@ -142,13 +123,9 @@ div.panel.panel-default > div.table-responsive{
   border-bottom:solid 1px #0E1E59;
 }
 
-// table.table.table-bordered > tbody > tr > td{
-//   border-right: solid 1px #0E1E59;
-// }
-
-// table.table.table-bordered > thead > tr > th{
-//   border-right: solid 1px #0E1E59;
-// }
+div.offerings{
+  color: #122772;
+}
 
 th {
   background-color: #324072;
@@ -170,3 +147,5 @@ div.panel.panel-default{
 div.well{
   border:solid 1px #0E1E59;
 }
+
+
