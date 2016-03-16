@@ -21,6 +21,14 @@ img.img-responsive{
   background-color: #fff;
  }
 
+ nav #menu{
+  text-align: right!important;
+ }
+
+  nav #menu li a:hover{
+    color:#ffd207!important;
+  }
+
  div#logo a {
   color: #FFD207!important;
  }
@@ -104,15 +112,40 @@ h1.animated.delay1.fadeInLeft{
   display:none;
 }
 
+#about h2{
+  color: #122772;
+}
+
+#extra h2{
+  color: #122772;
+}
+
+#extra{
+  padding-top: 50px;
+}
+
 @media only screen and (max-device-width: 480px){
 
-  /*Image Order*/
- /* .mobile-show{
-    display: visible;
-  }
-*/
-  .mobile-hide{
+.mobile-hide{
     display:none;
   }
+
+
+nav.visible-phone{
+  padding-bottom: 0px;
+}
+
+div#about.container > div.row{
+  margin-right: 0px;
+}
+
+div#services.container{
+  padding-top: 0px;
+}
+
+footer#contact div.container div.row{
+  margin-right: 0px;
+}
+
   
 }

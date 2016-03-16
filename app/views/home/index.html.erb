@@ -1,21 +1,55 @@
  <header>
       <!-- Main Jumbo -->
+          <!--Menu-->
+      <nav class="visible-phone">
+       <div class="container">
+        <div class="row-fluid">
+          <div class="col-sm-2">
+
+            <!-- Logo -->
+            <div id="logo">
+              <a href="index.html">
+              <%= image_tag("spring-logo-final.png", :alt => "spring logo", :width=>"69px") %></a>
+            </div>
+            <!-- Logo -->
+
+          </div>
+          <div class="col-sm-8">
+          <!-- <div class="span5 offset5"> -->
+
+            <ul id="menu">
+
+              <li><%= link_to "Home", root_path %></li>
+              <!-- <li><a href="index.html#services">Offerings</a></li> -->
+              <li><%= link_to "About" %></li>
+
+              <% if client_signed_in? %>
+                <li><%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li>
+              <% else %>
+                <li><%= link_to "Login", new_client_session_path %></li>
+              <% end %>
+
+            </ul>
+
+          </div>
+        </div>
+       </div>
+       <br>
+      </nav>
+
         <div class="main_slide" id="intro">
           <ul class="rslides" id="slider1">
             <!--Junbo-->
             <li>
               <%= image_tag("img/home/home2blackcrop2.jpg", :alt => "home2black jpg") %>
-              <div class="smallButton text-center">
-                <a href="./requests/new" class="botton btn-block btn-lg">Book a Cleaner <i class="icon-long-arrow-right"></i></a>
-              </div>
-              
               <div class="info_slide">
                 <div class="container">
                   <div class="row-fluid">
                     <div class="col-sm-12">
                       <h1 class="animated delay1 fadeInLeft">BOOK A TRUSTED CLEANER</h1>
                       <hr class="delay2 fadeInLeft" style="border:transparent;">
-                      <a href="./requests/new" class="animated delay2 fadeInLeft botton btn-lg">Book a Cleaner <i class="icon-long-arrow-right"></i></a>
+                      <a href="./requests/new" class="animated delay2 fadeInLeft botton btn-lg hidden-phone">Book a Cleaner <i class="icon-long-arrow-right"></i></a>
                     </div>
                   </div>
                 </div>                                                    
@@ -24,10 +58,21 @@
             <!--Jumbo-->
           </ul>
         </div> 
+<div>
+  
+          <ul class="unstyled">
+            <li>
+               <div class="smallButton text-center" style="margin-left:5px; margin-right:5px;">
+                <a href="./requests/new" class="botton btn-block btn-lg visible-phone">Book a Cleaner <i class="icon-long-arrow-right"></i></a>
+              </div>
+            </li>
+          </ul>
+</div>
+          
        <!-- end Main Jumbo -->
 
       <!--Menu-->
-      <nav>
+      <nav class="hidden-phone">
        <div class="container">
         <div class="row-fluid">
           <div class="col-sm-2">
@@ -240,10 +285,10 @@
     <!-- Services -->
 
      <div class="border_bottom"></div>
-      <div class="container">
+      <div class="container" id="extra">
         <div class="row">
           <div class="extra-services text-center">
-            <h3>EXTRA SERVICES</h3>
+            <h2 class="about-title text-center">EXTRA SERVICES</h2>
             <br>
             <div class="col-sm-3 extra-laundry">
               <p>Laundry</p>
@@ -281,7 +326,7 @@
       <!-- <section id="about"> -->
          <div class="container" id="about">
            <div class="row">
-             <h3 class="about-title text-center">About Us</h3> <br>
+             <h2 class="about-title text-center">ABOUT US</h2> <br>
               <p class="about-paragraph">
                 Established in Ghana in 2008,
                 MEST offers aspiring African entrepreneurs a fully sponsored twelve month,
