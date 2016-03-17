@@ -17,12 +17,15 @@
       <p><strong>Phone Number:</strong> <%= @worker.phone_number %></p>
       <p><strong>Location:</strong> <%= @worker.location %></p>
       <p><strong>Education:</strong> <%= @worker.education %></p>
-      <p><strong>Salary Expectation:</strong> <%= @worker.minimum_wage %></p>
+      <p><strong>Salary Expectation:</strong> GHc <%= @worker.minimum_wage %></p>
       <p><strong>Work Experience:</strong> <%= @worker.experience %></p>
       <p><strong>Extra Info:</strong> <%= @worker.extra_info %></p>
 
-
       --------------------------------------------------------------------
+
+      <h3><%= link_to fa_icon("pencil") + "edit", edit_admin_worker_path(@worker), class: "btn  btn-primary" %> <%= link_to "Back", :back, class: "btn btn-primary" %></h3>
+
+  
 
       <h1>Worker's History</h1>
 

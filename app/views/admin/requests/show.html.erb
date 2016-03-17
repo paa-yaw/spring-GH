@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm-9 col-sm-offset-1 form-box">  
 
-<h1>Assign worker(s) to <%= @request.client.fullname %>'s request.</h1>
+<h1><%= @request.client.fullname %>'s request(No <%= @request.id %>).</h1>
 <!-- <h3><#%= @request.name %></h3> -->
 <div class="table-responsive">
   <table class="table table-bordered">
@@ -91,23 +91,23 @@
 <% end %>          
 <br>
 
-<h2>Workers</h2>
+<h2>Assign a worker(s)</h2>
 <% if @workers.any? %>
 
 <% @workers.each do |worker| %>
 
 <% if worker.requests.any? %>
-  <h2><%= worker.first_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %> </h2>
+  <h3><%= worker.first_name %>, <%= worker.last_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %> status: already assigned </h3>
 <% else %>
-  <h2><%= worker.first_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %> <%= link_to "Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
-      data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-success"  %></h2>
+  <h3><%= worker.first_name %>, <%= worker.last_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %> <%= link_to "Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
+      data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-success"  %></h3>
 <% end %>
 
 <% end %>
 
 <% else %>
 
-<h2>No workers currently available!</h2>
+<h2>No workers currently in your database!</h2>
 
 <% end %>
 

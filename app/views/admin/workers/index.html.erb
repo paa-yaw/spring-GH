@@ -10,9 +10,9 @@
 
   <% @workers.each do |worker| %>
   <% if worker.requests.any? %>
-    <h2><%= worker.first_name %>  <%= worker.last_name %> status: assigned! <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %></h2>
+    <h3>Name: <%= worker.first_name %>, <%= worker.last_name %> <%= link_to "status: assigned!", admin_requests_path, class: "btn btn-success" %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %></h3>
   <% else %>
-    <h2><%= worker.first_name %>  <%= worker.last_name %> unassigned! <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %></h2>
+    <h3>Name: <%= worker.first_name %>, <%= worker.last_name %> <%= link_to "status: unassigned!", admin_requests_path, class: "btn btn-success" %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %></h3>
   <% end %>
   <% end %>
   <% end %>
