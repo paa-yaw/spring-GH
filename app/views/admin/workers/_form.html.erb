@@ -12,7 +12,7 @@
       <%= f.input :phone_number, label: "Phone Number" %>
       <%= f.input :location, label: "Location" %>
       <%= f.input :education, label: "Level of education" %>
-      <%= f.input :minimum_wage, label: "Salary Expectation" %>
+      <%= f.input :minimum_wage, label: "Salary Expectation(in GHc)" %>
       <%= f.input :experience, label: "Experience" %>
   </div>
 
@@ -20,7 +20,18 @@
       <%= f.input :extra_info, label: "Extra Info" %>
   </div>
  </div>
+
  <div class="text-center">
+
+  <% if worker.persisted? %>
+
+  <%= f.button :submit, "Edit Worker", :class=>"btn btn-primary " %>
+ 
+ <% else %>
+ 
   <%= f.button :submit, :class=>"btn btn-primary " %>
+
  </div>
+
+ <% end %>
 <% end %>

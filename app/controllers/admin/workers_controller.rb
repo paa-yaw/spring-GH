@@ -49,7 +49,7 @@ class Admin::WorkersController < Admin::ApplicationController
   	@worker = Worker.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     # flash[:alert] = "the resource you are looking for can't be found!"
-    redirect_to error_not_found_path
+    redirect_to errors_not_found_path
   end
 
   def worker_params

@@ -39,10 +39,10 @@
   <% @resolved_requests.each do |request| %>
   <div class="row">
     <div class="col-md-3">
-      <h4>Request No.<%= request.id %></h4>
+      <h4>Request No.<%= link_to request.id, admin_request_path(request) %></h4>
     </div>
     <div class="col-md-3">
-      <h4><%= request.client.fullname %></h4>
+      <h4><%= link_to request.client.fullname, admin_client_path(request.client.id) %></h4>
     </div>
     <div class="col-md-3">
       <p>request created at <%= request.created_at %></p>

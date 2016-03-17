@@ -51,13 +51,14 @@ class Admin::RequestsController < Admin::ApplicationController
     redirect_to admin_root_path
   end
 
+  
   private
 
   def set_request
   	@request = Request.find(params[:id]) 
   rescue ActiveRecord::RecordNotFound
     # flash[:alert] = "can find the resource you are looking for!"
-    redirect_to error_not_found_path
+     redirect_to errors_not_found_path
   end
 
   def request_params
