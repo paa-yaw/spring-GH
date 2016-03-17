@@ -1,5 +1,5 @@
 class Admin::RequestsController < Admin::ApplicationController
-  before_action :set_request, only: [:edit, :show, :resolve, :unresolve, :destroy, :assign, :unassign]	
+  before_action :set_request, only: [:edit, :show, :resolve, :unresolve, :destroy, :assign]	
 
   def index
     @all_requests = Request.all
@@ -37,13 +37,13 @@ class Admin::RequestsController < Admin::ApplicationController
     redirect_to admin_root_path
   end
 
-  def unassign
-    @worker = @request.workers
+  # def unassign
+  #   @worker = Worker.find(params[:id])
 
-    @request.workers.delete(@worker)
-    @request.unresolve
-    redirect_to admin_root_path
-  end
+  #   @request.workers.delete(@worker)
+  #   @request.unresolve
+  #   redirect_to admin_root_path
+  # end
 
 
   def destroy
