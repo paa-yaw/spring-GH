@@ -1,29 +1,29 @@
 @charset "utf-8";
 
 /* ============================== */
-/* 
+/*
 	- Title: Spring
 	- Autor: Ohui A Kwao
-	- Email: 
+	- Email:
 */
-/* ============================== */	
+/* ============================== */
 
-/* ---------------------- 
+/* ----------------------
 	Stylesheet Guide
 -------------------------
 
 I. Import styles
 	-  bootstrap.css  - include resetes ( Media querys, grid-responsive,layout).
-	-  bootstrap-responsive.css	
+	-  bootstrap-responsive.css
 	-  default.css  - Default color skin
 	-  flexslider.css  - Carousel (comments)
 	-  animate.css  - Animations in css3
 	-  font-awesome.min.css  - Icons
 	-  responsiveslides -- Slide
-	-  Google Fonts  - Open sans	
-	
+	-  Google Fonts  - Open sans
+
 II. Basic Elements
-	-  Standar Styles	
+	-  Standar Styles
 	-  Class and styles Generals
 	-  Border
 	-  Border Right
@@ -42,10 +42,10 @@ III.  Structure
 	-  About
 	-  Contact
 	-  Footer
-	-  Pricing Table		
-	-  toTop	
+	-  Pricing Table
+	-  toTop
 	-  Color Changers
-	
+
 IV.	Layout 1920px version
 
 V.	Layout for 1440px Version
@@ -73,37 +73,48 @@ XIII.		Layout for 320px mobile version
 /* ---------------------------------------------------------------------- */
 
 /* bootstrap.css  - include resetes ( Media querys, grid-responsive,layout).*/
-@import url("bootstrap/bootstrap.css");
-@import url("bootstrap/bootstrap-responsive.css");
+@import url("bootstrap/css/bootstrap.css");
+/*@import url("bootstrap/bootstrap-responsive.css");*/
 /*flexslider*/
 @import url("flexslider.css");
 /*Animations*/
-@import url("./animations/animate.css");
+@import url("animations/animate.css");
 /*Slide*/
 @import url("slide/responsiveslides.css");
 /*jquery.fancybox-1.3.1.css  - Lightbox*/
-@import url("../javascripts/home/fancybox/jquery.fancybox.css");
+@import url("../js/fancybox/jquery.fancybox.css");
 /*Hover Effect*/
-@import url("./hover_effect/style.css");
+@import url("hover_effect/style.css");
 /*Icons*/
-@import url("./icons/font-awesome.min.css");
+@import url("icons/font-awesome.min.css");
 /*Google Fonts*/
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700);
 
 
 /* Standar Styles --------------------------------------------------------*/
 body{
-	font-size: 14px;	
+	font-size: 14px;
 	line-height:24px;
 	background-color: #fff;
-	color: #6e7982;
+	color: #122772;
 	font-family: 'Open Sans', sans-serif;
 }
+.icon-align{
+	text-align: left;
+}
+.icon-align-kit{
+	text-align: left;
+}
+.fa fa-hand-o-left{
+	float: right;
+}
+
 a{
-	color: #6e7982;
+	color: #fff;
 }
 a:hover{
-	text-decoration: none;	
+	text-decoration: none;
+	color: #ffd207;
 }
 p{
 	font-size: 14px;
@@ -121,16 +132,17 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 30px;
 }
 
+
 /* Class and styles General ----------------------------*/
 .clearfix{
 	width:1px;
-	height:1px;	
+	height:1px;
 	display:block;
 	clear:both;
 	content:" , ";
 }
 .border_bottom{
-	border: 1px solid #e7e8e9;
+	border: 1px solid #0072bb;
 }
 .border_right{
 	border-right: 1px solid #e7e8e9;
@@ -168,7 +180,7 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 22px;
 	text-transform: uppercase;
 }
-.botton{	
+.botton{
 	width: auto;
 	border: 0;
 	color: #fff;
@@ -185,14 +197,15 @@ h1, h2, h3, h4, h5, h6 {
 	transition: 0.3s all ease;
 }
 #works,#about,#services,#pricing{
-	padding-top: 50px;
+	padding-top: 30px;
 }
 .services h2, .pricing h2{
 	font-weight:700;
 	text-transform: uppercase;
 	font-size: 32px;
-	line-height: 42px;	
+	line-height: 42px;
 	padding: 55px 0 20px 0;
+	color: #122772;
 }
 /* Social ----------------------------*/
 .phone{
@@ -226,7 +239,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 600;
 }
 nav{
-	padding: 10px 0;
+	padding: 0px 0;
 	background-color: #fff;
 	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
 }
@@ -234,7 +247,7 @@ nav{
 	display: none;
 }
 nav #menu{
-	text-align: center;
+	text-align: right;
 	padding: 11px 0 0px 0;
 }
 nav #menu li{
@@ -257,7 +270,7 @@ nav #menu li a{
 	font-size: 16px;
 	list-style: none;
 }
-.is-sticky #menu{	
+.is-sticky #menu{
 	padding: 14px 0 0px 0;
 }
 .is-sticky #logo{
@@ -274,7 +287,7 @@ nav #menu li a{
 	background-position: center center;
 	z-index: 0;
 	overflow: hidden;
-	height: 590px;
+	height: 570px;
 }
 .main_title{
 	z-index: 10;
@@ -290,20 +303,21 @@ nav #menu li a{
 	text-align: center;
 	padding-bottom: 40px;
 }
-.services h3{ 
+.services h3{
 	text-transform: uppercase;
 	font-weight:600;
 }
 .services p,.services h3{
 	width: 80%;
 	margin-left: 5%;
+	color: #122772;
 }
 .offerings{
 	position: relative;
 }
 /*  Portfolio -----------------------------------------*/
 .portfolio{
-	text-align: center;	
+	text-align: center;
 }
 .title_portfolio{
 	padding: 50px 0;
@@ -317,7 +331,7 @@ nav #menu li a{
 	bottom: -19px;
 	z-index: 1;
 }
-.portfolio .image_portfolio{	
+.portfolio .image_portfolio{
 	position: relative;
 	width: 100%;
 	-webkit-background-size: cover;
@@ -374,7 +388,7 @@ nav #menu li a{
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 34px;
-	line-height: 44px;		
+	line-height: 44px;
 }
 .portfolio .info .category{
 	font-size: 18px;
@@ -399,7 +413,7 @@ nav #menu li a{
 	padding: 80px 0;
 }
 .more_portfolio h3{
-	text-transform: uppercase;	
+	text-transform: uppercase;
 	font-weight:600;
 }
 .more_portfolio ul{
@@ -444,7 +458,7 @@ nav #menu li a{
 }
 .about{
 	text-align: center;
-	padding: 55px 0; 
+	padding: 55px 0;
 }
 .about h3{
 	text-transform: uppercase;
@@ -465,7 +479,7 @@ nav #menu li a{
 	padding-top: 30%;
 }
 .img_preview .phone li a{
-    color: #fff; 
+    color: #fff;
     font-size: 45px;
 }
 /*  Contact -----------------------------------------*/
@@ -532,7 +546,7 @@ form{
 }
 /*  Footer -----------------------------------------*/
 footer{
-	background: #2C3F52;
+	background: #122772;
 	padding: 50px 0;
 	color: #fff;
 }
@@ -553,7 +567,7 @@ footer .phone li a{
 .coopring{
 	background-color: #fff;
 	text-align: center;
-	color: #6e7982;
+	color: #122772;
 	padding: 20px 0;
 }
 .coopring p{
@@ -575,10 +589,10 @@ footer .phone li a{
 	-moz-transition: 0.3s all ease;
 	-o-transition: 0.3s all ease;
 	-ms-transition: 0.3s all ease;
-	transition: 0.3s all ease;	
+	transition: 0.3s all ease;
 	border-radius: 15px;
 	padding-bottom: 25px;
-	border: solid 1px #b6bdc1; 
+	border: solid 1px #b6bdc1;
 }
 .item_table:hover {
 	margin-top: -5px;
@@ -593,14 +607,14 @@ footer .phone li a{
 	padding: 10px;
 }
 .head_table{
-	color: #fff;	
+	color: #fff;
 	background-color: #2C3F52;
 	text-align: center;
 }
 .head_title{
 	background-color:#2C3F52;
 	border-bottom: 1px solid #404b62;
-	padding: 10px 0; 
+	padding: 10px 0;
 }
 .head_title span{
 	font-style: italic;
@@ -678,7 +692,7 @@ footer .phone li a{
 	overflow:hidden;
 	float:left;
 	opacity: 0;
-	-moz-opacity: 0;	
+	-moz-opacity: 0;
 }
 #toTop:active, #toTop:focus {
 	outline:none;
@@ -686,12 +700,12 @@ footer .phone li a{
 
 /* Color Charger----------------------------------------*/
 
-#colorchanger { 
+#colorchanger {
 	position: fixed;
 	left: 0;
-	top: 210px; 
+	top: 210px;
 	background: #fff;
-	padding: 10px 10px 10px 7px;	
+	padding: 10px 10px 10px 7px;
 	border: 1px solid #dedede;
 	border-left: 0;
 	z-index: 10;
@@ -707,17 +721,17 @@ footer .phone li a{
 
 /* ---------------------------------------------------------------------- */
 /*	1920 Version
-/* ---------------------------------------------------------------------- */ 
+/* ---------------------------------------------------------------------- */
 @media handheld, only screen and (max-width: 1920px) {
 	.portfolio .about_portfolio{
 		top: 30%;
 		left: 40%;
 	}
-	
+
 }
 /* ---------------------------------------------------------------------- */
 /*	1440 Version
-/* ---------------------------------------------------------------------- */ 
+/* ---------------------------------------------------------------------- */
 @media handheld, only screen and (max-width: 1440px) {
 	.portfolio .about_portfolio{
 		top: 30%;
@@ -744,7 +758,7 @@ footer .phone li a{
 	}
 	.get_mobile .botton{
 		padding: 12px 15px;
-	} 
+	}
 	.get_mobile a{
 		margin-left: 0px;
 	}
@@ -826,7 +840,7 @@ footer .phone li a{
 	.flexslider {
 		margin: 0 0 15px 45px;
 		width: 70%;
-	}	
+	}
 	.carrousel h1 {
 		margin-top:0;
 		margin-left: 3%;
@@ -876,7 +890,7 @@ footer .phone li a{
 /* ---------------------------------------------------------------------- */
 /*	685px Version
 /* ---------------------------------------------------------------------- */
-@media handheld, only screen and (max-width: 685px) {	
+@media handheld, only screen and (max-width: 685px) {
 	#works,#about,#services{
 		padding-top: 100px;
 	}
@@ -923,7 +937,7 @@ footer .phone li a{
 	}
 	.portfolio .info h2{
 		font-size: 30px;
-		line-height: 40px;		
+		line-height: 40px;
 	}
 	.info_slide{
 		display: none;
@@ -935,8 +949,8 @@ footer .phone li a{
 	.flexslider {
 		margin: 10px 0 15px 0;
 		padding: 0 50px;
-	}	
-	
+	}
+
 }
 /* ---------------------------------------------------------------------- */
 /*	568px Version
@@ -967,7 +981,7 @@ footer .phone li a{
 		top: 15%;
 	}
 
-	
+
 }
 
 /* ---------------------------------------------------------------------- */
@@ -978,7 +992,7 @@ footer .phone li a{
 @media handheld, only screen and (max-width: 480px) {
 	.item_table{
 		max-width: 300px;
-	}	
+	}
 	.title{
 		padding: 20px;
 	}
@@ -1007,7 +1021,7 @@ footer .phone li a{
 	.portfolio .about_portfolio{
 		top: 10%;
 	}
-	
+
 }
 
 /* ---------------------------------------------------------------------- */
@@ -1015,7 +1029,7 @@ footer .phone li a{
 /* ---------------------------------------------------------------------- */
 
 
-@media handheld, only screen and (max-width: 380px) {	
+@media handheld, only screen and (max-width: 380px) {
 	.top{
 		margin-top: 20px;
 	}
@@ -1033,7 +1047,7 @@ footer .phone li a{
 	.portfolio .about_portfolio {
 		left: 0;
 		max-width: 350px;
-	}	
+	}
 	.portfolio .info h2,.services h2,.pricing h2{
 		font-size: 25px;
 		line-height: 35px;
@@ -1053,7 +1067,7 @@ footer .phone li a{
 	.flexslider{
 		padding: 0 20px 0 45px;
 	}
-	
+
 }
 
 /* ---------------------------------------------------------------------- */
@@ -1063,7 +1077,7 @@ footer .phone li a{
 @media handheld, only screen and (max-width: 320px) {
 	.item_table{
 		max-width: 250px;
-	}	
+	}
 	.portfolio .info h2 {
 		font-size: 26px;
 		line-height: 36px;
@@ -1077,7 +1091,7 @@ footer .phone li a{
 	.is-sticky #logo{
 		padding-top: 10px;
 	}
-	footer h2{		
+	footer h2{
 		font-size: 22px;
 		line-height: 32px;
 	}
@@ -1105,5 +1119,5 @@ footer .phone li a{
 	.flexslider{
 		margin: 5px 0;
 		padding: 0 14px 0 40px;
-	}	
+	}
 }

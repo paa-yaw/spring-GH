@@ -1,112 +1,63 @@
  <header>
+
       <!-- Main Jumbo -->
-          <!--Menu-->
-      <nav class="visible-phone">
-       <div class="container">
-        <div class="row">
-          <div class="col-sm-2">
-
-            <!-- Logo -->
-            <div id="logo">
-              <a href="index.html">
-              <%= image_tag("spring-logo-final.png", :alt => "spring logo", :width=>"69px") %></a>
-            </div>
-            <!-- Logo -->
-
-          </div>
-          <div class="col-sm-8">
-          <!-- <div class="span5 offset5"> -->
-
-            <ul id="menu">
-
-              <li><%= link_to "Home", root_path %></li>
-              <!-- <li><a href="index.html#services">Offerings</a></li> -->
-              <li><%= link_to "About" %></li>
-
-              <% if client_signed_in? %>
-                <li><%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li>
-              <% else %>
-                <li><%= link_to "Login", new_client_session_path %></li>
-              <% end %>
-
-            </ul>
-
-          </div>
-        </div>
-       </div>
-       <br>
-      </nav>
-
-        <div class="main_slide" id="intro">
+        <div class="main_slide myclass" id="intro">
           <ul class="rslides" id="slider1">
             <!--Junbo-->
             <li>
-              <%= image_tag("img/home/home2blackcrop2.jpg", :alt => "home2black jpg") %>
-              <div class="info_slide">
+              <!-- <img src="img/home/home222b.jpg" alt=""width="25%" height="100%"> -->
+             <%= image_tag("img/home/home222b.jpg", :alt => "home2black jpg", width:"25%", height:"100%") %>
+               <div class="info_slide">
                 <div class="container">
                   <div class="row">
                     <div class="col-sm-12">
-                      <h1 class="animated delay1 fadeInLeft">BOOK A TRUSTED CLEANER</h1>
-                      <hr class="delay2 fadeInLeft" style="border:transparent;">
-                      <a href="./requests/new" class="animated delay2 fadeInLeft botton btn-lg hidden-phone">Book a Cleaner <i class="icon-long-arrow-right"></i></a>
+                    <h1>BOOK A TRUSTED CLEANER ONLINE</h1>
+                    <br>
+
+
+                      <div class="col-sm-2 col-sm-offset-5">
+
+                      <a href="#about" class="btn btn-info btn-lg linkbutton" role="button">Book a cleaner</a>
+                      </div>
+
                     </div>
                   </div>
-                </div>                                                    
+                </div>
               </div>
             </li>
             <!--Jumbo-->
           </ul>
-        </div> 
-      <div>
-  
-          <ul class="unstyled">
-            <li>
-               <div class="smallButton text-center" style="margin-left:5px; margin-right:5px;">
-                <a href="./requests/new" class="botton btn-block btn-lg visible-phone">Book a Cleaner <i class="icon-long-arrow-right"></i></a>
-              </div>
-            </li>
-          </ul>
-      </div>
-          
+        </div>
        <!-- end Main Jumbo -->
 
       <!--Menu-->
-      <nav class="hidden-phone">
+    <nav>
        <div class="container">
         <div class="row">
-          <div class="col-sm-2">
+          <div class="col-xs-2">
 
             <!-- Logo -->
-            <div id="logo">
-              <a href="index.html">
-              <%= image_tag("spring-logo-final.png", :alt => "spring logo", :width=>"69px") %></a>
+           <div id="logo">
+              <a href="index.html#intro">Spring</a>
             </div>
             <!-- Logo -->
 
-          </div>
-          <div class="col-sm-8">
-          <!-- <div class="span5 offset5"> -->
+           </div>
+          <div class=" col-xs-8">
 
             <ul id="menu">
-
-              <li><%= link_to "Home", root_path %></li>
-              <!-- <li><a href="index.html#services">Offerings</a></li> -->
-              <li><%= link_to "About" %></li>
-
-              <% if client_signed_in? %>
-                <li><%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li>
-              <% else %>
-                <li><%= link_to "Login", new_client_session_path %></li>
-              <% end %>
-
+              <li><a href="index.html#intro">Home</a></li>
+              <li><a href="index.html#services">Offerings</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="faq.html">FAQ</a></li>
             </ul>
 
           </div>
+
         </div>
        </div>
-      </nav>
+     </nav>
       <!--end Menu-->
     </header>
 
@@ -115,30 +66,30 @@
 
       <div class="services">
       <h2>OUR OFFERINGS</h2>
-      
+
       <div class="border_bottom"></div>
 
         <div class="row top">
-          <!-- <div class="span6"> -->
           <div class="col-sm-6">
-
             <!--Services One-->
             <div class="offerings">
               <div class="border_right">
-              <%= image_tag("img/offering/lvrm.jpg", :alt => "lvrm jpg") %>
+             <%= image_tag("img/offering/lvrm.jpg", :alt => "living room", width:"90%") %>
+
+                <!-- <img src="img/offering/lvrm.jpg" alt="living room" width="90%"> -->
               </div>
             </div>
             <!--Services One-->
-
           </div>
 
-          <!-- <div class="span6"> -->
-          <div class="col-sm-6">          
+          <div class="col-sm-6">
             <!--Services Two-->
             <div class="offerings">
               <div>
                 <h3>Living Room</h3>
-                <ul class="icon-align icon-left" type="none">
+
+                <ul class= "icon-align" type="none">
+
                   <li><i class="fa fa-hand-o-right"></i> Wiping of Windows</li><br>
                   <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
                   <li><i class="fa fa-hand-o-right"></i> Vacumming of carpet if needed</li><br>
@@ -146,14 +97,14 @@
                   <li><i class="fa fa-hand-o-right"></i> Dusting of furniture and surfaces</li><br>
                   <li><i class="fa fa-hand-o-right"></i> Dusting and wiping of electronics, picture frames etc</li><br>
                   <li><i class="fa fa-hand-o-right"></i> Dusting and wiping of light switches and other fixtures</li>
+
                 </ul>
 
               </div>
             </div>
-            <!--Services Two-->  
-
+            <!--Services Two-->
           </div>
-          
+
         </div>
 
       </div>
@@ -163,40 +114,37 @@
 
       <div class="services top">
         <div class="row">
-          <!-- <div class="span6"> -->
-          <div class="col-sm-6 visible-phone">
+
+          <div class="col-sm-6 col-sm-push-6">
             <!--Services Four-->
             <div class="offerings">
               <div class="border_right">
-                <%= image_tag("img/offering/kitch.jpg", :alt => "kitch jpg") %>
+             <%= image_tag("img/offering/kitch.jpg", :alt => "kitchen", width:"90%") %>
+                <!-- <img src="img/offering/kitch.jpg" alt="" width="90%"> -->
               </div>
             </div>
-          </div>
-          <div class="col-sm-6">
-            <!--Services Three -->
-            <div class="offerings">
-              <h3>Kitchen</h3>
-               <ul class= "icon-align icon-left" type="none">
-                <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Putting together displaced items</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Dusting of surfaces and appliances</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Emptying bins and cleaning bin area</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Wiping outside of cupboards and fridge</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Cleaning of sink,and washing of dishes</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Sweeping, mopping of floor and wiping of walls</li>
-              </ul>
-            </div>
-            <!--Services Three -->
+             <!--Services Four-->
           </div>
 
-          <div class="col-sm-6 visible-desktop">
-            <!--Services Four-->
+          <div class="col-sm-6 col-sm-pull-6">
+            <!--Services Three -->
+
             <div class="offerings">
-              <div class="border_right">
-                <%= image_tag("img/offering/kitch.jpg", :alt => "kitch jpg") %>
-              </div>
+              <h3>Kitchen</h3>
+              <ul class= "icon-align-kit" type="none">
+
+                <li> <i class="fa fa-hand-o-right">Removing of cobwebs</i></li><br>
+                <li><i class="fa fa-hand-o-right"></i> Putting together displaced items</li><br>
+                <li><i class="fa fa-hand-o-right"></i> Dusting of surfaces and appliances</li><br>
+                <li> <i class="fa fa-hand-o-right"></i>Emptying bins and cleaning bin area</li><br>
+                <li> <i class="fa fa-hand-o-right"></i>Wiping outside of cupboards and fridge</li><br>
+                <li> <i class="fa fa-hand-o-right"></i>Cleaning of sink,and washing of dishes</li><br>
+                <li> <i class="fa fa-hand-o-right"></i>Sweeping, mopping of floor and wiping of walls</li>
+              </ul>
+
             </div>
-             <!--Services Four--> 
+
+            <!--Services Three -->
           </div>
 
         </div>
@@ -210,7 +158,8 @@
           <div class="col-sm-6">
             <!--Services Three -->
             <div class="offerings">
-              <%= image_tag("img/offering/bed.jpg", :alt => "bed jpg") %>
+             <%= image_tag("img/offering/bed.jpg", :alt => "bed", width:"90%") %>
+              <!-- <img src="img/offering/bed.jpg" alt="" width="90%"> -->
             </div>
             <!--Services Three -->
           </div>
@@ -220,113 +169,123 @@
             <div class="offerings">
               <div>
                 <h3>Bedroom</h3>
-                <ul class= "icon-align icon-left" type="none">
+
+                <ul class= "icon-align" type="none">
+
                   <li><i class="fa fa-hand-o-right"></i>  Making bed</li><br>
                   <li><i class="fa fa-hand-o-right"></i> Wiping of windows</li><br>
                   <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
                   <li><i class="fa fa-hand-o-right"></i> Dusting of furniture and surfaces</li><br>
                   <li><i class="fa fa-hand-o-right"></i> Folding or hanging of clothes in bedroom</li><br>
                   <li><i class="fa fa-hand-o-right"></i> Sweeping or Vacuuming and/or mopping floors</li><br>
+
+
                 </ul>
+
               </div>
             </div>
-             <!--Services Four--> 
+             <!--Services Four-->
           </div>
 
         </div>
       </div>
-      
-      <div class="border_bottom"></div>
-      <div class="services top">
+
+      <div class="border_bottom"></div> <br>
+
+
         <div class="row">
-          <div class="col-sm-6 visible-phone">
+          <div class="col-sm-6 col-md-push-6">
             <!--Services Four-->
             <div class="offerings">
               <div class="border_right">
-                <%= image_tag("img/offering/bath.jpg", :alt => "bath jpg") %>
+                <!-- <img src="img/offering/bath.jpg" alt="" width="90%"> -->
+             <%= image_tag("img/offering/bath.jpg", :alt => "bathroom", width:"90%") %>
+
               </div>
             </div>
-             <!--Services Four--> 
+             <!--Services Four-->
           </div>
 
-          <div class="col-sm-6 text-top">
+          <div class="col-sm-6 col-md-pull-6">
             <!--Services Three -->
+
+          <div class="services">
+
             <div class="offerings">
               <h3>Bathroom</h3>
-                <ul class= "icon-align icon-left" type="none">
+              <ul class= "icon-align-kit" type="none">
 
-                <li><i class="fa fa-hand-o-right"></i> Mopping floors</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
+                <li> <i class="fa fa-hand-o-right"></i>Mopping floors</li><br>
+                <li> <i class="fa fa-hand-o-right"></i>Removing of cobwebs</li><br>
                 <li><i class="fa fa-hand-o-right"></i> Wiping of walls and mirrors</li><br>
                 <li><i class="fa fa-hand-o-right"></i> Folding or hanging of clean towels</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Emptying bins and cleaning bin area</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Wiping of windows, counters and taps</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Cleaning of shower, bath, sinks and toilet</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Wiping outside of cupboards and cabinets</li>
+                <li> <i class="fa fa-hand-o-right"></i>Emptying bins and cleaning bin area</li><br>
+                <li> <i class="fa fa-hand-o-right"></i>Wiping of windows, counters and taps</li><br>
+                <li> <i class="fa fa-hand-o-right"></i>Cleaning of shower, bath, sinks and toilet</li><br>
+                <li> <i class="fa fa-hand-o-right"></i>Wiping outside of cupboards and cabinets</li>
+
               </ul>
             </div>
+          </div>
             <!--Services Three -->
-          </div>
-
-          <div class="col-sm-6 visible-desktop">
-            <!--Services Four-->
-            <div class="offerings">
-              <div class="border_right">
-                <%= image_tag("img/offering/bath.jpg", :alt => "bath jpg") %>
-              </div>
-            </div>
-             <!--Services Four--> 
-          </div>
 
         </div>
       </div>
+      <br>
+      <div class="border_bottom"></div>
 
-    </div>
-    <!-- Services -->
-
-     <div class="border_bottom"></div>
-      <div class="container" id="extra">
+      <div class="container">
         <div class="row">
-          <div class="extra-services text-center">
-            <h2 class="about-title text-center">EXTRA SERVICES</h2>
+          <div class="extra-services">
+            <h3>EXTRA SERVICES</h3>
             <br>
             <div class="col-sm-3 extra-laundry">
               <p>Laundry</p>
-              <%= image_tag("img/offering/fold1.jpg", :alt => "fold1 jpg", width: "60px", height: "60px") %>
               <!-- <img src="img/offering/fold1.jpg" alt="" width="60px" height="60px" /> -->
+             <%= image_tag("img/offering/fold1.jpg", :alt => "", width:"60px", height:"60px") %>
+
                 <p>$8.00</p>
             </div>
             <div class="col-sm-3 extra-fridge">
                 <p>Inside Fridge Cleaning</p>
-              <%= image_tag("img/offering/insidefridge.png", :alt => "insidefridge jpg", width:"60px", height:"60px") %>
               <!-- <img src="img/offering/insidefridge.png" alt="" width="60px" height="60px" /> -->
+             <%= image_tag("img/offering/insidefridge.png", :alt => "", width:"60px", height:"60px") %>
+
                 <p>$8.00</p>
             </div>
             <div class="col-sm-3 extra-store">
                 <p>Store Room Cleaning</p>
-              <%= image_tag("img/offering/storeRoom1.jpg", :alt => "storeRoom1 jpg",width: "60px",height: "60px") %>
               <!-- <img src="img/offering/storeRoom1.jpg" alt="" width="60px" height="60px" /> -->
+             <%= image_tag("img/offering/storeRoom1.jpg", :alt => "", width:"60px", height:"60px") %>
+
                 <p>$8.00</p>
             </div>
             <div class="col-sm-3 extra-compound">
                 <p>Compound Cleaning</p>
-              <%= image_tag("img/offering/compound.png", :alt => "compound jpg",width:"60px", height:"60px") %>
               <!-- <img src="img/offering/compound.png" alt="" width="60px" height="60px" /> -->
+             <%= image_tag("img/offering/compound.png", :alt => "", width:"60px", height:"60px") %>
+
                 <p>$8.00</p>
             </div>
+
           </div>
         </div>
       </div>
     </div><br>
     <!-- Services -->
 
+    <!-- Color Section -->
+
+
+    <!-- Color Section -->
+
       <!-- About -->
 
       <div class="border_bottom"></div>
-      <!-- <section id="about"> -->
+      <section id="about">
          <div class="container" id="about">
            <div class="row">
-             <h2 class="about-title text-center">ABOUT US</h2> <br>
+             <h3 class="about-title">About Us</h3> <br>
               <p class="about-paragraph">
                 Established in Ghana in 2008,
                 MEST offers aspiring African entrepreneurs a fully sponsored twelve month,
@@ -347,57 +306,36 @@
                 Established in Ghana in 2008,
                 </p>
            </div>
+
+
          </div>
-       <!-- </section> -->
+       </section>
        <br>
       <!-- About -->
-
 
     <!-- Footer -->
     <footer id="contact">
       <div class="container">
-        <div class="row">
-          <h2>Let's Get in touch</h2>
-          <hr class="primary">
-          <p>Need more information, or want to the conversation more personal? Call or send us an email.</p>
-        </div>
-        <div class="col-lg-4 col-lg-offset-2 text-center">
-          <i class="fa fa-phone fa-3x wow bounceIn">
-          </i>
-          <p>020-061-0307</p>
-        </div>
-        <div class="col-lg-4 text-center">
-          <i class="fa fa-envelope-o fa-3x wow bounceIn">
-          </i>
-          <p>
-            <a href="mailto:your-email@your-domain.com">hello@spring.com</a>
-          </p>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-8">            
-
-            <div class="row">
-              <div>
-               
+          <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 text-center">
+                  <h2 class="section-heading">Let's Get In Touch!</h2>
+                  <hr class="primary">
+                  <p>
+                      Need more information, or want to the conversation more personal? Call or send us an email.
+                  </p>
               </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div>
-              <div class="row">
-                <div>
-                  
-                </div>
+              
+              <div class="col-lg-4 col-lg-offset-2 text-center">
+                  <i class="fa fa-phone fa-3x wow bounceIn"></i>
+                  <p>020-061-0307</p>
               </div>
-            </div>
+              <div class="col-lg-4 text-center">
+                  <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                  <p><a href="mailto:your-email@your-domain.com">hello@spring.com</a></p>
+              </div>
           </div>
-
-        </div>
       </div>
 
-      <!-- </div> -->
     </footer>
     <!-- Footer -->
 
@@ -406,37 +344,3 @@
       <p>Copyright 2016 Spring.</p>
     </footer>
     <!-- Copy -->
-
-      
-      <!-- ======================= JQuery libs =========================== -->
-        <!-- Always latest version of jQuery-->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>         
-        <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
-       <!--Nav-->
-        <script type="text/javascript" src="assets/javascripts/home/nav/tinynav.js"></script>
-        <script type="text/javascript" src="assets/javascripts/home/nav/jquery.nav.js" ></script>
-        <script type="text/javascript" src="assets/javascripts/home/nav/jquery.sticky.js"></script>     
-        <!--Scroll-->      
-        <script src="../../assets/javascripts/home/scroll/smooth-scroll.js" type="text/javascript"></script> 
-        <!--Lightbox--> 
-        <script type="text/javascript" src="../../assets/javascripts/home/fancybox/jquery.fancybox.js"></script> 
-        <!-- Carrousel -->
-        <script src="../../assets/javascripts/home/modernizr.js"></script>
-         
-        <!-- Slide.js-->
-        <script src="assets/javascripts/home/slide/responsiveslides.js"></script> 
-        <!--Totop-->
-        <script type="text/javascript" src="assets/javascripts/home/totop/jquery.ui.totop.js" ></script>   
-        <!-- Bootstrap.js-->
-        <!--  <script src="assets/javascripts/home/bootstrap.js"></script> -->
-        <!--fUNCTIONS-->
-        <script type="text/javascript" src="assets/javascripts/home/jquery-func.js"></script>
-      <!-- ======================= End JQuery libs =========================== -->
-
-        <script type="text/javascript">
-        $(document).ready(function(){
-            $(document).bind("contextmenu",function(e){
-                return false;
-            });
-        });
-        </script>
