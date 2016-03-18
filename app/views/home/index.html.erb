@@ -1,11 +1,55 @@
  <header>
+  <!-- MOBILE VIEW ONLY START -->
       <!-- Main Jumbo -->
-        <div class="main_slide myclass" id="intro">
+        <div class="container hidden-md hidden-lg">
+          <div class="row">
+            <div class="col-xs-2">
+
+              <!-- Logo -->
+              <div id="logo">
+                <a href="index.html">
+                <%= image_tag("spring-logo-final.png", :alt => "spring logo", :width=>"69px") %></a>
+              </div>
+              <!-- Logo -->
+
+            </div>
+
+            <div class="col-xs-8">
+
+              <ul id="menu">
+                 <li><%= link_to "Get Cleaner", new_request_path %></li>
+                 <li><%= link_to "Home", root_path %></li>
+
+                 <li><%= link_to "About" %></li>
+                <% if client_signed_in? %>
+                  <li><%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                                  data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li>
+                <% else %>
+                  <li><%= link_to "Login", new_client_session_path %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+                  <div class="main_slide" id="intro">
+                    <ul class="rslides">
+                      <!--Junbo-->
+                      <li>
+                        <%= image_tag("img/home/home222b.jpg", :alt => "home2black jpg", width:"25%", height:"100%") %>
+                      </li>
+                    </ul>
+              </div>
+          </div>
+        </div>
+
+<!-- MOBILE VIEW ONLY END -->
+
+        <div class="main_slide myclass hidden-sm hidden-xs" id="intro">
           <ul class="rslides" id="slider1">
             <!--Junbo-->
             <li>
               <!-- <img src="img/home/home222b.jpg" alt=""width="25%" height="100%"> -->
-             <%= image_tag("img/home/home222b.jpg", :alt => "home2black jpg", width:"25%", height:"100%") %>
+             <%= image_tag("img/home/home222b.jpg", :alt => "home2black jpg", width:"25%", height:"auto") %>
                <div class="info_slide">
                 <div class="container-fluid">
                   <div class="row">
@@ -13,9 +57,7 @@
                     <h1>BOOK A TRUSTED CLEANER ONLINE</h1>
                     <br>
                       <div class="col-sm-2 col-sm-offset-5">
-
-                      <%= link_to "Book a Cleaner", new_request_path, :class => "btn btn-info btn-lg linkbutton", :role =>"button" %>
-
+                        <%= link_to "Book a Cleaner", new_request_path, :class => "btn btn-info btn-lg linkbutton", :role =>"button" %>
                       </div>
 
                     </div>
@@ -29,11 +71,10 @@
        <!-- end Main Jumbo -->
 
        
-
       <!--Menu-->
     <nav>
        <div class="container">
-        <div class="row">
+        <div class="row hidden-sm hidden-xs">
           <div class="col-xs-2">
 
             <!-- Logo -->
@@ -43,11 +84,12 @@
             </div>
             <!-- Logo -->
 
-           </div>
+          </div>
+
           <div class="col-xs-8">
 
             <ul id="menu">
-               <li><%= link_to "Get Cleaner", new_request_path %></li>
+               <li class="hidden-md hidden-lg"><%= link_to "Get Cleaner", new_request_path %></li>
                <li><%= link_to "Home", root_path %></li>
 
                <li><%= link_to "About" %></li>
@@ -61,6 +103,11 @@
 
           </div>
 
+        </div>
+        <div class="row hidden-md hidden-lg">
+          <div class="col-xs-12 ">
+            <%= link_to "Book a Cleaner", new_request_path, :class => "botton btn btn-block btn-lg linkbutton", :role =>"button" %>
+          </div>
         </div>
        </div>
     </nav>
