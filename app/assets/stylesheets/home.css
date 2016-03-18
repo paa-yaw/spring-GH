@@ -124,6 +124,14 @@ h1.animated.delay1.fadeInLeft{
   padding-top: 50px;
 }
 
+/*IMAGE RESPONSIVENESS*/
+img{
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+}
+
+
 @media only screen and (max-device-width: 480px){
 
 .mobile-hide{
