@@ -794,7 +794,7 @@ footer .social li a{
 	body{
 		padding: 0;
 	}
-	#works,#about,#services,#pricing{
+	#works,#services,#pricing{
 		padding-top: 100px;
 	}
 	.main_slide{
@@ -906,7 +906,7 @@ footer .social li a{
 /*	685px Version
 /* ---------------------------------------------------------------------- */
 @media handheld, only screen and (max-width: 685px) {	
-	#works,#about,#services{
+	#works,#services{
 		padding-top: 100px;
 	}
 	/*Slide*/
