@@ -165,5 +165,16 @@ a.navbar-header{
     /*padding-top: 15px;*/
     /*padding-bottom: 0px;*/
   }
+  
+/*NAVBAR */
+
+  img.img-responsive {
+    width: 25%;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+nav {
+  padding-bottom: 0px;
+}
 
 }
