@@ -139,4 +139,10 @@ div.content-box > h1 > strong {
     text-align: left;
   }
 
+  div.navbar-header a.navbar-brand{
+    width: 316px;
+    padding-top: 15px;
+    padding-bottom: 0px;
+  }
+
 }
