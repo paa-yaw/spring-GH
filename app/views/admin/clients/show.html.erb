@@ -12,8 +12,8 @@
 			<p>Last signed in: <%= @client.try(:last_sign_in_at).try(:strftime, "%B %d, %Y at %T") %></p>
 			<p>No. of Requests: <%= @client.requests.count %></p>
 			------------------------------------------------------
-
-			<p><%= link_to "Back", :back, class: "btn btn-primary" %></p>
+            <p><%= link_to fa_icon("pencil") + "Edit Client", [:edit, :admin, @client], class: "btn btn-primary" %>
+             <%= link_to "Back", :back, class: "btn btn-primary" %></p>
 
 			</div>
 		</div>
