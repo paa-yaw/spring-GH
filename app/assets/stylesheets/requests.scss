@@ -164,7 +164,7 @@ label.check_boxes.optional.control-label{
 // MOBILE VIEW
 
 @media only screen and (max-device-width: 480px){
-  #extra div div span.checkbox.inline{
+  #extra span.checkbox.inline{
     margin-left: 0px;
     padding-left: 0px;
   }
@@ -179,24 +179,24 @@ label.check_boxes.optional.control-label{
   }
   
   select#request_date_time_1i{
-    width:50%; 
+    width:100%; 
   }
 
   select#request_date_time_2i{
-    width:50%; 
+    width:100%; 
   }
 
   select#request_date_time_3i{
-    width:30%;
+    width:50%;
   }
 
   select#request_date_time_4i{
-    width:50%;  
+    width:100%;  
   }
 
   select#request_date_time_5i{
-    width:50%;
-}
+    width:100%;
+  }
 
   #datetime select{
     display: block;
