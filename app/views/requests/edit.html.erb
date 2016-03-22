@@ -1,38 +1,67 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-1 form-content edit-form">
+            <h3 class="text-center" style="color:#fff;">Edit Your Request</h3>
+    <div class="col-xs-12 col-sm-8">
         <div class="form-top">
           <div class="form-top-left">
-            <h3>Edit Your Request</h3>
           </div>
         </div>
         <div class="form-bottom">
-          <%= render 'form', request: @request %><br>
-          <%= link_to "Back", root_path %>
-      </div>
+          <%= render 'form', request: @request %>
+          <%= link_to "Back", root_path, :class =>"btn btn-default" %>
+        </div>
     </div>
 
-    <div class="col-xs-12 col-sm-3 col-sm-offset-1 form-box form-content" id="pricingBox">
-        <h3>Pricing</h3>
-          <div class="table-responsive">
-            <table class="table">
-              <tr>
-                <td>Rooms</td>
-                <td></td>
-                <td><b id="daRooms"></b></td>
-              </tr>
-              <tr>
-                <td>Days&nbsp;<b id="daDays">(x)</b></td>
-                <td></td>
-                <td><b id="selectedDays"></b></td>
-              </tr>
-              <tr>
-                <td><b>Total</b></td>
-                <td></td>
-                <td><b id="daPrice"></b></td>
-              </tr>
-            </table>
+    <div class="col-xs-12 col-sm-4" id="pricingBox">
+        
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+              <h3 class="panel-title"><h3>Pricing</h3></h3>
+            </div>
+          
+            <div class="panel-body">
+
+               <div class="table-responsive">
+                <table class="table">
+                  <tr>
+                    <td><b>4&nbsp;&nbsp;</b>Rooms</td>
+                    <td>X&nbsp;&nbsp;&nbsp;<b>1&nbsp;</b>Day</td>
+                    <td><b>$12.00</b>&nbsp;<i>(base price)</i></td>
+                  </tr>
+                  <tr>
+                    <td><b id="daRooms"></b>&nbsp;Rooms</td>
+                    <td>&nbsp;<b id="daDays">-</b>&nbsp;Days</td>
+                    <td><b id="daProduct"></b></td>
+                  </tr>
+                    <!--   <tr>
+                        <td><b>Extra Services</b></td>
+                      </tr>
+                      <tr>  
+                        <td><b>-</b>Days</td>
+                        <td><b>-</b></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><b>Preference</b></td>
+                        <td></td>
+                        <td></td>
+                      </tr> -->
+                      <tr>
+                        <td><b>Total</b></td>
+                        <td></td>
+                        <td><b id="daPrice">$12.00</b></td>
+                      </tr>
+                    </table>
+                  </div>
+
+              </div>
+
           </div>
+
         </div>
     </div>
   </div>
+
+
+

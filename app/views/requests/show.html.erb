@@ -5,7 +5,7 @@
    <div class="panel-group">
    <div class="panel panel-default">
   <!-- Default panel contents -->
-   <div class="panel-heading"></div>
+   <!-- <div class="panel-heading"></div> -->
   
    <div class="panel-body">
 
@@ -90,7 +90,7 @@
         <% if @request.resolved == true %>
         <%= link_to "Back", :back %>
         <% else %>
-          <%=  link_to "Edit", [:edit, @request], :class => "btn btn-info" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
+          <%=  link_to "Edit", [:edit, @request], :class => "btn btn-default" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
         <% end %>
       
 
