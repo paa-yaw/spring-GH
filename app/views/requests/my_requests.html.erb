@@ -1,11 +1,19 @@
 <div class="container-fluid" >
-      <div class="row">
+    <div class="row">
         <div class="col-sm-6 col-sm-offset-3 text-center">
-<div class="well">
-            <h2>Hi <strong><%= current_client.fullname %></strong>,<br><br> Here are your requests.</h2>
+<!-- <div class="well"> -->
+      
+      <div class="panel panel-info">
+        <div class="panel-heading text-left">
+          <h2>Hi <strong><%= current_client.fullname %></strong></h2>
+        </div>
+        <div class="panel-body">
+
+            <h2 class="text-left"> Here are your requests:</h2>
               <% if @my_requests.count == 0 %>
-              <h2>No Request has been made.</h2>
+                <h2>No Request has been made.</h2>
               <% elsif @my_requests.count > 0 %>
+
               <% @my_requests.each do |my_request| %>
                 <% if my_request.resolved == true %>
                   <h3><strong><%= my_request.id %></strong></h3><h3>status: This request has been resolved. Your cleaner will be with you shortly. <br> <%= link_to "View", my_request, :class=>"btn-primary" %> </h3>
@@ -14,14 +22,14 @@
                     <table class="table table-bordered">
                       <tbody>
                           <tr>
-                            <td>
+                            <td style="width:50%;">
                              <h3><strong>Request No.<%= my_request.id %></strong></h3>
                             </td>
                             <td>
-                             <h3><%= link_to "View", my_request, :class=>"btn btn-primary" %> </h3>
+                             <h3><%= link_to "View", my_request, :class=>"btn btn-default" %> </h3>
                             </td>
                             <td>
-                             <h3><%= link_to "Edit", [:edit, my_request], :class=>"btn btn-primary" %> </h3>
+                             <h3><%= link_to "Edit", [:edit, my_request], :class=>"btn btn-danger" %> </h3>
                             </td>
                           </tr>
                       </tbody>
@@ -31,7 +39,7 @@
               <% end %>
             <% end %>
 
-              <%= link_to "Create A Request", new_request_path, :class=>"btn btn_submit btn-info btn-block" %>
+              <%= link_to "Create A Request", new_request_path, :class=>"btn btn_submit btn-primary" %>
 
             </div>
         </div>
