@@ -10,11 +10,13 @@
 //              It will only set the 'top' and 'position' of your element, you
 //              might need to adjust the width in some cases.
 
+// disabled 'is-sticky' class
+
 (function($) {
     var defaults = {
             topSpacing: 0,
             bottomSpacing: 0,
-            className: 'is-sticky',
+            // className: 'is-sticky',
             wrapperClassName: 'sticky-wrapper'
         },
         $window = $(window),

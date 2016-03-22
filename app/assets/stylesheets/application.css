@@ -14,103 +14,100 @@
  *= require_self
  */
 
-
-abbr {
-  display: none;
-}
-nav#navigation {
+/*nav#navigation {
   background-color: #fff;
-}
-
+}*/
+/*
 a.navbar-brand{
   text-transform: uppercase;
   font-weight: 400;
   color: #fff !important;
   padding-top: 10px;
   padding-bottom: 10px;
-}
+}*/
 
-li.page-scroll > a {
+
+/*NAVBAR TEXT STYLING*/
+/*li.page-scroll > a {
   text-transform: uppercase;
   color:#0090C1 !important;
-}
+}*/
 
+/*
 li.page-scroll > a.btn:hover {
   color:#fff !important;
-}
+}*/
 
-.form-content {
+/*FORM STYLING AND DISPLACEMENT FROM TOP*/
+/*.form-content {
   border: solid 1px #122772;
   background-color: #eee;
   padding-top: 20px;
   border-radius: 2px;
   margin-top: 70px;
-}
+}*/
 
-.content-box {
+/*.content-box {
   padding-top: 80px;
   margin-top: 60px;
-}
+}*/
 
+/*
 .content-box > h1 {
   font-family: 'SANS-SERIF';
   font-size: 32px;
   color: #0090C1;
-}
+}*/
 
 /*.content-box > strong {
   text-transform: capitalize;
 }*/
 
-div.form-top-left > p, div.form-top-left > ol > li > p, div.form-top-left > ol > p {
+/*div.form-top-left > p, div.form-top-left > ol > li > p, div.form-top-left > ol > p {
   font-family: 'SANS-SERIF';
-}
+}*/
 
-.simple_form label{
+
+/*FORM STYLING*/
+/*.simple_form label{
   font-family: 'SANS-SERIF';
   font-weight: 200;
-}
+}*/
 
- h4.form-content-label, h4.form-content-time{
+/* h4.form-content-label, h4.form-content-time{
   font-family: 'SANS-SERIF';
   font-size: 14px;
-}
+}*/
 
-hr {
+/*hr {
   border-color: #0090C1;
 }
-
+*/
 /*.btn-block {background-color: #0090C1; color:#fff; border-color: #0090C1;}*/
 
-div.content-box > h1 {
+/*div.content-box > h1 {
   color: #022F40;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-}
+}*/
 
-div.content-box > h1 > strong {
+/*div.content-box > h1 > strong {
   color: #0090C1;
-}
+}*/
 
-.signUpIn {
+/*.signUpIn {
   margin-top: 80px;
-}
+}*/
 
-.admin-page{
-  padding-top: 60px;
-}
-
-.btn-login{
+/*.btn-login{
   margin-top: 10px;
   margin-bottom: 10px;
-}
+}*/
 
-#daPrice{
-  color:#009900;
-  font-size: 24px;
-}
 
-.btn.submit_button{
-  background:#ffd207 !important;
+
+/*Asterisks for Labels */
+abbr {
+  display: none;
 }
 
 .simple_form #cleanButton{
@@ -118,10 +115,34 @@ div.content-box > h1 > strong {
   background-color: #ffd207;
 }
 
+.btn.submit_button{
+  background:#ffd207 !important;
+}
+
+/*NAVBAR CONTENT PADDING*/
+ul.nav.navbar-nav.navbar-right > li.page-scroll > a{
+  padding-bottom: 0px;
+  padding-top: 20px;
+}
+
+a.navbar-header{
+  padding-top: 2px;
+  padding-bottom: 13px;
+}
+
+#daPrice{
+  color:#009900;
+  font-size: 24px;
+}
+
+.admin-page{
+  padding-top: 60px;
+}
+
 @media only screen and (max-width: 500px) {
-  .content-box{
+/*  .content-box{
     padding-top: 30px;
-  }
+  }*/
 
   h1{
     text-align: center;
@@ -131,9 +152,9 @@ div.content-box > h1 > strong {
     display: none;
   }
 
-  .form-content{
+/*  .form-content{
     margin-top: 40px;
-  }
+  }*/
 
   .form-left > ol {
     text-align: left;
@@ -141,8 +162,19 @@ div.content-box > h1 > strong {
 
   div.navbar-header a.navbar-brand{
     width: 316px;
-    padding-top: 15px;
-    padding-bottom: 0px;
+    /*padding-top: 15px;*/
+    /*padding-bottom: 0px;*/
   }
+  
+/*NAVBAR */
+
+  img.img-responsive {
+    width: 25%;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+nav {
+  padding-bottom: 0px;
+}
 
 }

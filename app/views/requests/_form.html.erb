@@ -1,5 +1,6 @@
 <%= simple_form_for (request) do |f| %>
 <div class="container-fluid" >
+
   <div class="row">
     <div class="panel panel-info">
       <div class="panel-heading">
@@ -10,17 +11,20 @@
         <div class="col-md-12" onclick="calculatePricing()"> 
           <h3>Tell Us About Your House </h3>
           <%= f.select :bedrooms, options_for_select([["1 bedroom", 1], ["2 bedrooms", 2], ["3 bedrooms", 3], ["4 bedrooms", 3], ["5+ bedrooms", 5]], :selected => f.object.bedrooms),{},{:class => "col-xs-6 col-md-3 "}%>
+
           <%= f.select :bathrooms, options_for_select([["1 bathroom", 1], ["2 bathrooms", 2], ["3 bathrooms", 3], ["4 bathrooms", 4], ["5+ bathrooms", 5]], :selected => f.object.bathrooms),{},{:class => "col-xs-6 col-md-3 "} %>
 
           <%= f.select :kitchens, options_for_select([["1 kitchen", 1], ["2 kitchens", 2], ["3 kitchens", 3], ["4 kitchens", 4], ["5+ kitchens", 5]], :selected => f.object.kitchens),{},{:class => "col-xs-6 col-md-3 "} %> 
+
           <%= f.select :hall, options_for_select([["1 living room", 1], ["2 living rooms", 2], ["3 living rooms", 3], ["4 living rooms", 4], ["5+ living rooms", 5]], :selected => f.object.hall),{},{:class => "col-xs-6 col-md-3 "} %>
         </div>
 
-        <div onclick="calculatePricing()">
+        <div onclick="calculatePricing()" id="extra">
           <div class="col-md-12">
             <%= f.input :extra_services, :collection => [["Compound cleaning($8.00)", 8], ["Washing & Ironing($7.00)", 7], ["Fridge($3.00)", 3], ["Storeroom($5.00)", 5]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
           </div>
         </div> 
+
       </div>
     </div>
 
@@ -32,16 +36,20 @@
      </div>
      <div class="panel-body">
        <div  onchange="calculatePricing()">
+
          <div class="col-md-4">
            <%= f.input :days, label: "Number of days" %>
          </div>
-         <div class="col-md-4 col-md-offset-2" >
+
+         <div class="col-md-4 col-md-offset-2 col-sm-12" id="frequency">
           <%= f.input :frequency, :collection => ["weekly", "monthly"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "Frequency" %>
         </div>
+
       </div>
       <br>
-      <div onkeyup="calculatePricing()"; onclick="checkDays()";>
-      <div class="col-md-12">
+      <div onkeyup="calculatePricing()"; onclick="checkDays()"; id="days">
+
+      <div class="col-md-12 col-xs-7">
           <%= f.input :weekdays, :collection => [["Monday", "Monday"], ["Tuesday", "Tuesday"], ["Wednesday", "Wednesday"], ["Thursday", "Thursday"], ["Friday", "Friday"], ["Saturday", "Saturday"], ["Sunday", "Sunday"]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Schedule with us" %>
         </div>
       </div>
@@ -54,14 +62,14 @@
     </div>
     <div class="panel-body">
       
-  <div class="col-md-12" onclick="calculatePricing()">
+  <div class="col-md-12" onclick="calculatePricing()" id="preference">
     <%= f.input :provide, :collection => ["Spring provides cleaning products($3.00)", "I'll use my own cleaning products"], :as => :radio_buttons, :item_wrapper_class => 'inline', :label => "Which would you prefer?" %>
   </div>
 
 
   <br>
   
-    <div class="col-xs-12">
+    <div class="col-xs-12" id="datetime">
       <h4 class="form-content-label">
         When Do You Want Us To Come?
       </h4>

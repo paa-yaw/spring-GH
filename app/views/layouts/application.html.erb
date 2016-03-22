@@ -20,7 +20,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#" class="navbar-brand">
+                <a href="#" class="spring-brand">
                   <%= image_tag("spring-logo-final.png", :alt => "spring logo", :class => "img-responsive") %>
                 </a>
             </div>
@@ -63,6 +63,13 @@
  <% flash.each do |key, message| %>
   <p><%= message %></p>
  <% end %>
+ <style>
+ #region{
+  padding-top: 70px;
+ }
+ </style>
+ <div id="region">
    <%= yield %>
+ </div>
 </body>
 </html>
