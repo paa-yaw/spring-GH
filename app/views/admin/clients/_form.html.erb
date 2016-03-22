@@ -4,6 +4,7 @@
   <%= f.input :password %>
   <%= f.input :phone_number %>
   <%= f.input :location %>
+  <%= f.input :tag, :collection => ["online", "offline"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "online/offline?" %>
 
   <%= f.button :submit, "Create User", class: "btn-primary" %>
 <% end %>
