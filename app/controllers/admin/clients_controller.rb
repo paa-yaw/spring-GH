@@ -43,10 +43,18 @@ class Admin::ClientsController < Admin::ApplicationController
   	@client_requests = @client.requests
   end
 
+  def admin_registration
+    @client = Client.new
+  end
+
+  def admin_list
+    @admins = Client.all.where(admin: true)
+  end
+
   private
 
   def client_params
-    params.require(:client).permit(:fullname, :email, :password, :location, :phone_number, :tag)
+    params.require(:client).permit(:fullname, :email, :password, :location, :phone_number, :tag, :admin)
   end
 
   def set_client

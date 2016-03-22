@@ -1,0 +1,22 @@
+<div class="admin-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9 col-sm-offset-1 form-box">
+				<h2>Admin Registration Form</h2>
+				<hr>
+
+				<%= simple_form_for([:admin, @client]) do |f| %>
+				<%= f.input :fullname %>
+				<%= f.input :email %>
+				<%= f.input :password %>
+				<%= f.input :phone_number %>
+				<%= f.input :location %>
+				<%= f.input :tag, :collection => ["online", "offline"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "online/offline?" %>
+				<%= f.input :admin %>
+
+				<%= f.button :submit, "Create User", class: "btn-primary" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
