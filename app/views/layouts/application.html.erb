@@ -63,6 +63,13 @@
  <% flash.each do |key, message| %>
   <p><%= message %></p>
  <% end %>
+ <style>
+ #region{
+  padding-top: 70px;
+ }
+ </style>
+ <div id="region">
    <%= yield %>
+ </div>
 </body>
 </html>

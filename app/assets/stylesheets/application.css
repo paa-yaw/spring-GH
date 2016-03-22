@@ -140,9 +140,9 @@ a.navbar-header{
 }
 
 @media only screen and (max-width: 500px) {
-  .content-box{
+/*  .content-box{
     padding-top: 30px;
-  }
+  }*/
 
   h1{
     text-align: center;
@@ -152,9 +152,9 @@ a.navbar-header{
     display: none;
   }
 
-  .form-content{
+/*  .form-content{
     margin-top: 40px;
-  }
+  }*/
 
   .form-left > ol {
     text-align: left;
