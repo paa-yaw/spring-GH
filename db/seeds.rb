@@ -15,4 +15,4 @@
 # end
 
 Client.create(fullname: "Derek Owusu-Frimpong", email: "derek@springgh.com", password: "workforce",
-		phone_number: "0204704427", location: "Accra")
+		phone_number: "0204704427", location: "Accra", admin: true)
