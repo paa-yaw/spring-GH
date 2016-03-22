@@ -117,7 +117,7 @@
                                         <i class="fa fa-users fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><%= Client.where(tag: "online" ).count %></div>
+                                        <div class="huge"><%= Client.where(tag: "online", admin: false ).count %></div>
                                         <div>Online Clients</div>
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@
                                         <i class="fa fa-users fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><%= Client.where(tag: "offline").count %></div>
+                                        <div class="huge"><%= Client.where(tag: "offline", admin: false).count %></div>
                                         <div>Offline Clients</div>
                                     </div>
                                 </div>
