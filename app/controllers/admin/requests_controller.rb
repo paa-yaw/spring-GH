@@ -56,15 +56,6 @@ class Admin::RequestsController < Admin::ApplicationController
     redirect_to admin_root_path
   end
 
-  # def unassign
-  #   @worker = Worker.find(params[:id])
-
-  #   @request.workers.delete(@worker)
-  #   @request.unresolve
-  #   redirect_to admin_root_path
-  # end
-
-
   def destroy
     @request.destroy
     redirect_to admin_root_path
