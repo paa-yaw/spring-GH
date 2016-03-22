@@ -11,7 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
+ *= require requests
  */
 
 /*nav#navigation {
@@ -172,9 +172,10 @@ a.navbar-header{
     width: 25%;
     padding-top: 10px;
     padding-left: 30px;
-}
-nav {
-  padding-bottom: 0px;
-}
+  }
+
+  nav {
+    padding-bottom: 0px;
+  }
 
 }
