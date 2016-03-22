@@ -2,6 +2,8 @@
 
 <% if @client.requests.empty? %>
 <h3>No requests at the moment</h3>
+
+<%= link_to fa_icon("plus") + "Create Request", new_admin_client_request_path(@client), class: "btn btn-primary" %>
 <% else %>
 
 	<% @client_requests.each do |client_request| %>
@@ -11,7 +13,7 @@
 	  <h3>Request No: <%= client_request.id %> <%= link_to "status: unassigned", admin_request_path(client_request), class: "btn btn-success" %> </h3> 
 	<% end %>  
 	<% end %>	
-	
+
 <% end %>
 
 <%= link_to "Back", :back, class: "btn btn-primary" %>

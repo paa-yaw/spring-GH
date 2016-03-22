@@ -6,11 +6,19 @@
 
                 <% if @clients.count == 0 %>
                 <h1>No clients yet.</h1>
+                <%= link_to fa_icon("plus") + "Create User", new_admin_client_path, class: "btn btn-primary" %>
                 <% else %>
 				<h1>A list of Clients</h1>
                 
 				<% @clients.each do |client| %>
+
+				<% if client.requests.empty? %>
+				<h3>Fullname: <%= client.fullname  %> <%= link_to fa_icon("eye") + "Detail", admin_client_path(client), class: "btn btn-primary" %> <%= link_to fa_icon("plus") + "Create Request", new_admin_client_request_path(client), class: "btn btn-primary" %></h3>
+
+				<% else %>
+
 				<h3>Fullname: <%= client.fullname  %> <%= link_to fa_icon("eye") + "Detail", admin_client_path(client), class: "btn btn-primary" %> <%= link_to fa_icon("eye") + "Requests", admin_client_requests_path(client), class: "btn btn-primary" %></h3>
+				<% end %>
 				<% end %>
 				<% end %>
 

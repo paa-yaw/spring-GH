@@ -1,11 +1,12 @@
 class Admin::ClientsController < Admin::ApplicationController
+  before_action :set_client, only: [:show, :edit, :update, :destroy, :client_requests]
+
 
   def index
     @clients = Client.all.where(admin: false)
   end
 
   def show
-  	@client = Client.find(params[:id])
   end
 
   def new
@@ -24,6 +25,9 @@ class Admin::ClientsController < Admin::ApplicationController
     end 
   end
 
+  def edit
+  end
+
   def update
     if @client.update(client_params)
       flash[:notice] = "Client has been updated."
@@ -36,7 +40,6 @@ class Admin::ClientsController < Admin::ApplicationController
 
 
   def client_requests
-  	@client = Client.find(params[:id])
   	@client_requests = @client.requests
   end
 
@@ -48,7 +51,7 @@ class Admin::ClientsController < Admin::ApplicationController
 
   def set_client
     @client = Client.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to errors_not_found_path
+  # rescue ActiveRecord::RecordNotFound
+  #   redirect_to errors_not_found_path
   end
 end
