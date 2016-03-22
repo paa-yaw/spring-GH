@@ -68,6 +68,18 @@ input#request_days{
 
 .simple_form label.control-label{
   font-weight: bold;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.simple_form label.radio_buttons.required.control-label{
+  display: block;
+  max-width: 100%;
+}
+
+.simple_form #days label.check_boxes.optional.control-label{
+  display: block;
+  max-width: 100%;
 }
 
 span.radio.inline{
@@ -81,15 +93,6 @@ span.checkbox.inline{
   padding-top: 0px;
   padding-left: 0px; 
 }
-
-// .landing-page-form{
-//   padding-bottom: 15px;
-//   margin-bottom: 20px;
-// }
-
-// #navigation > div.container > div.navbar-header.page-scroll > a.navbar-brand{
-//   padding-top: 0px;
-// }
 
 img.img-responsive{
   width: 12%;
@@ -131,6 +134,26 @@ div.panel.panel-default{
   border: solid 1px #0E1E59;
 }
 
+label.check_boxes.optional.control-label{
+  display: block;
+  max-width: 100%;
+}
+
+#extra span.checkbox.inline{
+  padding-left: 20px;
+}
+
+#frequency span.radio.inline{
+  padding-left: 20px;
+}
+
+#days span.checkbox.inline{
+  padding-left: 20px;
+}
+
+#preference span.radio.inline{
+  padding-left: 20px;
+}
 // Display Request Page 
 
 // div.well{
@@ -138,3 +161,45 @@ div.panel.panel-default{
 // }
 
 
+// MOBILE VIEW
+
+@media only screen and (max-device-width: 480px){
+  #extra div div span.checkbox.inline{
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  #preference span.radio.inline{
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  #days span.checkbox.inline{
+    margin-left:0px;
+  }
+  
+  select#request_date_time_1i{
+    width:50%; 
+  }
+
+  select#request_date_time_2i{
+    width:50%; 
+  }
+
+  select#request_date_time_3i{
+    width:30%;
+  }
+
+  select#request_date_time_4i{
+    width:50%;  
+  }
+
+  select#request_date_time_5i{
+    width:50%;
+}
+
+  #datetime select{
+    display: block;
+    max-width: 100%;
+  }
+}
