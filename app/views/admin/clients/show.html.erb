@@ -9,7 +9,7 @@
 			<p>Phone Number: <%= @client.phone_number %></p>
 			<p>Location: <%= @client.location %></p>
 			<p>Number of sign ins: <%= @client.sign_in_count %></p>
-			<p>Last signed in: <%= @client.last_sign_in_at.strftime("%B %d, %Y at %T") %></p>
+			<p>Last signed in: <%= @client.try(:last_sign_in_at).try(:strftime, "%B %d, %Y at %T") %></p>
 			<p>No. of Requests: <%= @client.requests.count %></p>
 			------------------------------------------------------
 

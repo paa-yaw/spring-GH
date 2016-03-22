@@ -12,7 +12,7 @@
   <% if worker.requests.any? %>
     <h3>Name: <%= worker.first_name %>, <%= worker.last_name %> <%= link_to "status: assigned!", admin_requests_path, class: "btn btn-success" %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %></h3>
   <% else %>
-    <h3>Name: <%= worker.first_name %>, <%= worker.last_name %> <%= link_to "status: unassigned!", admin_requests_path, class: "btn btn-success" %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %></h3>
+    <h3>Name: <%= worker.first_name %>, <%= worker.last_name %> <%= link_to "status: unassigned!", admin_requests_path, class: "btn btn-danger" %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %></h3>
   <% end %>
   <% end %>
   <% end %>
