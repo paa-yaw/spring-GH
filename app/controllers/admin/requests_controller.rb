@@ -73,8 +73,8 @@ class Admin::RequestsController < Admin::ApplicationController
 
   def set_client
     @client = Client.find(params[:client_id])
-  # rescue ActiveRecord::RecordNotFound
-  #   redirect_to errors_not_found_path
+  rescue ActiveRecord::RecordNotFound
+    redirect_to errors_not_found_path
   end
 
  def request_params
