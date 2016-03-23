@@ -10,57 +10,22 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *
+ *= require_tree .
  *= require_self
+ *= require requests.scss
  */
 
 /*nav#navigation {
   background-color: #fff;
 }*/
-/*
-a.navbar-brand{
-  text-transform: uppercase;
-  font-weight: 400;
-  color: #fff !important;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}*/
-
 
 /*NAVBAR TEXT STYLING*/
-/*li.page-scroll > a {
-  text-transform: uppercase;
-  color:#0090C1 !important;
-}*/
-
-/*
-li.page-scroll > a.btn:hover {
-  color:#fff !important;
-}*/
-
-/*FORM STYLING AND DISPLACEMENT FROM TOP*/
-/*.form-content {
-  border: solid 1px #122772;
-  background-color: #eee;
-  padding-top: 20px;
-  border-radius: 2px;
-  margin-top: 70px;
-}*/
-
-/*.content-box {
-  padding-top: 80px;
-  margin-top: 60px;
-}*/
 
 /*
 .content-box > h1 {
   font-family: 'SANS-SERIF';
   font-size: 32px;
   color: #0090C1;
-}*/
-
-/*.content-box > strong {
-  text-transform: capitalize;
 }*/
 
 /*div.form-top-left > p, div.form-top-left > ol > li > p, div.form-top-left > ol > p {
@@ -78,31 +43,6 @@ li.page-scroll > a.btn:hover {
   font-family: 'SANS-SERIF';
   font-size: 14px;
 }*/
-
-/*hr {
-  border-color: #0090C1;
-}
-*/
-/*.btn-block {background-color: #0090C1; color:#fff; border-color: #0090C1;}*/
-
-/*div.content-box > h1 {
-  color: #022F40;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-}*/
-
-/*div.content-box > h1 > strong {
-  color: #0090C1;
-}*/
-
-/*.signUpIn {
-  margin-top: 80px;
-}*/
-
-/*.btn-login{
-  margin-top: 10px;
-  margin-bottom: 10px;
-}*/
-
 
 
 /*Asterisks for Labels */
@@ -140,9 +80,6 @@ a.navbar-header{
 }
 
 @media only screen and (max-width: 500px) {
-/*  .content-box{
-    padding-top: 30px;
-  }*/
 
   h1{
     text-align: center;
@@ -151,10 +88,6 @@ a.navbar-header{
   div.form-top-left > p:first-child {
     display: none;
   }
-
-/*  .form-content{
-    margin-top: 40px;
-  }*/
 
   .form-left > ol {
     text-align: left;
