@@ -2,8 +2,16 @@
       <div class="row">
       <!-- <div class="col-sm-6 form-box wow fadeInUp content-box"></div> -->
 
-       <div class="col-sm-5 col-sm-offset-3 form-box form-content signUpIn">
+       <div class="col-sm-5 col-sm-offset-3">
+
+ <div class="panel-group">
+   <div class="panel panel-info">
+  <!-- Default panel contents -->
+   <div class="panel-heading">
           <h2 class="text-center">Log in</h2>
+   </div>
+  
+         <div class="panel-body">
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field">
@@ -30,4 +38,8 @@
 
     </div>
   </div>
+</div>
+
+</div>
+</div>
 </div>
