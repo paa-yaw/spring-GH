@@ -146,7 +146,6 @@ span.checkbox.inline{
 img.img-responsive{
   width: 12%;
   margin-left: 20px;
-  margin-top: 15px;
 }
 
 input[type=checkbox]{
@@ -210,10 +209,14 @@ label.check_boxes.optional.control-label{
 // MOBILE VIEW
 */
 @media only screen and (max-device-width: 480px){
+
+  img.img-responsive{
+    width: 22%;
+  }
+
   nav#navigation.navbar.navbar-default.navbar-fixed-top{
     padding-bottom: 0px;
   }
-
 
   #extra span.checkbox.inline{
     margin-left: 0px;
