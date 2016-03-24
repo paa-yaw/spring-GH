@@ -9,7 +9,7 @@
 							<h2>Admin Registration Form</h2> 
 						</header>
 						<div class="panel-body">
-							<form role="form">
+							
 
 								<%= simple_form_for([:admin, @client]) do |f| %>
 								<%= f.input :fullname %>
@@ -22,7 +22,7 @@
 
 								<%= f.button :submit, "Create User", class: "btn-primary" %>
 								<% end %>
-							</form>
+							
 						</div>
 					</section>
 				</div>
