@@ -11,7 +11,7 @@
 						<div class="panel-body">
 							
 
-								<%= simple_form_for([:admin, @client]) do |f| %>
+								<%= simple_form_for @admin, url: admin_create_admin_path, method: :post do |f| %>
 								<%= f.input :fullname %>
 								<%= f.input :email %>
 								<%= f.input :password %>

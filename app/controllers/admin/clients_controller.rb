@@ -44,7 +44,19 @@ class Admin::ClientsController < Admin::ApplicationController
   end
 
   def admin_registration
-    @client = Client.new
+    @admin = Client.new
+  end
+
+  def create_admin
+    @admin = Client.new(client_params)
+
+    if @admin.save
+      flash[:notice] = "Client successfully created."
+      redirect_to admin_list_path
+    else
+      flash.now[:alert] = "Client could not be created."
+      render 'new'
+    end 
   end
 
   def admin_list
