@@ -9,7 +9,7 @@
 
         <div class="col-md-12" onclick="calculatePricing()"> 
           <h3>Tell Us About Your House </h3>
-          <%= f.select :bedrooms, options_for_select([["1 bedroom", 1], ["2 bedrooms", 2], ["3 bedrooms", 3], ["4 bedrooms", 3], ["5+ bedrooms", 5]], :selected => f.object.bedrooms),{},{:class => "col-xs-6 col-md-3 "}%>
+          <%= f.select :bedrooms, options_for_select([["1 bedroom", 1], ["2 bedrooms", 2], ["3 bedrooms", 3], ["4 bedrooms", 4], ["5+ bedrooms", 5]], :selected => f.object.bedrooms),{},{:class => "col-xs-6 col-md-3 "}%>
           <%= f.select :bathrooms, options_for_select([["1 bathroom", 1], ["2 bathrooms", 2], ["3 bathrooms", 3], ["4 bathrooms", 4], ["5+ bathrooms", 5]], :selected => f.object.bathrooms),{},{:class => "col-xs-6 col-md-3 "} %>
 
           <%= f.select :kitchens, options_for_select([["1 kitchen", 1], ["2 kitchens", 2], ["3 kitchens", 3], ["4 kitchens", 4], ["5+ kitchens", 5]], :selected => f.object.kitchens),{},{:class => "col-xs-6 col-md-3 "} %> 
