@@ -1,469 +1,162 @@
- <header>
-  <!-- MOBILE VIEW ONLY START -->
-      <!-- Main Jumbo -->
-        <div class="container-fluid hidden-md hidden-lg">
-          <div class="row">
-            <div class="col-xs-2">
 
-              <!-- Logo -->
-              <div id="logo">
-                <a href="index.html">
-                <%= image_tag("spring-logo-final.png", :alt => "spring logo", :width=>"69px") %></a>
-              </div>
-              <!-- Logo -->
+    <!-- Page Wrapper -->
+      <div id="page-wrapper">
 
-            </div>
-
-            <div class="col-xs-8">
-
-              <ul id="menu">
-                 <li><%= link_to "Get Cleaner", new_request_path %></li>
-                 <li><%= link_to "Home", root_path %></li>
-
-                 <li><%= link_to "About" %></li>
-                <% if client_signed_in? %>
-                  <li><%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                  data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li>
-                <% else %>
-                  <li><%= link_to "Login", new_client_session_path %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-
-          <div class="row">
-                  <div class="main_slide" id="intro">
-                    <ul class="rslides">
-                      <!--Junbo-->
-                      <li>
-                        <%= image_tag("img/home/home222b.jpg", :alt => "home2black jpg", width:"25%", height:"100%") %>
-                      </li>
+        <!-- Header -->
+          <header id="header" class="alt">
+            <h1><a href="index.html">Spring</a></h1>
+            <nav id="nav">
+              <ul>
+                <li class="special">
+                  <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                  <div id="menu">
+                    <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="#one">About</a></li>
+                      <li><a href="#two">Services</a></li>
+                      <li><a href="#cta">Contact</a></li>
+                      <li><a href="#faq">FAQ</a></li>
+                      <li><a href="#">Sign Up</a></li>
+                      <li><a href="#">Log In</a></li>
                     </ul>
-              </div>
-          </div>
-        </div>
-
-        <div class="main_slide myclass hidden-sm hidden-xs" id="intro">
-          <ul class="rslides" id="slider1">
-            <!--Junbo-->
-            <li>
-             <%= image_tag("img/home/home222b.jpg", :alt => "home2black jpg", width:"25%", height:"auto") %>
-               <div class="info_slide">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-sm-12">
-                    <h1>BOOK A TRUSTED CLEANER ONLINE</h1>
-                    <br>
-                      <div class="col-sm-2 col-sm-offset-5">
-                        <%= link_to "Book a Cleaner", new_request_path, :class => "btn btn-info btn-lg linkbutton", :role =>"button" %>
-                      </div>
-
-                    </div>
                   </div>
-                </div>
-              </div>
-            </li>
-            <!--Jumbo-->
-          </ul>
-        </div>
-       <!-- end Main Jumbo -->
+                </li>
+              </ul>
+            </nav>
+          </header>
 
-<!-- MOBILE VIEW ONLY END -->
-       
-      <!--Menu-->
-    <nav>
-       <div class="container-fluid">
-        <div class="row hidden-sm hidden-xs">
-          <div class="col-xs-2">
-
-            <!-- Logo -->
-            <div id="logo">
-              <a href="index.html">
-              <%= image_tag("spring-logo-final.png", :alt => "spring logo", :width=>"69px") %></a>
+        <!-- Banner -->
+          <section id="banner">
+            <div class="inner">
+              <h2>Spring</h2>
+              <p>Trustworthy, Quality & Reliable Home Cleaning.</p>
+              <ul class="actions">
+                <li><a href="#" class="button special">Book a Cleaning</a></li>
+              </ul>
             </div>
-            <!-- Logo -->
+            <a href="#one" class="more scrolly">Learn More</a>
+          </section>
 
-          </div>
+        <!-- About One -->
+          <section id="one" class="wrapper style1 special">
+            <div class="inner">
+              <header class="major">
+                <h2>About Spring</h2>
+                <p>Spring is a service that provides TRUSTWORTHY, QUALITY and RELIABLE cleaning services to households. Spring can be trusted because all the cleaners with Spring have gone through extensive police background checks and have had thier references verified. Spring also takes cleaners through quality training so that YOU as a client has a WORRY FREE CLEANING EXPERIENCE.</p>
+                <h4>Scroll below to see our service offerings</h4>
+              </header>
+            </div>
+          </section>
 
-          <div class="col-xs-8">
+        <!-- Our Services Two -->
+          <section id="two" class="wrapper alt style2">
+            <section class="spotlight">
+              <div class="image"> <%= image_tag("pic01.jpg")%> </div><div class="content">
+                <h2>Living Room</h2>
+                <i class="fa fa-check-square-o"><span>Wiping of Windows</span></i><br>
+                <i class="fa fa-check-square-o">Removing of cobwebs</i><br>
+                <i class="fa fa-check-square-o">Vacumming of carpet if needed</i><br>
+                <i class="fa fa-check-square-o">Sweeping and mopping of floors</i><br>
+                <i class="fa fa-check-square-o">Dusting of furniture and surfaces</i><br>
+                <i class="fa fa-check-square-o">Dusting and wiping of electronics, picture frames etc</i><br>
+                <i class="fa fa-check-square-o">Dusting and wiping of light switches and other fixtures</i><br><br><br>
+              </div>
+            </section>
+            <section class="spotlight">
+              <div class="image"><%= image_tag("pic02.jpg")%></div><div class="content">
+                <h2>Kitchen</h2>
+                <i class="fa fa-check-square-o">Removing of cobwebs</i><br>
+                <i class="fa fa-check-square-o">Putting together displaced items</i><br>
+                <i class="fa fa-check-square-o">Dusting of surfaces and appliances</i><br>
+                <i class="fa fa-check-square-o">Emptying bins and cleaning bin area</i><br>
+                <i class="fa fa-check-square-o">Wiping outside of cupboards and fridge</i><br>
+                <i class="fa fa-check-square-o">Cleaning of sink,and washing of dishes</i><br>
+                <i class="fa fa-check-square-o">Sweeping, mopping of floor and wiping of walls</i><br><br>
+              </div>
+            </section>
+            <section class="spotlight">
+              <div class="image"><%= image_tag("pic03.jpg")%></div><div class="content">
+                <h2>Bedroom</h2>
+                <i class="fa fa-check-square-o">Making bed</i><br>
+                <i class="fa fa-check-square-o">Wiping of windows</i><br>
+                <i class="fa fa-check-square-o">Removing of cobwebs</i><br>
+                <i class="fa fa-check-square-o">Dusting of furniture and surfaces</i><br>
+                <i class="fa fa-check-square-o">Folding or hanging of clothes in bedroom</i><br>
+                <i class="fa fa-check-square-o">Sweeping or Vacuuming and/or mopping floors</i><br><br>
+              </div>
+            </section>
+            <section class="spotlight">
+              <div class="image"><%= image_tag("pic04.jpg")%></div><div class="content">
+                <h2>Bathroom</h2>
+                <i class="fa fa-check-square-o">Mopping floors</i><br>
+                <i class="fa fa-check-square-o">Removing of cobwebs</i><br>
+                <i class="fa fa-check-square-o">Wiping of walls and mirrors</i><br>
+                <i class="fa fa-check-square-o">Folding or hanging of clean towels</i><br>
+                <i class="fa fa-check-square-o">Emptying bins and cleaning bin area</i><br>
+                <i class="fa fa-check-square-o">Wiping of windows, counters and taps</i><br>
+                <i class="fa fa-check-square-o">Cleaning of shower, bath, sinks and toilet</i><br>
+                <i class="fa fa-check-square-o">Wiping outside of cupboards and cabinets</i><br><br>
+              </div>
+            </section>
+          </section>
 
-            <ul id="menu">
-               <li class="hidden-md hidden-lg"><%= link_to "Get Cleaner", new_request_path %></li>
-               <li><%= link_to "Home", root_path %></li>
+        <!-- Extra Services Three -->
+          <section id="three" class="wrapper style3 special">
+            <div class="inner">
+              <header class="major">
+                <h2>Extra Services</h2>
+                <p>These services come at an extra cost.</p>
+              </header>
+              <ul class="features">
+                <li>
+                  <%= image_tag("fridge.png", style:"width:100px")%>
+                  <h3>Inside Fridge Cleaning</h3>
+                </li>
+                <li >
+                  <%= image_tag("laundry.png", style:"width:100px")%>
+                  <h3>Laundry</h3>
+                </li>
+                <li>
+                  <%= image_tag("store.png", style:"width:100px")%>
+                  <h3>Storage Room Cleaning</h3>
+                </li>
+                <li>
+                  <%= image_tag("compound.png", style:"width:100px")%>
+                  <h3>Compound Cleaning</h3>
+                </li>
+              </ul>
+            </div>
+          </section>
 
-               <li><%= link_to "About" %></li>
-              <% if client_signed_in? %>
-                <li><%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li>
-              <% else %>
-                <li><%= link_to "Login", new_client_session_path %></li>
-              <% end %>
+        <!-- Contact CTA -->
+          <section id="cta" class="wrapper style4">
+            <div class="inner">
+              <header>
+                <h2>Contact Us</h2>
+                <p>Do you have any questions?<br>
+                  Send us an email: hello@springgh.com</p>
+                <p>Use Spring for all your Home Cleaning and be assured of a reliable and quality job done.</p>
+  
+              </header>
+              <ul class="actions vertical" style="padding-top: 60px;">
+                <li><a href="#" class="button fit special">Book a Cleaning</a></li>
+                <li><a href="#" class="button fit">FAQ</a></li>
+              </ul>
+            </div>
+          </section>
+
+        <!-- Social Footer -->
+          <footer id="footer">
+            <!-- <ul class="icons">
+              <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+              <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+              <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul> -->
+            <ul class="copyright">
+              <li>&copy;2016 Spring</li><li>Call Us on 020-061-0307</li>
             </ul>
-
-          </div>
-
-        </div>
-        <div class="row hidden-md hidden-lg">
-          <div class="col-xs-12 ">
-            <%= link_to "Book a Cleaner", new_request_path, :class => "botton btn-block btn-lg linkbutton", :role =>"button" %>
-          </div>
-        </div>
-       </div>
-    </nav>
-      <!--end Menu-->
-</header>
-
-    <!-- Services -->
-    <div class="container-fluid" id="services">
-
-      <div class="services">
-      <h2>OUR OFFERINGS</h2>
-
-      <div class="border_bottom"></div>
-
-        <div class="row top">
-          <div class="col-sm-6">
-            <!--Services One-->
-            <div class="offerings">
-              <div class="border_right">
-             <%= image_tag("img/offering/lvrm.jpg", :alt => "living room", width:"90%") %>
-
-                <!-- <img src="img/offering/lvrm.jpg" alt="living room" width="90%"> -->
-              </div>
-            </div>
-            <!--Services One-->
-          </div>
-
-          <div class="col-sm-6">
-            <!--Services Two-->
-            <div class="offerings">
-              <div>
-                <h3>Living Room</h3>
-
-                <ul class= "icon-align hidden-sm hidden-xs" type="none">
-
-                  <li><i class="fa fa-hand-o-right"></i> Wiping of Windows</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Vacumming of carpet if needed</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Sweeping and mopping of floors</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Dusting of furniture and surfaces</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Dusting and wiping of electronics, picture frames etc</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Dusting and wiping of light switches and other fixtures</li>
-
-                </ul>
-
-                <ul class= "icon-align hidden-md hidden-lg text-left" type="none">
-
-                  <li><i class="fa fa-hand-o-right"></i> Wiping of Windows</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Vacumming of carpet if needed</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Sweeping and mopping of floors</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Dusting of furniture and surfaces</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Dusting and wiping of electronics, picture frames etc</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Dusting and wiping of light switches and other fixtures</li>
-
-                </ul>
-
-              </div>
-            </div>
-            <!--Services Two-->
-          </div>
-
-        </div>
+          </footer>
 
       </div>
-      <!--Services-->
 
-       <div class="border_bottom"></div>
-
-      <div class="services top">
-        <div class="row">
-
-          <div class="col-sm-6 col-sm-push-6">
-            <!--Services Four-->
-            <div class="offerings">
-              <div class="border_right">
-             <%= image_tag("img/offering/kitch.jpg", :alt => "kitchen", width:"90%") %>
-                <!-- <img src="img/offering/kitch.jpg" alt="" width="90%"> -->
-              </div>
-            </div>
-             <!--Services Four-->
-          </div>
-
-          <div class="col-sm-6 col-sm-pull-6">
-            <!--Services Three -->
-
-            <div class="offerings">
-              <h3>Kitchen</h3>
-              <ul class= "icon-align-kit hidden-sm hidden-xs" type="none">
-
-                <li> <i class="fa fa-hand-o-right">Removing of cobwebs</i></li><br>
-                <li><i class="fa fa-hand-o-right"></i> Putting together displaced items</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Dusting of surfaces and appliances</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Emptying bins and cleaning bin area</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Wiping outside of cupboards and fridge</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Cleaning of sink,and washing of dishes</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Sweeping, mopping of floor and wiping of walls</li>
-              </ul>
-
-               <ul class= "icon-align-kit text-left hidden-md hidden-lg" type="none">
-
-                <li> <i class="fa fa-hand-o-right">Removing of cobwebs</i></li><br>
-                <li><i class="fa fa-hand-o-right"></i> Putting together displaced items</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Dusting of surfaces and appliances</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Emptying bins and cleaning bin area</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Wiping outside of cupboards and fridge</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Cleaning of sink,and washing of dishes</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Sweeping, mopping of floor and wiping of walls</li>
-              </ul>
-
-            </div>
-
-            <!--Services Three -->
-          </div>
-
-        </div>
-      </div>
-
-       <div class="border_bottom"></div>
-
-      <div class="services top">
-        <div class="row">
-
-          <div class="col-sm-6">
-            <!--Services Three -->
-            <div class="offerings">
-             <%= image_tag("img/offering/bed.jpg", :alt => "bed", width:"90%") %>
-              <!-- <img src="img/offering/bed.jpg" alt="" width="90%"> -->
-            </div>
-            <!--Services Three -->
-          </div>
-
-          <div class="col-sm-6">
-            <!--Services Four-->
-            <div class="offerings">
-              <div>
-                <h3>Bedroom</h3>
-
-                <ul class= "icon-align hidden-xs hidden-sm" type="none">
-
-                  <li><i class="fa fa-hand-o-right"></i> Making bed</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Wiping of windows</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Dusting of furniture and surfaces</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Folding or hanging of clothes in bedroom</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Sweeping or Vacuuming and/or mopping floors</li><br>
-                </ul>
-
-                <ul class= "icon-align hidden-md hidden-lg text-left" type="none">
-
-                  <li><i class="fa fa-hand-o-right"></i>  Making bed</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Wiping of windows</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Removing of cobwebs</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Dusting of furniture and surfaces</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Folding or hanging of clothes in bedroom</li><br>
-                  <li><i class="fa fa-hand-o-right"></i> Sweeping or Vacuuming and/or mopping floors</li><br>
-
-
-                </ul>
-
-              </div>
-            </div>
-             <!--Services Four-->
-          </div>
-
-        </div>
-      </div>
-
-      <div class="border_bottom"></div> <br>
-
-
-        <div class="row">
-          <div class="col-sm-6 col-md-push-6">
-            <!--Services Four-->
-            <div class="offerings">
-              <div class="border_right">
-                <!-- <img src="img/offering/bath.jpg" alt="" width="90%"> -->
-             <%= image_tag("img/offering/bath.jpg", :alt => "bathroom", width:"90%") %>
-
-              </div>
-            </div>
-             <!--Services Four-->
-          </div>
-
-          <div class="col-sm-6 col-md-pull-6">
-            <!--Services Three -->
-
-          <div class="services">
-
-            <div class="offerings">
-              <h3>Bathroom</h3>
-              <ul class= "icon-align-kit hidden-xs hidden-sm" type="none">
-
-                <li> <i class="fa fa-hand-o-right"></i>Mopping floors</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Removing of cobwebs</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Wiping of walls and mirrors</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Folding or hanging of clean towels</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Emptying bins and cleaning bin area</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Wiping of windows, counters and taps</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Cleaning of shower, bath, sinks and toilet</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Wiping outside of cupboards and cabinets</li>
-              </ul>
-
-               <ul class= "icon-align-kit hidden-md hidden-lg text-left" type="none">
-
-                <li> <i class="fa fa-hand-o-right"></i>Mopping floors</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Removing of cobwebs</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Wiping of walls and mirrors</li><br>
-                <li><i class="fa fa-hand-o-right"></i> Folding or hanging of clean towels</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Emptying bins and cleaning bin area</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Wiping of windows, counters and taps</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Cleaning of shower, bath, sinks and toilet</li><br>
-                <li> <i class="fa fa-hand-o-right"></i>Wiping outside of cupboards and cabinets</li>
-              </ul>
-            </div>
-          </div>
-            <!--Services Three -->
-
-        </div>
-      </div>
-      <br>
-      <div class="border_bottom"></div>
-      <div id="extra">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="extra-services text-center">
-              <h3>EXTRA SERVICES</h3>
-              <br>
-              <div class="col-sm-3 extra-laundry">
-                <p>Laundry</p>
-                <!-- <img src="img/offering/fold1.jpg" alt="" width="60px" height="60px" /> -->
-               <%= image_tag("img/offering/fold1.jpg", :alt => "", width:"60px", height:"60px") %>
-
-                  <p>$8.00</p>
-              </div>
-              <div class="col-sm-3 extra-fridge">
-                  <p>Inside Fridge Cleaning</p>
-                <!-- <img src="img/offering/insidefridge.png" alt="" width="60px" height="60px" /> -->
-               <%= image_tag("img/offering/insidefridge.png", :alt => "", width:"60px", height:"60px") %>
-
-                  <p>$8.00</p>
-              </div>
-              <div class="col-sm-3 extra-store">
-                  <p>Store Room Cleaning</p>
-                <!-- <img src="img/offering/storeRoom1.jpg" alt="" width="60px" height="60px" /> -->
-               <%= image_tag("img/offering/storeRoom1.jpg", :alt => "", width:"60px", height:"60px") %>
-
-                  <p>$8.00</p>
-              </div>
-              <div class="col-sm-3 extra-compound">
-                  <p>Compound Cleaning</p>
-                <!-- <img src="img/offering/compound.png" alt="" width="60px" height="60px" /> -->
-               <%= image_tag("img/offering/compound.png", :alt => "", width:"60px", height:"60px") %>
-
-                  <p>$8.00</p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-    </div><br>
-    <!-- Services -->
-
-      <!-- About -->
-
-      <div class="border_bottom"></div>
-      <section id="about">
-         <div class="container-fluid" id="about">
-           <div class="row text-center">
-             <h3 class="about-title">About Us</h3> <br>
-              <p class="about-paragraph">
-                Established in Ghana in 2008,
-                MEST offers aspiring African entrepreneurs a fully sponsored twelve month,
-                intensive full-time program. Sourced from top graduates in Ghana and Nigeria,
-                30 of these Entrepreneurs-In-Training (EITs) are selected each year and receive
-                comprehensive training across the spectrum of skills required to build successful tech businesses,
-                including computer programming, software development, product management, finance, marketing,
-                sales and leadership best practices.
-
-                After completion of the program, the EITs have the opportunity to pitch a concept.
-                Winning teams receive a seed round from the MEST incubator to pursue their idea.
-                Today, MEST is fully backed by The Meltwater Foundation, a not for profit arm of the Meltwater Group.
-                Headquartered in San Francisco with 900 employees and 50 offices across the world,
-                Meltwater is the global leader for online news and social media analytics.
-                Meltwater’s online intelligence platform analyzes billions of digital documents daily to extract precise,
-                timely business insights that help more than 20,000 companies understand their markets, engage their customers,
-                and master the new social business environment.
-                Established in Ghana in 2008,
-                </p>
-           </div>
-         </div>
-       </section>
-       <br>
-      <!-- About -->
-
-    <!-- Footer -->
-    <footer id="contact">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-lg-8 col-lg-offset-2 text-center">
-                  <h2 class="section-heading">Let's Get In Touch!</h2>
-                  <hr class="primary">
-                  <p>
-                      Need more information, or want to the conversation more personal? Call or send us an email.
-                  </p>
-              </div>
-              
-              <div class="col-lg-4 col-lg-offset-2 text-center">
-                  <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                  <p>020-061-0307</p>
-              </div>
-              <div class="col-lg-4 text-center">
-                  <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                  <p><a href="mailto:your-email@your-domain.com">hello@spring.com</a></p>
-              </div>
-          </div>
-      </div>
-
-    </footer>
-    <!-- Footer -->
-
-    <!-- Copy -->
-    <footer class="coopring">
-      <p>Copyright 2016 Spring.</p>
-    </footer>
-    <!-- Copy -->
-
-     <!-- ======================= JQuery libs =========================== -->
-        <!-- Always latest version of jQuery-->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
-       <!--Nav-->
-        <script type="text/javascript" src="js/nav/tinynav.js"></script>
-        <script type="text/javascript" src="js/nav/jquery.nav.js" ></script>
-        <script type="text/javascript" src="js/nav/jquery.sticky.js"></script>
-        <!--Scroll-->
-        <script src="js/scroll/smooth-scroll.js" type="text/javascript"></script>
-        <!--Lightbox-->
-        <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
-        <!-- Carrousel -->
-        <script src="js/modernizr.js"></script>
-
-        <!-- Slide.js-->
-        <script src="js/slide/responsiveslides.js"></script>
-        <!--Totop-->
-        <script type="text/javascript" src="js/totop/jquery.ui.totop.js" ></script>
-        <!-- Bootstrap.js-->
-        <script src="js/bootstrap.js"></script>
-        <!--fUNCTIONS-->
-        <script type="text/javascript" src="js/jquery-func.js"></script>
-      <!-- ======================= End JQuery libs =========================== -->
-
-        <script type="text/javascript">
-        $(document).ready(function(){
-            $(document).bind("contextmenu",function(e){
-                return false;
-            });
-        });
-        </script>
-
+</body>
