@@ -1,6 +1,6 @@
 class Admin::RequestsController < Admin::ApplicationController
-  before_action :set_request, only: [:edit, :show, :destroy, :assign]	
-  before_action :set_client, except: [:assign, :index, :show]
+  before_action :set_request, only: [:edit, :update, :show, :destroy, :assign]	
+  before_action :set_client, except: [:assign, :index, :show, :edit, :update, :destroy]
 
   def index
     @all_requests = Request.all
@@ -36,7 +36,7 @@ class Admin::RequestsController < Admin::ApplicationController
   def update
     if @request.update(request_params)
       flash[:notice] = "Your request has been updated!"
-      redirect_to @request
+      redirect_to [:admin, @client, @request]
     else
       flash.now[:alert] = "An update of your request failed!"
       render 'edit'
@@ -66,9 +66,8 @@ class Admin::RequestsController < Admin::ApplicationController
 
   def set_request
   	@request = Request.find(params[:id]) 
-  # rescue ActiveRecord::RecordNotFound
-  #   # flash[:alert] = "can find the resource you are looking for!"
-  #    redirect_to errors_not_found_path
+   rescue ActiveRecord::RecordNotFound
+    redirect_to errors_not_found_path
   end
 
   def set_client
