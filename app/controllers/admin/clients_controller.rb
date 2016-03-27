@@ -1,5 +1,5 @@
 class Admin::ClientsController < Admin::ApplicationController
-  before_action :set_client, only: [:show, :edit, :update, :destroy, :client_requests]
+  before_action :set_client, only: [:show, :edit, :update, :destroy, :client_requests, :update_admin]
 
 
   def index
@@ -57,6 +57,23 @@ class Admin::ClientsController < Admin::ApplicationController
       flash.now[:alert] = "Client could not be created."
       render 'new'
     end 
+  end
+
+  def edit_admin
+    @client = Client.find(params[:id])
+    @admin = @client
+  end
+
+  def update_admin
+    @admin = @client
+    
+    if @admin.update(client_params)
+      flash[:notice] = "Client has been updated."
+      redirect_to admin_list_path
+    else
+      flash.now[:alert] = "Client could not be updated."
+      render 'edit'
+    end
   end
 
   def admin_list

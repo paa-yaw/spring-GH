@@ -5,6 +5,15 @@
   <%= f.input :phone_number %>
   <%= f.input :location %>
   <%= f.input :tag, :collection => ["online", "offline"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "online/offline?" %>
+  
 
-  <%= f.button :submit, "Create User", class: "btn-primary" %>
+  <% if client.admin == true %>
+  <%= f.button :submit, "Create Admin", class: "btn-primary" %>
+  <% else %>
+    <% if client.persisted? %>
+    <%= f.button :submit, "Edit Client", class: "btn-primary" %>
+    <% else %>
+    <%= f.button :submit, "Create Client", class: "btn-primary" %>
+    <% end %>
+  <% end %>
 <% end %>

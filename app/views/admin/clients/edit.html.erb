@@ -6,11 +6,29 @@
 					
 					<section class="panel">
 						<header class="panel-heading">
-							<h2>Edit Client Registration Form</h2> 
+							<h2>Edit Client Registration Form.</h2> 
 						</header>
 						<div class="panel-body">
 
-							<%= render 'form', client: @client %>
+							<%= simple_form_for @client, url: admin_update_client_path(@client), method: :patch do |f| %>
+							<%= f.input :fullname %>
+							<%= f.input :email %>
+							<%= f.input :password %>
+							<%= f.input :phone_number %>
+							<%= f.input :location %>
+							<%= f.input :tag, :collection => ["online", "offline"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "online/offline?" %>
+
+
+							<% if @client.admin == true %>
+							<%= f.button :submit, "Create Admin", class: "btn-primary" %>
+							<% else %>
+							<% if @client.persisted? %>
+							<%= f.button :submit, "Edit Client", class: "btn-primary" %>
+							<% else %>
+							<%= f.button :submit, "Create Client", class: "btn-primary" %>
+							<% end %>
+							<% end %>
+							<% end %>
 
 						</div>
 					</section>

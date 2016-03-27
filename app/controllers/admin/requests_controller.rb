@@ -1,6 +1,6 @@
 class Admin::RequestsController < Admin::ApplicationController
   before_action :set_request, only: [:edit, :update, :show, :destroy, :assign]	
-  before_action :set_client, except: [:assign, :index, :show, :edit, :update, :destroy]
+  before_action :set_client, except: [:assign, :index]
 
   def index
     @all_requests = Request.all
@@ -73,14 +73,14 @@ class Admin::RequestsController < Admin::ApplicationController
 
   def set_request
   	@request = Request.find(params[:id]) 
-   rescue ActiveRecord::RecordNotFound
-    redirect_to errors_not_found_path
+   # rescue ActiveRecord::RecordNotFound
+   #  redirect_to errors_not_found_path
   end
 
   def set_client
     @client = Client.find(params[:client_id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to errors_not_found_path
+  # rescue ActiveRecord::RecordNotFound
+  #   redirect_to errors_not_found_path
   end
 
  def request_params

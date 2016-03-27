@@ -6,12 +6,12 @@
 				
 					<section class="panel">
 						<header class="panel-heading">
-							<h2>Admin Registration Form</h2> 
+							<h2>Edit Admin Registration Form</h2> 
 						</header>
 						<div class="panel-body">
 							
 
-								<%= simple_form_for @admin, url: admin_create_admin_path, method: :post do |f| %>
+								<%= simple_form_for @admin, url: admin_update_admin_path(@admin), method: :post do |f| %>
 								<%= f.input :fullname %>
 								<%= f.input :email %>
 								<%= f.input :password %>
@@ -20,7 +20,11 @@
 								<%= f.input :tag, :collection => ["online", "offline"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "online/offline?" %>
 								<%= f.input :admin %>
 
-								<%= f.button :submit, "Create User", class: "btn-primary" %>
+								<% if @admin.persisted? %>
+								<%= f.button :submit, "Edit Admin", class: "btn-primary" %>
+								<% else %>	
+								<%= f.button :submit, "Create Admin", class: "btn-primary" %>
+								<% end %>
 								<% end %>
 							
 						</div>

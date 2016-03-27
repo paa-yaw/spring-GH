@@ -28,17 +28,28 @@ Rails.application.routes.draw do
 
     get 'requests/:id/assign', to: 'requests#assign', as: :assign
     delete 'workers/:id/unassign', to: 'workers#unassign', as: :unassign
-    
+
     get 'clients/:id/client_requestss', to: 'clients#client_requestss', as: :client_requestss
     get 'clients/admin_registration', to: 'clients#admin_registration', as: :registration
     get '/admin_list', to: 'clients#admin_list', as: :list
-    get '/clients/:id/client_requests', to: 'clients#client_requests', as: :client_requests
+    # get '/clients/:id/client_requests', to: 'clients#client_requests', as: :client_requests
 
+
+    # routes to create and update admin
     post '/clients/admin_list', to: 'clients#create_admin', as: :create_admin
 
-    # post '/clients/:id/client_requests', to: 'clients#client_requests', as: :clients_requests
+    get 'clients/:id/edit_admin', to: 'clients#edit_admin', as: :edit_admin
+    post 'clients/:id', to: 'clients#admin_list'
+    patch 'clients/:id', to: 'clients#update_admin', as: :update_admin
+
+    # routes to create and update admin
+    get 'clients/:id/edit', to: 'clients#edit', as: :edit_client
+    patch 'clients/:id/index', to: 'clients#update', as: :update_client
+
+    # post '/clients/:id/requests/:id/client_requests', to: 'clients#client_requests', as: :clients_requests
     
-    resources :clients do
+
+    resources :clients, except: [:edit, :update] do
       resources :requests
     end
 
