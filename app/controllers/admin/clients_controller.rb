@@ -63,6 +63,9 @@ class Admin::ClientsController < Admin::ApplicationController
     @admins = Client.all.where(admin: true)
   end
 
+  def client_requests
+  end
+
   private
 
   def client_params

@@ -43,7 +43,13 @@ class Admin::RequestsController < Admin::ApplicationController
     end
   end 
 
-  def assign
+ 
+  def destroy
+    @request.destroy
+    redirect_to admin_root_path
+  end
+
+   def assign
     @worker = Worker.find(params[:worker_id])
 
     @request.workers << @worker
@@ -54,12 +60,13 @@ class Admin::RequestsController < Admin::ApplicationController
     flash[:alert] = "You just assigned #{@worker.first_name} to #{@request.id}."
 
     redirect_to admin_root_path
-  end
+   end
 
-  def destroy
-    @request.destroy
-    redirect_to admin_root_path
-  end
+   def client_requests
+   end
+
+
+
 
   
   private

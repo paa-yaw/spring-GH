@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm-9 col-sm-offset-1 form-box">  
 
-<h1><%= @request.client.fullname %>'s request(No <%= @request.id %>).</h1>
+<h1><%= @request.client.fullname %>'s request(No. <%= @request.id %>).</h1>
 <!-- <h3><#%= @request.name %></h3> -->
 <div class="table-responsive">
   <table class="table table-bordered">
@@ -91,7 +91,7 @@
 
 <% @workers.each do |worker| %>
 
-<% if worker.requests.any? %>
+<% if worker.requests.any? && worker.requests.exists?(@request.id) %>
   <h3><%= worker.first_name %>, <%= worker.last_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %> <%= link_to fa_icon("minus-circle") +
    "unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, method: :delete,  
      data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-warning" %>  </h3>

@@ -28,11 +28,15 @@ Rails.application.routes.draw do
 
     get 'requests/:id/assign', to: 'requests#assign', as: :assign
     delete 'workers/:id/unassign', to: 'workers#unassign', as: :unassign
+    
     get 'clients/:id/client_requestss', to: 'clients#client_requestss', as: :client_requestss
     get 'clients/admin_registration', to: 'clients#admin_registration', as: :registration
     get '/admin_list', to: 'clients#admin_list', as: :list
+    get '/clients/:id/client_requests', to: 'clients#client_requests', as: :client_requests
 
     post '/clients/admin_list', to: 'clients#create_admin', as: :create_admin
+
+    # post '/clients/:id/client_requests', to: 'clients#client_requests', as: :clients_requests
     
     resources :clients do
       resources :requests
