@@ -39,7 +39,7 @@
 											<td><%= client.email %></td>
 											<td><%= client.phone_number %></td>
 											<td><%= client.location %></td>
-											<td><%= link_to fa_icon("eye") + "Detail", admin_client_path(client), class: "btn btn-primary" %></td>
+											<td><%= link_to fa_icon("eye") + "Detail", admin_client_path(client), class: "btn btn-info" %></td>
 											<td><%= link_to fa_icon("plus") + "Create Request", new_admin_client_request_path(client), class: "btn btn-primary" %></td>
 										</tr>
 
@@ -50,7 +50,7 @@
 											<td><%= client.email %></td>
 											<td><%= client.phone_number %></td>
 											<td><%= client.location %></td>
-											<td><%= link_to fa_icon("eye") + "Detail", admin_client_path(client), class: "btn btn-primary" %></td>
+											<td><%= link_to fa_icon("eye") + "Detail", admin_client_path(client), class: "btn btn-info" %></td>
 											<td><%= link_to fa_icon("eye") + "#{client.requests.count} Requests", admin_client_requests_path(client), class: "btn btn-primary" %></td>
 										</tr>
 

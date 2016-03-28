@@ -40,9 +40,9 @@
                     <td><%= worker.sex %></td>
                     <td><%= worker.phone_number %></td>
                     <td>
-                      <%= link_to "assigned!", admin_requests_path, class: "btn btn-success" %>     
+                      <%= link_to fa_icon("user-plus") + " assigned!", admin_requests_path, class: "btn btn-primary" %>     
                     </td>
-                    <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %></td>
+                    <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
                   </tr>
                   <% else %>
                   <tr>
@@ -52,9 +52,9 @@
                     <td><%= worker.sex %></td>
                     <td><%= worker.phone_number %></td>
                     <td>
-                      <%= link_to "unassigned!", admin_requests_path, class: "btn btn-danger" %>   
+                      <%= link_to fa_icon("user-times") + " unassigned!", admin_requests_path, class: "btn btn-warning" %>   
                     </td>
-                    <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %></td>
+                    <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
                   </tr>
                   
                 </tbody>

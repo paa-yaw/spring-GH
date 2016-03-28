@@ -27,13 +27,13 @@
                 <% client.requests.each do |c_request| %>
                 <% if c_request.resolved == true %>
                 <tbody>
-                  <tr>
+                  <h2><tr>
                     <td></td>
                     <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
                     <td><%= c_request.client.fullname %></td>
                     <td><%= c_request.created_at %></td>
-                    <td><span class="label label-success">assigned</span></td>
-                  </tr>
+                    <td><%= link_to fa_icon("check-circle") + " resolved",admin_client_request_path(client, c_request), class: "btn btn-success" %></td>
+                  </tr></h2>
 
                 </tbody>
                 <% else %>
@@ -43,7 +43,7 @@
                     <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
                     <td><%= c_request.client.fullname %></td>
                     <td><%= c_request.created_at %></td>
-                    <td><span class="label label-danger">unassigned</span></td>
+                    <td><%= link_to link_to fa_icon("minus-circle") + " unresolved",admin_client_request_path(client, c_request), class: "btn btn-warning" %></td>
                   </tr>
 
                 </tbody>

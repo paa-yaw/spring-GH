@@ -1,29 +1,106 @@
-<div class="admin-page">
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<% if @client.admin == true %>
+					<h2>Admin's Detail</h2>
+					<% else %>
+					<h2>Client's Detail</h2>
+					<% end %>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+
+              <div class=" col-md-9 col-lg-9 "> 
+              	<table class="table table-user-information">
+              		<tbody>
+              			<tr>
+              				<td>Fullname:</td>
+              				<td><%= @client.fullname%></td>
+              			</tr>
+              			<tr>
+              				<td>Email:</td>
+              				<td><%= @client.email %></td>
+              			</tr>
+              			<tr>
+              				<td>Phone Number:</td>
+              				<td><%= @client.phone_number %></td>
+              			</tr>
+              			<tr>
+              				<td>Location:</td>
+              				<td><%= @client.location %></td>
+              			</tr>
+
+              			<tr>
+              				<tr>
+              					<td>Number of sign ins:</td>
+              					<td><%= @client.sign_in_count %></td>
+              				</tr>
+              				<tr>
+              					<td>Last signed in:</td>
+              					<td><%= @client.try(:last_sign_in_at).try(:strftime, "%B %d, %Y at %T") %></td>
+              				</tr>
+              				<td>No. of Requests:</td>
+              				<td><%= @client.requests.count %>
+              				</td>
+
+              			</tr>
+
+              		</tbody>
+              	</table>
+
+              	<% if @client.admin == true %>
+              	<p><%= link_to fa_icon("pencil") + "Edit Admin", admin_edit_admin_path(@client), class: "btn btn-primary" %>
+              		<% else %>
+              		<p><%= link_to fa_icon("pencil") + "Edit Client", admin_edit_client_path(@client), class: "btn btn-primary" %>
+              			<% end %>
+              			<%= link_to "Back", :back, class: "btn btn-primary" %></p>
+              		</div>
+              	</div>
+              </div>            
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <div class="admin-page">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-9 col-sm-offset-1 form-box">  
-           <% if @client.admin == true %>
-           <h2>Admin's Detail</h2>
-           <% else %>
-           <h2>Client's Detail</h2>
-           <% end %>
-			<p>Fullname: <%= @client.fullname%></p>
-			<p>Email: <%= @client.email %></p>
-			<p>Phone Number: <%= @client.phone_number %></p>
-			<p>Location: <%= @client.location %></p>
-			<p>Number of sign ins: <%= @client.sign_in_count %></p>
-			<p>Last signed in: <%= @client.try(:last_sign_in_at).try(:strftime, "%B %d, %Y at %T") %></p>
-			<p>No. of Requests: <%= @client.requests.count %></p>
-			------------------------------------------------------
+				<% if @client.admin == true %>
+				<h2>Admin's Detail</h2>
+				<% else %>
+				<h2>Client's Detail</h2>
+				<% end %>
+				<p>Fullname: <%= @client.fullname%></p>
+				<p>Email: <%= @client.email %></p>
+				<p>Phone Number: <%= @client.phone_number %></p>
+				<p>Location: <%= @client.location %></p>
+				<p>Number of sign ins: <%= @client.sign_in_count %></p>
+				<p>Last signed in: <%= @client.try(:last_sign_in_at).try(:strftime, "%B %d, %Y at %T") %></p>
+				<p>No. of Requests: <%= @client.requests.count %></p>
+				------------------------------------------------------
 
-			<% if @client.admin == true %>
-			<p><%= link_to fa_icon("pencil") + "Edit Admin", admin_edit_admin_path(@client), class: "btn btn-primary" %>
-			<% else %>
-            <p><%= link_to fa_icon("pencil") + "Edit Client", admin_edit_client_path(@client), class: "btn btn-primary" %>
-            <% end %>
-             <%= link_to "Back", :back, class: "btn btn-primary" %></p>
+				<% if @client.admin == true %>
+				<p><%= link_to fa_icon("pencil") + "Edit Admin", admin_edit_admin_path(@client), class: "btn btn-primary" %>
+					<% else %>
+					<p><%= link_to fa_icon("pencil") + "Edit Client", admin_edit_client_path(@client), class: "btn btn-primary" %>
+						<% end %>
+						<%= link_to "Back", :back, class: "btn btn-primary" %></p>
 
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-</div>
+		</div> -->

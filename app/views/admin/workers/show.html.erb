@@ -1,43 +1,140 @@
-<div class="admin-page">
-  <div class="container">
+<div class="container">
   <div class="row">
-    <div class="col-sm-9 col-sm-offset-1 form-box">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
-      <% if @worker.requests.any? %>
+
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <% if @worker.requests.any? %>
+          <h1><%= @worker.first_name %> has already been assigned!</h1>
+          <% else %>
+          <h1><%= @worker.first_name %> is currently not assigned!</h1>
+          <% end %>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+
+            <div class=" col-md-9 col-lg-9 "> 
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td><strong>First Name:</strong></td>
+                    <td><%= @worker.first_name %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Last Name:</strong></td>
+                    <td><%= @worker.last_name %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Email:</strong></td>
+                    <td><%= @worker.email %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Age:</strong></td>
+                    <td><%= @worker.age %></td>
+                  </tr>
+
+                  <tr>
+                    <tr>
+                      <td><strong>Sex:</strong></td>
+                      <td> <%= @worker.sex %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Phone Number:</strong></td>
+                      <td><%= @worker.phone_number %></td>
+                    </tr>
+                    <td><strong>Location:</strong></td>
+                    <td> <%= @worker.location %>
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <td><strong>Phone Number:</strong></td>
+                    <td><%= @worker.phone_number %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Education:</strong></td>
+                    <td><%= @worker.education %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Salary Expectation:</strong></td>
+                    <td> GHc <%= @worker.minimum_wage %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Work Experience:</strong></td>
+                    <td><%= @worker.experience %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Extra Info:</strong></td>
+                    <td> <%= @worker.extra_info %></td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+              <h3><%= link_to fa_icon("pencil") + "edit", edit_admin_worker_path(@worker), class: "btn  btn-primary" %> <%= link_to "Back", :back, class: "btn btn-primary" %></h3>
+            </div>
+          </div>
+        </div>            
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1>Worker's History</h1>
+
+<% if @worker.requests.any? %>
+<% @worker.requests.each do |request| %>
+<p><%= link_to "Request No. #{request.id}", admin_request_path(request) %> </p>
+<% end %>
+<% else %>
+<h3><%= @worker.first_name%> has not been assigned to any requests yet!</h3>
+<% end %>
+
+
+
+
+<!-- <div class="admin-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-sm-offset-1 form-box">
+
+        <% if @worker.requests.any? %>
         <h1><%= @worker.first_name %> has already been assigned!</h1>
-      <% else %>
+        <% else %>
         <h1><%= @worker.first_name %> is currently not assigned!</h1>
-      <% end %>
-
-      <p><strong>First Name:</strong> <%= @worker.first_name %></p>
-      <p><strong>Last Name:</strong> <%= @worker.last_name %>
-      <p><strong>Email:</strong> <%= @worker.email %></p> 
-      <p><strong>Age:</strong> <%= @worker.age %></p> 
-      <p><strong>Sex:</strong> <%= @worker.sex %></p>
-      <p><strong>Phone Number:</strong> <%= @worker.phone_number %></p>
-      <p><strong>Location:</strong> <%= @worker.location %></p>
-      <p><strong>Education:</strong> <%= @worker.education %></p>
-      <p><strong>Salary Expectation:</strong> GHc <%= @worker.minimum_wage %></p>
-      <p><strong>Work Experience:</strong> <%= @worker.experience %></p>
-      <p><strong>Extra Info:</strong> <%= @worker.extra_info %></p>
-
-      --------------------------------------------------------------------
-
-      <h3><%= link_to fa_icon("pencil") + "edit", edit_admin_worker_path(@worker), class: "btn  btn-primary" %> <%= link_to "Back", :back, class: "btn btn-primary" %></h3>
-
-  
-
-      <h1>Worker's History</h1>
-
-      <% if @worker.requests.any? %>
-        <% @worker.requests.each do |request| %>
-          <p><%= link_to "Request No. #{request.id}", admin_request_path(request) %> </p>
         <% end %>
-      <% else %>
-        <h3><%= @worker.first_name%> has not been assigned to any requests yet!</h3>
-      <% end %>
 
-</div>
-</div>
-</div>
-</div>
+        <p><strong>First Name:</strong> <%= @worker.first_name %></p>
+        <p><strong>Last Name:</strong> <%= @worker.last_name %>
+          <p><strong>Email:</strong> <%= @worker.email %></p> 
+          <p><strong>Age:</strong> <%= @worker.age %></p> 
+          <p><strong>Sex:</strong> <%= @worker.sex %></p>
+          <p><strong>Phone Number:</strong> <%= @worker.phone_number %></p>
+          <p><strong>Location:</strong> <%= @worker.location %></p>
+          <p><strong>Education:</strong> <%= @worker.education %></p>
+          <p><strong>Salary Expectation:</strong> GHc <%= @worker.minimum_wage %></p>
+          <p><strong>Work Experience:</strong> <%= @worker.experience %></p>
+          <p><strong>Extra Info:</strong> <%= @worker.extra_info %></p>
+
+          --------------------------------------------------------------------
+
+          <h3><%= link_to fa_icon("pencil") + "edit", edit_admin_worker_path(@worker), class: "btn  btn-primary" %> <%= link_to "Back", :back, class: "btn btn-primary" %></h3>
+
+          
+
+          <h1>Worker's History</h1>
+
+          <% if @worker.requests.any? %>
+          <% @worker.requests.each do |request| %>
+          <p><%= link_to "Request No. #{request.id}", admin_request_path(request) %> </p>
+          <% end %>
+          <% else %>
+          <h3><%= @worker.first_name%> has not been assigned to any requests yet!</h3>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div> -->

@@ -1,110 +1,156 @@
-<div class="admin-page">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-9 col-sm-offset-1 form-box">  
 
-<h1><%= @request.client.fullname %>'s request(No. <%= @request.id %>).</h1>
-<!-- <h3><#%= @request.name %></h3> -->
-<div class="table-responsive">
-  <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>
-                  House details
-                </th>
-                <th>
-                  Extra Services
-                </th>
-                <th>
-                  Selected Days
-                </th>
-                <th>
-                  Frequency
-                </th>
-                <th>
-                  Cleaning products
-                </th>
-                <th>
-                    Date
-                </th>
-                <th>
-                    Time
-                </th>
-            <tr>
-        </thead>
-        <tbody>
-            <tr>
-               <td>
-                 <%= pluralize(@request.bedrooms, "bedroom") %>, 
-                 <%= pluralize(@request.bathrooms, "bathroom") %>, 
-                 <%= pluralize(@request.kitchens, "kitchen") %>, 
-                 <%= pluralize(@request.hall, "living room") %>
-               </td> 
-               <td>
-                 <% @request.extra_services.each do |services| %>
-                   <% if services == 8 %>
-                   <p>Compound Cleaning</p>
-                   <% end %>
+<div class="row">
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">
+       <h3><%= @request.client.fullname %>'s request(No. <%= @request.id %>).</h3>
+     </header>
 
-                   <% if services == 7 %>
-                   <p>Washing & Ironing</p>
-                   <% end %>
+     <table class="table table-striped table-advance table-hover table-bordered">
+       <tbody>
+        <tr>
+         <th><i class="fa fa-home"></i> House Detail</th>
+         <th><i class="fa fa-plus"></i> Extra Services</th>
+         <th><i class="fa fa-calendar"></i> Selected Days</th>
+         <th><i class="fa fa-sort-numeric-asc"></i> Frequency</th>
+         <th><i class="fa fa-list"></i> Cleaning Product</th>
+         <th><i class="fa fa-calendar"></i> Date</th>
+         <th><i class="fa fa-calendar"></i> Time</th>
+       </tr>
+       <tr>
+         <td>
+           <p><%= pluralize(@request.bedrooms, "bedroom") %>,</p>
+           <p><%= pluralize(@request.bathrooms, "bathroom") %>,</p>
+           <p><%= pluralize(@request.kitchens, "kitchen") %>,</p>
+           <p><%= pluralize(@request.hall, "living room") %></p>
+         </td> 
+         <td>
+           <% @request.extra_services.each do |services| %>
+           <% if services == 8 %>
+           <p>Compound Cleaning</p>
+           <% end %>
 
-                   <% if services == 3 %>
-                   <p>Fridge</p>
-                   <% end %>
+           <% if services == 7 %>
+           <p>Washing & Ironing</p>
+           <% end %>
 
-                   <% if services == 5 %>
-                   <p>Storeroom</p>
-                   <% end %>
-                 <% end %>
-               </td>
-               <td>
-                 <% @request.weekdays.each do |day| %>
-                   <p><%= day %></p>
-                 <% end %>
-               </td> 
-               <td>
-                 <%= @request.days %> times <%= @request.frequency %>
-               </td>  
-               <td>
-                 <p><%= @request.provide %></p>
-               </td>
-                <td>
-                    <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
-                </td>
-                <td>
-                    <p><%= @request.date_time.strftime("%T") %></p>
-                </td>
-            </tr>
-        </tbody>
-  </table>         
+           <% if services == 3 %>
+           <p>Fridge</p>
+           <% end %>
+
+           <% if services == 5 %>
+           <p>Storeroom</p>
+           <% end %>
+           <% end %>
+         </td>
+         <td>
+           <% @request.weekdays.each do |day| %>
+           <p><%= day %></p>
+           <% end %>
+         </td> 
+         <td>
+           <%= @request.days %> times <%= @request.frequency %>
+         </td>  
+         <td>
+           <p><%= @request.provide %></p>
+         </td>
+         <td>
+          <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
+        </td>
+        <td>
+          <p><%= @request.date_time.strftime("%T") %></p>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>
+</div>
+</div>
 
 
 <%=  link_to fa_icon("pencil") + "Edit Request", [:edit, :admin, @client, @request], class: "btn btn-primary" %> 
 <%= link_to fa_icon("ban") + "Cancel Request", [:admin, @request], method: :delete, 
-			data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, class: "btn btn-danger" %>         
+data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, class: "btn btn-danger" %>         
 <br>
+
+
+
+
 
 <h2>Assign a worker(s)</h2>
 <% if @workers.any? %>
 
-<% @workers.each do |worker| %>
+<div class="row">
 
-<% if worker.requests.any? && worker.requests.exists?(@request.id) %>
-  <h3><%= worker.first_name %>, <%= worker.last_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %> <%= link_to fa_icon("minus-circle") +
-   "unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, method: :delete,  
-     data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-warning" %>  </h3
-<% else %>
-  <h3><%= worker.first_name %>, <%= worker.last_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-primary" %> <%= link_to "Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
-      data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-success"  %></h3>
-<% end %>
+  <div class="col-lg-12 col-md-12">  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      <h2><i class="fa fa-user"></i><strong>Workers</strong></h2>
+      </div>
+      <div class="panel-body">
+        <table class="table bootstrap-datatable countries">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Phone Number</th>
+              <th>Location</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead> 
 
-<% end %>
+          <% @workers.each do |worker| %>
 
-<% else %>
+          <% if worker.requests.any? && worker.requests.exists?(@request.id) %>
+          <tbody>
+            <tr>
+              <td><%= worker.first_name %></td>
+              <td><%= worker.last_name %></td>
+              <td><%= worker.phone_number %></td>
+              <td><%= worker.location %></td>
+              <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
+              <td><%= link_to fa_icon("user-times") +
+               " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, method: :delete,  
+               data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-warning" %></td>
+             </tr>
 
-<h2>No workers currently in your database!</h2>
+
+
+
+<!-- <h3><%= worker.first_name %>, <%= worker.last_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %> <%= link_to fa_icon("user-times") +
+ " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, method: :delete,  
+ data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-warning" %></h3 -->
+ <% else %>
+
+ <tr>
+  <td><%= worker.first_name %></td>
+  <td><%= worker.last_name %></td>
+  <td><%= worker.phone_number %></td>
+  <td><%= worker.location %></td>
+  <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
+  <td><%= link_to fa_icon("user-plus") + " Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
+    data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-primary"  %></td>
+  </tr>
+</tbody>
+
+
+ <!-- <h3><%= worker.first_name %>, <%= worker.last_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %> <%= link_to fa_icon("user-plus") + " Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
+ data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-primary"  %></h3> -->
+ <% end %>
+
+ <% end %>
+
+ <% else %>
+
+ <h2>No workers currently in your database!</h2>
+
+</table>
+</div>
+</div>
+</div>
+</div>
 
 <% end %>
 
