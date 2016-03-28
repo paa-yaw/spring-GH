@@ -69,7 +69,7 @@
 </div>
 
 
-<%=  link_to fa_icon("pencil") + "Edit Request", [:edit, :admin, @client, @request], class: "btn btn-primary" %> 
+<%=  link_to fa_icon("pencil") + "Edit Request", [:edit, :admin, @client, @request], class: "btn btn-info" %> 
 <%= link_to fa_icon("ban") + "Cancel Request", [:admin, @request], method: :delete, 
 data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, class: "btn btn-danger" %>         
 <br>
@@ -96,6 +96,7 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
               <th>Last Name</th>
               <th>Phone Number</th>
               <th>Location</th>
+              <th>status</th>
               <th></th>
               <th></th>
             </tr>
@@ -103,25 +104,25 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
 
           <% @workers.each do |worker| %>
 
-          <% if worker.requests.any? && worker.requests.exists?(@request.id) %>
+          <% if worker.requests.any? %>
           <tbody>
             <tr>
               <td><%= worker.first_name %></td>
               <td><%= worker.last_name %></td>
               <td><%= worker.phone_number %></td>
               <td><%= worker.location %></td>
-              <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
-              <td><%= link_to fa_icon("user-times") +
+              <td><span class="label label-danger"><strong>assigned to <%= worker.requests.first.client.fullname %></strong></span></td>
+              <td></td>
+              <td><%#= link_to fa_icon("user-times") +
                " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, method: :delete,  
                data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-warning" %></td>
              </tr>
 
+             
 
 
 
-<!-- <h3><%= worker.first_name %>, <%= worker.last_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %> <%= link_to fa_icon("user-times") +
- " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, method: :delete,  
- data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-warning" %></h3 -->
+
  <% else %>
 
  <tr>
@@ -129,15 +130,12 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
   <td><%= worker.last_name %></td>
   <td><%= worker.phone_number %></td>
   <td><%= worker.location %></td>
-  <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
+  <td><strong><span class="label label-success">available</span></strong></td>
+  <td></td>
   <td><%= link_to fa_icon("user-plus") + " Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
     data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-primary"  %></td>
   </tr>
 </tbody>
-
-
- <!-- <h3><%= worker.first_name %>, <%= worker.last_name %> <%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %> <%= link_to fa_icon("user-plus") + " Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
- data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-primary"  %></h3> -->
  <% end %>
 
  <% end %>

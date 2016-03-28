@@ -22,6 +22,7 @@
                     <th>Phone Number</th>
                     <th>Status</th>
                     <th></th>
+                    <th></th>
                   </tr>
                 </thead>  
 
@@ -39,8 +40,10 @@
                     <td><%= worker.last_name %></td>
                     <td><%= worker.sex %></td>
                     <td><%= worker.phone_number %></td>
+                    <td><span class="label label-danger"><strong>assigned to <%= worker.requests.first.client.fullname %></strong></span></td>
+                   <td></td>
                     <td>
-                      <%= link_to fa_icon("user-plus") + " assigned!", admin_requests_path, class: "btn btn-primary" %>     
+                      <%= link_to fa_icon("arrow-circle-right") + "Go To Requests" , admin_requests_path, class: "btn btn-primary" %>     
                     </td>
                     <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
                   </tr>
@@ -51,8 +54,10 @@
                     <td><%= worker.last_name %></td>
                     <td><%= worker.sex %></td>
                     <td><%= worker.phone_number %></td>
+                    <td><strong><span class="label label-success">available</span></strong></td>
+                    <td></td>
                     <td>
-                      <%= link_to fa_icon("user-times") + " unassigned!", admin_requests_path, class: "btn btn-warning" %>   
+                      <%= link_to fa_icon("arrow-circle-right") + "Go To Requests" , admin_requests_path, class: "btn btn-primary" %>     
                     </td>
                     <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
                   </tr>
