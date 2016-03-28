@@ -25,24 +25,33 @@ Rails.application.routes.draw do
   namespace :admin do
     
     root 'home#index'
-
+     
+    # routes to assign and unassign a worker  
     get 'requests/:id/assign', to: 'requests#assign', as: :assign
     delete 'workers/:id/unassign', to: 'workers#unassign', as: :unassign
 
-    get 'clients/:id/client_requestss', to: 'clients#client_requestss', as: :client_requestss
+
+    
+    # get 'clients/:id/client_requestss', to: 'clients#client_requestss', as: :client_requestss
     get 'clients/admin_registration', to: 'clients#admin_registration', as: :registration
     get '/admin_list', to: 'clients#admin_list', as: :list
-    # get '/clients/:id/client_requests', to: 'clients#client_requests', as: :client_requests
+
+
+    # routes to client_requests in admin request controller
+    get '/clients/:client_id/requests/client_requests', to: 'requests#client_requests', as: :client_requests
+    post 'clients/:client_id/requests/client_requests', to: 'requests#create'
+
 
 
     # routes to create and update admin
     post '/clients/admin_list', to: 'clients#create_admin', as: :create_admin
-
     get 'clients/:id/edit_admin', to: 'clients#edit_admin', as: :edit_admin
-    post 'clients/:id', to: 'clients#admin_list'
+    # post 'clients/:id', to: 'clients#admin_list'
     patch 'clients/:id', to: 'clients#update_admin', as: :update_admin
 
-    # routes to create and update admin
+
+
+    # routes to create and update client
     get 'clients/:id/edit', to: 'clients#edit', as: :edit_client
     patch 'clients/:id/index', to: 'clients#update', as: :update_client
 

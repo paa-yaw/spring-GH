@@ -1,5 +1,5 @@
 class Admin::ClientsController < Admin::ApplicationController
-  before_action :set_client, only: [:show, :edit, :update, :destroy, :client_requests, :update_admin]
+  before_action :set_client, only: [:show, :edit, :update, :destroy, :update_admin]
 
 
   def index
@@ -38,10 +38,6 @@ class Admin::ClientsController < Admin::ApplicationController
     end
   end
 
-
-  def client_requests
-  	@client_requests = @client.requests
-  end
 
   def admin_registration
     @admin = Client.new

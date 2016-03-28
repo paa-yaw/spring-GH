@@ -64,8 +64,8 @@ class Admin::RequestsController < Admin::ApplicationController
    end
 
    def client_requests
-   end
-
+    @client_requests = @client.requests
+  end
 
 
 
