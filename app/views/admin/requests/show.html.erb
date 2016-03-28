@@ -81,7 +81,7 @@
   </table>         
 
 
-<%=  link_to fa_icon("pencil") + "Edit", [:edit, :admin, @request], class: "btn btn-primary" %> 
+<%=  link_to fa_icon("pencil") + "Edit Request", [:edit, :admin, @client, @request], class: "btn btn-primary" %> 
 <%= link_to fa_icon("ban") + "Cancel Request", [:admin, @request], method: :delete, 
 			data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, class: "btn btn-danger" %>         
 <br>

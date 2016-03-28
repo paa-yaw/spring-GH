@@ -3,6 +3,7 @@ class Admin::RequestsController < Admin::ApplicationController
   before_action :set_client, except: [:assign, :index]
 
   def index
+    @clients = Client.all.where(admin: false)
     @all_requests = Request.all
   	@requests = Request.all.where(resolved: false)
     @resolved_requests= Request.all.where(resolved: true)
