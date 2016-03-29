@@ -4,3 +4,246 @@
 
 // REQUEST PAGE
 
+/*Asterisks for Labels */
+abbr {
+  display: none;
+}
+
+.simple_form #cleanButton{
+  height: 48px;
+  background-color: #ffd207;
+}
+
+.btn.submit_button{
+  background:#ffd207 !important;
+}
+
+/*NAVBAR CONTENT PADDING*/
+ul.nav.navbar-nav.navbar-right > li.page-scroll > a{
+  padding-bottom: 0px;
+  padding-top: 20px;
+}
+
+a.navbar-header{
+  padding-top: 2px;
+  padding-bottom: 13px;
+}
+
+#daPrice{
+  color:#009900;
+  font-size: 24px;
+}
+
+.admin-page{
+  padding-top: 60px;
+}
+
+/*REQUEST PAGE*/
+
+
+body{
+  background-image: url('floormopsnice.png');
+  background-size: cover;
+}
+
+select{
+  height: 45px;
+}
+
+select#request_date_time_1i{
+  width:20%; 
+}
+
+select#request_date_time_2i{
+  width:20%; 
+}
+
+select#request_date_time_3i{
+  width:10%;
+}
+
+select#request_date_time_4i{
+  width:20%;  
+}
+
+select#request_date_time_5i{
+  width:20%;
+}
+
+input#client_fullname.form-control{
+  height: 40px;
+}
+
+input#client_email.form-control{
+  height: 40px;
+}
+
+input#client_current_password.form-control{
+  height: 40px;
+}
+
+input#client_password.form-control{
+  height: 40px;
+}
+
+input#client_password_confirmation.form-control{
+  height: 40px;
+}
+
+input#client_phone_number.form-control{
+  height: 40px;
+}
+
+input#client_location.form-control{
+  height: 40px;
+}
+
+input#request_days{
+  height: 45px;
+  text-align: center;
+}
+
+.simple_form label.control-label{
+  font-weight: bold;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.simple_form label.radio_buttons.required.control-label{
+  display: block;
+  max-width: 100%;
+}
+
+.simple_form #days label.check_boxes.optional.control-label{
+  display: block;
+  max-width: 100%;
+}
+
+span.radio.inline{
+  padding-left: 0px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+span.checkbox.inline{
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-left: 0px; 
+}
+
+img.img-responsive{
+  width: 12%;
+  margin-left: 20px;
+}
+
+input[type=checkbox]{
+  -ms-transform: scale(1.4); /* IE */
+  -moz-transform: scale(1.4); /* FF */
+  -webkit-transform: scale(1.4); /* Safari and Chrome */
+  -o-transform: scale(1.4); /* Opera */
+}
+
+input[type=radio]{
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+}
+
+/*// TABLE PAGE*/
+
+div.panel.panel-default > div.table-responsive{
+  border-bottom:solid 1px #0E1E59;
+}
+
+div.offerings{
+  color: #122772;
+}
+
+th {
+  background-color: #324072;
+  color:#fff;
+}
+
+td {
+  background-color: #E8E8E8;
+}
+
+div.panel.panel-default{
+  border: solid 1px #0E1E59;
+}
+
+label.check_boxes.optional.control-label{
+  display: block;
+  max-width: 100%;
+}
+
+#extra span.checkbox.inline{
+  padding-left: 20px;
+}
+
+#frequency span.radio.inline{
+  padding-left: 20px;
+}
+
+#days span.checkbox.inline{
+  padding-left: 20px;
+}
+
+#preference span.radio.inline{
+  padding-left: 20px;
+}
+/*
+// MOBILE VIEW
+*/
+@media only screen and (max-device-width: 480px){
+
+  img.img-responsive{
+    width: 22%;
+  }
+
+  nav#navigation.navbar.navbar-default.navbar-fixed-top{
+    padding-bottom: 0px;
+  }
+
+  #extra span.checkbox.inline{
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  #days span.checkbox.inline{
+    margin-left:0px;
+  }
+
+  #preference span.radio.inline{
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+  
+  select#request_date_time_1i{
+    width:100%; 
+  }
+
+  select#request_date_time_2i{
+    width:100%; 
+  }
+
+  select#request_date_time_3i{
+    width:50%;
+  }
+
+  select#request_date_time_4i{
+    width:100%;  
+  }
+
+  select#request_date_time_5i{
+    width:100%;
+  }
+
+  #datetime select{
+    display: block;
+    max-width: 100%;
+  }
+}
+
+
