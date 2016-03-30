@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322151253) do
+ActiveRecord::Schema.define(version: 20160330200826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,8 +66,6 @@ ActiveRecord::Schema.define(version: 20160322151253) do
     t.integer  "bathrooms",      default: 0
     t.integer  "kitchens",       default: 0
     t.integer  "hall",           default: 0
-    t.string   "provide"
-    t.integer  "days",           default: 1
     t.string   "weekdays",       default: [],                 array: true
     t.integer  "extra_services", default: [],                 array: true
   end

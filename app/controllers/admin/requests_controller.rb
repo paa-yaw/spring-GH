@@ -85,7 +85,7 @@ class Admin::RequestsController < Admin::ApplicationController
   end
 
  def request_params
-    params.require(:request).permit(:days, {:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :provide)
+    params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens)
  end
 
 end

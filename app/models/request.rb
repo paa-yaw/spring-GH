@@ -2,7 +2,7 @@ class Request < ActiveRecord::Base
 	belongs_to :client
 	has_and_belongs_to_many :workers
 
-	validates :days, :provide, :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
+	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
     validate :weekday_array_cannot_be_empty
 
     def weekday_array_cannot_be_empty

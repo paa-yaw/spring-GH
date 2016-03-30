@@ -13,7 +13,6 @@
          <th><i class="fa fa-plus"></i> Extra Services</th>
          <th><i class="fa fa-calendar"></i> Selected Days</th>
          <th><i class="fa fa-sort-numeric-asc"></i> Frequency</th>
-         <th><i class="fa fa-list"></i> Cleaning Product</th>
          <th><i class="fa fa-calendar"></i> Date</th>
          <th><i class="fa fa-calendar"></i> Time</th>
        </tr>
@@ -49,11 +48,8 @@
            <% end %>
          </td> 
          <td>
-           <%= @request.days %> times <%= @request.frequency %>
+            <%= @request.frequency %>
          </td>  
-         <td>
-           <p><%= @request.provide %></p>
-         </td>
          <td>
           <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
         </td>

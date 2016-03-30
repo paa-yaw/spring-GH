@@ -32,9 +32,9 @@
      </div>
      <div class="panel-body">
        <div  onchange="calculatePricing()">
-         <div class="col-md-4">
-           <%= f.input :days, label: "Number of days" %>
-         </div>
+         <!-- <div class="col-md-4">
+           <#%= f.input :days, label: "Number of days" %>
+         </div> -->
          <div class="col-md-4 col-md-offset-2" >
           <%= f.input :frequency, :collection => ["weekly", "monthly"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "Frequency" %>
         </div>
@@ -54,9 +54,9 @@
     </div>
     <div class="panel-body">
       
-  <div class="col-md-12" onclick="calculatePricing()">
-    <%= f.input :provide, :collection => ["Spring provides cleaning products($3.00)", "I'll use my own cleaning products"], :as => :radio_buttons, :item_wrapper_class => 'inline', :label => "Which would you prefer?" %>
-  </div>
+  <!-- <div class="col-md-12" onclick="calculatePricing()">
+    <#%= f.input :provide, :collection => ["Spring provides cleaning products($3.00)", "I'll use my own cleaning products"], :as => :radio_buttons, :item_wrapper_class => 'inline', :label => "Which would you prefer?" %>
+  </div> -->
 
 
   <br>
