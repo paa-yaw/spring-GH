@@ -1,10 +1,10 @@
-menu/*
+/*menu
 	Spectral by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-(function($) {
+$(document).ready(function($) {
 
 	skel
 		.breakpoints({
@@ -22,7 +22,7 @@ menu/*
 			$wrapper = $('#page-wrapper'),
 			$banner = $('#banner'),
 			$header = $('#header');
-
+        
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');
 
@@ -97,4 +97,4 @@ menu/*
 
 	});
 
-})(jQuery);
+});
