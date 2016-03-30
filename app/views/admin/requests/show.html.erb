@@ -25,21 +25,17 @@
          </td> 
          <td>
            <% @request.extra_services.each do |services| %>
-           <% if services == 8 %>
-           <p>Compound Cleaning</p>
-           <% end %>
+           <% if services == 15 %>
+             <p>Compound Cleaning</p>
+             <% end %>
 
-           <% if services == 7 %>
-           <p>Washing & Ironing</p>
-           <% end %>
+             <% if services == 11 %>
+             <p>Fridge</p>
+             <% end %>
 
-           <% if services == 3 %>
-           <p>Fridge</p>
-           <% end %>
-
-           <% if services == 5 %>
-           <p>Storeroom</p>
-           <% end %>
+             <% if services == 10 %>
+             <p>Storeroom</p>
+             <% end %>
            <% end %>
          </td>
          <td>

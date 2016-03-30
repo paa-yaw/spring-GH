@@ -18,7 +18,7 @@
 
         <div onclick="calculatePricing()">
           <div class="col-md-12">
-            <%= f.input :extra_services, :collection => [["Compound cleaning($8.00)", 8], ["Washing & Ironing($7.00)", 7], ["Fridge($3.00)", 3], ["Storeroom($5.00)", 5]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
+            <%= f.input :extra_services, :collection => [["Compound cleaning(GHc15.00)", 15], ["Fridge(GHc 10.00)", 11], ["Storeroom(GHc 10.00)", 10]], :as => :check_boxes, :item_wrapper_class => "col-xs-12 inline", :label => "Extra Services" %>
           </div>
         </div> 
       </div>
@@ -36,7 +36,7 @@
            <#%= f.input :days, label: "Number of days" %>
          </div> -->
          <div class="col-md-4 col-md-offset-2" >
-          <%= f.input :frequency, :collection => ["weekly", "monthly"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "Frequency" %>
+          <%= f.input :frequency, :collection => ["one off(GHc 60.00)", "weekly(GHc 150.00)", "monthly(GHc 500.00)"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "Frequency" %>
         </div>
       </div>
       <br>
