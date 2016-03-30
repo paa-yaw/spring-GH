@@ -11,13 +11,13 @@
                   <a href="#menu" class="menuToggle"><span>Menu</span></a>
                   <div id="menu">
                     <ul>
-                      <li><a href="index.html">Home</a></li>
+                      <li><%= link_to "Home", root_path %></li>
                       <li><a href="#one">About</a></li>
                       <li><a href="#two">Services</a></li>
                       <li><a href="#cta">Contact</a></li>
                       <li><a href="#faq">FAQ</a></li>
-                      <li><a href="#">Sign Up</a></li>
-                      <li><a href="#">Log In</a></li>
+                      <li><%= link_to "Log In", new_client_registration_path %></li>
+                      <li><%= link_to "Log In", new_client_session_path %></li>
                     </ul>
                   </div>
                 </li>
