@@ -7,16 +7,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="google-site-verification" content="ekk5nq_UoqHnmI-X2AO7JNLZsgclWEvyO1Y5OTweFQ4" />
-  <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 </head>
 
 <body class="landing">
  <% flash.each do |key, message| %>
   <p><%= message %></p>
  <% end %>
-
    <%= yield %>
 </body>
 </html>
