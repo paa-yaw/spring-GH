@@ -7,6 +7,6 @@ class RemoveDaysAndProvideAttributesFromRequestModel < ActiveRecord::Migration
   	add_column :requests, :frequency, :integer
 
   	remove_column :requests, :extra_services, :integer
-  	add_column :requests, :extra_services, :integer
+  	add_column :requests, :extra_services, :decimal, array: true, default: []
   end
 end
