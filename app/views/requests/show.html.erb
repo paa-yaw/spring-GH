@@ -50,7 +50,7 @@
                    <p>Compound Cleaning</p>
                    <% end %>
 
-                   <% if services == 11 %>
+                   <% if services == 10 && @request.extra_services[0].to_i == 10 %>
                    <p>Fridge</p>
                    <% end %>
 
@@ -88,9 +88,55 @@
         <% else %>
           <%=  link_to "Edit", [:edit, @request], :class => "btn btn-default" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
         <% end %>
+
+
+
+
+
       
 
         <!--Business Algorithm -->
+
+        <% @rooms = @request.bathrooms + @request.bedrooms + @request.hall + @request.kitchens %>
+
+        <% extra_services = 0 %>
+        <% a = @request.extra_services.length.to_i - 1 %>
+
+        <% for i in 0...a %>
+          <% extra_services += @request.extra_services[i].to_i %> 
+        <% end %>
+
+        <% one_off_package = 60 %>
+        <% weekly_package = 150 %>
+        <% monthly_package = 500 %> 
+
+
+        <% if @request.frequency == 60 %>
+
+        
+         <% price = one_off_package + (@rooms - 4)*5 + extra_services %>
+         <h2> Your price is  GHc <%= price %> </h2>
+
+        <% elsif @request.frequency == 150 %>
+
+         <% price = weekly_package = 150  + (@rooms - 4)*5 + extra_services %>
+         <h2> Your price is  GHc <%= price %> </h2>
+
+        <% elsif  @request.frequency == 500 %>
+        
+          <% if @rooms >= 8 %>
+          <% price = monthly_package + (@rooms - 4)*5 + extra_services %>
+          <h2> Your price is GHc  <%= price %> </h2>
+
+          <% elsif @rooms <= 8 %>
+          <% price = monthly_package + extra_services %>
+          <h2> Your price is  GHc <%= price %> </h2>
+
+          <% end %>         
+         
+        <% end %>
+
+
  <!-- 
         <%# @rooms = @request.bathrooms + @request.bedrooms + @request.hall + @request.kitchens %>
 
