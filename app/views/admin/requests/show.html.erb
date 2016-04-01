@@ -44,7 +44,13 @@
            <% end %>
          </td> 
          <td>
-            <%= @request.frequency %>
+            <% if @request.frequency == 60 %>
+             <p>One Off(GHc 60.00)</p>
+             <% elsif @request.frequency == 150 %>
+             <p>Weekly(GHc 150.00)</p>
+             <% elsif @request.frequency == 500 %>
+               <p>Monthly(GHc 500.00)</p>
+            <% end %>
          </td>  
          <td>
           <p><%= @request.date_time.strftime("%B %d, %Y") %></p>

@@ -61,13 +61,13 @@ ActiveRecord::Schema.define(version: 20160330200826) do
     t.integer  "client_id"
     t.datetime "date_time"
     t.boolean  "resolved",       default: false
-    t.string   "frequency"
     t.integer  "bedrooms",       default: 0
     t.integer  "bathrooms",      default: 0
     t.integer  "kitchens",       default: 0
     t.integer  "hall",           default: 0
     t.string   "weekdays",       default: [],                 array: true
     t.integer  "extra_services", default: [],                 array: true
+    t.integer  "frequency"
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
