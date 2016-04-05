@@ -24,6 +24,7 @@
                         <%= image_tag("logo.png", :alt => "spring logo", :class => "img-responsive") %>
                       </a>
                   </div>
+
             <!-- //.navbar-header -->
              <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar-collapse collapse navbar-rj-collapse">
@@ -35,13 +36,14 @@
                     </li>
 
                     <% if current_client %>
-                    <li class="page-scroll">
-                        <%= link_to current_client.fullname, edit_client_registration_path %>
-                    </li>
 
                     <li class="page-scroll">
                          <%= link_to "About" %>
                     </li> 
+
+                     <li class="page-scroll">
+                        <%= link_to current_client.fullname, edit_client_registration_path %>
+                    </li>
 
                     <li class="page-scroll">          
                         <%= link_to "Log Out", destroy_client_session_path, method: :delete,

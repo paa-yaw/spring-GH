@@ -47,15 +47,15 @@
                <td>
                  <% @request.extra_services.each do |services| %>
                    <% if services == 15.00 %>
-                   <p>Compound Cleaning</p>
+                   <p>Compound Cleaning(GHc 15.00)</p>
                    <% end %>
 
                    <% if services == 10.01 %>
-                   <p>Fridge</p>
+                   <p>Fridge(GHc 10.00)</p>
                    <% end %>
 
                    <% if services == 10.00 %>
-                   <p>Storeroom</p>
+                   <p>Storeroom(GHc 10.00)</p>
                    <% end %>
                  <% end %>
                </td>
@@ -124,8 +124,8 @@
 
         <% elsif  @request.frequency == 500 %>
         
-          <% if @rooms >= 8 %>
-          <% price = monthly_package + (@rooms - 4)*5 + extra_services %>
+          <% if @rooms > 8 %>
+          <% price = monthly_package + (@rooms - 8)*5 + extra_services %>
           <h2> Your price is GHc  <%= price %> </h2>
 
           <% elsif @rooms <= 8 %>
