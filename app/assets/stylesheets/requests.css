@@ -179,6 +179,11 @@ label.check_boxes.optional.control-label{
   max-width: 100%;
 }
 
+select#request_bedrooms, select#request_bathrooms, select#request_kitchens, select#request_hall {
+  z-index: 100;
+  display: none;
+}
+
 #extra span.checkbox.inline{
   padding-left: 20px;
 }
