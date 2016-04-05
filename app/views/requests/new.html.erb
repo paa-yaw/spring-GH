@@ -1,59 +1,38 @@
     <div class="container-fluid" >
       
       <div class="row">
-        <div class="col-xs-12 col-sm-8">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-1">
             <div class="form-bottom">
                <%= render 'form', request: @request %><br>
            </div>
-        </div>
-
-       <div class="col-xs-12 col-sm-4" id="pricingBox">
+        
+       <div class="col-xs-12 col-sm-4 col-md-3 col-md-offset-1" id="pricingBox">
         
         <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title">Pricing</h3>
             </div>
           
-            <div class="panel-body">
-               <div class="table-responsive">
-                <table class="table">
-                  <tr>
-                    <td><b>4&nbsp;&nbsp;</b>Rooms</td>
-                    <td>X&nbsp;&nbsp;&nbsp;<b>1&nbsp;</b>Day</td>
-                    <td><b>$12.00</b>&nbsp;<i>(base price)</i></td>
-                  </tr>
-                  <tr>
-                    <td><b id="daRooms"></b>&nbsp;Rooms</td>
-                    <td>&nbsp;<b id="daDays">-</b>&nbsp;Days</td>
-                    <td><b id="daProduct"></b></td>
-                  </tr>
-                    <!--   <tr>
-                        <td><b>Extra Services</b></td>
-                      </tr>
-                      <tr>  
-                        <td><b>-</b>Days</td>
-                        <td><b>-</b></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><b>Preference</b></td>
-                        <td></td>
-                        <td></td>
-                      </tr> -->
-                      <tr>
-                        <td><b>Total</b></td>
-                        <td></td>
-                        <td><b id="daPrice">$12.00</b></td>
-                      </tr>
-                    </table>
-                  </div>
+           <div class="panel-body" style="border:1px solid rgba(18, 39, 114, 0.2); border-radius:3px;">
 
-              </div>
+               <div class="request-details">
+               <span id="roomNumber">4</span>&nbsp;Rooms  <span class="startPrice"></span>
+               </div>
+               <div class="request-details">
+               <span id="extraRooms">0</span>&nbsp;<span>Extra Room(s)</span><span id="extraRoomPrice">GHc 0.00</span>
+               </div>
+               <div class="request-details">
+               <span id="extraServicesNames">Extra Services</span>&nbsp;<span></span><span id="extraServicePrice">GHc 0.00</span>
+               </div>
+               <div class="request-details"><span>Package</span>&nbsp;<span id="packagePrices"></span><span id="packagePrice">GHc&nbsp;0.00</span></div>
+               <div class="request-details"><span id="totalPriceLabel">Price</span> <span id="totalPrice">GHc&nbsp;0.00</span>
+               </div>
+            </div>
 
           </div>
 
         </div>
-
+      </div>
       </div>
     </div>
 
