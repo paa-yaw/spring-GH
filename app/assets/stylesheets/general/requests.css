@@ -34,8 +34,15 @@ a.navbar-header{
   font-size: 24px;
 }
 
-h3.panel-title {
+h2.panel-title {
   background: inherit;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+div#region > div.container-fluid > div.row{
+  padding-top: 20px;
+  background: rgba(25,41,100,0.2);
 }
 
 /*REQUEST PAGE*/
@@ -107,6 +114,10 @@ select#request_date_time_4i{
 
 select#request_date_time_5i{
   width:20%;
+}
+
+select#request_hall{
+  padding-left: 0px;
 }
 
 input#client_fullname.form-control{
@@ -211,6 +222,25 @@ td {
 
 div.panel.panel-default{
   border: solid 1px #0E1E59;
+}
+
+
+div.panel.panel-info{
+  background-color: #fff;
+  border: rgba(25,41,100,0.89);
+}
+
+div.panel.panel-info > div.panel-heading{
+  background: #fff;
+  border-bottom: #fff;
+}
+
+div.panel.panel-info > div.panel-body{
+  border: #fff;
+}
+
+div.panel-body > div.request-details.request-info{
+  border-top: #fff;
 }
 
 label.check_boxes.optional.control-label{
