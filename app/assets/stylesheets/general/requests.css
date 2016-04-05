@@ -239,12 +239,12 @@ label.check_boxes.optional.control-label{
 #preference span.radio.inline{
   padding-left: 20px;
 }
-
+/*
 #days span.checkbox.inline:nth-child(-n+5){
   display: inline-block;
   width:70%;
   float:left;
-}
+}*/
 /*
 // MOBILE VIEW
 */
