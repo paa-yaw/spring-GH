@@ -89,6 +89,7 @@ function getExtraServices(){
 }
 
 function getFrequency(){
+  // document.getElementById('request_frequency_60').checked = true;
   var dayFrequency = 0;
   var weekFrequency = 0;
   var monthFrequency = 0;
@@ -106,13 +107,14 @@ function getFrequency(){
   }
 
   if (document.getElementById("request_frequency_500").checked) {
+     document.getElementById("roomNumber").innerHTML = 8;
      monthFrequency = parseInt(document.getElementById("request_frequency_500").value);
   } else {
      monthFrequency = 0;
   }
 
   var totalFrequency = (dayFrequency + weekFrequency + monthFrequency);
-  return totalFrequency;
+    return totalFrequency;
 }
 
 
@@ -252,11 +254,11 @@ function calculatePricing() {
   }
   else if (getFrequency() == 500) {
     var rooms = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
-    if (rooms >=8){
-    document.getElementById("roomNumber").innerHTML = 8;
-    } else {
-    document.getElementById("roomNumber").innerHTML = 4;
-    }
+    // if (rooms >=8){
+    //   document.getElementById("roomNumber").innerHTML = 8;
+    // } else {
+    // document.getElementById("roomNumber").innerHTML = 4;
+    // }
 
     var total = 500 + getLargeRoomNumber()*5 + getExtraServices();
     console.log(total);

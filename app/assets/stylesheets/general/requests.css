@@ -38,6 +38,8 @@ h2.panel-title {
   background: inherit;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-size: 25px;
+
 }
 
 div#region > div.container-fluid > div.row{
@@ -64,8 +66,12 @@ div#region > div.container-fluid > div.row{
 
 .request-details > span#totalPrice{
   padding-right: 30px;
+  color: #44d62c;
 }
 
+nav#navigation > .container-fluid {
+  background: #fff;
+}
 
 body{
   background-size: cover;
@@ -237,6 +243,7 @@ div.panel.panel-info > div.panel-heading{
 
 div.panel.panel-info > div.panel-body{
   border: #fff;
+  padding-bottom: 8px;
 }
 
 div.panel-body > div.request-details.request-info{
@@ -321,6 +328,12 @@ label.check_boxes.optional.control-label{
   select#request_date_time_5i{
     width:100%;
   }
+
+  #days span.checkbox.inline{
+  display: inline-block;
+  width:70%;
+  float:left;
+}
 
   #datetime select{
     display: block;
