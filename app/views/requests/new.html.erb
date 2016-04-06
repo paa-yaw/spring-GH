@@ -8,34 +8,50 @@
            </div>
         
        <div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1" id="pricingBox">
+
         
         <div class="panel panel-info">
-            <div class="panel-heading">
-              <h2 class="panel-title">Pricing</h2>
-            </div>
-          
-           <div class="panel-body" style="border:1px solid rgba(18, 39, 114, 0.2); border:#fff;">
 
-               <div class="request-details request-info">
-               <i><span>Standard: </span><span id="roomNumber">4</span>&nbsp;Rooms <span class="startPrice" id="packagePrice">GHc 60.00</span></i>
-               </div>
-               <div class="request-details">
-               <span id="extraRooms">0</span>&nbsp;<span>Extra Room(s)</span><span id="extraRoomPrice">GHc 0.00</span>
-               </div>
-               <div class="request-details">
-               <span id="extraServicesNames">Extra Services</span>&nbsp;<span></span><span id="extraServicePrice">GHc 0.00</span>
-               </div>
-               <!-- <div class="request-details"><span>Package</span>&nbsp;<span id="packagePrices"></span><span id="packagePrice">GHc&nbsp;0.00</span></div> -->
-               <div class="request-details"><span id="totalPriceLabel">Price</span> <span id="totalPrice">GHc&nbsp;0.00</span>
-               </div>
-            </div>
+           <div class="panel-body" style="border:1px solid rgba(18, 39, 114, 0.2); border:#fff;padding-right:0px;">
+      
+              <h3 class="text-center" style="padding-right:20px;">Pricing</h3>
+              <style scoped>
+              
 
-          </div>
-
-        </div>
-      </div>
+              </style>
+               <div class="grid-container">
+                  <div class="row labelRow">              
+                    <div class="col-1"><i>Description</i></div>
+                    <div class="col-2"><i>Quantity</i></div>
+                    <div class="col-3"><i>Price</i></div>
+                  </div>
+                   <div class="row basePrice">
+                    <div class="col-1">Base Price</div>
+                    <div class="col-2"><span id="roomNumber">4</span>&nbsp;Rooms</div>
+                    <div class="col-3" id="packagePrice">GHc 60.00</div>
+                  </div>
+                   <div class="row extraRooms">
+                    <div class="col-1">Extra Room(s)</div>
+                    <div class="col-2"><span id="extraRooms">0</span>&nbsp;&nbsp;Rooms</div>
+                    <div class="col-3" id="extraRoomPrice">GHc 10.00</div>
+                  </div>
+                   <div class="row extraServices">
+                    <div class="col-1">Extra Services</div>
+                    <div class="col-2"></div>
+                    <div class="col-3" id="extraServicePrice">GHc 10.00</div>
+                  </div>
+                   <div class="row pricing">
+                    <div class="col-1"><h3 class="PricingTitle">Price</h3></div>
+                    <div class="col-2">&nbsp;</div>
+                    <div class="col-3" id="totalPrice"><h3 class="PricingValue">GHc 0.00</h3></div>
+                  </div>
+                </div>
+                      </div>
+                    </div>
+                </div>
       </div>
     </div>
+</div>
 
 
 
