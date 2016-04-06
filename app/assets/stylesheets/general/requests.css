@@ -99,7 +99,7 @@ div#region > div.container-fluid > div.row{
 
  /*-- PRICING TOTAL START*/
  .extraPricing{
-  border-top: solid 1px #333;
+  /*border-top: solid 1px #333;*/
  }
 
  /*-- PRICING TOTAL END*/
