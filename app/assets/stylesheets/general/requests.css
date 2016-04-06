@@ -68,35 +68,41 @@ div#region > div.container-fluid > div.row{
 
 
 /* -- PRICING TABLE CONTENT*/
-.grid-container *{
-                  width: 100%;
-                  max-width:1200px;
-                  box-sizing: border-box;
-                }
+  .grid-container *{
+    width: 100%;
+    max-width:1200px;
+    box-sizing: border-box;
+  }
 
-                .row:before,.row:after {
-                 content:"";
-                 display: table ;
-                 clear:both;
-                }
+  .row:before,.row:after {
+   content:"";
+   display: table ;
+   clear:both;
+  }
 
-                .grid-container [class*='col-'] {
-                 float: left;
-                 min-height: 1px;
-                 width: 33%;
-                 padding:12px;
-                }
+  .grid-container [class*='col-'] {
+   float: left;
+   min-height: 1px;
+   width: 33%;
+   padding:12px;
+  }
 
-                .grid-container > .basePrice{
-                  background:#fff;
-                }
+  .grid-container > .basePrice{
+    background:#fff;
+  }
 
-                h3.PricingTitle, h3.PricingValue{
-                  font-size: 15px;
-                  font-weight: bold;
-                }
-/* -- PRICING TABLE CONTENT END*/
+  h3.PricingTitle, h3.PricingValue{
+    font-size: 15px;
+    font-weight: bold;
+  }
+/* -- PRICING TABLE END*/
 
+ /*-- PRICING TOTAL START*/
+ .extraPricing{
+  border-top: solid 1px #333;
+ }
+
+ /*-- PRICING TOTAL END*/
 
 nav#navigation > .container-fluid {
   background: #fff;
