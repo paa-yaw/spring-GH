@@ -313,17 +313,23 @@ label.check_boxes.optional.control-label{
   display: inline-block;
   float: left;
   width: 60%;
+  z-index: 1000;
 }
 
 #preference span.radio.inline{
   padding-left: 20px;
 }
+/*
+#days span.checkbox{
+  columns:2;
+}*/
 
-#days span.checkbox.inline:nth-child(-n+5){
+
+/*#days span.checkbox.inline:nth-child(-n+5){
   display: inline-block;
-  width:80%;
+  width:50%;
   float:left;
-}
+}*/
 /*
 // MOBILE VIEW
 */
