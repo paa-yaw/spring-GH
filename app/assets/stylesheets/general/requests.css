@@ -39,7 +39,7 @@ h2.panel-title {
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 25px;
-
+  font-weight:bolder;
 }
 
 div#region > div.container-fluid > div.row{
@@ -48,21 +48,6 @@ div#region > div.container-fluid > div.row{
 }
 
 /*REQUEST PAGE*/
-/*
-.request-details > span#totalPrice, span#extraRoomPrice, span#extraServicePrice, span#packagePrice, span.startPrice{
-  padding-right: 20px;
-  float:right;
-}*/
-
-/*.request-details > span#totalPrice, span#totalPriceLabel{
-  font-size: 20px;
-}*/
-
-/*.request-details > span#totalPrice{
-  padding-right: 10px;
-  color: #44d62c;
-}
-*/
 
 /* -- PRICING TABLE HEADER*/
 
@@ -165,6 +150,8 @@ select#request_date_time_5i{
 select#request_hall{
   padding-left: 0px;
 }
+
+
 
 input#client_fullname.form-control{
   height: 40px;
@@ -335,6 +322,7 @@ label.check_boxes.optional.control-label{
 */
 
 @media only screen and (max-device-width: 480px) {
+
   img.img-responsive{
     width: 22%;
   }
@@ -376,6 +364,11 @@ label.check_boxes.optional.control-label{
   select#request_date_time_5i{
     width:100%;
   }
+
+  select#request_bedrooms, select#request_bathrooms, select#request_kitchens, select#request_hall{
+   width:80%;
+   text-align:center;
+}
 
   #days span.checkbox.inline{
   display: inline-block;
