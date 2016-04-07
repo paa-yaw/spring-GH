@@ -309,8 +309,10 @@ label.check_boxes.optional.control-label{
   padding-left: 20px;
 }
 
-#days span.checkbox.inline{
+#days span.checkbox.inline:nth-child(-n+5){
   display: inline-block;
+  float: left;
+  width: 60%;
 }
 
 #preference span.radio.inline{
