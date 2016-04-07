@@ -333,7 +333,7 @@ label.check_boxes.optional.control-label{
 
   #extra span.checkbox.inline{
     margin-left: 0px;
-    padding-left: 0px;
+    /*padding-left: 0px;*/
   }
 
   #days span.checkbox.inline{
@@ -345,24 +345,10 @@ label.check_boxes.optional.control-label{
     padding-left: 0px;
   }
   
-  select#request_date_time_1i{
-    width:100%; 
-  }
-
-  select#request_date_time_2i{
-    width:100%; 
-  }
-
-  select#request_date_time_3i{
-    width:50%;
-  }
-
-  select#request_date_time_4i{
-    width:100%;  
-  }
-
-  select#request_date_time_5i{
-    width:100%;
+  select#request_date_time_1i, select#request_date_time_2i, select#request_date_time_3i, select#request_date_time_4i, select#request_date_time_5i{
+    width:60%; 
+    text-align:center;
+    margin: 0 auto;
   }
 
   select#request_bedrooms, select#request_bathrooms, select#request_kitchens, select#request_hall{
