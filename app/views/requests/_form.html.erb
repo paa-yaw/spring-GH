@@ -40,16 +40,18 @@
         </div>
 
       </div>
+      </div>
       <br>
+     <div class="panel-body" style="padding-top:0px;">
       <div onkeyup="calculatePricing()"; id="days">
 
-      <div class="col-md-12 col-sm-12">
+      <div class="col-md-10 col-sm-12">
           <%= f.input :weekdays, :collection => [["Monday", "Monday"], ["Tuesday", "Tuesday"], ["Wednesday", "Wednesday"], ["Thursday", "Thursday"], ["Friday", "Friday"], ["Saturday", "Saturday"], ["Sunday", "Sunday"]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Schedule with us" %>
         </div>
       </div>
     </div>
     
-    <div class="panel-body" style="padding-bottom:20px;">
+    <div class="panel-body">
       
     <div class="col-xs-12" id="datetime">
       <h4 class="form-content-label">
@@ -57,24 +59,20 @@
       </h4>
       <%= f.datetime_select :date_time, :start_year => Date.today.year, :end_year => Date.today.year, :ampm => true, :minute_step => 15, :class=>"btn btn-default", :label =>"When Do You Want Us To Come?" %><br><br>
     </div>
+  </div>
+    <div class="panel-body" style="padding-bottom:20px;">
 
-    <br>
-    <div class="col-xs-12" style="margin-top: 15px;">
-      
+    <div class="col-xs-12">
   <%#= f.button :button, :class => "btn-primary btn-block btn-lg", :id => "back-to-schedule" %>
-    <% if request.persisted? %>
-
-    <%= f.button :submit, "Edit Request", :class=>"btn-primary btn-lg col-md-3", :id =>"cleanButton"%>
-
-    <% else %>
-    <%= f.button :submit, "Get A Cleaner", :class=>"btn btn-block submit_button  col-md-3",:id =>"cleanButton" %>
-    <% end %>
-  
+        <% if request.persisted? %>
+          <%= f.button :submit, "Edit Request", :class=>"btn-primary btn-lg col-md-3", :id =>"cleanButton"%>
+        <% else %>
+          <%= f.button :submit, "Get A Cleaner", :class=>"btn btn-block submit_button  col-md-3",:id =>"cleanButton" %>
+        <% end %>
     </div>
+        </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
+    </div>
 <% end %>
