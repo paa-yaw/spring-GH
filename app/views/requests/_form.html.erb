@@ -8,7 +8,7 @@
       </div>
       <div class="panel-body">
 
-        <div onclick="calculatePricing()"> 
+        <div onchange="calculatePricing()"> 
           <div class="col-md-3 col-sm-12 col-xs-12">
           
           <%= f.select :bedrooms, options_for_select([["1 bedroom", 1], ["2 bedrooms", 2], ["3 bedrooms", 3], ["4 bedrooms", 4], ["5+ bedrooms", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
