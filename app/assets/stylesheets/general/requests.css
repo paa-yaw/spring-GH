@@ -91,9 +91,13 @@ div#region > div.container-fluid > div.row{
     background:#fff;
   }
 
-  h3.PricingTitle, h3.PricingValue{
+  h3.PricingTitle, h3#PricingValue{
     font-size: 15px;
     font-weight: bold;
+  }
+
+  h3#PricingValue{
+    color: #119822;
   }
 /* -- PRICING TABLE END*/
 
