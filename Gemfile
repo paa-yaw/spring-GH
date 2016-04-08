@@ -53,3 +53,4 @@ gem "twitter-bootstrap-rails"
 gem "rails_12factor"
 gem "delayed_job_active_record"
 gem "font-awesome-rails"
+gem "hirb",'~>0.7.3'
