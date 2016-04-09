@@ -55,6 +55,7 @@ class Admin::RequestsController < Admin::ApplicationController
 
     @request.workers << @worker
     @request.resolve 
+    @worker.engage
 
     @client = @request.client
     NotifyClientJob.set(wait: 2.seconds).perform_later(@client)

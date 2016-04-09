@@ -19,10 +19,15 @@ class Request < ActiveRecord::Base
 
 	def resolve
 	  self.update(resolved: true)
+	  self.update(status: "resolved")
 	end
 
 	def unresolve
 	  self.update(resolved: false)
+	end
+
+	def close_request
+	  self.update(status: "done")
 	end
 
 	def add

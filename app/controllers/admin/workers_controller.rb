@@ -47,7 +47,8 @@ class Admin::WorkersController < Admin::ApplicationController
   def unassign
     @request = Request.find(params[:request_id])
 
-    @worker.requests.delete(@request)
+    # @worker.requests.delete(@request)
+    @worker.disengage
     @request.unresolve
     redirect_to admin_root_path
   end

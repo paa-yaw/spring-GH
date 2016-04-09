@@ -28,7 +28,7 @@ Rails.application.routes.draw do
      
     # routes to assign and unassign a worker  
     get 'requests/:id/assign', to: 'requests#assign', as: :assign
-    delete 'workers/:id/unassign', to: 'workers#unassign', as: :unassign
+    get 'workers/:id/unassign', to: 'workers#unassign', as: :unassign
 
 
     

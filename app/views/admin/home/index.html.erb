@@ -42,7 +42,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="info-box blue-bg">
                         <i class="fa fa-user"></i>
-                        <div class="count"><%= Worker.joins(:requests).count %></div>
+                        <div class="count"><%= Worker.where(assigned: true).count %></div>
                         <div class="title">Assigned</div>                      
                     </div><!--/.info-box-->         
                 </div><!--/.col-->
@@ -50,7 +50,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="info-box yellow-bg">
                         <i class="fa fa-user"></i>
-                        <div class="count"><%= Worker.count-Worker.joins(:requests).count %></div>
+                        <div class="count"><%= Worker.where(assigned: false).count %></div>
                         <div class="title">Unassigned</div>                      
                     </div><!--/.info-box-->         
                 </div><!--/.col-->
