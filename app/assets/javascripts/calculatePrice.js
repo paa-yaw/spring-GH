@@ -1,15 +1,3 @@
-//makes the price appear in the form one page is loaded.
-
-// function placeValue() {
-//   if (window.location.pathname=="/requests/new" || window.location.pathname=="/requests"){
-//     document.getElementById("daPrice").innerHTML = "$"+12+".00";
-//     document.getElementById("daRooms").innerHTML = 4;
-//     document.getElementById("daDays").innerHTML = getDaysNumber();
-//   }
-// // this value is returned when the function is called in calculatePricing.
-//   return 12;
-// }
-
 
 // converts value in the bedroom dropdown to integer and returns value on function call
 function getBedroomNumber() {
@@ -118,48 +106,6 @@ function getFrequency(){
 }
 
 
-// converts value in Number of Days input field to integer and returns value on function call or 1 as default.
-// function getDaysNumber() {
-//   var daysNumber = 0;
-//   var daysNumber = (parseInt(document.getElementById("request_days").value) || 1);
-//   return daysNumber;
-// }
-
-// function getCheckBoxValue() {
-//   //declare an array to store values
-//   var extraServices = [0,0,0,0];
-  
-//   // if checkbox is clicked assign its value to first array position [0] else assign 0
-//   if (document.getElementById('request_extra_services_8').checked == true) {
-//     extraServices[0] = parseInt(document.getElementById('request_extra_services_8').value);
-//   }
-//   else {
-//     extraServices[0] = 0;
-//   }
-
-//   if(document.getElementById('request_extra_services_7').checked == true) {
-//     extraServices[1] = parseInt(document.getElementById('request_extra_services_7').value);
-//   }
-//   else {
-//     extraServices[1] = 0;
-//   }
-
-//   if (document.getElementById('request_extra_services_3').checked == true) {
-//     extraServices[2] = parseInt(document.getElementById('request_extra_services_3').value);
-//   }
-//   else {
-//     extraServices[2] = 0;
-//   }
-
-//   if (document.getElementById('request_extra_services_5').checked == true) {
-//     extraServices[3] = parseInt(document.getElementById('request_extra_services_5').value);
-//   }
-//   else {
-//     extraServices[3] = 0;
-//   }
-//   return extraServices;
-// }
-
 // function checkDays() {
 //   var checkedDays = 3;
 //   var listOfDays = document.getElementsByName("request_weekdays");
@@ -263,11 +209,6 @@ function calculatePricing() {
   }
   else if (getFrequency() == 500) {
     var rooms = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
-    // if (rooms >=8){
-    //   document.getElementById("roomNumber").innerHTML = 8;
-    // } else {
-    // document.getElementById("roomNumber").innerHTML = 4;
-    // }
 
     var total = 500 + getLargeRoomNumber()*5 + getExtraServices();
     // console.log(total);
