@@ -64,7 +64,7 @@
     </nav>
 
  <% flash.each do |key, message| %>
-  <p style="position:absolute; z-index:10000;"><%= message %></p>
+  <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%;" class="well well-sm well-primary text-center" id="flashmessage"><%= message %></p>
  <% end %>
  <style>
  #region{
@@ -74,5 +74,12 @@
  <div id="region">
    <%= yield %>
  </div>
+ <script>
+setTimeout(fade_out, 5000);
+
+function fade_out() {
+  $("#flashmessage").fadeOut().empty();
+}
+ </script>
 </body>
 </html>
