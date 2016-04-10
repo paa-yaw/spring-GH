@@ -16,7 +16,7 @@
 
               <% @my_requests.each do |my_request| %>
                 <% if my_request.resolved == true %>
-                  <h3><strong><%= my_request.id %></strong></h3><h3>status: This request has been resolved. Your cleaner will be with you shortly. <br> <%= link_to "View", my_request, :class=>"btn-primary" %> </h3>
+                  <h3><strong><%= my_request.id %></strong></h3><h3>status: This request has been resolved. Your cleaner will be with you shortly. <br> <%= link_to "View", my_request, :class=>"btn btn-primary" %> </h3>
                 <% else %>
                   <div class="table-responsive">
                     <table class="table table-bordered">

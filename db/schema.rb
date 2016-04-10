@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330200826) do
+ActiveRecord::Schema.define(version: 20160410162852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160330200826) do
     t.string   "location"
     t.string   "phone_number"
     t.string   "tag",                    default: "online"
+    t.integer  "requests_count"
   end
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
@@ -56,8 +57,8 @@ ActiveRecord::Schema.define(version: 20160330200826) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "requests", force: :cascade do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "client_id"
     t.datetime "date_time"
     t.boolean  "resolved",       default: false
@@ -65,13 +66,10 @@ ActiveRecord::Schema.define(version: 20160330200826) do
     t.integer  "bathrooms",      default: 0
     t.integer  "kitchens",       default: 0
     t.integer  "hall",           default: 0
-    t.string   "weekdays",       default: [],                 array: true
-<<<<<<< HEAD
-    t.string   "extra_services", default: [],                 array: true
-=======
->>>>>>> f27cd26db5cbd5eaf3b247eee838be20a7d79b83
+    t.string   "weekdays",       default: [],                        array: true
+    t.string   "extra_services", default: [],                        array: true
     t.integer  "frequency"
-    t.decimal  "extra_services", default: [],                 array: true
+    t.string   "status",         default: "unresolved"
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
@@ -85,8 +83,8 @@ ActiveRecord::Schema.define(version: 20160330200826) do
   add_index "requests_workers", ["worker_id"], name: "index_requests_workers_on_worker_id", using: :btree
 
   create_table "workers", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "sex"
@@ -98,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160330200826) do
     t.integer  "minimum_wage"
     t.string   "email"
     t.text     "extra_info"
+    t.boolean  "assigned",     default: false
   end
 
   add_foreign_key "requests", "clients"

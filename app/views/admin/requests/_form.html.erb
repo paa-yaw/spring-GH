@@ -18,7 +18,7 @@
 
         <div onclick="calculatePricing()">
           <div class="col-md-12">
-            <%= f.input :extra_services, :collection => [["Compound cleaning(GHc15.00)", 15], ["Fridge(GHc 10.00)", 11], ["Storeroom(GHc 10.00)", 10]], :as => :check_boxes, :item_wrapper_class => "col-xs-12 inline", :label => "Extra Services" %>
+            <%= f.input :extra_services, :collection => [["Compound cleaning(GHc15.00)", 15.00], ["Fridge(GHc 10.00)", 10.01], ["Storeroom(GHc 10.00)", 10.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
           </div>
         </div> 
       </div>

@@ -50,12 +50,12 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
                             <i class="icon-bell-l"></i>
-                            <span class="badge bg-important"><%= Request.where(resolved: false).count %></span>
+                            <span class="badge bg-important"><%= Request.joins(:client).where(resolved: false).count %></span>
                         </a>
                         <ul class="dropdown-menu extended notification">
                             <div class="notify-arrow notify-arrow-blue"></div>
                             <li>
-                                <p class="blue">You have <%= pluralize(Request.where(resolved: false).count, "unresolved request") %></p>
+                                <p class="blue">You have <%= pluralize(Request.joins(:client).where(resolved: false).count, "unresolved request") %></p>
                             </li>
                         </ul>
                     </li>    

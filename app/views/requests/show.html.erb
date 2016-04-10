@@ -84,7 +84,8 @@
   </table>           
   </div> 
         <% if @request.resolved == true %>
-        <%= link_to "Back", :back %>
+        <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
+        <%= link_to "Home", root_path, :class => "btn btn-default" %>
         <% else %>
           <%=  link_to "Edit", [:edit, @request], :class => "btn btn-default" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
         <% end %>
