@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
             <h3 class="text-center" style="color:#fff;">Edit Your Request</h3>
-    <div class="col-xs-12 col-sm-8">
+    <div class="col-md-6 col-md-offset-1 col-xs-12 col-sm-8">
         <div class="form-top">
           <div class="form-top-left">
           </div>
@@ -10,56 +10,46 @@
           <%= render 'form', request: @request %>
           <%= link_to "Back", root_path, :class =>"btn btn-default" %>
         </div>
-    </div>
 
-    <div class="col-xs-12 col-sm-4" id="pricingBox">
+    <div class="col-md-3 col-xs-12 col-sm-4" id="pricingBox">
         
-        <div class="panel panel-default">
+        <div class="panel panel-info">
 
-            <div class="panel-heading">
-              <h3 class="panel-title">Pricing</h3>
-            </div>
-          
-            <div class="panel-body">
+           <div class="panel-body" style="border:1px solid rgba(18, 39, 114, 0.2); border:#fff;padding-right:0px;">
+      
+              <h2 class="panel-title text-center" style="padding-right:20px;color:#31708f;">Pricing</h2>
 
-               <div class="table-responsive">
-                <table class="table">
-                  <tr>
-                    <td><b>4&nbsp;&nbsp;</b>Rooms</td>
-                    <td>X&nbsp;&nbsp;&nbsp;<b>1&nbsp;</b>Day</td>
-                    <td><b>$12.00</b>&nbsp;<i>(base price)</i></td>
-                  </tr>
-                  <tr>
-                    <td><b id="daRooms"></b>&nbsp;Rooms</td>
-                    <td>&nbsp;<b id="daDays">-</b>&nbsp;Days</td>
-                    <td><b id="daProduct"></b></td>
-                  </tr>
-                    <!--   <tr>
-                        <td><b>Extra Services</b></td>
-                      </tr>
-                      <tr>  
-                        <td><b>-</b>Days</td>
-                        <td><b>-</b></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><b>Preference</b></td>
-                        <td></td>
-                        <td></td>
-                      </tr> -->
-                      <tr>
-                        <td><b>Total</b></td>
-                        <td></td>
-                        <td><b id="daPrice">$12.00</b></td>
-                      </tr>
-                    </table>
+               <div class="grid-container">
+                  <div class="row labelRow">              
+                    <div class="col-1"><i>Description</i></div>
+                    <div class="col-2"><i>Quantity</i></div>
+                    <div class="col-3 text-right"><i>Price</i></div>
                   </div>
-
+                   <div class="row basePrice">
+                    <div class="col-1">Base Price</div>
+                    <div class="col-2"><span id="roomNumber">4</span>&nbsp;Rooms</div>
+                    <div class="col-3 text-right" id="packagePrice" style="padding-right:0px;">GHc 60.00</div>
+                  </div>
+                   <div class="row extraRooms">
+                    <div class="col-1">Extra Room(s)</div>
+                    <div class="col-2"><span id="extraRooms">0</span>&nbsp;&nbsp;Rooms</div>
+                    <div class="col-3 text-right" id="extraRoomPrice" style="padding-right:0px;">GHc 0.00</div>
+                  </div>
+                   <div class="row extraServices">
+                    <div class="col-1">Extra Services</div>
+                    <div class="col-2"></div>
+                    <div class="col-3 text-right" id="extraServicePrice" style="padding-right:0px;">GHc 0.00</div>
+                  </div>
+                   <div class="row extraPricing">
+                    <div class="col-1" style="padding-top:0px;"><h3 class="PricingTitle">Price</h3></div>
+                    <div class="col-2" style="padding-top:0px;">&nbsp;</div>
+                    <div class="col-3 text-right" id="totalPrice" style="padding-top:0px;padding-left:0px; padding-right:0px;"><h3 id="PricingValue">GHc 60.00</h3></div>
+                  </div>
+                </div>
               </div>
-
-          </div>
-
+            </div>
         </div>
+      </div>
     </div>
   </div>
 
