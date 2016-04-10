@@ -9,7 +9,7 @@
         <div class="col-lg-12 col-md-12">  
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h2><i class="fa fa-user"></i><strong><%= pluralize(Request.joins(:client).count, "Request") %></strong></h2>
+              <h2><i class="fa fa-user"></i><strong><%= pluralize(Request.joins(:client).count, "Request") %>---------------------------------------<%= pluralize(Request.joins(:client).where(resolved: true).count, "Resolved Requests") %>---------------------------------------<%= pluralize(Request.joins(:client).where(resolved: false).count, "Unresolved Requests") %></strong></h2>
             </div>
             <div class="panel-body">
               <table class="table bootstrap-datatable countries">
@@ -22,6 +22,11 @@
                     <th>Status</th>
                   </tr>
                 </thead>  
+
+                <% if @all_requests.empty? %>
+                <h1>No Requests</h1>
+                <% end %>
+
                 <% @clients.each do |client| %>
                 <% if client.requests.any? %>
                 <% client.requests.each do |c_request| %>

@@ -18,6 +18,8 @@
 											<th>Email</th>
 											<th>Phone Number</th>
 											<th>Location</th>
+											<th>online/offline</th>
+											<th></th>
 											<th></th>
 											<th></th>
 										</tr>
@@ -39,8 +41,18 @@
 											<td><%= client.email %></td>
 											<td><%= client.phone_number %></td>
 											<td><%= client.location %></td>
+											<td>
+
+											<% if client.tag == "online" %>	
+											<span class="label label-success"><%= client.tag %></span>
+											<% elsif client.tag == "offline" %>
+											<span class="label label-danger"><%= client.tag %></span>
+											<% end %>
+
+											</td>
 											<td><%= link_to fa_icon("eye") + " Detail", admin_client_path(client), class: "btn btn-info" %></td>
 											<td><%= link_to fa_icon("plus") + " Create Request", new_admin_client_request_path(client), class: "btn btn-primary" %></td>
+											<td><%= link_to "Remove", admin_client_path(client), method: :delete, data: {confirm: "are you sure you want to remove #{client.fullname} from the database?"}, class: "btn btn-danger" %></td>
 										</tr>
 
 										<% else %>
@@ -50,8 +62,19 @@
 											<td><%= client.email %></td>
 											<td><%= client.phone_number %></td>
 											<td><%= client.location %></td>
+											<td>
+
+											<% if client.tag == "online" %>	
+											<span class="label label-success"><%= client.tag %></span>
+											<% elsif client.tag == "offline" %>
+											<span class="label label-danger"><%= client.tag %></span>
+											<% end %>
+											</td>
+
+
 											<td><%= link_to fa_icon("eye") + " Detail", admin_client_path(client), class: "btn btn-info" %></td>
 											<td><%= link_to fa_icon("eye") + " #{client.requests.count} Requests", admin_client_requests_path(client), class: "btn btn-primary" %></td>
+											<td><%= link_to "Remove", admin_client_path(client), method: :delete, data: {confirm: "are you sure you want to remove #{client.fullname} from the database?"}, class: "btn btn-danger" %></td>
 										</tr>
 
 									</tbody>
@@ -64,6 +87,7 @@
 						</div>
 					</div>
 				</div>
+				<%= link_to fa_icon("plus") + " Register Client", new_admin_client_path, class: "btn btn-primary" %>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,5 @@
 class Request < ActiveRecord::Base
-	belongs_to :client
+	belongs_to :client, counter_cache: true
 	has_and_belongs_to_many :workers
 
 	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
@@ -28,6 +28,10 @@ class Request < ActiveRecord::Base
 
 	def close_request
 	  self.update(status: "done")
+	end
+
+	def reopen_request
+	  self.update(status:"redo")
 	end
 
 	def add

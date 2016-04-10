@@ -40,7 +40,8 @@ class Admin::WorkersController < Admin::ApplicationController
 
   def destroy
   	@worker.destroy
-  	redirect_to admin_root_path
+  	@workers = Worker.all 
+    render 'index'
   end
 
 

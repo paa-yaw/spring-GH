@@ -38,6 +38,12 @@ class Admin::ClientsController < Admin::ApplicationController
     end
   end
 
+  def destroy
+    @client.destroy
+    @clients = Client.all.where(admin: false)
+    render 'index'
+  end
+
 
   def admin_registration
     @admin = Client.new
