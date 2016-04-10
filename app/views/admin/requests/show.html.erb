@@ -120,7 +120,6 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
 
 
 
-
 <h2>Assign a worker(s)</h2>
 <% if @workers.any? %>
 
@@ -154,15 +153,14 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
               <td><%= worker.last_name %></td>
               <td><%= worker.phone_number %></td>
               <td><%= worker.location %></td>
-              <td><span class="label label-danger"><strong>assigned to <%= worker.requests.first.client.fullname %></strong></span></td>
+              <td><span class="label label-danger"><strong>assigned to <%= worker.try(:requests).try(:uniq).try(:last).try(:client).try(:fullname) %></strong></span></td>
               <td></td>
               <!-- <td><%#= link_to fa_icon("user-times") +
                " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, method: :delete,  
                data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-warning" %></td> -->
 
-               <!-- <td><#%= link_to fa_icon("user-times") +
-               " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, class: "btn btn-warning" %></td> -->
-               <td></td>
+               <td><%= link_to fa_icon("user-times") +
+               " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, data: {confirm: "You are about to unassign this worker"}, class: "btn btn-warning" %></td>
              </tr>
 
              

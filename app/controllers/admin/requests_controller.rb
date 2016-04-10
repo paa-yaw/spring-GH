@@ -61,7 +61,9 @@ class Admin::RequestsController < Admin::ApplicationController
     NotifyClientJob.set(wait: 2.seconds).perform_later(@client)
     flash[:alert] = "You just assigned #{@worker.first_name} to #{@request.id}."
 
-    redirect_to admin_root_path
+    # redirect_to admin_root_path
+    @workers = Worker.all
+    render "show"
    end
 
    def client_requests

@@ -50,7 +50,8 @@ class Admin::WorkersController < Admin::ApplicationController
     # @worker.requests.delete(@request)
     @worker.disengage
     @request.unresolve
-    redirect_to admin_root_path
+    @workers = Worker.all 
+    render "admin/requests/show"
   end
 
   private

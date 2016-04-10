@@ -30,7 +30,7 @@
                   <h2><tr>
                     <td></td>
                     <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
-                    <td><%= c_request.client.fullname %></td>
+                    <td><%= link_to c_request.client.fullname, admin_client_path(client) %></td>
                     <td><%= c_request.created_at %></td>
                     <td><%= link_to fa_icon("check-circle") + " resolved",admin_client_request_path(client, c_request), class: "btn btn-success" %></td>
                   </tr></h2>
@@ -41,7 +41,7 @@
                   <tr>
                     <td></td>
                     <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
-                    <td><%= c_request.client.fullname %></td>
+                    <td><%= link_to c_request.client.fullname, admin_client_path(client) %></td>
                     <td><%= c_request.created_at %></td>
                     <td><%= link_to link_to fa_icon("minus-circle") + " unresolved",admin_client_request_path(client, c_request), class: "btn btn-warning" %></td>
                   </tr>
