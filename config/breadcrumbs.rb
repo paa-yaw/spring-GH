@@ -13,12 +13,12 @@ crumb :new_request do |request|
 end
 
 crumb :show_request do |request|
-  link request.id, admin_request_path(request)
+  link "No.#{request.id}", request
   parent :request
 end
 
 crumb :edit_request do |request|
-  link "Edit #{request.id}", edit_client_request_path(request) 
+  link "Edit #{request.id}", request 
   parent :request	
 end
 
@@ -32,14 +32,60 @@ crumb :clients do |client|
   parent :root
 end
 
-crumb :worker do |worker|
+crumb :client_registration do |client|
+  link "Client Registration", new_admin_client_path
+  parent :root
+end
+
+crumb :show_client do |client|
+  link "#{client.first_name}", admin_client_path(client)
+  parent :clients
+end
+
+crumb :admin_list do |admin|
+  link "Admins", admin_list_path
+  parent :root
+end
+
+crumb :show_admin do |admin|
+  link "#{admin.first_name}", admin_client_path(admin) 
+  parent :admin_list
+end
+
+crumb :admin_registration do |admin|
+  link "Admin Registration", admin_registration_path
+  parent :root
+end
+crumb :workers do |worker|
 	link "Workers", admin_workers_path
 	parent :root
 end
 
 crumb :new_worker do |worker|
   link "New Worker", new_admin_worker_path
+  parent :root
 end
+
+crumb :show_worker do |worker|
+  link worker.first_name, admin_worker_path(worker)
+  parent :workers
+end
+
+crumb :edit_worker do |worker|
+  link "Edit #{worker.first_name}", admin_worker_path(worker)
+  parent :workers
+end
+
+crumb :history do |worker|
+  link "Workers' History", admin_workers_history_path
+  parent :root
+end
+
+crumb :worker_history do |worker|
+  link worker.first_name, admin_worker_history_path(worker)
+  parent :history
+end
+
 
 
 
