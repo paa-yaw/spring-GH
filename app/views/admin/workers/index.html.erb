@@ -41,7 +41,7 @@
                     <td><%= worker.last_name %></td>
                     <td><%= worker.sex %></td>
                     <td><%= worker.phone_number %></td>
-                    <td><span class="label label-danger"><strong>assigned <%= worker.requests.first.client.fullname %>(No.<%= worker.requests.uniq.last.id %>)</strong></span></td>
+                    <td><span class="label label-danger"><strong>assigned <%= worker.requests.first.client.first_name %>(No.<%= worker.requests.uniq.last.id %>)</strong></span></td>
                    <td></td>
                     <td>
                       <%= link_to fa_icon("arrow-circle-right") + "Go To Requests" , admin_requests_path, class: "btn btn-primary" %>     
