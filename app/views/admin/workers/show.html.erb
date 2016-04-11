@@ -107,7 +107,7 @@
         <% @worker.requests.uniq.each do |request| %>
 
        <tr>
-         <td><%= link_to request.client.fullname, admin_client_requests_path(request.client) %></td>
+         <td><%= link_to request.client.first_name, admin_client_requests_path(request.client) %></td>
          <td><%= request.client.requests.count %></td>
          <td>No remark</td>
          <td>No Data yet!</td>
@@ -129,59 +129,3 @@
 </div>
 </div>
 
-<!-- <h1>Worker's History</h1>
-
-<% if @worker.requests.any? %>
-<% @worker.requests.each do |request| %>
-<p><%= link_to "Request No. #{request.id}", admin_request_path(request) %> </p>
-<% end %>
-<% else %>
-<h3><%= @worker.first_name%> has not been assigned to any requests yet!</h3>
-<% end %> -->
-
-
-
-
-<!-- <div class="admin-page">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-sm-offset-1 form-box">
-
-        <% if @worker.requests.any? %>
-        <h1><%= @worker.first_name %> has already been assigned!</h1>
-        <% else %>
-        <h1><%= @worker.first_name %> is currently not assigned!</h1>
-        <% end %>
-
-        <p><strong>First Name:</strong> <%= @worker.first_name %></p>
-        <p><strong>Last Name:</strong> <%= @worker.last_name %>
-          <p><strong>Email:</strong> <%= @worker.email %></p> 
-          <p><strong>Age:</strong> <%= @worker.age %></p> 
-          <p><strong>Sex:</strong> <%= @worker.sex %></p>
-          <p><strong>Phone Number:</strong> <%= @worker.phone_number %></p>
-          <p><strong>Location:</strong> <%= @worker.location %></p>
-          <p><strong>Education:</strong> <%= @worker.education %></p>
-          <p><strong>Salary Expectation:</strong> GHc <%= @worker.minimum_wage %></p>
-          <p><strong>Work Experience:</strong> <%= @worker.experience %></p>
-          <p><strong>Extra Info:</strong> <%= @worker.extra_info %></p>
-
-          --------------------------------------------------------------------
-
-          <h3><%= link_to fa_icon("pencil") + "edit", edit_admin_worker_path(@worker), class: "btn  btn-primary" %> <%= link_to "Back", :back, class: "btn btn-primary" %></h3>
-
-          
-
-          <h1>Worker's History</h1>
-
-          <% if @worker.requests.any? %>
-          <% @worker.requests.each do |request| %>
-          <p><%= link_to "Request No. #{request.id}", admin_request_path(request) %> </p>
-          <% end %>
-          <% else %>
-          <h3><%= @worker.first_name%> has not been assigned to any requests yet!</h3>
-          <% end %>
-
-        </div>
-      </div>
-    </div>
-  </div> -->
