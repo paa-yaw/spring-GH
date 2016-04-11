@@ -18,6 +18,12 @@
 							<th></th>
 							<th>Request ID</th>
 							<th>House Details</th>
+							<th>Extra Services</th>
+							<th>Selected Days</th>
+							<th>Frequency</th>
+							<th>Total Price</th>
+							<th>Date</th>
+							<th>Time</th>
 							<th>Created At</th>
 							<th>Status</th>
 						</tr>
@@ -28,23 +34,178 @@
 
 					<tbody>
 						<tr>
+							<td></td>
+							<td><%= client_request.id %></td>
 							<td>
+								
 								<p><%= pluralize(client_request.bedrooms, "bedroom") %>,</p>
 								 <p><%= pluralize(client_request.bathrooms, "bathroom") %>,</p>
 								 <p><%= pluralize(client_request.kitchens, "kitchen") %>,</p>
 								 <p><%= pluralize(client_request.hall, "living room") %></p>
+							</td>
+							<td>
+								<% client_request.extra_services.each do |services| %>
+								     <% if services == 15.00 %>
+								     <p>Compound Cleaning(GHc 15.00)</p>
+								     <% end %>
+
+								     <% if services == 10.01 %>
+								     <p>Fridge(GHc 10.00)</p>
+								     <% end %>
+
+								     <% if services == 10.00 %>
+								     <p>Storeroom(GHc 10.00)</p>
+								     <% end %>
+								     <% end %>
+							</td>
+							<td>
+								<% client_request.weekdays.each do |day| %>
+								<p><%= day %></p>
+								<% end %>
+							</td>
+							<td>
+								<% if client_request.frequency == 60 %>
+								<p>One Off(GHc 60.00)</p>
+								<% elsif client_request.frequency == 150 %>
+								<p>Weekly(GHc 150.00)</p>
+								<% elsif client_request.frequency == 500 %>
+								<p>Monthly(GHc 500.00)</p>
+								<% end %>
+							</td>
+							<td>
+								<p>
+									<% @rooms = client_request.bathrooms + client_request.bedrooms + client_request.hall + client_request.kitchens %>
+
+									<% extra_services = 0 %>
+									<% a = client_request.extra_services.length.to_i - 1 %>
+
+									<% for i in 0...a %>
+									<% extra_services += client_request.extra_services[i].to_i %> 
+									<% end %>
+
+									<% one_off_package = 60 %>
+									<% weekly_package = 150 %>
+									<% monthly_package = 500 %> 
+
+
+									<% if client_request.frequency == 60 %>
+
+
+									<% price = one_off_package + (@rooms - 4)*5 + extra_services %>
+									 GHc <%= price %> 
+
+									<% elsif client_request.frequency == 150 %>
+
+									<% price = weekly_package = 150  + (@rooms - 4)*5 + extra_services %>
+									 GHc <%= price %> 
+
+									<% elsif  client_request.frequency == 500 %>
+
+									<% if @rooms > 8 %>
+									<% price = monthly_package + (@rooms - 8)*5 + extra_services %>
+									 GHc  <%= price %> 
+
+									<% elsif @rooms <= 8 %>
+									<% price = monthly_package + extra_services %>
+									 GHc <%= price %> 
+
+									<% end %>         
+
+									<% end %>
+
+								<p>
 
 							</td>
-							<td><%= client_request.id %></td>
-							<td></td>
+							<td><p><%= client_request.date_time.strftime("%B %d, %Y") %></p></td>
+							<td><p><%= client_request.date_time.strftime("%T") %></p></td>
 							<td><%= client_request.created_at %></td>
 							<td><%= link_to "resolved", admin_client_request_path(@client,client_request), class: "btn btn-success" %></td>
 						</tr>
 						<% else %> 
 						<tr>
-							<td></td>
-							<td><%= client_request.id %></td>
-							<td></td>
+						    <td></td>
+						    <td><%= client_request.id %></td>
+							<td>								
+								<p><%= pluralize(client_request.bedrooms, "bedroom") %>,</p>
+								 <p><%= pluralize(client_request.bathrooms, "bathroom") %>,</p>
+								 <p><%= pluralize(client_request.kitchens, "kitchen") %>,</p>
+								 <p><%= pluralize(client_request.hall, "living room") %></p>
+							</td>
+							<td>
+								<% client_request.extra_services.each do |services| %>
+								     <% if services == 15.00 %>
+								     <p>Compound Cleaning(GHc 15.00)</p>
+								     <% end %>
+
+								     <% if services == 10.01 %>
+								     <p>Fridge(GHc 10.00)</p>
+								     <% end %>
+
+								     <% if services == 10.00 %>
+								     <p>Storeroom(GHc 10.00)</p>
+								     <% end %>
+								     <% end %>
+							</td>
+							<td>
+								<% client_request.weekdays.each do |day| %>
+								<p><%= day %></p>
+								<% end %>
+							</td>
+							<td>
+								<% if client_request.frequency == 60 %>
+								<p>One Off(GHc 60.00)</p>
+								<% elsif client_request.frequency == 150 %>
+								<p>Weekly(GHc 150.00)</p>
+								<% elsif client_request.frequency == 500 %>
+								<p>Monthly(GHc 500.00)</p>
+								<% end %>
+							</td>
+							<td>
+								<p>
+									<% @rooms = client_request.bathrooms + client_request.bedrooms + client_request.hall + client_request.kitchens %>
+
+									<% extra_services = 0 %>
+									<% a = client_request.extra_services.length.to_i - 1 %>
+
+									<% for i in 0...a %>
+									<% extra_services += client_request.extra_services[i].to_i %> 
+									<% end %>
+
+									<% one_off_package = 60 %>
+									<% weekly_package = 150 %>
+									<% monthly_package = 500 %> 
+
+
+									<% if client_request.frequency == 60 %>
+
+
+									<% price = one_off_package + (@rooms - 4)*5 + extra_services %>
+									 GHc <%= price %> 
+
+									<% elsif client_request.frequency == 150 %>
+
+									<% price = weekly_package = 150  + (@rooms - 4)*5 + extra_services %>
+									 GHc <%= price %> 
+
+									<% elsif  client_request.frequency == 500 %>
+
+									<% if @rooms > 8 %>
+									<% price = monthly_package + (@rooms - 8)*5 + extra_services %>
+									 GHc  <%= price %> 
+
+									<% elsif @rooms <= 8 %>
+									<% price = monthly_package + extra_services %>
+									 GHc <%= price %> 
+
+									<% end %>         
+
+									<% end %>
+
+								<p>
+								
+							</td>
+							<td><p><%= client_request.date_time.strftime("%B %d, %Y") %></p></td>
+							<td><p><%= client_request.date_time.strftime("%T") %></p></td>
 							<td><%= client_request.created_at %></td>
 							<td><%= link_to "unresolved", admin_client_request_path(@client, client_request), class: "btn btn-danger" %></td>
 						</tr>
