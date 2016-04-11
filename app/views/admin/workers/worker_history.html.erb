@@ -1,0 +1,75 @@
+<div class="row">
+                  <div class="col-sm-6">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Summary
+                          </header>
+                          <table class="table table-striped">
+                              
+                              <tbody>
+                              <tr>
+                                  <td>Total No. of Requests Handled</td>
+                                  <td><%= @worker.requests.count %></td>
+                              </tr>
+                              <tr>
+                                  <td>No. of Resolved Requests</td>
+                                  <td><%= @worker.requests.where(status: "resolved").count %></td>
+                              </tr>
+                              <tr>
+                                  <td>No. of Unresolved Requests</td>
+                                  <td><%= @worker.requests.where(status: "unresolved").count %></td>
+                              </tr>
+                              <tr>
+                                <td>No. of Clients Handled</td>
+                                <td><%= @worker.requests.joins(:client).count %></td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </section>
+                  </div>
+              </div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">
+        <h3>Break Down of <%= @worker.first_name %>'s History</h3>
+      </header>
+      
+
+      <table class="table table-striped table-advance table-hover">
+
+       <tbody>
+        <tr>
+        <th><i class="fa fa-user"></i>Client's Name</th>
+        <th><i class="fa fa-folder"></i>No. of Requests</th>
+         <th><i class="fa fa-comments-o"></i>Client's Remark</th>
+         <th><i class="fa fa-calendar"></i>Duration of Service</th>
+         <th><i class="fa fa-sort-numeric-asc"></i>Rank</th>
+       </tr>
+       <% if @worker.requests.exists? %>
+        <% @worker.requests.uniq.each do |request| %>
+
+       <tr>
+         <td><%= link_to request.client.first_name, admin_client_requests_path(request.client) %></td>
+         <td><%= request.client.requests.count %></td>
+         <td>No remark</td>
+         <td>No Data yet!</td>
+         <td>No Data yet!</td>
+      </tr>
+        <% end %>
+        <% else %>
+        <tr>
+        <td>No client</td>
+         <td>No Data yet!</td>
+         <td>No remark</td>
+         <td>No Data yet!</td>
+         <td>No Data yet!</td>
+      </tr>
+        <% end %>
+    </tbody>
+  </table>
+</section>
+</div>
+</div>
+

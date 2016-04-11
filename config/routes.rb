@@ -56,6 +56,10 @@ Rails.application.routes.draw do
     patch 'clients/:id/index', to: 'clients#update', as: :update_client
 
     # post '/clients/:id/requests/:id/client_requests', to: 'clients#client_requests', as: :clients_requests
+
+    # routes to get worker history
+    get 'workers/history', to: 'workers#history'
+    get 'workers/:id/worker_history', to: 'workers#worker_history', as: :worker_history
     
 
     resources :clients, except: [:edit, :update] do
