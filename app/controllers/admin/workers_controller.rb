@@ -40,16 +40,19 @@ class Admin::WorkersController < Admin::ApplicationController
 
   def destroy
   	@worker.destroy
-  	redirect_to admin_root_path
+  	@workers = Worker.all 
+    render 'index'
   end
 
 
   def unassign
     @request = Request.find(params[:request_id])
 
-    @worker.requests.delete(@request)
+    # @worker.requests.delete(@request)
+    @worker.disengage
     @request.unresolve
-    redirect_to admin_root_path
+    @workers = Worker.all 
+    render "admin/requests/show"
   end
 
   private
