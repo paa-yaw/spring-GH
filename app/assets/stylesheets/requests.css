@@ -6,6 +6,12 @@ REQUEST PAGE
 */
 
 /*Asterisks for Labels */
+html, body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 abbr {
   display: none;
 }

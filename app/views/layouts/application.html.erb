@@ -65,14 +65,14 @@
     </nav>
 
  <% flash.each do |key, message| %>
-  <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%;" class="well well-sm" id="flashmessage"><%= message %></p>
+  <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%;" class="well well-sm text-center" id="flashmessage"><%= message %></p>
  <% end %>
  <style>
  #region{
   padding-top: 50px;
  }
  </style>
- <div id="region">
+ <div id="region" style="min-height:100%;">
    <%= yield %>
  </div>
  <script>
@@ -83,6 +83,5 @@ function fade_out() {
 }
 
  </script>
- <%= render 'layouts/google_analytics' %>
 </body>
 </html>
