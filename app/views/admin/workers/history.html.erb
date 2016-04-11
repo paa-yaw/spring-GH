@@ -43,7 +43,7 @@
                     <td></td>
                     <td><%= worker.first_name %></td>
                     <td><%= worker.last_name %></td>
-                    <td><%= link_to fa_icon("eye") + "View History", admin_worker_path(worker), class: "btn btn-info" %></td>
+                    <td><%= link_to fa_icon("eye") + "View History", admin_worker_history_path(worker), class: "btn btn-info" %></td>
                     <td><%= link_to "Remove", admin_worker_path(worker), method: :delete, data: { confirm: "Are you sure you want to delete #{worker.first_name} from the database?"}, class: "btn btn-danger" %></td>
                   </tr>
                   
