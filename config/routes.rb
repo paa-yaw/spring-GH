@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     # routes to create and update admin
     post '/clients/admin_list', to: 'clients#create_admin', as: :create_admin
     get 'clients/:id/edit_admin', to: 'clients#edit_admin', as: :edit_admin
-    # post 'clients/:id', to: 'clients#admin_list'
+    post 'clients/:id', to: 'clients#admin_list'
     patch 'clients/:id', to: 'clients#update_admin', as: :update_admin
 
 
