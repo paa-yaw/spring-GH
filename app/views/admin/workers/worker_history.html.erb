@@ -21,7 +21,7 @@
                               </tr>
                               <tr>
                                 <td>No. of Clients Handled</td>
-                                <td><%= @worker.requests.joins(:client).count %></td>
+                                <td><%= @worker.requests.joins(:client).uniq.count %></td>
                               </tr>
                               </tbody>
                           </table>
