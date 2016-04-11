@@ -17,6 +17,7 @@
 						<tr>
 							<th></th>
 							<th>Request ID</th>
+							<th>House Details</th>
 							<th>Created At</th>
 							<th>Status</th>
 						</tr>
@@ -35,6 +36,7 @@
 
 							</td>
 							<td><%= client_request.id %></td>
+							<td></td>
 							<td><%= client_request.created_at %></td>
 							<td><%= link_to "resolved", admin_client_request_path(@client,client_request), class: "btn btn-success" %></td>
 						</tr>
@@ -42,6 +44,7 @@
 						<tr>
 							<td></td>
 							<td><%= client_request.id %></td>
+							<td></td>
 							<td><%= client_request.created_at %></td>
 							<td><%= link_to "unresolved", admin_client_request_path(@client, client_request), class: "btn btn-danger" %></td>
 						</tr>

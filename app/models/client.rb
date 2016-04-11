@@ -5,7 +5,7 @@ class Client < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable
 
   validates :phone_number, format: { with: /\A[-+]?[0-9]*\.?[0-9]+\Z/, message: "only allows numbers" }
-
+  validates :first_name, :last_name, :location, presence: true
 
   has_many :requests, dependent: :delete_all 
 
