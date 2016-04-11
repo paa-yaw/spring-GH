@@ -22,6 +22,7 @@ abbr {
 ul.nav.navbar-nav.navbar-right > li.page-scroll > a{
   padding-bottom: 0px;
   padding-top: 20px;
+  text-transform: uppercase;
 }
 
 a.navbar-header{
@@ -29,7 +30,7 @@ a.navbar-header{
   padding-bottom: 13px;
 }
 
-#daPrice{
+#daPrice, .daPrice{
   color:#009900;
   font-size: 24px;
 }
@@ -151,8 +152,6 @@ select#request_hall{
   padding-left: 0px;
 }
 
-
-
 input#client_fullname.form-control{
   height: 40px;
 }
@@ -202,7 +201,6 @@ input#request_days{
   max-width: 100%;
 }
 
-
 span.radio.inline{
   padding-left: 0px;
   margin-top: 0px;
@@ -244,6 +242,12 @@ div.offerings{
   color: #122772;
 }
 
+thead > tr > th {
+  text-transform: uppercase;
+  font-weight: 200;
+  text-align: center;
+}
+
 th {
   background-color: #324072;
   color:#fff;
@@ -254,7 +258,7 @@ td {
 }
 
 div.panel.panel-default{
-  border: solid 1px #0E1E59;
+  /*border: solid 1px #0E1E59;*/
 }
 
 
