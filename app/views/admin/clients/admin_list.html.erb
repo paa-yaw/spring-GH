@@ -14,7 +14,8 @@
 								<table class="table bootstrap-datatable countries">
 									<thead>
 										<tr>
-											<th>Name</th>
+											<th>First Name</th>
+											<th>Last Name</th>
 											<th>Email</th>
 											<th>Phone Number</th>
 											<th>Location</th>
@@ -25,7 +26,8 @@
 									<% @admins.each do |admin| %>
 									<tbody>
 										<tr>
-											<td><%= admin.fullname  %></td>
+											<td><%= admin.first_name  %></td>
+											<td><%= admin.last_name %></td>
 											<td><%= admin.email %></td>
 											<td><%= admin.phone_number %></td>
 											<td><%= admin.location %></td>
