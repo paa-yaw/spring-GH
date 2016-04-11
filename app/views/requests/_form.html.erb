@@ -27,7 +27,7 @@
         <div class="panel-body">
         <div onclick="calculatePricing()" id="extra">
           <div class="col-md-12 col-xs-12">
-            <%= f.input :extra_services, :collection => [["Compound cleaning(GHc15.00)", 15.00], ["Fridge(GHc 10.00)", 10.01], ["Storeroom(GHc 10.00)", 10.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
+            <%= f.input :extra_services, :collection => [["Compound Cleaning(GHc15.00)", 15.00], ["Fridge(GHc 10.00)", 10.01], ["Storeroom(GHc 10.00)", 10.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
           </div>
         </div> 
       </div>
@@ -36,7 +36,7 @@
        <div  onchange="calculatePricing()">
 
          <div class="col-md-12 col-sm-12" id="frequency">
-          <%= f.input :frequency, :collection => [["one off(GHc 60.00)", 60], ["weekly(GHc 150.00)", 150], ["monthly(GHc 500.00)", 500]], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "Frequency" %>
+          <%= f.input :frequency, :collection => [["One Off(GHc 60.00)", 60], ["Weekly(GHc 150.00)", 150], ["Monthly(GHc 500.00)", 500]], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "Frequency" %>
         </div>
 
       </div>
