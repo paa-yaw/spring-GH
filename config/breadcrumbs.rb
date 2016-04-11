@@ -42,6 +42,11 @@ crumb :show_client do |client|
   parent :clients
 end
 
+crumb :edit_client do |client|
+  link "Edit #{client.first_name}", admin_client_path(client)
+  parent :clients
+end 
+
 crumb :admin_list do |admin|
   link "Admins", admin_list_path
   parent :root
@@ -56,6 +61,12 @@ crumb :admin_registration do |admin|
   link "Admin Registration", admin_registration_path
   parent :root
 end
+
+crumb :edit_admin do |admin|
+  link "Edit #{admin.first_name}", admin_client_path(admin)
+  parent :admin_list
+end
+
 crumb :workers do |worker|
 	link "Workers", admin_workers_path
 	parent :root
