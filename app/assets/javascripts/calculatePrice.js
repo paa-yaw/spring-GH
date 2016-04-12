@@ -168,7 +168,7 @@ function checkDays() {
       listOfDays[i].checked = false;
     };
   }
-  console.log(checkedDays);
+  // console.log(checkedDays);
 }
 
 
