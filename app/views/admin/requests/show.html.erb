@@ -1,4 +1,4 @@
-
+<% breadcrumb :show_request, @request %>
 <div class="row">
   <div class="col-lg-12">
     <section class="panel">
@@ -160,44 +160,44 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
                data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-warning" %></td> -->
 
                <td><%= link_to fa_icon("user-times") +
-               " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, data: {confirm: "You are about to unassign this worker"}, class: "btn btn-warning" %></td>
-             </tr>
+                 " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, data: {confirm: "You are about to unassign this worker"}, class: "btn btn-warning" %></td>
+               </tr>
 
-             
-
-
+               
 
 
-             <% else %>
 
-             <tr>
-              <td><%= link_to worker.first_name, admin_worker_path(worker) %></td>
-              <td><%= worker.last_name %></td>
-              <td><%= worker.phone_number %></td>
-              <td><%= worker.location %></td>
-              <td><strong><span class="label label-success">available</span></strong></td>
-              <td></td>
-              <td><%= link_to fa_icon("user-plus") + " Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
-                data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-primary"  %></td>
-              </tr>
-            </tbody>
-            <% end %>
 
-            <% end %>
+               <% else %>
 
-            <% else %>
+               <tr>
+                <td><%= link_to worker.first_name, admin_worker_path(worker) %></td>
+                <td><%= worker.last_name %></td>
+                <td><%= worker.phone_number %></td>
+                <td><%= worker.location %></td>
+                <td><strong><span class="label label-success">available</span></strong></td>
+                <td></td>
+                <td><%= link_to fa_icon("user-plus") + " Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
+                  data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-primary"  %></td>
+                </tr>
+              </tbody>
+              <% end %>
 
-            <h2>No workers currently in your database!</h2>
+              <% end %>
 
-          </table>
+              <% else %>
+
+              <h2>No workers currently in your database!</h2>
+
+            </table>
+          </div>
         </div>
       </div>
     </div>
+
+    <% end %>
+
   </div>
-
-  <% end %>
-
-</div>
 </div>
 </div>
 </div>

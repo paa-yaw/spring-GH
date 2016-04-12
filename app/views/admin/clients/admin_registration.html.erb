@@ -1,9 +1,10 @@
+<% breadcrumb :admin_registration, @admin %>
 <div class="admin-page">
 	<div class="container">
 		<div class="row">
-		<div class="col-lg-8 col-sm-offset-1">
-			<div class="col-sm-10 col-sm-offset-2 form-box">
-				
+			<div class="col-lg-10 ">
+				<div class="col-sm-10 col-sm-offset-1 form-box">
+
 					<section class="panel">
 						<header class="panel-heading">
 							<h2>Admin Registration Form</h2> 
@@ -11,28 +12,46 @@
 						<div class="panel-body">
 							
 
-								<%= simple_form_for @admin, url: admin_create_admin_path, method: :post do |f| %>
-								<%= f.input :first_name %>
-								<%= f.input :last_name %>
-								<%= f.input :email %>
-								<%= f.input :password %>
-								<%= f.input :phone_number %>
-								<%= f.input :location %>
-								<%= f.input :tag, :collection => ["online", "offline"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "online/offline?" %>
-								<%= f.input :admin %>
+							<%= simple_form_for @admin, url: admin_create_admin_path, method: :post do |f| %>
+							<div class="row">
+								<div class="col-md-3">
+									<%= f.input :first_name %>
+									<%= f.input :last_name %>
+								</div>
 
-								<% if @admin.persisted? %>
-								<%= f.button :submit, "Edit Admin", class: "btn-primary" %>
-								<% else %>	
-								<%= f.button :submit, "Create Admin", class: "btn-primary" %>
-								<% end %>
-								<% end %>
-							
+								<div class="row">
+									<div class="col-md-3">
+										<%= f.input :email %>
+										<%= f.input :password %>
+									</div>
+
+									<div class="row">
+										<div class="col-md-3">
+											<%= f.input :phone_number %>
+											<%= f.input :location %>
+										</div>
+
+										<div class="row">
+											<div class="col-md-3">
+												<%= f.input :tag, :collection => ["online", "offline"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "online/offline?" %>
+												<%= f.input :admin %>
+											</div>
+										</div>
+
+										<div class="text-center">
+											<% if @admin.persisted? %>
+											<%= f.button :submit, "Edit Admin", class: "btn-primary" %>
+											<% else %>	
+											<%= f.button :submit, "Create Admin", class: "btn-primary" %>
+											<% end %>
+										</div>
+										<% end %>
+
+									</div>
+								</section>
+							</div>
 						</div>
-					</section>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-</div>
-<
+			<

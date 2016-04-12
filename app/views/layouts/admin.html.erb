@@ -100,6 +100,9 @@
                   <li>
                           <span><%= link_to fa_icon("users") + "Workers", admin_workers_path %></span>
                   </li>
+                   <li>                     
+                          <span><%= link_to fa_icon("user") + "Workers' History", admin_workers_history_path %></span>                     
+                  </li>
                   <li>                     
                           <span><%= link_to fa_icon("user") + "Worker Registration", new_admin_worker_path %></span>                     
                   </li>
@@ -129,8 +132,7 @@
                 <div class="col-lg-12">
                     <h3 class="page-header"><i class="fa fa-laptop"></i><%= current_client.first_name %> <%= current_client.last_name %>, Welcome to Spring Command Center</h3>
                     <ol class="breadcrumb">
-                        <li><i class="fa fa-home"></i><a href="/admin">Home</a></li>
-                        <li><i class="fa fa-laptop"></i>Dashboard</li>                          
+                        <li><%= breadcrumbs pretext: "", display_single_fragment: true %></li>                          
                     </ol>
                 </div>
             </div>

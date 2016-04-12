@@ -1,5 +1,5 @@
 class Admin::WorkersController < Admin::ApplicationController
-	before_action :set_worker, only: [:show, :edit, :update, :destroy, :unassign]
+	before_action :set_worker, only: [:show, :edit, :update, :destroy, :unassign, :worker_history]
 
   def index
   	@workers = Worker.all
@@ -53,6 +53,13 @@ class Admin::WorkersController < Admin::ApplicationController
     @request.unresolve
     @workers = Worker.all 
     render "admin/requests/show"
+  end
+
+  def history
+    @workers = Worker.all
+  end
+
+  def worker_history
   end
 
   private
