@@ -37,7 +37,7 @@
 
          <div class="col-md-12 col-sm-12" id="frequency">
 
-          <%= f.input :frequency, :collection => [["One-off (GHc 60.00)", 60], ["Weekly (GHc 150.00)", 150], ["Monthly (GHc 500.00)", 500]], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "Frequency" %>
+          <%= f.input :frequency, :collection => [["One-off (GHc 60.00)", 60], ["Weekly (GHc 150.00)", 150], ["Monthly (GHc 500.00)", 500]], :as => :radio_buttons, :checked =>["One-off (GHc 60.00)", 60], :item_wrapper_class => "inline", :label => "Frequency" %>
         </div>
 
       </div>

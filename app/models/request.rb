@@ -4,11 +4,22 @@ class Request < ActiveRecord::Base
 
 	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
     validate :weekday_array_cannot_be_empty
+    validate :restrict_selection
 
     def weekday_array_cannot_be_empty
-      if weekdays==[""]
+      if weekdays == [""]
       	errors.add(:weekdays, "please choose a day")
       end      
+    end
+
+    def restrict_selection
+      if frequency == 60 && weekdays.length > 2
+      	errors.add(:weekdays, "You can only choose one day for One-Off package")
+      elsif frequency == 150 && weekdays.length > 4
+      	errors.add(:weekdays, "You can't choose more than 3 days for weekly package.")
+      elsif frequency ==500 && weekdays.length > 4
+      	errors.add(:weekdays, "You can't choose more than 3 days for Monthly package")
+      end
     end
 
 
