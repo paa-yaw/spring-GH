@@ -5,8 +5,8 @@ class Admin::RequestsController < Admin::ApplicationController
   def index
     @clients = Client.all.where(admin: false)
     @all_requests = Request.all
-  	@requests = Request.all.where(resolved: false)
-    @resolved_requests= Request.all.where(resolved: true)
+  	@requests = Request.all.where(status: "unresolved")
+    @resolved_requests= Request.all.where(status: "resolved")
     @requests_without_client = Request.all.where(client_id: nil)
   end
 
