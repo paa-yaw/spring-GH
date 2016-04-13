@@ -38,13 +38,13 @@
                     <td></td>
                     <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
                     <td><%= link_to c_request.client.first_name, admin_client_path(client) %></td>
-                    <td><%= c_request.status %></td>
+                    <td><span class="label label-info"><%= c_request.status.upcase %></span></td>
                     <td><%= c_request.created_at.strftime("%B %d, %Y %r") %></td>
                     <td>
                       <div class="btn-group">
-                        <%= link_to fa_icon("folder-open") + "reopen", admin_reopen_request_path(c_request), class: "btn btn-primary" %>
-                        <%= link_to fa_icon("times") + "close", admin_close_request_path(c_request), class: "btn btn-success" %>
-                        <%= link_to fa_icon("check-circle") + " resolve",  admin_client_request_path(client, c_request), data: {confirm: "To resolve this request you must leave this page to assign a worker. Click OK to continue."},class: "btn btn-warning" %>
+                        <%= link_to fa_icon("folder-open") + " reopen", admin_reopen_request_path(c_request), class: "btn btn-danger" %>
+                        <%= link_to fa_icon("folder") + " close", admin_close_request_path(c_request), class: "btn btn-success" %>
+                        <%= link_to fa_icon("check-circle") + " resolve",  admin_client_request_path(client, c_request), data: {confirm: "To resolve this request you must leave this page to assign a worker. Click OK to continue."},class: "btn btn-primary" %>
                       </div>
                     </td>
                   </tr></h2>
@@ -56,13 +56,13 @@
                     <td></td>
                     <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
                     <td><%= link_to c_request.client.first_name, admin_client_path(client) %></td>
-                    <td><%= c_request.status %></td>
+                    <td><span class="label label-warning"><%= c_request.status.upcase %></span></td>
                     <td><%= c_request.created_at.strftime("%B %d, %Y %r") %></td>
                     <td>
                       <div class="btn-group">
-                        <%= link_to fa_icon("folder-open") + "reopen", admin_reopen_request_path(c_request), class: "btn btn-primary" %>
-                        <%= link_to fa_icon("times") + "close", admin_close_request_path(c_request), class: "btn btn-success" %>
-                        <%= link_to fa_icon("check-circle") + " resolve", admin_client_request_path(client, c_request), data: {confirm: "To resolve this request you must leave this page to assign a worker. Click OK to continue."}, class: "btn btn-warning" %>
+                        <%= link_to fa_icon("folder-open") + " reopen", admin_reopen_request_path(c_request), class: "btn btn-danger" %>
+                        <%= link_to fa_icon("folder") + " close", admin_close_request_path(c_request), class: "btn btn-success" %>
+                        <%= link_to fa_icon("check-circle") + " resolve", admin_client_request_path(client, c_request), data: {confirm: "To resolve this request you must leave this page to assign a worker. Click OK to continue."}, class: "btn btn-primary" %>
                       </div>
                     </td>
                   </tr>
@@ -75,13 +75,13 @@
                     <td></td>
                     <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
                     <td><%= link_to c_request.client.first_name, admin_client_path(client) %></td>
-                    <td><%= c_request.status %></td>
+                    <td><span class="label label-danger"><%= c_request.status.upcase %></span></td>
                     <td><%= c_request.created_at.strftime("%B %d, %Y %r") %></td>
                     <td>
                       <div class="btn-group">
-                        <%= link_to fa_icon("folder-open") + "reopen", admin_reopen_request_path(c_request), class: "btn btn-primary" %>
-                        <%= link_to fa_icon("times") + "close", admin_close_request_path(c_request), class: "btn btn-success" %>
-                        <%= link_to fa_icon("check-circle") + " resolve", admin_client_request_path(client, c_request), data: {confirm: "To resolve this request you must leave this page to assign a worker. Click OK to continue."}, class: "btn btn-warning" %>
+                        <%= link_to fa_icon("folder-open") + " reopen", admin_reopen_request_path(c_request), class: "btn btn-danger" %>
+                        <%= link_to fa_icon("folder") + " close", admin_close_request_path(c_request), class: "btn btn-success" %>
+                        <%= link_to fa_icon("check-circle") + " resolve", admin_client_request_path(client, c_request), data: {confirm: "To resolve this request you must leave this page to assign a worker. Click OK to continue."}, class: "btn btn-primary" %>
                       </div>
                     </td>
                   </tr>
@@ -93,13 +93,13 @@
                     <td></td>
                     <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
                     <td><%= link_to c_request.client.first_name, admin_client_path(client) %></td>
-                    <td><%= c_request.status %></td>
+                    <td><span class="label label-success"><%= c_request.status.upcase %></span></td>
                     <td><%= c_request.created_at.strftime("%B %d, %Y %r") %></td>
                     <td>
                       <div class="btn-group">
-                        <%= link_to fa_icon("folder-open") + "reopen", admin_reopen_request_path(c_request), class: "btn btn-primary" %>
-                        <%= link_to fa_icon("times") + "close", admin_close_request_path(c_request), class: "btn btn-success" %>
-                        <%= link_to fa_icon("check-circle") + " resolve", admin_client_request_path(client, c_request), data: {confirm: "To resolve this request you must leave this page to assign a worker. Click OK to continue."}, class: "btn btn-warning" %>
+                        <%= link_to fa_icon("folder-open") + " reopen", admin_reopen_request_path(c_request), class: "btn btn-danger" %>
+                        <%= link_to fa_icon("folder") + " close", admin_close_request_path(c_request), class: "btn btn-success" %>
+                        <%= link_to fa_icon("check-circle") + " resolve", admin_client_request_path(client, c_request), data: {confirm: "To resolve this request you must leave this page to assign a worker. Click OK to continue."}, class: "btn btn-primary" %>
                       </div>
                     </td>
                   </tr>
