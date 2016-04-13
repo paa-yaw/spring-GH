@@ -106,60 +106,72 @@ function getFrequency(){
 }
 
 
-// function checkDays() {
-//   var checkedDays = 3;
-//   var listOfDays = document.getElementsByName("request_weekdays");
-  
-//   if(document.getElementById('request_weekdays_monday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays +=0;
-//   }
+function checkDays() {
+  var checkedDays;
+  var limit;
+  // getFrequency();
+  if (getFrequency() == 60){
+    checkedDays = 1;
+    limit = checkedDays;
+  } else {
+    checkedDays = 3;
+    limit = checkedDays;
+  }
 
-//   if (document.getElementById('request_weekdays_tuesday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
+  var listOfDays = document.getElementsByName("request[weekdays][]");
 
-//   if (document.getElementById('request_weekdays_wednesday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
+  if(document.getElementById('request_weekdays_monday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays +=0;
+  }
 
-//   if (document.getElementById('request_weekdays_thursday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
+  if (document.getElementById('request_weekdays_tuesday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+
+  if (document.getElementById('request_weekdays_wednesday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+
+  if (document.getElementById('request_weekdays_thursday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
   
-//   if (document.getElementById('request_weekdays_friday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
+  if (document.getElementById('request_weekdays_friday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
   
-//   if (document.getElementById('request_weekdays_saturday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
+  if (document.getElementById('request_weekdays_saturday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
     
-//   if (document.getElementById('request_weekdays_sunday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
+  if (document.getElementById('request_weekdays_sunday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
   
-//   if (checkedDays < 0) {
-//     alert("You can only choose 3 days");
-//     for (var i = 0; i < listOfDays.length; i++) {
-//       listOfDays[i].checked = false;
-//     };
-//   }
-//   console.log(checkedDays);
-// }
+  if (checkedDays < 0) {
+    alert("You can only choose "+limit+" day(s)");
+    for (var i = 0; i < listOfDays.length; i++) {
+      listOfDays[i].checked = false;
+    };
+  }
+  // console.log(checkedDays);
+}
+
+
 function calculateTotal(){
   var total = getRoomNumber()*5 + getExtraServices(); 
   total = total + (60 || getFrequency());
@@ -170,7 +182,7 @@ function calculateTotal(){
 
 function calculatePricing() {
   document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
-  // checkDays();
+  checkDays();
   getLargeRoomNumber();
   getRoomNumber();
   getExtraServices();
