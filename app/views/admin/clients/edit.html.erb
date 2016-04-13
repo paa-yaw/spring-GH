@@ -1,3 +1,4 @@
+<% breadcrumb :edit_client, @client %>
 <div class="admin-page">
 	<div class="container">
 		<div class="row">
@@ -11,30 +12,51 @@
 						<div class="panel-body">
 
 							<%= simple_form_for @client, url: admin_update_client_path(@client), method: :patch do |f| %>
-							<%= f.input :fullname %>
-							<%= f.input :email %>
-							<%= f.input :password %>
-							<%= f.input :phone_number %>
-							<%= f.input :location %>
-							<%= f.input :tag, :collection => ["online", "offline"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "online/offline?" %>
+							<div class="row">
+							<div class="col-md-3">
+									<%= f.input :first_name %>
+									<%= f.input :last_name %>
+								</div>
+
+								<div class="row">
+									<div class="col-md-3">
+										<%= f.input :email %>
+										<%= f.input :password %>
+									</div>
+
+									<div class="row">
+										<div class="col-md-3">
+											<%= f.input :phone_number %>
+											<%= f.input :location %>
+										</div>
+
+										<div class="row">
+											<div class="col-md-3">
+												<%= f.input :tag, :collection => ["online", "offline"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "online/offline?" %>
+											</div>
+										</div>
 
 
-							<% if @client.admin == true %>
-							<%= f.button :submit, "Create Admin", class: "btn-primary" %>
-							<% else %>
-							<% if @client.persisted? %>
-							<%= f.button :submit, "Edit Client", class: "btn-primary" %>
-							<% else %>
-							<%= f.button :submit, "Create Client", class: "btn-primary" %>
-							<% end %>
-							<% end %>
-							<% end %>
+
+
+										<div class="text-center">
+											<% if @client.admin == true %>
+											<%= f.button :submit, "Create Admin", class: "btn-primary" %>
+											<% else %>
+											<% if @client.persisted? %>
+											<%= f.button :submit, "Edit Client", class: "btn-primary" %>
+											<% else %>
+											<%= f.button :submit, "Create Client", class: "btn-primary" %>
+											<% end %>
+											<% end %>
+										</div>
+										<% end %>
+
+									</div>
+								</section>
+							</div>
 
 						</div>
-					</section>
+					</div>
 				</div>
-
 			</div>
-		</div>
-	</div>
-</div>

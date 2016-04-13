@@ -38,6 +38,12 @@ class Admin::ClientsController < Admin::ApplicationController
     end
   end
 
+  def destroy
+    @client.destroy
+    @clients = Client.all.where(admin: false)
+    render 'index'
+  end
+
 
   def admin_registration
     @admin = Client.new
@@ -82,7 +88,7 @@ class Admin::ClientsController < Admin::ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:fullname, :email, :password, :location, :phone_number, :tag, :admin)
+    params.require(:client).permit(:first_name, :last_name, :email, :password, :location, :phone_number, :tag, :admin)
   end
 
   def set_client

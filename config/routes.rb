@@ -28,7 +28,12 @@ Rails.application.routes.draw do
      
     # routes to assign and unassign a worker  
     get 'requests/:id/assign', to: 'requests#assign', as: :assign
-    delete 'workers/:id/unassign', to: 'workers#unassign', as: :unassign
+    get 'workers/:id/unassign', to: 'workers#unassign', as: :unassign
+
+    get 'requests/:id/reopen', to: 'requests#reopen', as: :reopen_request
+    get 'requests/:id/close', to: 'requests#close', as: :close_request
+
+    # get 'requests/state_of_requests', to: 'requests#state_of_requests', as: :state_of_requests
 
 
     
@@ -46,8 +51,8 @@ Rails.application.routes.draw do
     # routes to create and update admin
     post '/clients/admin_list', to: 'clients#create_admin', as: :create_admin
     get 'clients/:id/edit_admin', to: 'clients#edit_admin', as: :edit_admin
-    # post 'clients/:id', to: 'clients#admin_list'
-    patch 'clients/:id', to: 'clients#update_admin', as: :update_admin
+    # post 'clients/:id/admin_list', to: 'clients#admin_list'
+    patch 'clients/:id/admin_list', to: 'clients#update_admin', as: :update_admin
 
 
 
@@ -56,6 +61,10 @@ Rails.application.routes.draw do
     patch 'clients/:id/index', to: 'clients#update', as: :update_client
 
     # post '/clients/:id/requests/:id/client_requests', to: 'clients#client_requests', as: :clients_requests
+
+    # routes to get worker history
+    get 'workers/history', to: 'workers#history'
+    get 'workers/:id/worker_history', to: 'workers#worker_history', as: :worker_history
     
 
     resources :clients, except: [:edit, :update] do
@@ -67,7 +76,7 @@ Rails.application.routes.draw do
     resources :requests do 
       member do 
         patch :resolve
-        patch :unresolve
+        patch :reopen_request
       end
       # resources :workers
     end
@@ -91,7 +100,8 @@ Rails.application.routes.draw do
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
   get 'my_requests/', to: 'requests#my_requests', as: :my_requests
 
-  get '/q_and_a', to: 'faq#q_and_a'
+
+  get 'faq/q_and_a', to: 'faq#q_and_a', as: :q_and_a
   
 
   # get 'move/', to: 'admin/workers#move', as: :move

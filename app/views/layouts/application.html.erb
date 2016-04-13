@@ -7,7 +7,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="google-site-verification" content="ekk5nq_UoqHnmI-X2AO7JNLZsgclWEvyO1Y5OTweFQ4" />
-</head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  </head>
 
 <body>
       <nav id="navigation" class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 0px 1px 1px #b3b3b3;">
@@ -42,7 +44,7 @@
                     </li> 
 
                      <li class="page-scroll">
-                        <%= link_to current_client.fullname, edit_client_registration_path %>
+                        <%= link_to current_client.first_name, edit_client_registration_path %>
                     </li>
 
                     <li class="page-scroll">          
@@ -63,15 +65,23 @@
     </nav>
 
  <% flash.each do |key, message| %>
-  <p><%= message %></p>
+  <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%;" class="well well-sm text-center" id="flashmessage"><%= message %></p>
  <% end %>
  <style>
  #region{
   padding-top: 50px;
  }
  </style>
- <div id="region">
+ <div id="region" style="min-height:100%;">
    <%= yield %>
  </div>
+ <script>
+setTimeout(fade_out, 5000);
+
+function fade_out() {
+  $("#flashmessage").fadeOut().empty();
+}
+
+ </script>
 </body>
 </html>

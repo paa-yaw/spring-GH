@@ -1,5 +1,5 @@
 class Admin::WorkersController < Admin::ApplicationController
-	before_action :set_worker, only: [:show, :edit, :update, :destroy, :unassign]
+	before_action :set_worker, only: [:show, :edit, :update, :destroy, :unassign, :worker_history]
 
   def index
   	@workers = Worker.all
@@ -40,16 +40,25 @@ class Admin::WorkersController < Admin::ApplicationController
 
   def destroy
   	@worker.destroy
-  	redirect_to admin_root_path
+  	@workers = Worker.all 
+    render 'index'
   end
 
 
   def unassign
     @request = Request.find(params[:request_id])
 
-    @worker.requests.delete(@request)
-    @request.unresolve
-    redirect_to admin_root_path
+    # @worker.requests.delete(@request)
+    @worker.disengage
+    @workers = Worker.all 
+    render "admin/requests/show"
+  end
+
+  def history
+    @workers = Worker.all
+  end
+
+  def worker_history
   end
 
   private

@@ -1,3 +1,4 @@
+<% breadcrumb :request %>
  <div class="admin-page">
   <div class="container-fluid">
     <div class="row">
@@ -18,35 +19,93 @@
                     <th></th>
                     <th>Request ID</th>
                     <th>Owner</th>
-                    <th>Created At</th>
                     <th>Status</th>
+                    <th>Created At</th>
+                    <th>Action</th>
                   </tr>
                 </thead>  
+
+                <% if @all_requests.empty? %>
+                <h1>No Requests</h1>
+                <% end %>
+
                 <% @clients.each do |client| %>
                 <% if client.requests.any? %>
                 <% client.requests.each do |c_request| %>
-                <% if c_request.resolved == true %>
+                <% if c_request.status == "resolved" %>
                 <tbody>
                   <h2><tr>
                     <td></td>
                     <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
-                    <td><%= c_request.client.fullname %></td>
-                    <td><%= c_request.created_at %></td>
-                    <td><%= link_to fa_icon("check-circle") + " resolved",admin_client_request_path(client, c_request), class: "btn btn-success" %></td>
+                    <td><%= link_to c_request.client.first_name, admin_client_path(client) %></td>
+                    <td><span class="label label-info"><%= c_request.status.upcase %></span></td>
+                    <td><%= c_request.created_at.strftime("%B %d, %Y %r") %></td>
+                    <td>
+                      <div class="btn-group">
+                        <%= link_to fa_icon("folder-open") + " reopen", admin_reopen_request_path(c_request), data: {confirm: "To reopen this request, you are leaving this page to reassign a cleaner to this request. Click Ok to proceed."}, class: "btn btn-danger" %>
+                        <%= link_to fa_icon("folder") + " close", admin_close_request_path(c_request), data: {confirm: "To complete this process of closing a request you are being taken to a page to unassign any cleaner to this request. Click Ok to proceed."}, class: "btn btn-success" %>
+                        <%= link_to fa_icon("minus-circle") + " inactive",  admin_requests_path, class: "btn btn-default" %>
+                      </div>
+                    </td>
                   </tr></h2>
 
                 </tbody>
-                <% else %>
+                <% elsif c_request.status == "unresolved" %>
                 <tbody>
                   <tr>
                     <td></td>
                     <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
-                    <td><%= c_request.client.fullname %></td>
-                    <td><%= c_request.created_at %></td>
-                    <td><%= link_to link_to fa_icon("minus-circle") + " unresolved",admin_client_request_path(client, c_request), class: "btn btn-warning" %></td>
+                    <td><%= link_to c_request.client.first_name, admin_client_path(client) %></td>
+                    <td><span class="label label-warning"><%= c_request.status.upcase %></span></td>
+                    <td><%= c_request.created_at.strftime("%B %d, %Y %r") %></td>
+                    <td>
+                      <div class="btn-group">
+                        <%= link_to fa_icon("minus-circle") + " inactive", admin_requests_path, class: "btn btn-default" %>
+                        <%= link_to fa_icon("minus-circle") + " inactive", admin_requests_path, class: "btn btn-default" %>
+                        <%= link_to fa_icon("check-circle") + " resolve", admin_client_request_path(client, c_request), data: {confirm: "To resolve this request you must leave this page to assign a worker. Click OK to continue."}, class: "btn btn-primary" %>
+                      </div>
+                    </td>
                   </tr>
 
                 </tbody>
+
+                <% elsif c_request.status == "redo" %>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
+                    <td><%= link_to c_request.client.first_name, admin_client_path(client) %></td>
+                    <td><span class="label label-danger"><%= c_request.status.upcase %></span></td>
+                    <td><%= c_request.created_at.strftime("%B %d, %Y %r") %></td>
+                    <td>
+                      <div class="btn-group">
+                        <%= link_to fa_icon("minus-circle") + " inactive", admin_requests_path, class: "btn btn-default" %>
+                        <%= link_to fa_icon("minus-circle") + " inactive", admin_requests_path, class: "btn btn-default" %>
+                        <%= link_to fa_icon("check-circle") + " resolve", admin_client_request_path(client, c_request), data: {confirm: "To resolve this request you must leave this page to assign a worker. Click OK to continue."}, class: "btn btn-primary" %>
+                      </div>
+                    </td>
+                  </tr>
+
+                </tbody>
+                <% elsif c_request.status == "done" %>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td><%= link_to c_request.id, admin_client_request_path(client, c_request) %></td>
+                    <td><%= link_to c_request.client.first_name, admin_client_path(client) %></td>
+                    <td><span class="label label-success"><%= c_request.status.upcase %></span></td>
+                    <td><%= c_request.created_at.strftime("%B %d, %Y %r") %></td>
+                    <td>
+                      <div class="btn-group">
+                        <%= link_to fa_icon("folder-open") + " reopen", admin_reopen_request_path(c_request), data: {confirm: "To reopen this request, you are leaving this page to reassign a cleaner to this request. Click Ok to proceed."}, class: "btn btn-danger" %>
+                        <%= link_to fa_icon("minus-circle") + " inactive", admin_requests_path,  class: "btn btn-default" %>
+                        <%= link_to fa_icon("minus-circle") + " inactive", admin_requests_path, class: "btn btn-default" %>
+                      </div>
+                    </td>
+                  </tr>
+
+                </tbody>                  
+                  
                 <% end %>     
                 <% end %>
                 <% end %>

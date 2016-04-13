@@ -22,6 +22,7 @@ abbr {
 ul.nav.navbar-nav.navbar-right > li.page-scroll > a{
   padding-bottom: 0px;
   padding-top: 20px;
+  text-transform: uppercase;
 }
 
 a.navbar-header{
@@ -29,7 +30,7 @@ a.navbar-header{
   padding-bottom: 13px;
 }
 
-#daPrice{
+#daPrice, .daPrice{
   color:#009900;
   font-size: 24px;
 }
@@ -39,7 +40,7 @@ h2.panel-title {
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 25px;
-
+  font-weight:bolder;
 }
 
 div#region > div.container-fluid > div.row{
@@ -48,21 +49,6 @@ div#region > div.container-fluid > div.row{
 }
 
 /*REQUEST PAGE*/
-/*
-.request-details > span#totalPrice, span#extraRoomPrice, span#extraServicePrice, span#packagePrice, span.startPrice{
-  padding-right: 20px;
-  float:right;
-}*/
-
-/*.request-details > span#totalPrice, span#totalPriceLabel{
-  font-size: 20px;
-}*/
-
-/*.request-details > span#totalPrice{
-  padding-right: 10px;
-  color: #44d62c;
-}
-*/
 
 /* -- PRICING TABLE HEADER*/
 
@@ -143,7 +129,7 @@ select{
 }
 
 select#request_date_time_1i{
-  width:20%; 
+  width:15%; 
 }
 
 select#request_date_time_2i{
@@ -151,15 +137,15 @@ select#request_date_time_2i{
 }
 
 select#request_date_time_3i{
-  width:10%;
+  width:15%;
 }
 
 select#request_date_time_4i{
-  width:20%;  
+  width:15%;  
 }
 
 select#request_date_time_5i{
-  width:20%;
+  width:15%;
 }
 
 select#request_hall{
@@ -215,7 +201,6 @@ input#request_days{
   max-width: 100%;
 }
 
-
 span.radio.inline{
   padding-left: 0px;
   margin-top: 0px;
@@ -234,17 +219,17 @@ img.img-responsive{
 }
 
 input[type=checkbox]{
-  -ms-transform: scale(1.9); /* IE */
-  -moz-transform: scale(1.9); /* FF */
-  -webkit-transform: scale(1.9); /* Safari and Chrome */
-  -o-transform: scale(1.9); /* Opera */
+  -ms-transform: scale(1.3); /* IE */
+  -moz-transform: scale(1.3); /* FF */
+  -webkit-transform: scale(1.3); /* Safari and Chrome */
+  -o-transform: scale(1.3); /* Opera */
 }
 
 input[type=radio]{
-  -ms-transform: scale(2.0); /* IE */
-  -moz-transform: scale(2.0); /* FF */
-  -webkit-transform: scale(2.0); /* Safari and Chrome */
-  -o-transform: scale(2.0); /* Opera */
+  -ms-transform: scale(1.2); /* IE */
+  -moz-transform: scale(1.2); /* FF */
+  -webkit-transform: scale(1.2); /* Safari and Chrome */
+  -o-transform: scale(1.2); /* Opera */
 }
 
 /*// TABLE PAGE*/
@@ -257,6 +242,12 @@ div.offerings{
   color: #122772;
 }
 
+thead > tr > th {
+  text-transform: uppercase;
+  font-weight: 200;
+  text-align: center;
+}
+
 th {
   background-color: #324072;
   color:#fff;
@@ -267,7 +258,7 @@ td {
 }
 
 div.panel.panel-default{
-  border: solid 1px #0E1E59;
+  /*border: solid 1px #0E1E59;*/
 }
 
 
@@ -335,6 +326,7 @@ label.check_boxes.optional.control-label{
 */
 
 @media only screen and (max-device-width: 480px) {
+
   img.img-responsive{
     width: 22%;
   }
@@ -345,7 +337,7 @@ label.check_boxes.optional.control-label{
 
   #extra span.checkbox.inline{
     margin-left: 0px;
-    padding-left: 0px;
+    /*padding-left: 0px;*/
   }
 
   #days span.checkbox.inline{
@@ -357,25 +349,16 @@ label.check_boxes.optional.control-label{
     padding-left: 0px;
   }
   
-  select#request_date_time_1i{
-    width:100%; 
+  select#request_date_time_1i, select#request_date_time_2i, select#request_date_time_3i, select#request_date_time_4i, select#request_date_time_5i{
+    width:60%; 
+    text-align:center;
+    margin: 0 auto;
   }
 
-  select#request_date_time_2i{
-    width:100%; 
-  }
-
-  select#request_date_time_3i{
-    width:50%;
-  }
-
-  select#request_date_time_4i{
-    width:100%;  
-  }
-
-  select#request_date_time_5i{
-    width:100%;
-  }
+  select#request_bedrooms, select#request_bathrooms, select#request_kitchens, select#request_hall{
+   width:80%;
+   text-align:center;
+}
 
   #days span.checkbox.inline{
   display: inline-block;

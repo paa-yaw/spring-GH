@@ -1,12 +1,12 @@
 class Admin::RequestsController < Admin::ApplicationController
-  before_action :set_request, only: [:edit, :update, :show, :destroy, :assign]	
-  before_action :set_client, except: [:assign, :index]
+  before_action :set_request, only: [:edit, :update, :show, :destroy, :assign, :reopen, :close]	
+  before_action :set_client, except: [:assign, :index, :state_of_requests, :reopen, :close]
 
   def index
     @clients = Client.all.where(admin: false)
     @all_requests = Request.all
-  	@requests = Request.all.where(resolved: false)
-    @resolved_requests= Request.all.where(resolved: true)
+  	@requests = Request.all.where(status: "unresolved")
+    @resolved_requests= Request.all.where(status: "resolved")
     @requests_without_client = Request.all.where(client_id: nil)
   end
 
@@ -55,33 +55,57 @@ class Admin::RequestsController < Admin::ApplicationController
 
     @request.workers << @worker
     @request.resolve 
+    @worker.engage
 
     @client = @request.client
     NotifyClientJob.set(wait: 2.seconds).perform_later(@client)
     flash[:alert] = "You just assigned #{@worker.first_name} to #{@request.id}."
 
-    redirect_to admin_root_path
+    # redirect_to admin_root_path
+    @workers = Worker.all
+    render "show"
    end
 
    def client_requests
     @client_requests = @client.requests
-  end
+   end
 
+   def reopen
+    @request.reopen_request
+    @clients = Client.all.where(admin: false)
+    @all_requests = Request.all
+    @requests = Request.all.where(status: "unresolved")
+    @resolved_requests= Request.all.where(status: "resolved")
+    @requests_without_client = Request.all.where(client_id: nil)
+    render "index"
+   end
 
+   def close
+    @request.close_request
+    @workers = Worker.all
+    render "show"
+   end
 
+   # def state_of_requests
+   #  @clients = Client.all.where(admin: false)
+   #  @all_requests = Request.all
+   #  @requests = Request.all.where(status: "unresolved")
+   #  @resolved_requests= Request.all.where(status: "resolved")
+   #  @requests_without_client = Request.all.where(client_id: nil)
+   # end
   
   private
 
   def set_request
   	@request = Request.find(params[:id]) 
-    rescue ActiveRecord::RecordNotFound
-     redirect_to errors_not_found_path
+    # rescue ActiveRecord::RecordNotFound
+    #  redirect_to errors_not_found_path
   end
 
   def set_client
     @client = Client.find(params[:client_id])
-   rescue ActiveRecord::RecordNotFound
-     redirect_to errors_not_found_path
+   # rescue ActiveRecord::RecordNotFound
+   #   redirect_to errors_not_found_path
   end
 
  def request_params

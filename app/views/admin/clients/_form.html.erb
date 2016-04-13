@@ -1,19 +1,34 @@
 <%= simple_form_for([:admin, client]) do |f| %>
-  <%= f.input :fullname %>
+<div class="row">
+ <div class="col-md-4">
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+</div>
+
+<div class="col-md-4">
   <%= f.input :email %>
   <%= f.input :password %>
+</div>
+
+<div class="col-md-4">
   <%= f.input :phone_number %>
   <%= f.input :location %>
-  <%= f.input :tag, :collection => ["online", "offline"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "online/offline?" %>
-  
+</div>
 
+<div class="col-md-4">
+  <%= f.input :tag, :collection => ["online", "offline"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "online/offline?" %>
+</div>
+</div>
+
+<div class="text-center">
   <% if client.admin == true %>
   <%= f.button :submit, "Create Admin", class: "btn-primary" %>
   <% else %>
-    <% if client.persisted? %>
-    <%= f.button :submit, "Edit Client", class: "btn-primary" %>
-    <% else %>
-    <%= f.button :submit, "Create Client", class: "btn-primary" %>
-    <% end %>
+  <% if client.persisted? %>
+  <%= f.button :submit, "Edit Client", class: "btn-primary" %>
+  <% else %>
+  <%= f.button :submit, "Create Client", class: "btn-primary" %>
   <% end %>
+</div>
+<% end %>
 <% end %>

@@ -61,7 +61,7 @@
                     </li>    
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" >
-                            <span class="username"><%= current_client.fullname %></span>
+                            <span class="username">Hi, <%= current_client.first_name %> <%= current_client.last_name %></span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -71,7 +71,7 @@
                             </li>
                             <li>
                                 <%= link_to  fa_icon("power-off") + "Log Out", destroy_client_session_path, method: :delete,
-                              data: {confirm: "#{current_client.fullname}, are you sure you want to log out?"} %>
+                              data: {confirm: "#{current_client.first_name}, are you sure you want to log out?"} %>
                             </li>
                         </ul>
                     </li>
@@ -97,8 +97,14 @@
                   <li>
                           <span><%= link_to fa_icon("files-o") + "Requests", admin_requests_path %> </span>
                   </li>
+                  <!-- <li>
+                          <span><%#= link_to fa_icon("files-o") + "State of Requests", admin_state_of_requests_path %></span>
+                  </li> -->
                   <li>
                           <span><%= link_to fa_icon("users") + "Workers", admin_workers_path %></span>
+                  </li>
+                   <li>                     
+                          <span><%= link_to fa_icon("user") + "Workers' History", admin_workers_history_path %></span>                     
                   </li>
                   <li>                     
                           <span><%= link_to fa_icon("user") + "Worker Registration", new_admin_worker_path %></span>                     
@@ -127,10 +133,9 @@
               
               <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa-laptop"></i><%= current_client.fullname %>, Welcome to Spring Command Center</h3>
+                    <h3 class="page-header"><i class="fa fa-laptop"></i><%= current_client.first_name %> <%= current_client.last_name %>, Welcome to Spring Command Center</h3>
                     <ol class="breadcrumb">
-                        <li><i class="fa fa-home"></i><a href="/admin">Home</a></li>
-                        <li><i class="fa fa-laptop"></i>Dashboard</li>                          
+                        <li><%= breadcrumbs pretext: "", display_single_fragment: true %></li>                          
                     </ol>
                 </div>
             </div>

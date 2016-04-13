@@ -1,13 +1,13 @@
-<div class="container-fluid" >
+<div class="container-fluid">
   <div class="row">
      <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
 
-   <div class="panel-group">
+   <div class="panel-group"  style="padding-bottom:185px;">
    <div class="panel panel-default">
   <!-- Default panel contents -->
    <!-- <div class="panel-heading"></div> -->
   
-   <div class="panel-body">
+   <div class="panel-body" style="padding: 0px;">
 
   <!-- Table -->
 
@@ -131,7 +131,7 @@
 
           <% elsif @rooms <= 8 %>
           <% price = monthly_package + extra_services %>
-          <h2> Your price is  GHc <%= price %> </h2>
+          <h2> Your price is  GHc <span class="daPrice"><%= price %></span></h2>
 
           <% end %>         
          
