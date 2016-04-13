@@ -15,7 +15,7 @@
                       <li><a href="#one">About</a></li>
                       <li><a href="#two">Services</a></li>
                       <li><a href="#cta">Contact</a></li>
-                      <li><a href="#faq">FAQ</a></li>
+                      <li><%= link_to "FAQ", q_and_a_path %></li>
 
                       <% if current_client %>
                       <!-- <li><%#= link_to "Log Out", destroy_client_session_path, method: :delete,
@@ -149,7 +149,7 @@
                 <li>
                 <%= link_to "Book a Cleaning", new_request_path, :class => "button fit special" %>
                 </li>
-                <li><a href="#" class="button fit">FAQ</a></li>
+                <li><%= link_to "FAQ", q_and_a_path, class: "button fit" %></li>
               </ul>
             </div>
           </section>
