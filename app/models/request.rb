@@ -24,18 +24,14 @@ class Request < ActiveRecord::Base
 
 
 
-	scope :resolved_requests, lambda {where(resolved: true)}
+	scope :resolved_requests, lambda {where(status: "resolved")}
   
 
 
 	def resolve
-	  self.update(resolved: true)
 	  self.update(status: "resolved")
 	end
 
-	def unresolve
-	  self.update(resolved: false)
-	end
 
 	def close_request
 	  self.update(status: "done")
@@ -44,6 +40,7 @@ class Request < ActiveRecord::Base
 	def reopen_request
 	  self.update(status:"redo")
 	end
+
 
 	def add
 	  self.update(client_id: Client.current.id)

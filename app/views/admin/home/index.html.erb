@@ -6,7 +6,7 @@
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box red-bg">
             <i class="fa fa-folder-open"></i>
-            <div class="count"><%= Request.joins(:client).where(resolved: false).count %></div>
+            <div class="count"><%= Request.joins(:client).where(status: "unresolved").count %></div>
             <div class="title">Unresolved Requests</div>                      
         </div><!--/.info-box-->         
     </div><!--/.col-->
@@ -16,7 +16,7 @@
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box green-bg">
             <i class="fa fa-folder"></i>
-            <div class="count"><%= Request.joins(:client).where(resolved: true).count %></div>
+            <div class="count"><%= Request.joins(:client).where(status: "resolved").count %></div>
             <div class="title">Resolved Requests</div>                      
         </div><!--/.info-box-->         
     </div><!--/.col-->

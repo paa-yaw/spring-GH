@@ -30,6 +30,11 @@ Rails.application.routes.draw do
     get 'requests/:id/assign', to: 'requests#assign', as: :assign
     get 'workers/:id/unassign', to: 'workers#unassign', as: :unassign
 
+    get 'requests/:id/reopen', to: 'requests#reopen', as: :reopen_request
+    get 'requests/:id/close', to: 'requests#close', as: :close_request
+
+    # get 'requests/state_of_requests', to: 'requests#state_of_requests', as: :state_of_requests
+
 
     
     # get 'clients/:id/client_requestss', to: 'clients#client_requestss', as: :client_requestss
@@ -71,7 +76,7 @@ Rails.application.routes.draw do
     resources :requests do 
       member do 
         patch :resolve
-        patch :unresolve
+        patch :reopen_request
       end
       # resources :workers
     end
@@ -94,6 +99,9 @@ Rails.application.routes.draw do
 
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
   get 'my_requests/', to: 'requests#my_requests', as: :my_requests
+
+
+  get 'faq/q_and_a', to: 'faq#q_and_a', as: :q_and_a
   
 
   # get 'move/', to: 'admin/workers#move', as: :move

@@ -22,6 +22,11 @@ crumb :edit_request do |request|
   parent :request	
 end
 
+# crumb :state_of_requests do |request|
+#   link "State of Requests", admin_state_of_requests_path
+#   parent :root
+# end
+
 crumb :client_request do |request|
 	link "#{request.first_name}'s request", admin_client_requests_path(request)
 	parent :clients

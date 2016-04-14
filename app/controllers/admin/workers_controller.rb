@@ -50,7 +50,6 @@ class Admin::WorkersController < Admin::ApplicationController
 
     # @worker.requests.delete(@request)
     @worker.disengage
-    @request.unresolve
     @workers = Worker.all 
     render "admin/requests/show"
   end
