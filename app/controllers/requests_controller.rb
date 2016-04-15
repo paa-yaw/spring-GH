@@ -82,6 +82,7 @@ class RequestsController < ApplicationController
 
   def my_requests
     @my_requests = current_client.requests.all
+    @worker = Worker.all
   end
 
   private   

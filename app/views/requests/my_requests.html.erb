@@ -15,8 +15,12 @@
               <% elsif @my_requests.count > 0 %>
 
               <% @my_requests.each do |my_request| %>
-                <% if my_request.resolved == true %>
-                  <h3><strong><%= my_request.id %></strong></h3><h3>status: This request has been resolved. Your cleaner will be with you shortly. <br> <%= link_to "View", my_request, :class=>"btn btn-primary" %> </h3>
+                <% if my_request.status == "resolved" %>
+                <% if my_request.workers.any? %>
+                <% my_request.workers.each do |worker| %>
+                  <h3><strong><%= my_request.id %></strong></h3><h3>status: This request has been resolved. Your cleaner will be with you shortly. <br> <%= link_to "View", my_request, :class=>"btn btn-primary" %> <%= link_to fa_icon("eye") + "View Cleaner", worker_path(worker), :class=>"btn btn-primary" %> </h3>
+                  <% end %>
+                  <% end %>
                 <% else %>
                   <div class="table-responsive">
                     <table class="table table-bordered">

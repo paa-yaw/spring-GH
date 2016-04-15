@@ -97,6 +97,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :workers, only: [:show]
+
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
   get 'my_requests/', to: 'requests#my_requests', as: :my_requests
 
