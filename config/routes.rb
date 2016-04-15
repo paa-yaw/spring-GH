@@ -100,8 +100,7 @@ Rails.application.routes.draw do
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
   get 'my_requests/', to: 'requests#my_requests', as: :my_requests
 
-
-  get 'faq/q_and_a', to: 'faq#q_and_a', as: :q_and_a
+  get '/.well-known/acme-challenge/:id' => 'home#letsencrypt'
   
 
   # get 'move/', to: 'admin/workers#move', as: :move

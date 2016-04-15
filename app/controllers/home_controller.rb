@@ -1,6 +1,11 @@
 class HomeController < ApplicationController
-	before_filter :set_current_client
-	before_action :set_current_client
+
+ #for letsencrypt  
+  def letsencrypt
+  	render text: "auvR79nrHktzbnArSdTiI8VtVB3LjhVksROklm8BDyg.ji9RDrr3LRp1puJfrHOaEtDyJG3vt9wnuHG6vkze-SQ
+"
+  end
+
   def index
   end
 end
