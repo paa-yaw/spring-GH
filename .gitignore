@@ -12,4 +12,4 @@
 !/log/.keep
 /tmp
 
-/public/.well-known/acme-challenge
+/public/.well-known/*
