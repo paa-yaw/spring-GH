@@ -264,7 +264,7 @@ div.panel.panel-default{
 
 div.panel.panel-info{
   background-color: #fff;
-  border: rgba(25,41,100,0.89);
+  border: solid 1px rgba(25,41,100,0.4);
 }
 
 div.panel.panel-info > div.panel-heading{

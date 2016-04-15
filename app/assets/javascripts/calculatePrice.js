@@ -8,15 +8,6 @@
         }
       }  
 
-      function checkDate(){
-         var m = new Date();
-         var n = m.getDate();
-
-         for(var j = 1; j < n; j++){
-           document.getElementById("request_date_time_3i").children[(j-1)].style.display="none";
-         }
-      }
-
 // converts value in the bedroom dropdown to integer and returns value on function call
 function getBedroomNumber() {
   var bedroomNumber = 0;
@@ -251,5 +242,4 @@ function calculatePricing() {
 $(document).ready(function() {
   // checks for current month and adds display:none to previous months
   checkMonth();
-  checkDate();
 });
