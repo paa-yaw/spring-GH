@@ -26,9 +26,9 @@ class Request < ActiveRecord::Base
     def forbidden_dates
       if date_time.year == 2016 && date_time.month < Time.now.month
       	errors.add(:date_time, "Can't choose a month in the past")
-      elsif date_time.month > Time.now.month + 3
+      elsif date_time.year == 2016 && date_time.month > Time.now.month + 3
       	errors.add(:date_time, "Can't choose a month beyond 3 months from now.")      		
-      elsif date_time.month == Time.now.month && date_time.day < Time.now.day
+      elsif date_time.year == 2016 && date_time.month == Time.now.month && date_time.day < Time.now.day
       	errors.add(:date_time, "Can't choose a day in the past.")
       elsif date_time.month == Time.now.month && date_time.hour < Time.now.hour
       	errors.add(:date_time, "Can't choose a time in the past.")
