@@ -30,7 +30,9 @@ class Request < ActiveRecord::Base
       	errors.add(:date_time, "Can't choose a month beyond 3 months from now.")      		
       elsif date_time.year == Time.now.year && date_time.month == Time.now.month && date_time.day < Time.now.day
       	errors.add(:date_time, "Can't choose a day in the past.")
-      elsif date_time.day == Time.now.day && date_time.year == Time.now.year && date_time.month == Time.now.month && (date_time.hour < 6 || date_time.hour > 17)
+      elsif  date_time.year == Time.now.year && (date_time.month == Time.now.month || date_time.day == Time.now.day) && (date_time.hour < 6 || date_time.hour > 17)
+      	errors.add(:date_time, "service is not available at this time. Choose a time between 6am & 5pm")
+      elsif  date_time.year == Time.now.year && (date_time.hour < 6 || date_time.hour > 17)
       	errors.add(:date_time, "service is not available at this time. Choose a time between 6am & 5pm")
       elsif date_time.day == Time.now.day && date_time.year == Time.now.year && date_time.month == Time.now.month && (date_time.hour > 6 && date_time.hour < 17)
         errors.add(:date_time, "can't choose time in the past.") if date_time.hour < Time.now.hour		
