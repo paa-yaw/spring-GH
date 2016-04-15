@@ -4,8 +4,6 @@
         var d = d.getMonth();
 
         for (var i = 1; i <= d; i++) {
-          // j= i-1;
-          console.log(i);
           document.getElementById("request_date_time_2i").children[(i-1)].style.display="none";
         }
       }  
@@ -15,7 +13,6 @@
          var n = m.getDate();
 
          for(var j = 1; j < n; j++){
-          console.log(j);
            document.getElementById("request_date_time_3i").children[(j-1)].style.display="none";
          }
       }
