@@ -5,6 +5,7 @@ class Request < ActiveRecord::Base
 	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
     validate :weekday_array_cannot_be_empty
     validate :restrict_selection
+    validate :forbidden_dates
 
     def weekday_array_cannot_be_empty
       if weekdays == [""]
@@ -21,6 +22,20 @@ class Request < ActiveRecord::Base
       	errors.add(:weekdays, "You can't choose more than 3 days for Monthly package")
       end
     end
+
+    def forbidden_dates
+      if date_time.month < Time.now.month
+      	errors.add(:date_time, "Forbidden date")
+      elsif date_time.month > Time.now.month + 3
+      	errors.add(:date_time, "Forbidden date")      		
+      elsif date_time.month == Time.now.month && date_time.day < Time.now.day
+      	errors.add(:date_time, "Forbidden date")
+      elsif date_time.month == Time.now.month && date_time.hour < Time.now.hour
+      	errors.add(:date_time, "Forbidden date")      		
+      end
+    end
+
+
 
 
 
