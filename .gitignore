@@ -11,3 +11,5 @@
 /log/*
 !/log/.keep
 /tmp
+
+/public/.well-known/acme-challenge
