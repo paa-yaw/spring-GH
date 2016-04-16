@@ -2,7 +2,7 @@
   <div class="row">
      <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
 
-   <div class="panel-group"  style="padding-bottom:185px;">
+   <div class="panel-group"  style="padding-bottom:1px;">
    <div class="panel panel-default">
   <!-- Default panel contents -->
    <!-- <div class="panel-heading"></div> -->
@@ -91,10 +91,7 @@
         <% end %>
 
 
-
-
-
-      
+       
 
         <!--Business Algorithm -->
 
@@ -137,47 +134,58 @@
          
         <% end %>
 
+  
+</div>
+</div>
+</div>
+</div>
 
- <!-- 
-        <%# @rooms = @request.bathrooms + @request.bedrooms + @request.hall + @request.kitchens %>
-
-        <%# @base_price = 12 %>
-
-
-        <% #sum = 0 %>
-        <%# a = @request.extra_services.length.to_i - 1 %>
-
-        <% #if @request.bathrooms == 1 && @request.bedrooms==1 && @request.hall==1 && @request.kitchens==1 %>
 
         
+      
 
-        <% #for i in 0...a %>
-          <%# sum += @request.extra_services[i].to_i %>
-        <% #end %>
+        
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 text-center">
+<!-- <div class="well"> -->
+      
+      <div class="panel panel-info">
+        <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
+          <h2><strong>Assigned Workers</strong></h2>
+        </div>
+        <div class="panel-body">
 
-        <%# if @request.provide == "Workforce provides cleaning products($3.00)" %>
-        <h2 style="border-top: solid 1px #324072;">Your price is  $<%#= (@base_price + sum + 3) %>.00</h2>
-        <%# elsif @request.provide == "I'll use my own cleaning products" %>
-        <h2>Your price is  $<%#= (@base_price + sum) %>.00</h2>  
-        <% #end %>
+            <h3 class="text-left" style="margin-top:0px;"></h3>
+              
+                <h2> <p></p></h2>
+              
+                 
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                    <% if @request.status == "resolved"%>
 
-        <% #elsif  @request.bathrooms >= 1 && @request.bedrooms >= 1 && @request.hall>=1 && @request.kitchens >=1 %>
+                    <% @request.workers.where(assigned: true).uniq.each do |worker| %>
+                      <tbody>
+                          <tr>
+                            <td style="width:50%; border-color:#e8e8e8;">
+                             <h4><%= worker.first_name %>.</h4>
+                            </td>
+                            <td style="border-color:#e8e8e8;">
+                             <h3><%= link_to fa_icon("eye") + " View Worker", worker_path(worker), :class=>"btn btn-primary" %> </h3>
+                            </td>
+                            <td style="border-color:#e8e8e8;">
+                             <h3> </h3>
+                            </td>
+                          </tr>
+                      </tbody>
+                        <% end %>
+                        <% else %>
+                      No worker assigned to you at the moment
+                      <% end %>
+                    </table>
+                  </div>
+            </div>
+        </div>
+    </div>
 
-        <% #for i in 0...a %>
-          <%# sum += @request.extra_services[i].to_i %>
-        <%# end %>
 
-        <% #@price = ((@rooms - 4 )* 5 ) + @base_price %>
-
-        <% #if @request.provide == "Spring provides cleaning products($3.00)" %>
-        <h2>Your price is  $<%#= (@price + sum + 3) %>.00</h2>
-        <% #elsif @request.provide == "I'll use my own cleaning products" %>
-        <h2>Your price is  $<%#= (@price + sum) %>.00</h2>
-        <% #end %>
-
-        <%# end %>  -->
-        <!-- business algorithm -->
-</div>
-</div>
-</div>
-</div>

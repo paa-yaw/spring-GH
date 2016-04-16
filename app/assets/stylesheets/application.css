@@ -12,5 +12,6 @@
  *
  *= require_tree ./general
  *= require font-awesome
+ *= require requests
  *= require_self
 */

@@ -1,5 +1,6 @@
 class WorkersController < ApplicationController
   before_action :set_worker, only: [:show]
+  before_filter :set_current_client
 
   def show
   end

@@ -48,7 +48,6 @@ class Admin::WorkersController < Admin::ApplicationController
   def unassign
     @request = Request.find(params[:request_id])
 
-    # @worker.requests.delete(@request)
     @worker.disengage
     @workers = Worker.all 
     render "admin/requests/show"

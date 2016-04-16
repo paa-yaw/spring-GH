@@ -17,9 +17,9 @@
               <% @my_requests.each do |my_request| %>
                 <% if my_request.status == "resolved" %>
                 <% if my_request.workers.any? %>
-                <% my_request.workers.each do |worker| %>
-                  <h3><strong><%= my_request.id %></strong></h3><h3>status: This request has been resolved. Your cleaner will be with you shortly. <br> <%= link_to "View", my_request, :class=>"btn btn-primary" %> <%= link_to fa_icon("eye") + "View Cleaner", worker_path(worker), :class=>"btn btn-primary" %> </h3>
-                  <% end %>
+                <%# my_request.workers.each do |worker| %>
+                  <h3><strong><%= my_request.id %></strong></h3><h3>status: This request has been resolved. Your cleaner will be with you shortly. <br> <%= link_to fa_icon("eye") + " View Request", my_request, :class=>"btn btn-primary" %> <%#= link_to fa_icon("eye") + " View Assigned Cleaner(s)", workers_path, :class=>"btn btn-primary" %> </h3>
+                  <%# end %>
                   <% end %>
                 <% else %>
                   <div class="table-responsive">
@@ -30,10 +30,10 @@
                              <h3>Request No.<%= my_request.id %></h3>
                             </td>
                             <td style="border-color:#e8e8e8;">
-                             <h3><%= link_to "View", my_request, :class=>"btn btn-default" %> </h3>
+                             <h3><%= link_to fa_icon("eye") + " View Request", my_request, :class=>"btn btn-default" %> </h3>
                             </td>
                             <td style="border-color:#e8e8e8;">
-                             <h3><%= link_to "Edit", [:edit, my_request], :class=>"btn btn-danger" %> </h3>
+                             <h3><%= link_to fa_icon("pencil") + " Edit Request", [:edit, my_request], :class=>"btn btn-danger" %> </h3>
                             </td>
                           </tr>
                       </tbody>
@@ -43,7 +43,7 @@
               <% end %>
             <% end %>
 
-              <%= link_to "Create A Request", new_request_path, :class=>"btn btn_submit btn-primary" %>
+              <%= link_to fa_icon("plus") + " Create A Request", new_request_path, :class=>"btn btn_submit btn-primary" %>
 
             </div>
         </div>
