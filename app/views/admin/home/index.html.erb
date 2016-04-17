@@ -26,7 +26,7 @@
         <div class="info-box green-bg">
             <i class="fa fa-folder"></i>
             <div class="count"><%= Request.joins(:client).where(status: "resolved").count %></div>
-            <div class="title">Resolved Requests</div>                      
+            <div class="title">Pending Requests</div>                      
         </div><!--/.info-box-->         
     </div><!--/.col-->
     <% end %>
