@@ -58,7 +58,7 @@ class Admin::RequestsController < Admin::ApplicationController
     @worker.engage
 
     @client = @request.client
-    NotifyClientJob.set(wait: 2.seconds).perform_later(@client)
+    # NotifyClientJob.set(wait: 2.seconds).perform_later(@client)
     flash[:alert] = "You just assigned #{@worker.first_name} to #{@request.id}."
 
     # redirect_to admin_root_path
@@ -72,12 +72,18 @@ class Admin::RequestsController < Admin::ApplicationController
 
    def reopen
     @request.reopen_request
+    @client = @request.client
+
+    # send an email to the client
+    ClientNotifyRedoJob.set(wait: 2.seconds).perform_later(@client)
+    
     @workers = Worker.all
     render "show"
    end
 
    def close
     @request.close_request
+    # send an email to the client
     @workers = Worker.all
     render "show"
    end

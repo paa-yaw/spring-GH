@@ -18,6 +18,7 @@ class Admin::ClientsController < Admin::ApplicationController
 
     if @client.save
       flash[:notice] = "Client successfully created."
+      # send an email to client and admin
       redirect_to admin_clients_path
     else
       flash.now[:alert] = "Client could not be created."
@@ -31,6 +32,7 @@ class Admin::ClientsController < Admin::ApplicationController
   def update
     if @client.update(client_params)
       flash[:notice] = "Client has been updated."
+      # send an email to client 
       redirect_to admin_clients_path
     else
       flash.now[:alert] = "Client could not be updated."
@@ -40,6 +42,7 @@ class Admin::ClientsController < Admin::ApplicationController
 
   def destroy
     @client.destroy
+    # send an email to admin
     @clients = Client.all.where(admin: false)
     render 'index'
   end
@@ -54,6 +57,7 @@ class Admin::ClientsController < Admin::ApplicationController
 
     if @admin.save
       flash[:notice] = "Client successfully created."
+      # send an email to admin
       redirect_to admin_list_path
     else
       flash.now[:alert] = "Client could not be created."
@@ -71,6 +75,7 @@ class Admin::ClientsController < Admin::ApplicationController
     
     if @admin.update(client_params)
       flash[:notice] = "Client has been updated."
+      # send an email to admin
       redirect_to admin_list_path
     else
       flash.now[:alert] = "Client could not be updated."
