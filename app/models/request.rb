@@ -64,6 +64,10 @@ class Request < ActiveRecord::Base
 	  self.update(status:"redo")
 	end
 
+  def unresolve_request
+    self.update(status: "unresolved")
+  end
+
 
 	def add
 	  self.update(client_id: Client.current.id)

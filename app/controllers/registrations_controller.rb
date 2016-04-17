@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
   		if current_client
-  		  flash[:notice] = "#{current_client.email}, welcome to workforce!"
+  		  flash[:notice] = "#{current_client.email}, welcome to Spring!"
 
   		  # sends email notification to client after sign up 
   	      SendEmailJob.set(wait: 5.seconds).perform_later(@client)

@@ -1,6 +1,6 @@
 class Admin::RequestsController < Admin::ApplicationController
-  before_action :set_request, only: [:edit, :update, :show, :destroy, :assign, :reopen, :close]	
-  before_action :set_client, except: [:assign, :index, :state_of_requests, :reopen, :close]
+  before_action :set_request, only: [:edit, :update, :show, :destroy, :assign, :reopen, :close, :unresolve]	
+  before_action :set_client, except: [:assign, :index, :state_of_requests, :reopen, :close, :unresolve]
 
   def index
     @clients = Client.all.where(admin: false)
@@ -71,12 +71,7 @@ class Admin::RequestsController < Admin::ApplicationController
    end
 
    def reopen
-    # @request.reopen_request
-    # @clients = Client.all.where(admin: false)
-    # @all_requests = Request.all
-    # @requests = Request.all.where(status: "unresolved")
-    # @resolved_requests= Request.all.where(status: "resolved")
-    # @requests_without_client = Request.all.where(client_id: nil)
+    @request.reopen_request
     @workers = Worker.all
     render "show"
    end
@@ -87,26 +82,29 @@ class Admin::RequestsController < Admin::ApplicationController
     render "show"
    end
 
-   # def state_of_requests
-   #  @clients = Client.all.where(admin: false)
-   #  @all_requests = Request.all
-   #  @requests = Request.all.where(status: "unresolved")
-   #  @resolved_requests= Request.all.where(status: "resolved")
-   #  @requests_without_client = Request.all.where(client_id: nil)
-   # end
+   def unresolve
+    @request.unresolve_request
+    @clients = Client.all.where(admin: false)
+    @all_requests = Request.all
+    @requests = Request.all.where(status: "unresolved")
+    @resolved_requests= Request.all.where(status: "resolved")
+    @requests_without_client = Request.all.where(client_id: nil)
+    render "index"
+   end
+
   
   private
 
   def set_request
   	@request = Request.find(params[:id]) 
-    # rescue ActiveRecord::RecordNotFound
-    #  redirect_to errors_not_found_path
+    rescue ActiveRecord::RecordNotFound
+     redirect_to errors_not_found_path
   end
 
   def set_client
     @client = Client.find(params[:client_id])
-   # rescue ActiveRecord::RecordNotFound
-   #   redirect_to errors_not_found_path
+   rescue ActiveRecord::RecordNotFound
+     redirect_to errors_not_found_path
   end
 
  def request_params
