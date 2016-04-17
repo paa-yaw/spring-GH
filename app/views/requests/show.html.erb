@@ -83,7 +83,10 @@
         </tbody>
   </table>           
   </div> 
-        <% if @request.resolved == true %>
+        <% if @request.status == "resolved" %>
+        <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
+        <%= link_to "Home", root_path, :class => "btn btn-default" %>
+        <% elsif @request.status == "done" %>
         <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
         <%= link_to "Home", root_path, :class => "btn btn-default" %>
         <% else %>

@@ -71,13 +71,14 @@ class Admin::RequestsController < Admin::ApplicationController
    end
 
    def reopen
-    @request.reopen_request
-    @clients = Client.all.where(admin: false)
-    @all_requests = Request.all
-    @requests = Request.all.where(status: "unresolved")
-    @resolved_requests= Request.all.where(status: "resolved")
-    @requests_without_client = Request.all.where(client_id: nil)
-    render "index"
+    # @request.reopen_request
+    # @clients = Client.all.where(admin: false)
+    # @all_requests = Request.all
+    # @requests = Request.all.where(status: "unresolved")
+    # @resolved_requests= Request.all.where(status: "resolved")
+    # @requests_without_client = Request.all.where(client_id: nil)
+    @workers = Worker.all
+    render "show"
    end
 
    def close
