@@ -83,7 +83,11 @@ class Admin::RequestsController < Admin::ApplicationController
 
    def close
     @request.close_request
+    @client = @request.client
+
     # send an email to the client
+    ClientNotifyCloseJob.set(wait: 2.seconds).perform_later(@client)
+    
     @workers = Worker.all
     render "show"
    end

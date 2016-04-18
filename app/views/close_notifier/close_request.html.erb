@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi, <%= @client.first_name %></h1>
+    <p>
+      This email is just to inform you that your request has been closed. Thank you for using spring cleaning service.
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= link_to "Sign in", @url %>.
+    </p>
+    <p>Thank you for staying loyal to us. Have a great day!</p>
+  </body>
+</html>
