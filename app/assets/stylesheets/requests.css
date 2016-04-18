@@ -57,26 +57,6 @@ select{
   height: 45px;
 }
 
-select#request_date_time_1i{
-  width:20%; 
-}
-
-select#request_date_time_2i{
-  width:20%; 
-}
-
-select#request_date_time_3i{
-  width:10%;
-}
-
-select#request_date_time_4i{
-  width:20%;  
-}
-
-select#request_date_time_5i{
-  width:20%;
-}
-
 input#client_fullname.form-control{
   height: 40px;
 }
