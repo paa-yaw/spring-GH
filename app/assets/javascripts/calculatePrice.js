@@ -17,7 +17,6 @@ function checkMonth() {
     for( var j = 1; j <= d.getDate(); j++) {
       document.getElementById("request_date_time_3i").children[(j-1)].style.display="block";
     }
-
   }
 }  
 
