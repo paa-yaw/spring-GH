@@ -33,7 +33,7 @@
                 <h1>No workers yet.</h1>
                 <% else %>
                 <% @workers.each do |worker| %>
-                <% if worker.requests.any? %>
+                <% if worker.assigned == true %>
                 
                 <tbody>
                   <tr>
