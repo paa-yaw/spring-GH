@@ -36,11 +36,12 @@ a.navbar-header{
 }
 
 h2.panel-title {
-  background: inherit;
+  background: rgba(25,41,100,0.82);
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 25px;
   font-weight:bolder;
+  color:#fff;
 }
 
 div#region > div.container-fluid > div.row{
