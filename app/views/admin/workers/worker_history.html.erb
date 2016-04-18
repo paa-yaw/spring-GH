@@ -20,8 +20,8 @@
         <% @worker.requests.uniq.each do |request| %>
 
         <tr>
-         <td><%= link_to request.client.first_name, admin_client_requests_path(request.client) %></td>
-         <td><%= request.client.requests.count %></td>
+         <td><%= request.client.first_name  %></td>
+         <td><%= link_to request.client.requests.count, admin_client_requests_path(request.client) %></td>
          <td>No remark</td>
          <td>No Data yet!</td>
        </tr>
