@@ -1,5 +1,5 @@
 class RedoNotifier < ApplicationMailer
-	default from: "springgh.com"
+   default from: "springgh.com"
 
    def redo_request(client)
      @client = client

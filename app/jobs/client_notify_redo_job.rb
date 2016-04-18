@@ -1,8 +1,8 @@
 class ClientNotifyRedoJob < ActiveJob::Base
    queue_as :default
 
-  def perform(client)
-    @client = client
-    RedoNotifier.redo_request(@client).deliver_now
+  def perform(recipient)
+    @recipient = recipient
+    RedoNotifier.redo_request(@recipient).deliver_later
   end
 end
