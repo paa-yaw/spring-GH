@@ -32,7 +32,7 @@
             <div class="navbar-collapse collapse navbar-rj-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="page-scroll">
-                        <% if current_client && current_client.admin == false %>
+                        <% if current_client %>
                           <%= link_to "Requests", my_requests_path %>
                         <% end %>
                     </li>
