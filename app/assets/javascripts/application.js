@@ -19,4 +19,4 @@
 
 //= require_tree .
 
-//= require jquery.raty.min
+//= require jquery.raty
