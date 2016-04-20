@@ -351,7 +351,7 @@ label.check_boxes.optional.control-label{
   }
   
   select#request_date_time_1i, select#request_date_time_2i, select#request_date_time_3i, select#request_date_time_4i, select#request_date_time_5i{
-    width:60%; 
+    width:80%; 
     text-align:center;
     margin: 0 auto;
   }
@@ -369,7 +369,7 @@ label.check_boxes.optional.control-label{
 
   #datetime select{
     display: block;
-    max-width: 100%;
+    max-width: 80%;
   }
 }
 
