@@ -8,6 +8,7 @@ class Client < ActiveRecord::Base
   validates :first_name, :last_name, :location, presence: true
 
   has_many :requests, dependent: :delete_all 
+  has_many :reviews, dependent: :destroy
 
   # this code is required for request model to have access to current_client
   def self.current

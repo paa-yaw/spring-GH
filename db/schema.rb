@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411103313) do
+ActiveRecord::Schema.define(version: 20160420094916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(version: 20160411103313) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "worker_id"
+    t.integer  "client_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "score",      default: 0
+  end
+
+  add_index "ratings", ["client_id"], name: "index_ratings_on_client_id", using: :btree
+  add_index "ratings", ["worker_id"], name: "index_ratings_on_worker_id", using: :btree
+
   create_table "requests", force: :cascade do |t|
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
@@ -83,6 +94,18 @@ ActiveRecord::Schema.define(version: 20160411103313) do
   add_index "requests_workers", ["request_id"], name: "index_requests_workers_on_request_id", using: :btree
   add_index "requests_workers", ["worker_id"], name: "index_requests_workers_on_worker_id", using: :btree
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "worker_id"
+    t.integer  "client_id"
+    t.text     "comment"
+    t.integer  "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["client_id"], name: "index_reviews_on_client_id", using: :btree
+  add_index "reviews", ["worker_id"], name: "index_reviews_on_worker_id", using: :btree
+
   create_table "workers", force: :cascade do |t|
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
@@ -100,5 +123,9 @@ ActiveRecord::Schema.define(version: 20160411103313) do
     t.boolean  "assigned",     default: false
   end
 
+  add_foreign_key "ratings", "clients"
+  add_foreign_key "ratings", "workers"
   add_foreign_key "requests", "clients"
+  add_foreign_key "reviews", "clients"
+  add_foreign_key "reviews", "workers"
 end

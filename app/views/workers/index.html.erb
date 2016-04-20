@@ -1,0 +1,6 @@
+List of Cleaners
+<% @current_client_requests.each do |request| %>
+  <% request.workers.uniq.each do |worker| %>
+    <p><%= link_to worker.first_name, worker %></p>
+  <% end %>
+<% end %>
