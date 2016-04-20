@@ -47,6 +47,9 @@
                                               <div class="bio-row">
                                                   <p><span>Remarks: </span> very hardworking</p>
                                               </div>
+                                              <div class="bio-row">
+                                                  <p><span>Ratings: </span><div class="star-rating" data-score= <%= @average_rating %>></div></p>
+                                              </div>
                                           </div>
                                       </div>
                                     </section>
@@ -73,3 +76,12 @@
 
 
 
+<script>
+  $('.star-rating').raty({
+    path: '/assets/', 
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script> 

@@ -14,6 +14,8 @@ class Worker < ActiveRecord::Base
   def disengage
   	self.update(assigned: false)
   end
-
-
+  
+  def average_rating
+  	reviews.sum(:rating) / reviews.size
+  end
 end

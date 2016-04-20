@@ -1,11 +1,18 @@
 class ReviewsController < ApplicationController
   before_action :set_worker	
+  # before_action :authenticate_client!, only: [:create]
 
   def create
     @review = @worker.reviews.build(review_params)
     @review.client_id = current_client.id
-    @review.save
-    redirect_to @worker
+    @review_count = current_client.reviews.where(worker_id: @worker).count
+    if @review_count == 0  
+      @review.save 
+      redirect_to @worker
+    elsif @review_count == 1
+      redirect_to @worker
+    end
+
   end
 
   private
