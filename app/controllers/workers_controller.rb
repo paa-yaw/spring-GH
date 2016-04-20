@@ -2,6 +2,10 @@ class WorkersController < ApplicationController
   before_action :set_worker, only: [:show]
   before_filter :set_current_client
 
+  def index
+    @current_client_requests = current_client.requests
+  end
+
   def show
   end
 
