@@ -18,7 +18,7 @@ abbr {
   background:#ffd207 !important;
 }
 
-/*NAVBAR CONTENT PADDING*/
+/* --NAVBAR CONTENT PADDING-- */
 ul.nav.navbar-nav.navbar-right > li.page-scroll > a{
   padding-bottom: 0px;
   padding-top: 20px;
@@ -29,6 +29,8 @@ a.navbar-header{
   padding-top: 2px;
   padding-bottom: 13px;
 }
+
+/* --NAVBAR CONTENT PADDING END-- */
 
 #daPrice, .daPrice{
   color:#009900;
@@ -89,12 +91,12 @@ div#region > div.container-fluid > div.row{
   }
 /* -- PRICING TABLE END*/
 
- /*-- PRICING TOTAL START*/
- .extraPricing{
-  /*border-top: solid 1px #333;*/
- }
+/*-- PRICING TOTAL START*/
+.extraPricing{
+/*border-top: solid 1px #333;*/
+}
 
- /*-- PRICING TOTAL END*/
+/*-- PRICING TOTAL END*/
 
 nav#navigation > .container-fluid {
   background: #fff;
@@ -233,7 +235,7 @@ input[type=radio]{
   -o-transform: scale(1.2); /* Opera */
 }
 
-/*// TABLE PAGE*/
+/* TABLE PAGE */
 
 div.panel.panel-default > div.table-responsive{
   border-bottom:solid 1px #0E1E59;
@@ -335,6 +337,54 @@ label.check_boxes.optional.control-label{
   nav#navigation.navbar.navbar-default.navbar-fixed-top{
     padding-bottom: 0px;
   }
+
+/* --MOBILE NAVBAR PRICING START-- */
+#pricing-bar{
+  top:50px;
+  background-color: rgba(25,41,100,0.89);
+  box-shadow: 0px 2px 2px -1px rgba(18,39,114,1);
+  -webkit-box-shadow: 0px 2px 2px -1px rgba(18,39,114,1);
+  -moz-box-shadow: 0px 2px 2px -1px rgba(18,39,114,1);
+}
+
+#pricing-bar .nav>li>a:hover {
+  background: none;
+}
+
+#pricing-bar ul.navbar-nav{
+  justify-content:space-between;
+  display:flex;
+}
+
+#pricing-bar ul.navbar-nav li{
+  display: inline-block;
+  position: relative;
+}
+
+#pricing-bar ul.navbar-nav li a label{
+  display: block;
+  font-size: 10px;
+  color:#fff;
+}
+
+#pricing-bar ul.navbar-nav li a span{
+  display: block;
+}
+
+#navExtraRoomPrice, #navExtraServicePrice{
+  color:#fff;
+}
+
+#navPricingValue {
+  color:#119822;
+}
+
+#request-form{
+  padding-top: 65px;
+}
+
+/* --MOBILE NAVBAR CONTENT PRICING END-- */
+
 
   #extra span.checkbox.inline{
     margin-left: 0px;

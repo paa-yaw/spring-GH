@@ -196,6 +196,7 @@ function calculateTotal(){
   var total = getRoomNumber()*5 + getExtraServices(); 
   total = total + (60 || getFrequency());
   document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
+  document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
 }
 
 // calculates pricing based on number of rooms.
@@ -212,6 +213,7 @@ function calculatePricing() {
   
   document.getElementById('packagePrice').innerHTML = "GHc "+(60 || getFrequency())+".00";
   document.getElementById('extraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
+  document.getElementById('navExtraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
 
 
   if (getFrequency() == 500) {
@@ -223,8 +225,11 @@ function calculatePricing() {
    
   if (getFrequency() == 500) {
     document.getElementById("extraRoomPrice").innerHTML = "GHc "+getLargeRoomNumber()*5+".00";
+    document.getElementById("navExtraRoomPrice").innerHTML = "GHc "+getLargeRoomNumber()*5+".00";
+
   } else{
     document.getElementById("extraRoomPrice").innerHTML = "GHc "+getRoomNumber()*5+".00";
+    document.getElementById("navExtraRoomPrice").innerHTML = "GHc "+getRoomNumber()*5+".00";
   }
 
   if (getFrequency() == 60){
@@ -232,6 +237,7 @@ function calculatePricing() {
     var total = 60 + getRoomNumber()*5 + getExtraServices(); 
     // console.log(total);
     document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
+    document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
   }
   else if (getFrequency() == 150) {
     document.getElementById("packagePrice").innerHTML = "GHc "+( 150|| getFrequency())+".00";
@@ -239,6 +245,7 @@ function calculatePricing() {
     var total = 150 + getRoomNumber()*5 + getExtraServices();
     // console.log(total);
     document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
+    document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
   }
   else if (getFrequency() == 500) {
     var rooms = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
@@ -246,6 +253,7 @@ function calculatePricing() {
     var total = 500 + getLargeRoomNumber()*5 + getExtraServices();
     // console.log(total);
     document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
+    document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
   }
 
 }

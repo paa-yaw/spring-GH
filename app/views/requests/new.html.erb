@@ -1,7 +1,18 @@
+
+  <div class="container-fluid navbar-fixed-top visible-xs visible-sm" id="pricing-bar">
+    <ul class="nav navbar-nav">
+      <li><a href="#"><label>Extra Rooms</label><span id="navExtraRoomPrice">GHc 0.00</span></a></li> 
+      <li><a href="#"><label>Extra Services</label><span id="navExtraServicePrice">GHc 0.00</span></a></li>
+      <li><a href="#"><label>Pricing</label><strong><span id="navPricingValue">GHc 60.00</span></strong></a></li> 
+    </ul>
+  </div>
+<!-- <nav class="navbar navbar-default"> -->
+<!-- </nav> -->
+
     <div class="container-fluid" >
       
       <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-1" style="border:rgba(18, 39, 114, 0.2);">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-1" id="request-form" style="border:rgba(18, 39, 114, 0.2);">
 
             <div class="form-bottom">
                <%= render 'form', request: @request %><br>
@@ -47,9 +58,9 @@
                     <div class="col-3 text-right" id="totalPrice" style="padding-top:0px;padding-left:0px; padding-right:0px;"><h3 id="PricingValue">GHc 60.00</h3></div>
                   </div>
                 </div>
-                      </div>
-                    </div>
-                </div>
+              </div>
+            </div>
+        </div>
       </div>
     </div>
 </div>
