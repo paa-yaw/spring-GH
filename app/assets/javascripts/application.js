@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require jquery.raty.min
 
 //= require_tree .
