@@ -26,10 +26,6 @@ class WorkersController < ApplicationController
     redirect_to errors_not_found_path
   end
 
-  # def set_review
-  #   @review = Review.find(params[:review_id])
-  # end
-
 
   def worker_params
   	params.require(:worker).permit(:first_name, :last_name, :sex, :age, :phone_number, :education, 
