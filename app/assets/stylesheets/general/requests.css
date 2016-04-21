@@ -217,7 +217,7 @@ span.checkbox.inline{
 }
 
 img.img-responsive{
-  width: 12%;
+  width: 50%;
   margin-left: 20px;
 }
 
@@ -236,6 +236,7 @@ input[type=radio]{
 }
 
 /* TABLE PAGE */
+
 
 div.panel.panel-default > div.table-responsive{
   border-bottom:solid 1px #0E1E59;
@@ -329,6 +330,47 @@ label.check_boxes.optional.control-label{
 */
 
 @media only screen and (max-device-width: 480px) {
+
+  #pricing-bar{
+    top:50px;
+    background-color: rgba(25,41,100,0.89);
+    box-shadow:  0px 2px 2px -1px rgba(18,39,114,1);
+    -webkit-box-shadow: 0px 2px 2px -1px rgba(18,39,114,1);
+    -moz-box-shadow:0px 2px 2px -1px rgba(18,39,114,1);
+  }
+
+  #pricing-bar .nav>li>a:hover{
+    background: none;
+  }
+
+  #pricing-bar ul.navbar-nav{
+    justify-content:space-between;
+  }
+
+  #pricing-bar ul.navbar-nav li{
+    display: inline-block;
+    position: relative;
+  }
+
+  #pricing-bar ul.navbar-nav li a label{
+    display: block;
+    font-size: 10px;
+    color:#fff;
+  }
+
+  #navExtraRoomPrice, #navExtraServicePrice{
+    color: #fff;
+  }
+
+  #navPricingValue{
+    color: #119822;
+  } 
+
+  #request-form{
+    padding-top: 65px;
+  }
+
+  /*--MOBILE NAVBAR CONTENT PRICING END-- */
 
   img.img-responsive{
     width: 22%;

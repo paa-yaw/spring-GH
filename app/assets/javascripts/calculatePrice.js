@@ -226,7 +226,6 @@ function calculatePricing() {
   if (getFrequency() == 500) {
     document.getElementById("extraRoomPrice").innerHTML = "GHc "+getLargeRoomNumber()*5+".00";
     document.getElementById("navExtraRoomPrice").innerHTML = "GHc "+getLargeRoomNumber()*5+".00";
-
   } else{
     document.getElementById("extraRoomPrice").innerHTML = "GHc "+getRoomNumber()*5+".00";
     document.getElementById("navExtraRoomPrice").innerHTML = "GHc "+getRoomNumber()*5+".00";
