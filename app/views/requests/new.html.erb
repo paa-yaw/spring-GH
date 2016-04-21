@@ -65,5 +65,10 @@
     </div>
 </div>
 
-
-
+<script>
+  $("#pricing-bar").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#pricingBox").offset().top-100},
+        1000);
+});
+</script>
