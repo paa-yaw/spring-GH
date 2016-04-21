@@ -184,6 +184,7 @@
                         <% end %>
                         <% else %>
                       No worker assigned to you at the moment
+                      <p><%= link_to "view previously assigned workers", workers_path, class: "btn btn-primary" %></p>
                       <% end %>
                     </table>
                   </div>
