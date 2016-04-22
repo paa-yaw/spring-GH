@@ -1,29 +1,32 @@
-<div class="container-fluid" >
+<div class="container" >
       <div class="row">
-        <div class="col-sm-6 col-sm-offset-3 text-center">
+        <div class="col-sm-6 col-sm-offset-3 text-center" id="display-request">
         
          <div class="panel-group">
-   <div class="panel panel-default">
-  <!-- Default panel contents -->
-   <div class="panel-heading"><h3 style="color:green;">All Done!</h3></div>
-  
-         <div class="panel-body">
 
-             <div class="well">   
+           <div class="panel panel-default" >
+          <!-- Default panel contents -->
+           <div class="panel-heading" style="background:#122772;"><h2 class="panel-title text-center" style="color:#fff;padding-top:10px;padding-bottom:10px;">All Done!</h2></div>
+          
+                 <div class="panel-body">
 
-              <% if @request.client_id != Client.last.id %>
-              <h2>Click to View Your Request.</h2>
+                     <div class="well">   
 
-               <%= link_to "View Request", [:add, @request], method: :patch, 
-                     :class => 'btn btn-block btn-lg' %>
-              <% else %>
-               <%= link_to "View Request", @request, :class => 'btn-block btn-lg'  %>
-              <% end %>
+                      <% if @request.client_id != Client.last.id %>
+                      <h2>Click to View Your Request.</h2>
+
+                       <%= link_to "View Request", [:add, @request], method: :patch, 
+                             :class => 'btn btn-block btn-lg' %>
+                      <% else %>
+                       <%= link_to "View Request", @request, :class => 'btn-block btn-lg'  %>
+                      <% end %>
+                      </div>
+                  </div>
+
+                </div>
               </div>
-          </div>
 
-        </div>
-      </div>
     </div>
-
+  </div>
+</div>
 
