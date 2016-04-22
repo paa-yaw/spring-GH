@@ -1,9 +1,10 @@
 <%= simple_form_for([@worker, @worker.reviews.build]) do |f| %>
+  <label>Rate <%= @worker.first_name %></label>
   <p><div id="star-rating"></div></p>
-  <p><%= f.input :comment %></p>
+  <p><%= f.input :comment, label: "How Do You Feel About #{@worker.first_name}'s work?" %></p>
 
   <div class="actions">
-  	<%= f.button :submit %>
+  	<%= f.button :submit, "Post Your Review", class: "btn btn-primary" %>
   </div>
 <% end %>
 

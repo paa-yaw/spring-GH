@@ -2,7 +2,7 @@
 <div class="admin-page">
   <div class="con,tainer">
   <div class="row">
-    <div class="col-sm-9 col-sm-offset-1 form-box">
+    <div class="col-sm-11 col-sm-offset-1 form-box">
 
 
     <div class="row">
@@ -25,6 +25,8 @@
                     <th></th>
                     <th></th>
                     <th></th>
+                    <th></th>
+                    <th>Rating</th>
                   </tr>
                 </thead>  
 
@@ -49,6 +51,7 @@
                     </td>
                     <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
                     <td><%= link_to "Remove", admin_worker_path(worker), method: :delete, data: { confirm: "Are you sure you want to delete #{worker.first_name} from the database?"}, class: "btn btn-danger" %></td>
+                    <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                   </tr>
                   <% else %>
                   <tr>
@@ -64,6 +67,7 @@
                     </td>
                     <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
                     <td><%= link_to "Remove", admin_worker_path(worker), method: :delete, data: { confirm: "Are you sure you want to delete #{worker.first_name} from the database?"}, class: "btn btn-danger" %></td>
+                    <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                   </tr>
                   
                 </tbody>
@@ -85,3 +89,13 @@
 </div>
 </div>
 </div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/', 
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script> 

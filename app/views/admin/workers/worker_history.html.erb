@@ -14,7 +14,7 @@
           <th><i class="fa fa-user"></i>Client's Name</th>
           <th><i class="fa fa-folder"></i>No. of Requests</th>
           <th><i class="fa fa-comments-o"></i>Client's Remarks</th>
-          <th><i class="fa fa-sort-numeric-asc"></i>Rank</th>
+          <th><i class="fa fa-star"></i>Client's Rating</th>
         </tr>
         <% if @worker.requests.exists? %>
         <% @worker.requests.uniq.each do |request| %>
@@ -22,8 +22,8 @@
         <tr>
          <td><%= request.client.first_name  %></td>
          <td><%= link_to request.client.requests.count, admin_client_requests_path(request.client) %></td>
-         <td>No remark</td>
-         <td>No Data yet!</td>
+         <td><%= @worker.reviews.where(client_id: request.client).first.try(:comment) || nil %></td>
+         <td><div class="star-rating" data-score= <%= request.client.reviews.where(worker_id: @worker).first.try(:rating) %>></div></td>
        </tr>
        <% end %>
        <% else %>
@@ -70,3 +70,13 @@
     </section>
   </div>
 </div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/', 
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

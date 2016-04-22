@@ -16,6 +16,8 @@ class Worker < ActiveRecord::Base
   end
   
   def average_rating
-  	reviews.sum(:rating) / reviews.size
+    if reviews.any?
+  	  reviews.sum(:rating) / reviews.size
+    end
   end
 end

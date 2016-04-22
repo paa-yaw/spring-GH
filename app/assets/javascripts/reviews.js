@@ -2,8 +2,6 @@
 // All this logic will automatically be available in application.js.
 $(document).ready(function(){
 
-console.log("&".repeat(100));
-
 $('#star-rating').raty({
 	path: '/assets/',
 	scoreName: 'review[rating]'

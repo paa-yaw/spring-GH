@@ -8,8 +8,10 @@ class ReviewsController < ApplicationController
     @review_count = current_client.reviews.where(worker_id: @worker).count
     if @review_count == 0  
       @review.save 
+      flash[:notice] = "Your review has been saved."
       redirect_to @worker
     elsif @review_count == 1
+      flash[:alert] = "You already have a review."
       redirect_to @worker
     end
 
