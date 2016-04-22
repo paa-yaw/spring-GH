@@ -4,7 +4,11 @@
   <div class="row">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <h2 class="panel-title text-center">Tell Us About Your House</h2>
+        <% if request.persisted? %>
+          <h2 class="panel-title text-center">Tell Us About Your House <small>&nbsp;&nbsp;edit</small></h2>
+        <% else %>
+          <h2 class="panel-title text-center">Tell Us About Your House</h2>
+        <% end %>
       </div>
       <div class="panel-body">
 
