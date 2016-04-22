@@ -141,6 +141,7 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
               <th>status</th>
               <th></th>
               <th></th>
+              <th>Rating</th>
             </tr>
           </thead> 
 
@@ -161,6 +162,7 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
 
                <td><%= link_to fa_icon("user-times") +
                  " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, data: {confirm: "You are about to unassign this worker"}, class: "btn btn-warning" %></td>
+                 <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                </tr>
 
                
@@ -175,6 +177,7 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
                 <td></td>
                 <td><%= link_to fa_icon("user-plus") + " Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
                   data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-primary"  %></td>
+                  <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                 </tr>
               </tbody>
               <% end %>
@@ -197,3 +200,13 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
 </div>
 </div>
 </div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/', 
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script> 

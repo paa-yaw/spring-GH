@@ -70,6 +70,11 @@
                     <td><strong>Extra Info:</strong></td>
                     <td> <%= @worker.extra_info %></td>
                   </tr>
+                  <tr>
+                    <td><strong>Rating:</strong></td>
+                    <td><div class="star-rating" data-score= <%= @worker.average_rating %>></div></td>
+                  </tr>
+
 
                 </tbody>
               </table>
@@ -82,6 +87,17 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/', 
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script> 
 
 
 

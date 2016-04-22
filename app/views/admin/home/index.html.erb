@@ -34,7 +34,7 @@
      <%= link_to admin_requests_path do %>
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box yellow-bg">
-            <i class="fa fa-folder-open"></i>
+            <i class="fa fa-folder"></i>
             <div class="count"><%= Request.joins(:client).where(status: "done").count %></div>
             <div class="title">Completed Requests</div>                      
         </div><!--/.info-box-->         
