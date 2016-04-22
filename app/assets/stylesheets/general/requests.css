@@ -252,11 +252,18 @@ input[type=radio]{
 
 /* TABLE PAGE */
 div.panel.panel-default > div.table-responsive{
-  border-bottom:solid 1px #0E1E59;
+  /*border-bottom:solid 1px #0E1E59;*/
 }
+
+
+
 
 div.offerings{
   color: #122772;
+}
+
+.table-bordered{
+  border:none;
 }
 
 thead > tr > th {
@@ -266,7 +273,7 @@ thead > tr > th {
 }
 
 th {
-  background-color: #324072;
+  background-color: rgba(25,41,100,0.82);
   color:#fff;
 }
 
@@ -290,7 +297,7 @@ div.panel.panel-info > div.panel-heading{
 }
 
 div.panel.panel-info > div.panel-body{
-  border: #fff;
+  /*border: #fff;*/
   padding-bottom: 8px;
 }
 
