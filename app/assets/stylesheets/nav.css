@@ -179,7 +179,7 @@ header, nav{
 
           #header nav > ul > li > a {
             border: 0;
-            color: #fff;
+            color:#2e3842;
             display: block;
             font-size: 0.8em;
             letter-spacing: 0.225em;
@@ -201,6 +201,7 @@ header, nav{
                 height: 3.75em;
                 vertical-align: top;
                 width: 2em;
+                background: #fff;
               }
 
               @media screen and (max-width: 736px) {

@@ -78,36 +78,51 @@
                       </a>
 
             <nav id="nav" class="visible-lg hidden-sm hidden-xs">
-               <ul>
+               <ul >
+                <!-- <li class="special">
+                  <a href="#menu"><span>Hi, Laud</span></a>
+                </li> -->
+
+                  <li class="special" style="color:#2e3842;">
+                        <%= link_to current_client.first_name, edit_client_registration_path %>
+                    </li>
+
                 <li class="special">
-                  <a href="#menu"><span style="color:#2e3842;">Requests</span></a>
+                   <% if current_client %>
+                          <%= link_to "Requests", my_requests_path %>
+                          <!-- <span style="color:#2e3842;">Requests</span> -->
+                       <% end %> 
                 </li>
                 <li class="special">
-                  <a href="#menu"><span style="color:#2e3842;">About</span></a>
-                </li>
-                <li class="special">
-                  <a href="#menu"><span style="color:#2e3842;">Laud</span></a>
-                </li>
-                <li class="special">
-                  <a href="#menu"><span style="color:#2e3842;">Log out</span></a>
+                  <!-- <a href="#menu"><span style="color:#2e3842;">Log out</span></a> -->
+                     <% if current_client %>
+                       <li><%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                              data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li>
+                      <% else %>
+                      <li><%= link_to "Log In", new_client_session_path %></li>
+                      <% end %>
                 </li>
               </ul>
-            </nav>          
+            </nav>   
+
             <nav id="nav" class="visible-xs hidden-md hidden-lg">
               <ul>
                 <li class="special">
-                  <a href="#menu" class="menuToggle"><span style="color:#2e3842;">Menu</span></a>
+                  <a href="#menu" class="menuToggle" style="color:#fff;"><span>Menu</span></a>
                   <div id="menu">
                     <ul>
-                      <li><%= link_to "Home", root_path %></li>
-                      <li><a href="#one">About</a></li>
-                      <li><a href="#two">Services</a></li>
-                      <li><a href="#cta">Contact</a></li>
+                      
+                      <li>
+                       <% if current_client %>
+                          <%= link_to "Requests", my_requests_path %>
+                       <% end %> 
+                      </li>
+                      <!-- <li><a href="#cta">Contact</a></li> -->
                       <li><%= link_to "FAQ"%></li>
 
                       <% if current_client %>
-                      <!-- <li><%#= link_to "Log Out", destroy_client_session_path, method: :delete,
-                              data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li> -->
+                       <li><%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                              data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li>
                       <% else %>
                       <li><%= link_to "Log In", new_client_session_path %></li>
                       <% end %>
@@ -130,7 +145,7 @@
    <%= yield %>
  </div>
 
- <script>
+<script>
 
 setTimeout(fade_out, 5000);
 
@@ -138,6 +153,6 @@ function fade_out() {
   $("#flashmessage").fadeOut().empty();
 }
 
- </script>
+</script>
 </body>
 </html>
