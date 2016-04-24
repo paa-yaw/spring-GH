@@ -68,10 +68,10 @@
                       <li class="special">
                           <%= link_to "Requests", my_requests_path %>
                       </li>
-                      <li class="special">
-                        <%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                    <!--   <li class="special">
+                        <%#= link_to "Log Out", destroy_client_session_path, method: :delete,
                                   data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                      </li> 
+                      </li>  -->
                     <% else %>
                         <li class="special">
                           <a href="#one">About</a>
