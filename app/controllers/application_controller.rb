@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     else
       if current_client.requests.count >= 1
         flash[:notice] = "Welcome back, #{current_client.first_name}! Please place another request."
-        workers_path
+        new_request_path
       elsif current_client.requests.count == 0
        flash[:notice] = "Welcome, #{current_client.first_name}! Please place a request."
        new_request_path

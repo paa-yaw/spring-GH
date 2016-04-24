@@ -3,10 +3,9 @@ class Request < ActiveRecord::Base
 	has_and_belongs_to_many :workers
 
 	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
-    validate :weekday_array_cannot_be_empty
-    validate :restrict_selection
-    validate :forbidden_dates
-    validate :empty_client_details
+  validate :weekday_array_cannot_be_empty
+  validate :restrict_selection
+  validate :forbidden_dates
 
     def weekday_array_cannot_be_empty
       if weekdays == [""]
@@ -43,13 +42,6 @@ class Request < ActiveRecord::Base
       	errors.add(:date_time, "the date selected is too far off")   	      			      		
       end
     end
-
-    def empty_client_details
-      if email == "" || phone_number == "" || location == ""
-        errors.add(:email, "field is empty")
-      end
-    end
-
 
 
 

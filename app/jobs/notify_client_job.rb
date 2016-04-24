@@ -1,8 +1,9 @@
 class NotifyClientJob < ActiveJob::Base
   queue_as :default
 
-  def perform(recipient)
+  def perform(recipient, security_code)
     @recipient = recipient
-    ClientNotifier.clientnotification(@recipient).deliver_later
+    @security_code = security_code
+    ClientNotifier.clientnotification(@recipient, @security_code).deliver_later
   end
 end
