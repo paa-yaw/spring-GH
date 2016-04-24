@@ -118,10 +118,10 @@ span.checkbox.inline{
   padding-left: 0px; 
 }
 
-img.img-responsive{
+/*img.img-responsive{
   width: 12%;
   margin-left: 20px;
-}
+}*/
 
 input[type=checkbox]{
   -ms-transform: scale(1.3); /* IE */
@@ -137,9 +137,11 @@ input[type=radio]{
   -o-transform: scale(1.2); /* Opera */
 }
 
+
+
 /*// TABLE PAGE*/
 
-div.panel.panel-default > div.table-responsive{
+/*div.panel.panel-default > div.table-responsive{
   border-bottom:solid 1px #0E1E59;
 }
 
@@ -154,7 +156,7 @@ th {
 
 td {
   background-color: #E8E8E8;
-}
+}*/
 
 div.panel.panel-default{
   /*border: solid 1px #0E1E59;*/
@@ -275,7 +277,7 @@ a, a:hover, a:focus {
     outline: 0;
 }
 input:focus, textarea:focus { outline: none; }
-table tr th { color: #688a7e;}
+/*table tr th { color: #688a7e;}*/
 *:focus {outline: none;}
 ::selection {
     background: #688a7e;
@@ -1388,14 +1390,14 @@ div[data-role="editor-toolbar"] {
 .panel .panel-heading .switch {
   margin: 10px;
 }
-.panel .panel-body {
+/*.panel .panel-body {
   border-width: 1px 1px 2px;
   border-style: solid;
   border-top: none;
   border-right-color: #ccc!important;
   border-bottom-color: #ccc!important;
   border-left-color: #ccc!important;
-}
+}*/
 .panel .panel-body-map {
   border-width: 1px 1px 2px;
   border-style: solid;
@@ -1434,7 +1436,7 @@ div[data-role="editor-toolbar"] {
 .panel.panel-default {  
   border-radius: 0px;
   
-  border-top: 1px solid #d4d4d4;
+  /*border-top: 1px solid #d4d4d4;*/
   -webkit-box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.1);

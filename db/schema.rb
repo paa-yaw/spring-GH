@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20160423154410) do
     t.integer  "kitchens",       default: 0
     t.integer  "hall",           default: 0
     t.string   "weekdays",       default: [],                        array: true
+    t.string   "extra_services", default: [],                        array: true
     t.integer  "frequency"
-    t.decimal  "extra_services", default: [],                        array: true
     t.string   "status",         default: "unresolved"
     t.string   "email"
     t.string   "phone_number"

@@ -1,195 +1,186 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-     <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+     <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center" style="margin-top: 1.3em;">
 
-   <div class="panel-group"  style="padding-bottom:1px;">
-   <div class="panel panel-default">
-  <!-- Default panel contents -->
-   <!-- <div class="panel-heading"></div> -->
-  
-   <div class="panel-body" style="padding: 0px;">
+           <div class="panel-group"  style="padding-bottom:1px;">
+             <div class="panel panel-default" style="border: solid 1px rgba(25,41,100,0.4);">
+               <div class="panel-body" style="padding: 0px;">
 
-  <!-- Table -->
+          <!-- Table -->
+                      <div class="table-responsive">
+                        <table class="table table-bordered">
+                          <thead>
+                              <tr>
+                                  <th style="border-left-width: 0px;">
+                                    House details
+                                  </th>
+                                  <th>
+                                    Extra Services
+                                  </th>
+                                  <th>
+                                    Selected Days
+                                  </th>
+                                  <th>
+                                    Frequency
+                                  </th>
+                                  <th>
+                                      Date
+                                  </th>
+                                  <th>
+                                      Time
+                                  </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                 <td>
+                                   <%= pluralize(@request.bedrooms, "bedroom") %>, 
+                                   <%= pluralize(@request.bathrooms, "bathroom") %>, 
+                                   <%= pluralize(@request.kitchens, "kitchen") %>, 
+                                   <%= pluralize(@request.hall, "living room") %>
+                                 </td> 
+                                 <td>
+                                   <% @request.extra_services.each do |services| %>
+                                     <% if services == 15.00 %>
+                                     <p>Compound Cleaning(GHc 15.00)</p>
+                                     <% end %>
 
-     
-  <div class="table-responsive">
-  <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>
-                  House details
-                </th>
-                <th>
-                  Extra Services
-                </th>
-                <th>
-                  Selected Days
-                </th>
-                <th>
-                  Frequency
-                </th>
-                <th>
-                    Date
-                </th>
-                <th>
-                    Time
-                </th>
-            <tr>
-        </thead>
-        <tbody>
-            <tr>
-               <td>
-                 <%= pluralize(@request.bedrooms, "bedroom") %>, 
-                 <%= pluralize(@request.bathrooms, "bathroom") %>, 
-                 <%= pluralize(@request.kitchens, "kitchen") %>, 
-                 <%= pluralize(@request.hall, "living room") %>
-               </td> 
-               <td>
-                 <% @request.extra_services.each do |services| %>
-                   <% if services == 15.00 %>
-                   <p>Compound Cleaning(GHc 15.00)</p>
-                   <% end %>
+                                     <% if services == 10.01 %>
+                                     <p>Fridge(GHc 10.00)</p>
+                                     <% end %>
 
-                   <% if services == 10.01 %>
-                   <p>Fridge(GHc 10.00)</p>
-                   <% end %>
-
-                   <% if services == 10.00 %>
-                   <p>Storeroom(GHc 10.00)</p>
-                   <% end %>
-                 <% end %>
-               </td>
-               <td>
-                 <% @request.weekdays.each do |day| %>
-                   <p><%= day %></p>
-                 <% end %>
-               </td> 
-               <td>
-                 <% if @request.frequency == 60 %>
-                 <p>One Off(GHc 60.00)</p>
-                 <% elsif @request.frequency == 150 %>
-                 <p>Weekly(GHc 150.00)</p>
-                 <% elsif @request.frequency == 500 %>
-                   <p>Monthly(GHc 500.00)</p>
-                 <% end %>
-               </td>  
-                <td>
-                    <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
-                </td>
-                <td>
-                    <p><%= @request.date_time.strftime("%T") %></p>
-                </td>
-            </tr>
-        </tbody>
-  </table>           
-  </div> 
-        <% if @request.status == "resolved" %>
-        <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
-        <%= link_to "Home", root_path, :class => "btn btn-default" %>
-        <% elsif @request.status == "done" %>
-        <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
-        <%= link_to "Home", root_path, :class => "btn btn-default" %>
-        <% else %>
-          <%=  link_to "Edit", [:edit, @request], :class => "btn btn-default" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
-        <% end %>
+                                     <% if services == 10.00 %>
+                                     <p>Storeroom(GHc 10.00)</p>
+                                     <% end %>
+                                   <% end %>
+                                 </td>
+                                 <td>
+                                   <% @request.weekdays.each do |day| %>
+                                     <p><%= day %></p>
+                                   <% end %>
+                                 </td> 
+                                 <td>
+                                   <% if @request.frequency == 60 %>
+                                   <p>One Off(GHc 60.00)</p>
+                                   <% elsif @request.frequency == 150 %>
+                                   <p>Weekly(GHc 150.00)</p>
+                                   <% elsif @request.frequency == 500 %>
+                                     <p>Monthly(GHc 500.00)</p>
+                                   <% end %>
+                                 </td>  
+                                  <td>
+                                      <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
+                                  </td>
+                                  <td>
+                                      <p><%= @request.date_time.strftime("%T") %></p>
+                                  </td>
+                              </tr>
+                            </tbody>
+                        </table>           
+                    </div> 
+                <% if @request.status == "resolved" %>
+                <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
+                <%= link_to "Home", root_path, :class => "btn btn-default" %>
+                <% elsif @request.status == "done" %>
+                <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
+                <%= link_to "Home", root_path, :class => "btn btn-default" %>
+                <% else %>
+                  <%=  link_to "Edit", [:edit, @request], :class => "btn btn-default" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
+                <% end %>
 
 
-       
+               
 
-        <!--Business Algorithm -->
+                <!--Business Algorithm -->
 
-        <% @rooms = @request.bathrooms + @request.bedrooms + @request.hall + @request.kitchens %>
+                <% @rooms = @request.bathrooms + @request.bedrooms + @request.hall + @request.kitchens %>
 
-        <% extra_services = 0 %>
-        <% a = @request.extra_services.length.to_i - 1 %>
+                <% extra_services = 0 %>
+                <% a = @request.extra_services.length.to_i - 1 %>
 
-        <% for i in 0...a %>
-          <% extra_services += @request.extra_services[i].to_i %> 
-        <% end %>
+                <% for i in 0...a %>
+                  <% extra_services += @request.extra_services[i].to_i %> 
+                <% end %>
 
-        <% one_off_package = 60 %>
-        <% weekly_package = 150 %>
-        <% monthly_package = 500 %> 
-
-
-        <% if @request.frequency == 60 %>
-
-        
-         <% price = one_off_package + (@rooms - 4)*5 + extra_services %>
-         <h2> Your price is  GHc <%= price %> </h2>
-
-        <% elsif @request.frequency == 150 %>
-
-         <% price = weekly_package = 150  + (@rooms - 4)*5 + extra_services %>
-         <h2> Your price is  GHc <%= price %> </h2>
-
-        <% elsif  @request.frequency == 500 %>
-        
-          <% if @rooms > 8 %>
-          <% price = monthly_package + (@rooms - 8)*5 + extra_services %>
-          <h2> Your price is GHc  <%= price %> </h2>
-
-          <% elsif @rooms <= 8 %>
-          <% price = monthly_package + extra_services %>
-          <h2> Your price is  GHc <span class="daPrice"><%= price %></span></h2>
-
-          <% end %>         
-         
-        <% end %>
-
-  
-</div>
-</div>
-</div>
-</div>
+                <% one_off_package = 60 %>
+                <% weekly_package = 150 %>
+                <% monthly_package = 500 %> 
 
 
-        
-      
+                <% if @request.frequency == 60 %>
 
-        
-    <div class="row">
-        <div class="col-sm-6 col-sm-offset-3 text-center">
+                
+                 <% price = one_off_package + (@rooms - 4)*5 + extra_services %>
+                 <h2> Your price is  GHc <%= price %> </h2>
+
+                <% elsif @request.frequency == 150 %>
+
+                 <% price = weekly_package = 150  + (@rooms - 4)*5 + extra_services %>
+                 <h2> Your price is  GHc <%= price %> </h2>
+
+                <% elsif  @request.frequency == 500 %>
+                
+                  <% if @rooms > 8 %>
+                  <% price = monthly_package + (@rooms - 8)*5 + extra_services %>
+                  <h2> Your price is GHc  <%= price %> </h2>
+
+                  <% elsif @rooms <= 8 %>
+                  <% price = monthly_package + extra_services %>
+                  <h2> Your price is  GHc <span class="daPrice"><%= price %></span></h2>
+
+                  <% end %>         
+                 
+                <% end %>
+
+          
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 text-center">
 <!-- <div class="well"> -->
       
-      <div class="panel panel-info">
-        <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
-          <h2><strong>Assigned Workers</strong></h2>
-        </div>
-        <div class="panel-body">
-
-            <h3 class="text-left" style="margin-top:0px;"></h3>
-              
-                <h2> <p></p></h2>
-              
-                 
-                  <div class="table-responsive">
-                    <table class="table table-bordered">
-                    <% if @request.status == "resolved"%>
-
-                    <% @request.workers.where(assigned: true).uniq.each do |worker| %>
-                      <tbody>
-                          <tr>
-                            <td style="width:50%; border-color:#e8e8e8;">
-                             <h4><%= worker.first_name %>.</h4>
-                            </td>
-                            <td style="border-color:#e8e8e8;">
-                             <h3><%= link_to fa_icon("eye") + " View Worker", worker_path(worker), :class=>"btn btn-primary" %> </h3>
-                            </td>
-                            <td style="border-color:#e8e8e8;">
-                             <h3> </h3>
-                            </td>
-                          </tr>
-                      </tbody>
-                        <% end %>
-                        <% else %>
-                      No worker assigned to you at the moment
-                      <p><%= link_to "view previously assigned workers", workers_path, class: "btn btn-primary" %></p>
-                      <% end %>
-                    </table>
-                  </div>
+          <div class="panel panel-info">
+            <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
+              <h2 class="panel-title text-center"><strong>Assigned Workers</strong></h2>
             </div>
+            <div class="panel-body">
+
+                <h3 class="text-left" style="margin-top:0px;"></h3>
+                    <h2> <p></p></h2>
+                      <div class="table-responsive">
+                        <table class="table table-bordered">
+                        <% if @request.status == "resolved"%>
+
+                        <% @request.workers.where(assigned: true).uniq.each do |worker| %>
+                          <tbody>
+                              <tr>
+                                <td style="width:50%; border-color:#e8e8e8;">
+                                   <h4><%= worker.first_name %>.</h4>
+                                </td>
+                                <td style="border-color:#e8e8e8;">
+                                   <h3><%= link_to fa_icon("eye") + " View Worker", worker_path(worker), :class=>"btn btn-primary" %> </h3>
+                                </td>
+                                <td style="border-color:#e8e8e8;">
+                                   <h3> </h3>
+                                </td>
+                              </tr>
+                          </tbody>
+                            <% end %>
+                            <% else %>
+                                No worker assigned to you at the moment
+                            <p><%= link_to "view previously assigned workers", workers_path, class: "btn btn-primary" %></p>
+                          <% end %>
+                        </table>
+                      </div>
+              </div>
         </div>
     </div>
+  </div>
+</div>
 
 

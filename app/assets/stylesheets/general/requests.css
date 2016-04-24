@@ -18,7 +18,7 @@ abbr {
   background:#ffd207 !important;
 }
 
-/*NAVBAR CONTENT PADDING*/
+/* --NAVBAR CONTENT PADDING-- */
 ul.nav.navbar-nav.navbar-right > li.page-scroll > a{
   padding-bottom: 0px;
   padding-top: 20px;
@@ -29,6 +29,8 @@ a.navbar-header{
   padding-top: 2px;
   padding-bottom: 13px;
 }
+
+/* --NAVBAR CONTENT PADDING END-- */
 
 #daPrice, .daPrice{
   color:#009900;
@@ -46,9 +48,12 @@ h2.panel-title {
 
 div#region > div.container-fluid > div.row{
   padding-top: 20px;
-  background: rgba(25,41,100,0.2);
+  /*background: rgba(25,41,100,0.2);*/
 }
 
+div#region{
+  background: rgba(25,41,100,0.2);
+}
 /*REQUEST PAGE*/
 
 /* -- PRICING TABLE HEADER*/
@@ -89,12 +94,12 @@ div#region > div.container-fluid > div.row{
   }
 /* -- PRICING TABLE END*/
 
- /*-- PRICING TOTAL START*/
- .extraPricing{
-  /*border-top: solid 1px #333;*/
- }
+/*-- PRICING TOTAL START*/
+.extraPricing{
+/*border-top: solid 1px #333;*/
+}
 
- /*-- PRICING TOTAL END*/
+/*-- PRICING TOTAL END*/
 
 nav#navigation > .container-fluid {
   background: #fff;
@@ -215,7 +220,7 @@ span.checkbox.inline{
 }
 
 img.img-responsive{
-  width: 12%;
+  width: 50%;
   margin-left: 20px;
 }
 
@@ -233,14 +238,32 @@ input[type=radio]{
   -o-transform: scale(1.2); /* Opera */
 }
 
-/*// TABLE PAGE*/
-
-div.panel.panel-default > div.table-responsive{
-  border-bottom:solid 1px #0E1E59;
+/*-- DISPLAY REQUEST PAGE START--*/
+#display-request{
+  margin-top: 13%;
 }
+
+ 
+/*-- DISPLAY REQUEST PAGE END--*/
+
+
+
+
+
+/* TABLE PAGE */
+div.panel.panel-default > div.table-responsive{
+  /*border-bottom:solid 1px #0E1E59;*/
+}
+
+
+
 
 div.offerings{
   color: #122772;
+}
+
+.table-bordered{
+  border:none;
 }
 
 thead > tr > th {
@@ -250,7 +273,7 @@ thead > tr > th {
 }
 
 th {
-  background-color: #324072;
+  background-color: rgba(25,41,100,0.82);
   color:#fff;
 }
 
@@ -274,7 +297,7 @@ div.panel.panel-info > div.panel-heading{
 }
 
 div.panel.panel-info > div.panel-body{
-  border: #fff;
+  /*border: #fff;*/
   padding-bottom: 8px;
 }
 
@@ -328,6 +351,47 @@ label.check_boxes.optional.control-label{
 
 @media only screen and (max-device-width: 480px) {
 
+  #pricing-bar{
+    top:50px;
+    background-color: rgba(25,41,100,0.89);
+    box-shadow:  0px 2px 2px -1px rgba(18,39,114,1);
+    -webkit-box-shadow: 0px 2px 2px -1px rgba(18,39,114,1);
+    -moz-box-shadow:0px 2px 2px -1px rgba(18,39,114,1);
+  }
+
+  #pricing-bar .nav>li>a:hover{
+    background: none;
+  }
+
+  #pricing-bar ul.navbar-nav{
+    justify-content:space-between;
+  }
+
+  #pricing-bar ul.navbar-nav li{
+    display: inline-block;
+    position: relative;
+  }
+
+  #pricing-bar ul.navbar-nav li a label{
+    display: block;
+    font-size: 10px;
+    color:#fff;
+  }
+
+  #navExtraRoomPrice, #navExtraServicePrice{
+    color: #fff;
+  }
+
+  #navPricingValue{
+    color: #119822;
+  } 
+
+  #request-form{
+    padding-top: 65px;
+  }
+
+  /*--MOBILE NAVBAR CONTENT PRICING END-- */
+
   img.img-responsive{
     width: 22%;
   }
@@ -335,6 +399,54 @@ label.check_boxes.optional.control-label{
   nav#navigation.navbar.navbar-default.navbar-fixed-top{
     padding-bottom: 0px;
   }
+
+/* --MOBILE NAVBAR PRICING START-- */
+#pricing-bar{
+  top:50px;
+  background-color: rgba(25,41,100,0.89);
+  box-shadow: 0px 2px 2px -1px rgba(18,39,114,1);
+  -webkit-box-shadow: 0px 2px 2px -1px rgba(18,39,114,1);
+  -moz-box-shadow: 0px 2px 2px -1px rgba(18,39,114,1);
+}
+
+#pricing-bar .nav>li>a:hover {
+  background: none;
+}
+
+#pricing-bar ul.navbar-nav{
+  justify-content:space-between;
+  display:flex;
+}
+
+#pricing-bar ul.navbar-nav li{
+  display: inline-block;
+  position: relative;
+}
+
+#pricing-bar ul.navbar-nav li a label{
+  display: block;
+  font-size: 10px;
+  color:#fff;
+}
+
+#pricing-bar ul.navbar-nav li a span{
+  display: block;
+}
+
+#navExtraRoomPrice, #navExtraServicePrice{
+  color:#fff;
+}
+
+#navPricingValue {
+  color:#119822;
+}
+
+#request-form{
+  padding-top: 65px;
+}
+
+/* --MOBILE NAVBAR CONTENT PRICING END-- */
+
 
   #extra span.checkbox.inline{
     margin-left: 0px;
