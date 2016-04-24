@@ -155,7 +155,7 @@ select#request_date_time_5i{
 }
 
 select#request_hall{
-  padding-left: 0px;
+  padding-left: 10px;
 }
 
 input#client_fullname.form-control{
@@ -220,7 +220,7 @@ span.checkbox.inline{
 }
 
 img.img-responsive{
-  width: 50%;
+  width: 6%;
   margin-left: 20px;
 }
 
@@ -402,7 +402,7 @@ label.check_boxes.optional.control-label{
 
 /* --MOBILE NAVBAR PRICING START-- */
 #pricing-bar{
-  top:50px;
+  top:40px;
   background-color: rgba(25,41,100,0.89);
   box-shadow: 0px 2px 2px -1px rgba(18,39,114,1);
   -webkit-box-shadow: 0px 2px 2px -1px rgba(18,39,114,1);
