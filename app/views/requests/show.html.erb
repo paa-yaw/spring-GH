@@ -154,7 +154,7 @@
                     <h2> <p></p></h2>
                       <div class="table-responsive">
                         <table class="table table-bordered">
-                        <% if @request.status == "resolved"%>
+                        <% if @request.status == "resolved" && current_client %>
 
                         <% @request.workers.where(assigned: true).uniq.each do |worker| %>
                           <tbody>
@@ -171,10 +171,29 @@
                               </tr>
                           </tbody>
                             <% end %>
-                            <% else %>
-                                No worker assigned to you at the moment
-                            <p><%= link_to "view previously assigned workers", workers_path, class: "btn btn-primary" %></p>
+                            <% elsif @request.status == "done" && current_client %>
+                            <% @request.workers.where(assigned: true).uniq.each do |worker| %>
+                          <tbody>
+                              <tr>
+                                <td style="width:50%; border-color:#e8e8e8;">
+                                   <h4><%= worker.first_name %>.</h4>
+                                </td>
+                                <td style="border-color:#e8e8e8;">
+                                   <h3><%= link_to fa_icon("eye") + " View Worker", worker_path(worker), :class=>"btn btn-primary" %> </h3>
+                                </td>
+                                <td style="border-color:#e8e8e8;">
+                                   <h3> </h3>
+                                </td>
+                              </tr>
+                          </tbody>
                           <% end %>
+                            <% elsif @request.status == "resolved" && !current_client %>
+                                No worker assigned to you at the moment
+                            <p><%= link_to "view previously assigned workers", new_client_session_path, data: {confirm: "You must be log in to have access to this. Click Ok to proceed to log in."}, class: "btn btn-primary" %></p>
+                            <% elsif !current_client %>
+                            No worker assigned to you at the moment
+                            <p><%= link_to "view previously assigned workers", new_client_session_path, data: {confirm: "You must be log in to have access to this. Click Ok to proceed to log in."}, class: "btn btn-primary" %></p>
+                            <% end %>
                         </table>
                       </div>
               </div>
