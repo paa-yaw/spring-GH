@@ -154,7 +154,7 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
               <td><%= worker.last_name %></td>
               <td><%= worker.phone_number %></td>
               <td><%= worker.location %></td>
-              <td><span class="label label-danger"><strong>assigned to <%= worker.try(:requests).try(:find, worker.request_ids.last).try(:client).try(:first_name) %>(No.<%= worker.try(:request_ids).try(:last) %>)</strong></span></td>
+              <td><span class="label label-danger"><strong>assigned to <%= worker.try(:requests).try(:find, worker.try(:request_ids).try(:last)).try(:client).try(:first_name) %>(No.<%= worker.try(:request_ids).try(:last) %>)</strong></span></td>
               <td></td>
               <!-- <td><%#= link_to fa_icon("user-times") +
                " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, method: :delete,  

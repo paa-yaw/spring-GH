@@ -4,7 +4,7 @@
   <p><%= f.input :comment, label: "How Do You Feel About #{@worker.first_name}'s work?" %></p>
 
   <div class="actions">
-  	<%= f.button :submit, "Post Your Review", class: "btn btn-primary" %>
+  	<%= f.button :submit, "Post Your Review", class: "btn btn-primary" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
   </div>
 <% end %>
 

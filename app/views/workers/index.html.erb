@@ -1,17 +1,17 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12 col-md-6 col-sm-offset-3 ">
-      
+
      <div class="panel-group">
       <div class="panel panel-info">
         <!-- Default panel contents -->
         <div class="panel-heading">
           <h2 class="panel-title text-center" style="color:#fff;">List of Cleaners</h2>
         </div>
-        
+
         <div class="panel-body">
           <ol>
-            <% if current_client %>
+            <% if current_client.requests.joins(:workers).any? %>
             <% @current_client_requests.each do |request| %>
             <% request.workers.uniq.each do |worker| %>
             <li>
@@ -19,13 +19,20 @@
             </li>
             <% end %>
             <% end %>
+            <% elsif current_client.requests.joins(:workers).empty? %>
+            <li>
+              <p>None at the moment.</p>
+            </li>
             <% end %>
           </ol>
         </div>
       </div>
     </div>
-    
+
   </div>
 </div>
 </div>
 
+<div class="col-sm-12 col-md-6 col-sm-offset-3 ">
+  <%= link_to "Back", :back, :class => "btn btn-danger" %>
+</div>
