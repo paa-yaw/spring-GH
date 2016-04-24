@@ -3,8 +3,12 @@
 <head>
   <title>Spring</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag 'nav', media: 'all', 'data-turbolinks-track' => true %>  
+  <%= javascript_include_tag 'nav', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- nav styling -->
+
 
   <%= csrf_meta_tags %>
   <meta name="google-site-verification" content="ekk5nq_UoqHnmI-X2AO7JNLZsgclWEvyO1Y5OTweFQ4" />
@@ -15,78 +19,96 @@
   </head>
 
 <body>
-      <nav id="navigation" class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 0px 1px 1px #b3b3b3;">
-              <div class="container">
-              <!-- Brand and toggle  get grouped for better mobile display -->
-                  <div class="navbar-header">
-                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-rj-collapse">
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                      </button>
-                      <a href="/" class="spring-brand">
-                        <%= image_tag("spring-logo-mini.png", :alt => "spring logo", :class => "img-responsive") %>
-                      </a>
-                  </div>
 
-            <!-- //.navbar-header -->
-             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="navbar-collapse collapse navbar-rj-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                <li class="page-scroll visible-xs hidden-md">
-                        <a href="#"></a>
-                    </li><li class="page-scroll visible-xs hidden-md">
-                        <a href="#"></a>
-                    </li><li class="page-scroll visible-xs hidden-md">
-                        <a href="#"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <% if current_client %>
-                          <%= link_to "Requests", my_requests_path %>
-                        <% end %>
-                    </li>
+         <header id="header" class="alt" style="background:#fff;box-shadow:-1px 2px 3px 0px rgba(46,56,66,.21);">
 
-                    <% if current_client %>
+            <!-- <h1><%#= link_to "Spring", root_path %></h1> -->
+            <a href="/" class="spring-brand">
+              <%= image_tag("spring-logo-mini.png", :alt => "spring logo", :class => "img-responsive") %>
+            </a>
 
-                    <li class="page-scroll">
-                         <%= link_to "About" %>
-                    </li> 
+            <nav id="nav">
 
-                     <li class="page-scroll">
+              <ul style="display:inline-flex;">
+                <% if current_client %>
+                    <li class="special visible-lg">
                         <%= link_to current_client.first_name, edit_client_registration_path %>
                     </li>
+                    <li class="special visible-lg">
+                        <%= link_to "Requests", my_requests_path %>
+                    </li>
+                    <li class="special visible-lg">
+                      <%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
+                    </li> 
+                <% else %>
+                    <li class="special visible-lg">
+                      <%= link_to "Log In", new_client_session_path %>
+                    </li>
+                <% end %>
 
-                    <li class="page-scroll">          
-                        <%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                              data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                    </li>      
 
+                <li class="special">
+                  <a href="#menu" class="menuToggle visible-xs"><span>Menu</span></a>
+                  <div id="menu">
+                    <ul>
+                    <% if current_client %>
+                     <li class="special">
+                        <a href="#one">About</a>
+                      </li>
+                      <li class="special">
+                        <a href="#two">Services</a>
+                      </li>
+                      <li class="special">
+                        <a href="#cta">Contact</a>
+                      </li>
+                      <li class="special">
+                          <%= link_to current_client.first_name, edit_client_registration_path %>
+                      </li>
+                      <li class="special">
+                          <%= link_to "Requests", my_requests_path %>
+                      </li>
+                    <!--   <li class="special">
+                        <%#= link_to "Log Out", destroy_client_session_path, method: :delete,
+                                  data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
+                      </li>  -->
                     <% else %>
-                        <li class="page-scroll">  
+                        <li class="special">
+                          <a href="#one">About</a>
+                        </li>
+                        <li class="special">
+                          <a href="#two">Services</a>
+                        </li>
+                        <li class="special">
+                          <a href="#cta">Contact</a>
+                        </li>
+                      <!-- <li><%#= link_to "FAQ"%></li> -->
+                        <li class="special">
                           <%= link_to "Log In", new_client_session_path %>
-                        </li> 
+                        </li>
                     <% end %>
-                </ul>
-            </div>
-            <!-- //.navbar-collapse -->
-        </div>
-        <!-- //.container -->
-    </nav>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </nav> 
+
+
+          </header>
 
  <% flash.each do |key, message| %>
   <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%;" class="well well-sm text-center" id="flashmessage"><%= message %></p>
  <% end %>
  <style>
  #region{
-  padding-top: 50px;
+  padding-top: 40px;
  }
  </style>
  <div id="region" style="min-height:100%;">
    <%= yield %>
  </div>
 
- <script>
+<script>
 
 setTimeout(fade_out, 5000);
 
@@ -94,6 +116,6 @@ function fade_out() {
   $("#flashmessage").fadeOut().empty();
 }
 
- </script>
+</script>
 </body>
 </html>
