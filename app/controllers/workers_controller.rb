@@ -4,7 +4,10 @@ class WorkersController < ApplicationController
   # before_action :set_review, only: [:show]
   
   def index
-    @current_client_requests = current_client.requests
+    if current_client
+      @current_client_requests = current_client.requests
+    else
+    end
   end
 
   def show

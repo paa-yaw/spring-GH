@@ -1,8 +1,9 @@
 class SendEmailJob < ActiveJob::Base
   queue_as :default
 
-  def perform(client)
+  def perform(client, password)
     @client = client
-    ClientMailer.welcome_email(@client).deliver_later
+    @password = password
+    ClientMailer.welcome_email(@client, @password).deliver_later
   end
 end

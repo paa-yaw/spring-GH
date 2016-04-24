@@ -6,6 +6,7 @@ class Request < ActiveRecord::Base
     validate :weekday_array_cannot_be_empty
     validate :restrict_selection
     validate :forbidden_dates
+    validate :empty_client_details
 
     def weekday_array_cannot_be_empty
       if weekdays == [""]
@@ -40,6 +41,12 @@ class Request < ActiveRecord::Base
       	errors.add(:date_time, "the date selected is too far off")
       elsif date_time.year == Time.now.year + 1
       	errors.add(:date_time, "the date selected is too far off")   	      			      		
+      end
+    end
+
+    def empty_client_details
+      if email == "" || phone_number == "" || location == ""
+        errors.add(:email, "field is empty")
       end
     end
 

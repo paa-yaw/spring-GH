@@ -17,6 +17,8 @@
           <div class="form-bottom">
            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
            <%= devise_error_messages! %>
+
+           <%= f.hidden_field(:request, :value => nil) %>
            
              <div class="field">
               <%= f.label :first_name, :class=>"login-label"%><br />
@@ -63,7 +65,7 @@
             </div>
 
             <div class="actions">
-              <%= f.submit "Sign up", :class=>"btn btn-default btn-lg btn-block submit_button col-md-3", :id =>"cleanButton" %>
+              <%= f.submit "Continue", :class=>"btn btn-default btn-lg btn-block submit_button col-md-3", :id =>"cleanButton" %>
             </div>
             <div class="actions">
               <%= render "clients/shared/links" %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420094916) do
+ActiveRecord::Schema.define(version: 20160423154410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,9 @@ ActiveRecord::Schema.define(version: 20160420094916) do
     t.integer  "frequency"
     t.decimal  "extra_services", default: [],                        array: true
     t.string   "status",         default: "unresolved"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "location"
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
