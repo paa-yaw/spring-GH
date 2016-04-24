@@ -63,6 +63,9 @@
                         <%#= link_to "Log Out", destroy_client_session_path, method: :delete,
                                   data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
                       </li>  -->
+                      <li>
+                      <%= link_to "Book a Cleaning", new_request_path, :style=>'color: #ffd207;' %>
+                    </li>
                     <% else %>
                     <!--     <li class="special">
                           <a href="#one">About</a>
