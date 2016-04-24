@@ -4,63 +4,85 @@
 
         <!-- Header -->
           <header id="header" class="alt">
-            <h1><%= link_to "Spring", root_path %></h1>
-             <nav id="nav" class="visible-lg hidden-sm hidden-xs">
-              <ul>
-                <li class="special">
-                  <a href="#one"><span>About</span></a>
-                </li>
-                <li class="special">
-                  <a href="#two"><span>Services</span></a>
-                </li>
-                <li class="special">
-                  <a href="#cta"><span>Contact</span></a>
-                </li>
-                <li class="special">
-                  <a href="#menu"><span>faq</span></a>
-                </li>
-                  <% if current_client %>
-                    <li class="page-scroll">
-                        <%= link_to current_client.first_name, edit_client_registration_path %>
-                    </li>
-                    <li class="special">
-                    <%= link_to "Requests", my_requests_path %>
-                    </li>
-                    <li class="special">
-                      <%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                      </li> 
-                  <% else %>
-                    <li class="special">
-                      <%= link_to "Log In", new_client_session_path %>
-                    </li>
-                  <% end %>
-              </ul>
-            </nav> 
 
-       <!--      <nav id="nav" class="visible-xs hidden-md hidden-lg">
+            <h1><%= link_to "Spring", root_path %></h1>
+
+            <nav id="nav">
               <ul>
-                <li class="special">
+               <li class="special desktop-only-view">
+                    <a href="#one"><span>About</span></a>
+               </li>
+               <li class="special desktop-only-view">
+                    <a href="#two"><span>Services</span></a>
+               </li>
+               <li class="special desktop-only-view">
+                    <a href="#cta"><span>Contact</span></a>
+               </li>
+               <li class="special desktop-only-view">
+                    <a href="#menu"><span>faq</span></a>
+               </li>
+              <% if current_client %>
+                <li class="special desktop-only-view">
+                    <%= link_to current_client.first_name, edit_client_registration_path %>
+                </li>
+                <li class="special desktop-only-view">
+                    <%= link_to "Requests", my_requests_path %>
+                </li>
+                <li class="special desktop-only-view">
+                  <%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                            data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
+                </li> 
+              <% else %>
+                  <li class="special desktop-only-view">
+                    <%= link_to "Log In", new_client_session_path %>
+                  </li>
+              <% end %>
+
+
+                <li class="special mobile-only-view">
                   <a href="#menu" class="menuToggle"><span>Menu</span></a>
                   <div id="menu">
                     <ul>
-                      <li><%#= link_to "Home", root_path %></li>
-                      <li><a href="#one">About</a></li>
-                      <li><a href="#two">Services</a></li>
-                      <li><a href="#cta">Contact</a></li>
-                      <li><%#= link_to "FAQ"%></li>
-
-                      <#% if current_client %>
-                      <! <li><%#= link_to "Log Out", destroy_client_session_path, method: :delete,
-                              data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li> -->
-                      <!-- <#% else %> 
-                      <li><%#= link_to "Log In", new_client_session_path %></li>
-                      <#% end %>   -->
-                    <!-- </ul>
+                    <% if current_client %>
+                     <li class="special">
+                        <a href="#one">About</a>
+                      </li>
+                      <li class="special">
+                        <a href="#two">Services</a>
+                      </li>
+                      <li class="special">
+                        <a href="#cta">Contact</a>
+                      </li>
+                      <li class="special">
+                          <%= link_to current_client.first_name, edit_client_registration_path %>
+                      </li>
+                      <li class="special">
+                          <%= link_to "Requests", my_requests_path %>
+                      </li>
+                      <li class="special">
+                        <%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                                  data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
+                      </li> 
+                    <% else %>
+                        <li class="special">
+                          <a href="#one">About</a>
+                        </li>
+                        <li class="special">
+                          <a href="#two">Services</a>
+                        </li>
+                        <li class="special">
+                          <a href="#cta">Contact</a>
+                        </li>
+                      <!-- <li><%#= link_to "FAQ"%></li> -->
+                        <li class="special">
+                          <%= link_to "Log In", new_client_session_path %>
+                        </li>
+                    <% end %>
+                    </ul>
                   </div>
                 </li>
               </ul>
-            </nav> -->
+            </nav> 
 
           </header>
 

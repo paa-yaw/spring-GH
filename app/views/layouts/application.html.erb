@@ -83,44 +83,43 @@
      <header id="header" class="alt" style="background:#fff;box-shadow:-1px 2px 3px 0px rgba(46,56,66,.21);">
             <!-- <h1><#%= link_to "Spring", root_path %></h1> -->
             <a href="/" class="spring-brand">
-                        <%= image_tag("spring-logo-mini.png", :alt => "spring logo", :class => "img-responsive") %>
-                      </a>
-
-            <nav id="nav" class="visible-lg hidden-sm hidden-xs">
+              <%= image_tag("spring-logo-mini.png", :alt => "spring logo", :class => "img-responsive") %>
+            </a>
+            <nav id="nav">
+            <!-- <nav id="nav" class="visible-lg hidden-sm hidden-xs"> -->
                <ul >
                 <!-- <li class="special">
                   <a href="#menu"><span>Hi, Laud</span></a>
                 </li> -->
 
                   <li class="special" style="color:#2e3842;">
-                        <%= link_to current_client.first_name, edit_client_registration_path %>
-                    </li>
+                      <%= link_to current_client.first_name, edit_client_registration_path %>
+                  </li>
 
-                <li class="special">
-                   <% if current_client %>
-                          <%= link_to "Requests", my_requests_path %>
-                          <!-- <span style="color:#2e3842;">Requests</span> -->
-                       <% end %> 
-                </li>
-                <li class="special">
-                  <!-- <a href="#menu"><span style="color:#2e3842;">Log out</span></a> -->
+                  <li class="special">
                      <% if current_client %>
-                       <li><%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                              data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li>
-                      <% else %>
-                      <li><%= link_to "Log In", new_client_session_path %></li>
-                      <% end %>
-                </li>
-              </ul>
-            </nav>   
+                            <%= link_to "Requests", my_requests_path %>
+                            <!-- <span style="color:#2e3842;">Requests</span> -->
+                         <% end %> 
+                  </li>
+                  <li class="special">
+                    <!-- <a href="#menu"><span style="color:#2e3842;">Log out</span></a> -->
+                       <% if current_client %>
+                         <li><%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li>
+                        <% else %>
+                        <li><%= link_to "Log In", new_client_session_path %></li>
+                        <% end %>
+                  </li>
+                <!-- </ul> -->
+              
 
-            <nav id="nav" class="visible-xs hidden-md hidden-lg">
-              <ul>
+            <!-- <nav id="nav" class="visible-xs hidden-md hidden-lg"> -->
+              <!-- <ul> -->
                 <li class="special">
-                  <a href="#menu" class="menuToggle" style="color:#fff;"><span>Menu</span></a>
+                  <a href="#menu" class="menuToggle"><span style="color:#000;">Menu</span></a>
                   <div id="menu">
                     <ul>
-                      
                       <li>
                        <% if current_client %>
                           <%= link_to "Requests", my_requests_path %>
@@ -140,6 +139,7 @@
                 </li>
               </ul>
             </nav>
+
           </header>
 
  <% flash.each do |key, message| %>
