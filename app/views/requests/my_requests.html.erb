@@ -35,9 +35,16 @@
                             <td style="border-color:#e8e8e8;">
                              <h3><%= link_to fa_icon("eye") + " View Request", my_request, :class=>"btn btn-primary" %> </h3>
                             </td>
+
+                            <% if ((Time.now.day + 1) - my_request.updated_at.day) < 2 %>
                             <td style="border-color:#e8e8e8;">
-                             <h3><%= link_to fa_icon("pencil") + " Edit Request", [:edit, my_request], :class=>"btn btn-danger" %> </h3>
+                             <h3><%= link_to fa_icon("pencil") + " Edit Request", [:edit, my_request], :class=>"btn btn-info" %> </h3>
                             </td>
+                            <td style="border-color:#e8e8e8;">
+                             <h3><%= link_to fa_icon("trash") + " Delete Request", request_path(my_request), method: :delete, data: {confirm: "Are you sure you want to delete this request?"}, :class=>"btn btn-danger" %> </h3>
+                            </td>
+                            <% end %>
+
                           </tr>
                       </tbody>
                     </table>
@@ -47,7 +54,7 @@
             <% end %>
              <div class="text-center">
                
-              <%= link_to fa_icon("plus") + " Create A Request", new_request_path, :class=>"btn btn_submit btn-primary" %>
+              <%= link_to fa_icon("plus") + " Create A Request", new_request_path, :class=>"btn btn-primary" %>
              </div>
 
             </div>

@@ -21,7 +21,7 @@
 
         <tr>
          <td><%= request.client.first_name  %></td>
-         <td><%= link_to request.client.requests.count, admin_client_requests_path(request.client) %></td>
+         <td><%= link_to request.client.requests.joins(:workers).count, admin_client_requests_path(request.client) %>/<%= link_to request.client.requests.count, admin_client_requests_path(request.client) %></td>
          <td><%= @worker.reviews.where(client_id: request.client).first.try(:comment) || nil %></td>
          <td><div class="star-rating" data-score= <%= request.client.reviews.where(worker_id: @worker).first.try(:rating) %>></div></td>
        </tr>

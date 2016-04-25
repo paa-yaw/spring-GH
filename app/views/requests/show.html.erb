@@ -12,7 +12,10 @@
                           <thead>
                               <tr>
                                   <th style="border-left-width: 0px;">
-                                    House details
+                                    Request ID
+                                  </th>
+                                  <th>
+                                    House Details
                                   </th>
                                   <th>
                                     Extra Services
@@ -21,18 +24,21 @@
                                     Selected Days
                                   </th>
                                   <th>
-                                    Frequency
+                                      Frequency
                                   </th>
                                   <th>
                                       Date
                                   </th>
                                   <th>
-                                      Time
+                                    Time
                                   </th>
                               </tr>
                           </thead>
                           <tbody>
                               <tr>
+                                <td>
+                                  <h4><%= @request.id %></h4>
+                                </td>
                                  <td>
                                    <%= pluralize(@request.bedrooms, "bedroom") %>, 
                                    <%= pluralize(@request.bathrooms, "bathroom") %>, 
@@ -80,12 +86,14 @@
                     </div> 
                 <% if @request.status == "resolved" %>
                 <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
-                <%= link_to "Home", root_path, :class => "btn btn-default" %>
+                <%= link_to "Back", :back, :class => "btn btn-danger" %>
                 <% elsif @request.status == "done" %>
                 <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
-                <%= link_to "Home", root_path, :class => "btn btn-default" %>
-                <% else %>
+                <%= link_to "Back", :back, :class => "btn btn-danger" %>
+                <% elsif ((Time.now.day + 1) - @request.updated_at.day) < 2 %>
                   <%=  link_to "Edit", [:edit, @request], :class => "btn btn-default" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
+                <% else %>
+                <%= link_to "Back", :back, :class => "btn btn-danger" %>
                 <% end %>
 
 

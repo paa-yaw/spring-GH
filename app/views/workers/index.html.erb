@@ -15,7 +15,7 @@
             <% @current_client_requests.each do |request| %>
             <% request.workers.uniq.each do |worker| %>
             <li>
-              <p><%= link_to worker.first_name, worker %></p>
+              <p><%= link_to worker.first_name, worker %></p> 
             </li>
             <% end %>
             <% end %>

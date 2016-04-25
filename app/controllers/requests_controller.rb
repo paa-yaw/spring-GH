@@ -56,8 +56,7 @@ class RequestsController < ApplicationController
           if @request.save
             @client.save
             @request.client_id = @client.id
-            @request.save
-           
+            @request.save           
 
             # sends email notification to client after sign up 
             SendEmailJob.set(wait: 5.seconds).perform_later(@client, @secure_password)
@@ -69,7 +68,7 @@ class RequestsController < ApplicationController
 
             redirect_to @request
           else  
-            flash.now[:alert] = "something went wrong"
+            flash.now[:alert] = "something went wrong. Kindly make sure you complete the form before submitting."
             render 'new'
           end
       end
@@ -94,7 +93,7 @@ class RequestsController < ApplicationController
   def destroy
     @request.destroy
     flash[:notice] = "request has been deleted."
-    redirect_to root_path 
+    redirect_to new_request_path 
   end
 
 
