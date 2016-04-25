@@ -54,14 +54,6 @@
             <td><%= @worker.requests.count %></td>
           </tr>
           <tr>
-            <td>No. of Resolved Requests</td>
-            <td><%= @worker.requests.where(status: "resolved").count %></td>
-          </tr>
-          <tr>
-            <td>No. of Unresolved Requests</td>
-            <td><%= @worker.requests.where(status: "unresolved").count %></td>
-          </tr>
-          <tr>
             <td>No. of Clients Handled</td>
             <td><%= @worker.requests.joins(:client).uniq.count %></td>
           </tr>
