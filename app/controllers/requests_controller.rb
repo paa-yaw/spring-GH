@@ -38,23 +38,12 @@ class RequestsController < ApplicationController
         render 'new'
       end
 
-    else
-     
-      # @request = Request.new(request_params)
-
-      # if @request.save
-      #   flash[:notice] = "Request has been made! Please finish up by creating an account."
-      #   redirect_to new_client_registration_path
-      # else
-      #   flash.now[:alert] = "Your request failed. Please submit it again."
-      #   render 'new'
-      # end
-   
+    else   
       @request = Request.new(request_params)
       if @request.email == "" || @request.phone_number == "" || @request.location == ""
          flash.now[:alert] = "you left out your email, location or number."
          render 'new'
-      elsif @request.email != "" && @request.phone_number != "" && @request.location != ""
+      elsif @request.email != "" && @request.phone_number != "" && @request.location != "" 
           @client = Client.new
           @client.email = @request.email
           @client.phone_number = @request.phone_number
@@ -64,7 +53,8 @@ class RequestsController < ApplicationController
           @client.admin = false
           @client.first_name = "client"
           @client.last_name = "last name"
-          if @client.save &&  @request.save
+          if @request.save
+            @client.save
             @request.client_id = @client.id
             @request.save
            
