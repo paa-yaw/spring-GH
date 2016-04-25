@@ -61,7 +61,7 @@
 											<td><%= link_to "Remove", admin_client_path(client), method: :delete, data: {confirm: "are you sure you want to remove #{client.first_name} from the database?"}, class: "btn btn-danger" %></td>
 										</tr>
 
-										<% else %>
+										<% elsif client.requests.exists? %>
 
 										<tr>
 											<td></td>
