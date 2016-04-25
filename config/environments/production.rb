@@ -83,7 +83,7 @@ Rails.application.configure do
   # for active job
   config.active_job.queue_adapter = :delayed_job
 
-  config.action_mailer.default_url_options = { host: 'springstage.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'workforce16.herokuapp.com' }
 
   config.action_mailer.raise_delivery_errors = true
 
@@ -92,7 +92,7 @@ Rails.application.configure do
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
    :address              => "smtp.gmail.com",
-   :port                 => "587",
+   :port                 => 587,
    :domain               => "gmail.com",
    :user_name            => "team.blad2.0@gmail.com",
    :password             => "0147852369",
