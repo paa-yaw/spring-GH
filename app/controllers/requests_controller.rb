@@ -55,6 +55,7 @@ class RequestsController < ApplicationController
           @client.last_name = "last name"
           if @request.save
             @client.save
+            sign_in @client
             @request.client_id = @client.id
             @request.save           
 
