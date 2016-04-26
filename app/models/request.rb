@@ -14,7 +14,7 @@ class Request < ActiveRecord::Base
     end
 
     def restrict_selection
-      if frequency == 60 && weekdays.length > 2
+      if frequency == 150 && weekdays.length > 2
       	errors.add(:weekdays, "You can only choose one day for One-Off package")
       elsif frequency == 150 && weekdays.length > 4
       	errors.add(:weekdays, "You can't choose more than 3 days for weekly package.")
