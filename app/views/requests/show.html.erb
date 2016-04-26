@@ -88,16 +88,19 @@
                             </tbody>
                         </table>           
                     </div> 
+
                 <% if @request.status == "resolved" %>
                 <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
                 <%= link_to "Back", :back, :class => "btn btn-danger" %>
-                <% elsif @request.status == "done" %>
-                <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
-                <%= link_to "Back", :back, :class => "btn btn-danger" %>
-                <% elsif ((Time.now.day + 1) - @request.updated_at.day) < 2 %>
-                  <%=  link_to "Edit", [:edit, @request], :class => "btn btn-default" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
-                <% else %>
-                <%= link_to "Back", :back, :class => "btn btn-danger" %>
+                  <% elsif @request.status == "done" %>
+                  
+                    <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
+                    <%= link_to "Back", :back, :class => "btn btn-danger" %>
+                  
+                  <% elsif ((Time.now.day + 1) - @request.updated_at.day) < 2 %>
+                    <%=  link_to "Edit", [:edit, @request], :class => "btn btn-default" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
+                  <% else %>
+                    <%= link_to "Back", :back, :class => "btn btn-danger" %>
                 <% end %>
 
 
@@ -110,9 +113,9 @@
                 <% extra_services = 0 %>
                 <% a = @request.extra_services.length.to_i - 1 %>
 
-                <% for i in 0...a %>
-                  <% extra_services += @request.extra_services[i].to_i %> 
-                <% end %>
+                  <% for i in 0...a %>
+                    <% extra_services += @request.extra_services[i].to_i %> 
+                  <% end %>
 
                 <% one_off_package = 150.00000 %>
                 <% weekly_package = 150.00001 %>
@@ -122,13 +125,13 @@
                 <% if @request.frequency == one_off_package %>
 
                 
-                 <% price = one_off_package + (@rooms - 4)*5 + extra_services %>
-                 <h2> Your price is  GHc <%= price.to_i %> </h2>
+                   <% price = one_off_package + (@rooms - 4)*5 + extra_services %>
+                   <h2> Your price is  GHc <%= price.to_i %> </h2>
 
                 <% elsif @request.frequency == weekly_package %>
 
-                 <% price = weekly_package  + (@rooms - 4)*5 + extra_services %>
-                 <h2> Your price is  GHc <%= price.to_i %> </h2>
+                   <% price = weekly_package  + (@rooms - 4)*5 + extra_services %>
+                   <h2> Your price is  GHc <%= price.to_i %> </h2>
 
                 <% elsif  @request.frequency == monthly_package %>
                 

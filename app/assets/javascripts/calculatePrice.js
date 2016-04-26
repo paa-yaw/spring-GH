@@ -72,7 +72,7 @@ function getLargeRoomNumber() {
 
 
 function getExtraServices(){
-  var extraServices = [0,0,0];
+  var extraServices = [0,0,0,0];
 
   if (document.getElementById('request_extra_services_150').checked) {
     extraServices[0] = 15;
@@ -113,9 +113,9 @@ function getFrequency(){
   } else {
     dayFrequency = 0;
   }
-
-  if (document.getElementById("request_frequency_15000001").checked) {
-    weekFrequency = parseInt(document.getElementById("request_frequency_15000001").value);
+                               
+  if (document.getElementById("request_frequency_15001").checked) {
+    weekFrequency = parseInt(document.getElementById("request_frequency_15001").value);
   } else {
     weekFrequency = 0;  
   }
@@ -216,10 +216,10 @@ function calculatePricing() {
   getExtraServices();
   getFrequency();
   calculateTotal();
-  
-  document.getElementById('packagePrice').innerHTML = "GHc "+(150 || getFrequency())+".00";
-  document.getElementById('extraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
-  document.getElementById('navExtraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
+    
+    document.getElementById('packagePrice').innerHTML = "GHc "+(150 || getFrequency())+".00";
+    document.getElementById('extraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
+    document.getElementById('navExtraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
 
 
   if (getFrequency() == 500) {
