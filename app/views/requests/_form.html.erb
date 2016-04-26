@@ -62,15 +62,6 @@
 
 
 
-    <div class="panel-body" style="padding-top:0px;">
-       <div class="col-md-4 col-sm-12">
-       <% if request.client.nil? %>
-        <%= f.input :email, label: "email" %>
-        <%= f.input :phone_number, label: "phone number" %>
-        <%= f.input :location, label: "location" %>
-       <% end %>
-       </div>
-    </div>
 
     
     <div class="panel-body">
@@ -93,6 +84,16 @@
       </div>
       <% end %>
     </div>
+    <div class="panel-body" style="padding-top:0px;">
+       <div class="col-md-4 col-sm-12">
+       <% if request.client.nil? %>
+        <%= f.input :email, label: "email" %>
+        <%= f.input :phone_number, label: "phone number" %>
+        <%= f.input :location, label: "location" %>
+       <% end %>
+       </div>
+    </div>
+    
     <div class="panel-body" style="padding-bottom:20px;">
 
       <div class="col-xs-12">

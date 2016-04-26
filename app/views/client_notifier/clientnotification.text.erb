@@ -2,6 +2,12 @@ Hi, <%= @client.first_name %>
 ===============================================
  
 A cleaner has been assigned to you and is on his way.
+
+Per protocol you are suppose to verify the identity of the cleaner sent to you.
+The following security code has been generated:
+SECURITY CODE: <%= @security_code%>. The cleaner we send you should have this code with 
+him or her. If not, please contact us immediately at 020-061-0307 or hit us up in email at 
+hello@springgh.com.
  
 To login to the site, just follow this link: <%= link_to "Sign in", @url %>.
  
