@@ -20,7 +20,7 @@
                     <a href="#cta"><span>Contact</span></a>
                </li>
                <li class="special desktop-only-view">
-                    <a href="#"><span>faq</span></a>
+                  <%= link_to "FAQ", q_and_a_path%>
                </li>
               <% if current_client %>
                 <li class="special desktop-only-view">
@@ -51,7 +51,7 @@
                   <a href="#menu" class="menuToggle"><span>Menu</span></a>
                   <div id="menu">
                     <ul>
-<<<<<<< HEAD
+
 
                     <% if current_client %>
                      <li class="special">
@@ -283,7 +283,7 @@
                 <li>
                 <%= link_to "Book a Cleaning", new_request_path, :class => "button fit special" %>
                 </li>
-                <li><%= link_to "FAQ", root_path, class: "button fit" %></li>
+                <li><%= link_to "FAQ", q_and_a_path, class: "button fit" %></li>
               </ul>
             </div>
           </section>
