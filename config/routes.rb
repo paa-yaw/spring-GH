@@ -109,6 +109,8 @@ Rails.application.routes.draw do
   get 'requests/:id/edit_request', to: 'requests#edit_request', as: :edit_client_request
 
   get '/.well-known/acme-challenge/:id' => 'home#letsencrypt'
+
+  get 'faq/q_and_a', to: 'faq#q_and_a', as: :q_and_a
   
 
   # get 'move/', to: 'admin/workers#move', as: :move
