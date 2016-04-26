@@ -1,0 +1,79 @@
+
+  <!-- Header -->
+          <header id="header" class="alt">
+            <h1><%= link_to "Spring", root_path %></h1>
+            <nav id="nav">
+              <ul>
+                <li class="special">
+                  <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                  <div id="menu">
+                    <ul>
+                      <li><%= link_to "Home", root_path %></li>
+                      <li><a href="#one">About</a></li>
+                      <li><a href="#two">Services</a></li>
+                      <li><a href="#price">Pricing</a></li>
+                      <li><a href="#cta">Contact</a></li>
+                      <li><%= link_to "FAQ", q_and_a_path %></li>
+
+                      <% if current_client %>
+                      <!-- <li><%#= link_to "Log Out", destroy_client_session_path, method: :delete,
+                              data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %></li> -->
+                      <% else %>
+                      <li><%= link_to "Log In", new_client_session_path %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </header>
+  <!-- Main -->
+          <article id="main">
+            <header>
+              <h2>Frequently Asked Questions</h2>
+              <p>Have any questions? To assist, we have answered some FAQ's below.<br> If you have an unanswered question, please do not hesistate to contact us. Send an email to hello@springgh.com</p>
+            </header>
+            <section class="wrapper style5">
+              <div class="inner">
+                <header>
+                  <h4>What are your operating hours?</h4>
+                  <p>We operate Monday to Saturday 7am - 5pm. You can however make bookings on our website 24/7</p>
+                  <h4>What areas do you currently operate in</h4>
+                  <p>We are currently operating in East Legon, Adenta and Spintex. Do not worry though, we are rapidly expanding into new ares.</p>
+                  <h4>How do payments work?</h4>
+                  <p>Payment is currently made by cash and would be collected at the end of the cleaning job by a Spring Personel and not the cleaner. 
+                      No payments should be made directly to the cleaner</p>
+                  <h4>What do I do if my booking information is incorrect?</h4>
+                  <p>Booking information can be edited after submission in the requests panel.
+                      Booking information can only be editied before a cleaning job begins</p>
+                  <h4>How do I know the cleaner coming to my home?</h4>
+                  <p>We would send you a confirmation email with the details of the cleaner (name, picture, short bio). In addition you would be given a security code that is known only to you assigned cleaner to reconfirm that the cleaner at your doorstep is the one that was sent.</p>
+                  <h4>Is my home safe? </h4>
+                  <p>Our cleaners go through extensive police background checks and reference checks to ensure that have a clean record.
+                    All the cleaners have a minimum of 1 year proven experience.
+                   In  the event where you are unhappy with a job done, we will send another cleaner to redo the job for free</p>
+                  <h4>How will the cleaner get to my place?</h4>
+                  <p>Spring will bring the cleaner to your place. In some cases the cleaner may come by public transport</p>
+                  <h4>What if I am not at home to recieve the cleaner</h4>
+                  <p>Please ensure to inform Spring if you will not be home to recieve the cleaner o alternative means of getting into your home in your absecnce can be made. 
+                  It is preferable that at the start time of the cleaning you are home to recieve the cleaner. </p>
+                  <h4>Do I need to feed the cleaner?</h4>
+                  <p>Your Spring cleaner would bring in their own lunch in most cases but please allow for the cleaner to have a breif lunch break</p>
+                  <h4>I am planning an event and I need my home to have an extra clean. What option is best to pick?</h4>
+                  <p>Please, choose the deep cleaning option for that extra clean you need</p>
+                </header>
+              </div>
+            </section>
+          </article>
+
+           <!-- Social Footer -->
+          <footer id="footer">
+            <ul class="icons">
+              <li><a href="www.twitter.com/spring_ghana" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+              <li><a href="www.facebook.com/springhome" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+              <li><a href="www.instagram.com/spring_ghana" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul>
+            <ul class="copyright">
+              <li>&copy;2016 Spring</li><li>Call Us on 020-061-0307</li>
+            </ul>
+          </footer>
