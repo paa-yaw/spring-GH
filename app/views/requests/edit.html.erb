@@ -5,8 +5,14 @@
     <li><a href="#"><label>Pricing</label><strong><span id="navPricingValue">GHc 60.00</span></strong></a></li>
   </ul>
 </div>
+<script>
+! function calculatePricing() {
+  setTimeout(calculatePricing, 500);
+}();
+</script>
 
-<div class="container-fluid" onload="setTimout("calculatePricing()", 1000)">
+
+<div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-1" style="border:rgba(18, 39, 114, 0.2);">
         
