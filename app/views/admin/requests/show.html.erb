@@ -89,11 +89,11 @@
          <% end %>
        </td> 
        <td>
-        <% if @request.frequency == 60 %>
-        <p>One Off(GHc 60.00)</p>
-        <% elsif @request.frequency == 150 %>
+        <% if @request.frequency == 150.00000 %>
+        <p>Deep-Cleaning(GHc 150.00)</p>
+        <% elsif @request.frequency == 150.00001 %>
         <p>Weekly(GHc 150.00)</p>
-        <% elsif @request.frequency == 500 %>
+        <% elsif @request.frequency == 500.00000 %>
         <p>Monthly(GHc 500.00)</p>
         <% end %>
       </td>  
