@@ -34,7 +34,7 @@
        <div  onchange="calculatePricing()">
          
          <div class="col-md-4 col-md-offset-2 col-sm-12" id="frequency">
-          <%= f.input :frequency, :collection => [["Deep-Cleaning (GHc 150.00)", 150.00], ["Weekly (GHc 150.00)", 150.01], ["Monthly (GHc 500.00)", 500.00]], :as => :radio_buttons, :checked =>["Deep-Cleaning (GHc 150.00)", 150.00], :item_wrapper_class => "inline", :label => "Frequency" %>
+          <%= f.input :frequency, :collection => [["Deep-Cleaning (GHc 150.00)", 150], ["Weekly (GHc 150.00)", 150], ["Monthly (GHc 500.00)", 500]], :as => :radio_buttons, :checked =>["Deep-Cleaning (GHc 150.00)", 150], :item_wrapper_class => "inline", :label => "Frequency" %>
         </div>
       </div>
       <br>
