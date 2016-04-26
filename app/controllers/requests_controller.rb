@@ -51,7 +51,7 @@ class RequestsController < ApplicationController
           @secure_password = SecureRandom.hex(5)
           @client.password = @secure_password
           @client.admin = false
-          @client.first_name = "client"
+          @client.first_name = "#{@client.email}"
           @client.last_name = "last name"
           if @request.save
             @client.save
