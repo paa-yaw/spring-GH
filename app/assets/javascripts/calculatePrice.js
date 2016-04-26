@@ -92,7 +92,13 @@ function getExtraServices(){
     extraServices[2] = 0;
   }
 
-  var extraServiceTotal = parseInt(extraServices[0] + extraServices[1] + extraServices[2]);
+  if (document.getElementById('request_extra_services_400').checked) {
+    extraServices[3] = 40;
+  } else {
+    extraServices[3] = 0;
+  }
+
+  var extraServiceTotal = parseInt(extraServices[0] + extraServices[1] + extraServices[2] + extraServices[3]);
   return extraServiceTotal;
 }
 
@@ -102,21 +108,21 @@ function getFrequency(){
   var weekFrequency = 0;
   var monthFrequency = 0;
 
-  if (document.getElementById("request_frequency_60").checked) {
-    dayFrequency = parseInt(document.getElementById("request_frequency_60").value);
+  if (document.getElementById("request_frequency_1500").checked) {
+    dayFrequency = parseInt(document.getElementById("request_frequency_1500").value);
   } else {
     dayFrequency = 0;
   }
 
-  if (document.getElementById("request_frequency_150").checked) {
-    weekFrequency = parseInt(document.getElementById("request_frequency_150").value);
+  if (document.getElementById("request_frequency_15000001").checked) {
+    weekFrequency = parseInt(document.getElementById("request_frequency_15000001").value);
   } else {
     weekFrequency = 0;  
   }
 
-  if (document.getElementById("request_frequency_500").checked) {
+  if (document.getElementById("request_frequency_5000").checked) {
      document.getElementById("roomNumber").innerHTML = 8;
-     monthFrequency = parseInt(document.getElementById("request_frequency_500").value);
+     monthFrequency = parseInt(document.getElementById("request_frequency_5000").value);
   } else {
      monthFrequency = 0;
   }
@@ -130,7 +136,7 @@ function checkDays() {
   var checkedDays;
   var limit;
   // getFrequency();
-  if (getFrequency() == 60){
+  if (getFrequency() == 150){
     checkedDays = 1;
     limit = checkedDays;
   } else {
@@ -194,7 +200,7 @@ function checkDays() {
 
 function calculateTotal(){
   var total = getRoomNumber()*5 + getExtraServices(); 
-  total = total + (60 || getFrequency());
+  total = total + (150 || getFrequency());
   document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
   document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
 }
@@ -211,7 +217,7 @@ function calculatePricing() {
   getFrequency();
   calculateTotal();
   
-  document.getElementById('packagePrice').innerHTML = "GHc "+(60 || getFrequency())+".00";
+  document.getElementById('packagePrice').innerHTML = "GHc "+(150 || getFrequency())+".00";
   document.getElementById('extraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
   document.getElementById('navExtraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
 
@@ -231,17 +237,17 @@ function calculatePricing() {
     document.getElementById("navExtraRoomPrice").innerHTML = "GHc "+getRoomNumber()*5+".00";
   }
 
-  if (getFrequency() == 60){
+  if (getFrequency() == 150){
     document.getElementById("roomNumber").innerHTML = 4;
-    var total = 60 + getRoomNumber()*5 + getExtraServices(); 
+    var total = 150 + getRoomNumber()*5 + getExtraServices(); 
     // console.log(total);
     document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
     document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
   }
-  else if (getFrequency() == 150) {
-    document.getElementById("packagePrice").innerHTML = "GHc "+( 150|| getFrequency())+".00";
+  else if (getFrequency() == 150.00001) {
+    document.getElementById("packagePrice").innerHTML = "GHc "+( 150.00001|| getFrequency())+".00";
     document.getElementById("roomNumber").innerHTML = 4;
-    var total = 150 + getRoomNumber()*5 + getExtraServices();
+    var total = 150.00001 + getRoomNumber()*5 + getExtraServices();
     // console.log(total);
     document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
     document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
