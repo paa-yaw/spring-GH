@@ -68,12 +68,12 @@ ActiveRecord::Schema.define(version: 20160426135906) do
     t.integer  "kitchens",                               default: 0
     t.integer  "hall",                                   default: 0
     t.string   "weekdays",                               default: [],                        array: true
-    t.decimal  "extra_services",                         default: [],                        array: true
+    t.string   "extra_services",                         default: [],                        array: true
     t.string   "status",                                 default: "unresolved"
     t.string   "email"
     t.string   "phone_number"
     t.string   "location"
-    t.decimal  "frequency",      precision: 5, scale: 2
+    t.decimal  "frequency",      precision: 5, scale: 5
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
