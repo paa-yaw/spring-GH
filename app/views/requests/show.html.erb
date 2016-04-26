@@ -70,11 +70,11 @@
                                    <% end %>
                                  </td> 
                                  <td>
-                                   <% if @request.frequency == 150%>
+                                   <% if @request.frequency == 150.00 %>
                                    <p>Deep-Cleaning(GHc 150.00)</p>
-                                   <% elsif @request.frequency == 150 %>
+                                   <% elsif @request.frequency == 150.01 %>
                                    <p>Weekly(GHc 150.00)</p>
-                                   <% elsif @request.frequency == 500 %>
+                                   <% elsif @request.frequency == 500.00 %>
                                      <p>Monthly(GHc 500.00)</p>
                                    <% end %>
                                  </td>  
@@ -114,9 +114,9 @@
                   <% extra_services += @request.extra_services[i].to_i %> 
                 <% end %>
 
-                <% one_off_package = 150 %>
-                <% weekly_package = 150 %>
-                <% monthly_package = 500 %> 
+                <% one_off_package = 150.00%>
+                <% weekly_package = 150.01 %>
+                <% monthly_package = 500.00 %> 
 
 
                 <% if @request.frequency == one_off_package %>

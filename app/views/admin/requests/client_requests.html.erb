@@ -65,11 +65,11 @@
 								<% end %>
 							</td>
 							<td>
-								<% if client_request.frequency == 60 %>
+								<% if client_request.frequency == 150.00 %>
 								<p>One Off(GHc 60.00)</p>
-								<% elsif client_request.frequency == 150 %>
+								<% elsif client_request.frequency == 150.01 %>
 								<p>Weekly(GHc 150.00)</p>
-								<% elsif client_request.frequency == 500 %>
+								<% elsif client_request.frequency == 500.00 %>
 								<p>Monthly(GHc 500.00)</p>
 								<% end %>
 							</td>
@@ -84,23 +84,23 @@
 									<% extra_services += client_request.extra_services[i].to_i %> 
 									<% end %>
 
-									<% one_off_package = 60 %>
-									<% weekly_package = 150 %>
-									<% monthly_package = 500 %> 
+									<% one_off_package = 150.00 %>
+									<% weekly_package = 150.01 %>
+									<% monthly_package = 500.00 %> 
 
 
-									<% if client_request.frequency == 60 %>
+									<% if client_request.frequency == one_off_package %>
 
 
 									<% price = one_off_package + (@rooms - 4)*5 + extra_services %>
 									 GHc <%= price %> 
 
-									<% elsif client_request.frequency == 150 %>
+									<% elsif client_request.frequency == weekly_package %>
 
-									<% price = weekly_package = 150  + (@rooms - 4)*5 + extra_services %>
+									<% price = weekly_package  + (@rooms - 4)*5 + extra_services %>
 									 GHc <%= price %> 
 
-									<% elsif  client_request.frequency == 500 %>
+									<% elsif  client_request.frequency == monthly_package %>
 
 									<% if @rooms > 8 %>
 									<% price = monthly_package + (@rooms - 8)*5 + extra_services %>
@@ -153,11 +153,11 @@
 								<% end %>
 							</td>
 							<td>
-								<% if client_request.frequency == 60 %>
+								<% if client_request.frequency == 150.00 %>
 								<p>One Off(GHc 60.00)</p>
-								<% elsif client_request.frequency == 150 %>
+								<% elsif client_request.frequency == 150.01 %>
 								<p>Weekly(GHc 150.00)</p>
-								<% elsif client_request.frequency == 500 %>
+								<% elsif client_request.frequency == 500.00 %>
 								<p>Monthly(GHc 500.00)</p>
 								<% end %>
 							</td>
@@ -172,23 +172,23 @@
 									<% extra_services += client_request.extra_services[i].to_i %> 
 									<% end %>
 
-									<% one_off_package = 60 %>
-									<% weekly_package = 150 %>
-									<% monthly_package = 500 %> 
+									<% one_off_package = 150.00 %>
+									<% weekly_package = 150.01 %>
+									<% monthly_package = 500.00 %> 
 
 
-									<% if client_request.frequency == 60 %>
+									<% if client_request.frequency == one_off_package %>
 
 
 									<% price = one_off_package + (@rooms - 4)*5 + extra_services %>
 									 GHc <%= price %> 
 
-									<% elsif client_request.frequency == 150 %>
+									<% elsif client_request.frequency == weekly_package %>
 
-									<% price = weekly_package = 150  + (@rooms - 4)*5 + extra_services %>
+									<% price = weekly_package  + (@rooms - 4)*5 + extra_services %>
 									 GHc <%= price %> 
 
-									<% elsif  client_request.frequency == 500 %>
+									<% elsif  client_request.frequency == monthly_package %>
 
 									<% if @rooms > 8 %>
 									<% price = monthly_package + (@rooms - 8)*5 + extra_services %>
@@ -243,11 +243,11 @@
 								<% end %>
 							</td>
 							<td>
-								<% if client_request.frequency == 60 %>
+								<% if client_request.frequency == 150.00 %>
 								<p>One Off(GHc 60.00)</p>
-								<% elsif client_request.frequency == 150 %>
+								<% elsif client_request.frequency == 150.01 %>
 								<p>Weekly(GHc 150.00)</p>
-								<% elsif client_request.frequency == 500 %>
+								<% elsif client_request.frequency == 500.00 %>
 								<p>Monthly(GHc 500.00)</p>
 								<% end %>
 							</td>
@@ -262,23 +262,23 @@
 									<% extra_services += client_request.extra_services[i].to_i %> 
 									<% end %>
 
-									<% one_off_package = 60 %>
-									<% weekly_package = 150 %>
-									<% monthly_package = 500 %> 
+									<% one_off_package = 150.00 %>
+									<% weekly_package = 150.01 %>
+									<% monthly_package = 500.00 %> 
 
 
-									<% if client_request.frequency == 60 %>
+									<% if client_request.frequency == one_off_package %>
 
 
 									<% price = one_off_package + (@rooms - 4)*5 + extra_services %>
 									 GHc <%= price %> 
 
-									<% elsif client_request.frequency == 150 %>
+									<% elsif client_request.frequency == weekly_package %>
 
-									<% price = weekly_package = 150  + (@rooms - 4)*5 + extra_services %>
+									<% price = weekly_package  + (@rooms - 4)*5 + extra_services %>
 									 GHc <%= price %> 
 
-									<% elsif  client_request.frequency == 500 %>
+									<% elsif  client_request.frequency == monthly_package %>
 
 									<% if @rooms > 8 %>
 									<% price = monthly_package + (@rooms - 8)*5 + extra_services %>
@@ -333,11 +333,11 @@
 								<% end %>
 							</td>
 							<td>
-								<% if client_request.frequency == 60 %>
+								<% if client_request.frequency == 150.00 %>
 								<p>One Off(GHc 60.00)</p>
-								<% elsif client_request.frequency == 150 %>
+								<% elsif client_request.frequency == 150.01 %>
 								<p>Weekly(GHc 150.00)</p>
-								<% elsif client_request.frequency == 500 %>
+								<% elsif client_request.frequency == 500.00 %>
 								<p>Monthly(GHc 500.00)</p>
 								<% end %>
 							</td>
@@ -352,23 +352,23 @@
 									<% extra_services += client_request.extra_services[i].to_i %> 
 									<% end %>
 
-									<% one_off_package = 60 %>
-									<% weekly_package = 150 %>
-									<% monthly_package = 500 %> 
+									<% one_off_package = 150.00 %>
+									<% weekly_package = 150.01 %>
+									<% monthly_package = 500.00 %> 
 
 
-									<% if client_request.frequency == 60 %>
+									<% if client_request.frequency == one_off_package %>
 
 
 									<% price = one_off_package + (@rooms - 4)*5 + extra_services %>
 									 GHc <%= price %> 
 
-									<% elsif client_request.frequency == 150 %>
+									<% elsif client_request.frequency == weekly_package %>
 
-									<% price = weekly_package = 150  + (@rooms - 4)*5 + extra_services %>
+									<% price = weekly_package  + (@rooms - 4)*5 + extra_services %>
 									 GHc <%= price %> 
 
-									<% elsif  client_request.frequency == 500 %>
+									<% elsif  client_request.frequency == monthly_package %>
 
 									<% if @rooms > 8 %>
 									<% price = monthly_package + (@rooms - 8)*5 + extra_services %>
