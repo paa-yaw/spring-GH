@@ -20,7 +20,7 @@
                     <a href="#cta"><span>Contact</span></a>
                </li>
                <li class="special desktop-only-view">
-                    <a href="#"><span>faq</span></a>
+                  <%= link_to "FAQ", q_and_a_path%>
                </li>
               <% if current_client %>
                 <li class="special desktop-only-view">
@@ -52,6 +52,7 @@
                   <div id="menu">
                     <ul>
 
+
                     <% if current_client %>
                      <li class="special">
                         <a href="#one">About</a>
@@ -82,7 +83,9 @@
                         <li class="special">
                           <a href="#cta">Contact</a>
                         </li>
-                      <!-- <li><%#= link_to "FAQ"%></li> -->
+                        <li class="special">
+                          <%= link_to "FAQ", q_and_a_path %>
+                        </li>
                         <li class="special">
                           <%= link_to "Log In", new_client_session_path %>
                         </li>
@@ -90,6 +93,7 @@
                           <%= link_to "Sign Up", new_client_registration_path %>
                         </li>
                     <% end %>
+
                     </ul>
                   </div>
                 </li>
@@ -204,6 +208,67 @@
             </div>
           </section>
 
+          <!-- Pricing -->
+           <section id="price" class="wrapper special style2">
+           <!--  <div class="inner"> -->
+              <header class="major">
+                <h2>Pricing</h2>
+              </header>
+                <!-- <ul class="features col-md-12">
+                  <li class="col-md-3">
+                    <h3>Deep Cleaning<br> GHC 150</h3>
+                    <p> This is a One Time Service which involves:</p>
+                      <p>Kitchen <br>Kitchen top dusting, scrubbing and wiping Kitchen cabinets, racks cleaning, Degreasing and oil stains removal,       Kitchen Tiles - Removing sticky oil stains and Cobweb removal
+                    </p>
+                    <p>Bedroom & Living Room<br>
+                      Cobweb removal Fan cleaning, Windows Glasses, grills, Cupboards dusting and wiping, Trash Removal,Sweeping and Mopping
+                    </p>
+                    <p>Bathroom<br>
+                      Bathrooms shelfs, cabinets dusting and wiping, Descaling and stain removal from Tiles, Fittings and floors, Scrubbing of floors, Cleaning mirror, wash basin, Toilet bowl cleaning and stain/scale removal and Cobweb removal
+                    </p>
+                 </li>
+                  <li class="col-md-3">
+                    <h3>Weekly Cleaning<br>GHC 150</h3>
+                    <p>This service occurs maximum of 3 times a week. </p>
+                  </li>
+                  <li  class="col-md-3">
+                    <h3>Monthly Cleaning</h3>
+                   <p>This service occurs maximum of 12 days in a month</p>
+                  </li>
+                </ul> -->
+
+
+                  <div class="container">
+                  <div class="row">
+                  <div class="col-md-4">
+                    <h3>Deep Cleaning<br> GHC 150</h3>
+                    <p> This is a One Time Service </p>
+                      <!-- <p>Kitchen <br>Kitchen top dusting, scrubbing and wiping Kitchen cabinets, racks cleaning, Degreasing and oil stains removal,       Kitchen Tiles - Removing sticky oil stains and Cobweb removal
+                    </p>
+                    <p>Bedroom & Living Room<br>
+                      Cobweb removal Fan cleaning, Windows Glasses, grills, Cupboards dusting and wiping, Trash Removal,Sweeping and Mopping
+                    </p>
+                    <p>Bathroom<br>
+                      Bathrooms shelfs, cabinets dusting and wiping, Descaling and stain removal from Tiles, Fittings and floors, Scrubbing of floors, Cleaning mirror, wash basin, Toilet bowl cleaning and stain/scale removal and Cobweb removal
+                    </p> -->
+                 </div>
+                  <div class="col-md-4  ">
+                    <h3>Weekly Cleaning<br>GHC 150</h3>
+                    <p>This service occurs maximum of 3 times a week. </p>
+                  </div>
+                  <div  class="col-md-4">
+                    <h3>Monthly Cleaning <br> Starting from GHC 500</h3>
+                   <p>This service occurs maximum of 12 days in a month</p>
+                  </div>
+                  
+                  </div>
+                  </div>
+            
+              
+            <!-- </div> -->
+          </section>
+
+
         <!-- Contact CTA -->
           <section id="cta" class="wrapper style4">
             <div class="inner">
@@ -218,18 +283,18 @@
                 <li>
                 <%= link_to "Book a Cleaning", new_request_path, :class => "button fit special" %>
                 </li>
-                <li><%= link_to "FAQ", root_path, class: "button fit" %></li>
+                <li><%= link_to "FAQ", q_and_a_path, class: "button fit" %></li>
               </ul>
             </div>
           </section>
 
         <!-- Social Footer -->
           <footer id="footer">
-            <!-- <ul class="icons">
-              <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-              <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-              <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            </ul> -->
+            <ul class="icons">
+              <li><a href="www.twittwer.com/spring_ghana" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+              <li><a href="www.facebook.com/springhome" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+              <li><a href="www.instagram.com/spring_ghana" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul>
             <ul class="copyright">
               <li>&copy;2016 Spring</li><li>Call Us on 020-061-0307</li>
             </ul>

@@ -76,7 +76,8 @@
                         <li class="special">
                           <a href="#cta">Contact</a>
                         </li> -->
-                      <!-- <li><%#= link_to "FAQ"%></li> -->
+                       <li><%= link_to "FAQ", q_and_a_path %></li>
+
                         <li class="special">
                           <%= link_to "Log In", new_client_session_path %>
                         </li>
@@ -84,6 +85,7 @@
                           <%= link_to "Sign Up", new_client_registration_path %>
                         </li>
                     <% end %>
+
                     </ul>
                   </div>
                 </li>
@@ -92,6 +94,7 @@
 
 
           </header>
+
 
  <% flash.each do |key, message| %>
   <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%;" class="well well-sm text-center" id="flashmessage"><%= message %></p>
