@@ -73,8 +73,7 @@ ActiveRecord::Schema.define(version: 20160426135906) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "location"
-    t.decimal  "frequency",      precision: 5, scale: 2
-
+    t.decimal  "frequency",      precision: 5, scale: 5
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
