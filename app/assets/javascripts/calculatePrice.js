@@ -141,7 +141,7 @@ function checkDays() {
   if (getFrequency() == 150){
     checkedDays = 1;
     limit = checkedDays;
-  } else {
+  } else if(getFrequency() == 150.01 || getFrequency() == 500.00 ){
     checkedDays = 3;
     limit = checkedDays;
   }
@@ -246,8 +246,8 @@ function calculatePricing() {
     document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
     document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
   }
-  else if (getFrequency() == 150.00001) {
-    document.getElementById("packagePrice").innerHTML = "GHc "+( 150.00001|| getFrequency())+".00";
+  else if (getFrequency() == 150.01) {
+    document.getElementById("packagePrice").innerHTML = "GHc "+( 150.01|| getFrequency())+".00";
     document.getElementById("roomNumber").innerHTML = 4;
     var total = 150.00001 + getRoomNumber()*5 + getExtraServices();
     // console.log(total);
