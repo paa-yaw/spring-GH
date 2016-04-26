@@ -109,12 +109,14 @@ function getFrequency(){
   var monthFrequency = 0;
 
   if (document.getElementById("request_frequency_1500").checked) {
+    document.getElementById("roomNumber").innerHTML = 4;
     dayFrequency = parseInt(document.getElementById("request_frequency_1500").value);
   } else {
     dayFrequency = 0;
   }
                                
   if (document.getElementById("request_frequency_15001").checked) {
+    document.getElementById("roomNumber").innerHTML = 4;
     weekFrequency = parseInt(document.getElementById("request_frequency_15001").value);
   } else {
     weekFrequency = 0;  

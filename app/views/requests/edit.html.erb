@@ -1,4 +1,12 @@
-<div class="container-fluid">
+<div class="container-fluid navbar-fixed-top visible-xs hidden-md" id="pricing-bar">
+  <ul class="nav navbar-nav">
+    <li><a href="#"><label>Extra Rooms</label><span id="navExtraRoomPrice">GHc 0.00</span></a></li>
+    <li><a href="#"><label>Extra Services</label><span id="navExtraServicePrice">GHc 0.00</span></a></li>
+    <li><a href="#"><label>Pricing</label><strong><span id="navPricingValue">GHc 60.00</span></strong></a></li>
+  </ul>
+</div>
+
+<div class="container-fluid" onload="setTimout("calculatePricing()", 1000)">
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-1" style="border:rgba(18, 39, 114, 0.2);">
         
