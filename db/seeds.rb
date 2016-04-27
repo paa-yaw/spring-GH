@@ -14,5 +14,5 @@
 # 	end
 # end
 
-Client.create(fullname: "Derek Owusu-Frimpong", email: "derek@springgh.com", password: "workforce",
+Client.create(first_name: "Derek", last_name: "Owusu-Frimpong", email: "derek@springgh.com", password: "workforce",
 		phone_number: "0204704427", location: "Accra", admin: true)
