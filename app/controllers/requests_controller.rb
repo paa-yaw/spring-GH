@@ -64,7 +64,7 @@ class RequestsController < ApplicationController
 
              # sends email notification to admin after client sign up
              Client.where(admin: true).each do |recipient|
-              NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient)
+              NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient, @client.email)
             end
 
             redirect_to @request
