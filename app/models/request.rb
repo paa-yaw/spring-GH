@@ -6,6 +6,7 @@ class Request < ActiveRecord::Base
   validate :weekday_array_cannot_be_empty
   validate :restrict_selection
   validate :forbidden_dates
+  validate :day_and_date_match
 
     def weekday_array_cannot_be_empty
       if weekdays == [""]
@@ -42,6 +43,15 @@ class Request < ActiveRecord::Base
       	errors.add(:date_time, "the date selected is too far off")
       elsif date_time.year == Time.now.year + 1
       	errors.add(:date_time, "the date selected is too far off")	      			      		
+      end
+    end
+
+    def day_and_date_match
+      if frequency == 150.00 
+        if weekdays[0] != date_time.strftime("%A")
+          errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}, 
+            but you choose #{weekdays[0]} ")
+        end
       end
     end
 
