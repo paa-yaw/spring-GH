@@ -6,13 +6,13 @@
 
               <ul>
                <li class="special desktop-only-view">
-                    <a href="#one"><span>About</span></a>
+                    <a href="/#one"><span>About</span></a>
                </li>
                <li class="special desktop-only-view">
-                    <a href="#two"><span>Services</span></a>
+                    <a href="/#two"><span>Services</span></a>
                </li>
                <li class="special desktop-only-view">
-                    <a href="#cta"><span>Contact</span></a>
+                    <a href="/#cta"><span>Contact</span></a>
                </li>
                <li class="special desktop-only-view">
                   <%= link_to "FAQ", q_and_a_path%>
@@ -48,13 +48,13 @@
                     <ul>
                       <% if current_client %>
                          <li class="special">
-                            <a href="#one">About</a>
+                            <a href="/#one">About</a>
                           </li>
                           <li class="special">
-                            <a href="#two">Services</a>
+                            <a href="/#two">Services</a>
                           </li>
                           <li class="special">
-                            <a href="#cta">Contact</a>
+                            <a href="/#cta">Contact</a>
                           </li>
                           <li class="special">
                               <%= link_to current_client.first_name, edit_client_registration_path %>
@@ -68,13 +68,13 @@
                           </li>  
                       <% else %>
                           <li class="special">
-                            <a href="#one">About</a>
+                            <a href="/#one">About</a>
                           </li>
                           <li class="special">
-                            <a href="#two">Services</a>
+                            <a href="/#two">Services</a>
                           </li>
                           <li class="special">
-                            <a href="#cta">Contact</a>
+                            <a href="/#cta">Contact</a>
                           </li>
                           <li class="special">
                             <%= link_to "FAQ", q_and_a_path %>
