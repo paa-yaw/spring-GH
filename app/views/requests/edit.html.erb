@@ -1,3 +1,11 @@
+<div class="container-fluid navbar-fixed-top visible-xs hidden-md" id="pricing-bar">
+  <ul class="nav navbar-nav">
+    <li><a href="#"><label>Extra Rooms</label><span id="navExtraRoomPrice">GHc 0.00</span></a></li>
+    <li><a href="#"><label>Extra Services</label><span id="navExtraServicePrice">GHc 0.00</span></a></li>
+    <li><a href="#"><label>Pricing</label><strong><span id="navPricingValue">GHc 60.00</span></strong></a></li>
+  </ul>
+</div>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-1" style="border:rgba(18, 39, 114, 0.2);">
@@ -27,7 +35,7 @@
                    <div class="row basePrice">
                     <div class="col-1">Base Price</div>
                     <div class="col-2"><span id="roomNumber">4</span>&nbsp;Rooms</div>
-                    <div class="col-3 text-right" id="packagePrice" style="padding-right:0px;">GHc 60.00</div>
+                    <div class="col-3 text-right" id="packagePrice" style="padding-right:0px;">GHc 150.00</div>
                   </div>
                    <div class="row extraRooms">
                     <div class="col-1">Extra Room(s)</div>
@@ -42,7 +50,7 @@
                    <div class="row extraPricing">
                     <div class="col-1" style="padding-top:0px;"><h3 class="PricingTitle">Price</h3></div>
                     <div class="col-2" style="padding-top:0px;">&nbsp;</div>
-                    <div class="col-3 text-right" id="totalPrice" style="padding-top:0px;padding-left:0px; padding-right:0px;"><h3 id="PricingValue">GHc 60.00</h3></div>
+                    <div class="col-3 text-right" id="totalPrice" style="padding-top:0px;padding-left:0px; padding-right:0px;"><h3 id="PricingValue">GHc 150.00</h3></div>
                   </div>
                 </div>
               </div>
@@ -51,3 +59,8 @@
         </div>
       </div>
     </div>
+ <script>
+window.onload = function() {
+  calculatePricing();
+}
+</script>
