@@ -134,6 +134,26 @@ function getFrequency(){
 }
 
 
+
+function checkSchedule() {
+  var schedule = document.querySelectorAll("#days > div > .request_weekdays > label")[0];
+
+  var a = document.getElementById('request_frequency_1500');
+  if(a.checked == true) {
+    schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose a day)</i>";
+  }
+  
+  var b = document.getElementById('request_frequency_15001');
+  if(b.checked == true) {
+    schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
+  }
+
+  var c = document.getElementById('request_frequency_5000');
+  if(c.checked == true) {
+    schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
+  }
+}
+
 function checkDays() {
   var checkedDays;
   var limit;
@@ -218,7 +238,7 @@ function calculatePricing() {
   getExtraServices();
   getFrequency();
   calculateTotal();
-    
+  checkSchedule();  
     document.getElementById('packagePrice').innerHTML = "GHc "+(150 || getFrequency())+".00";
     document.getElementById('extraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
     document.getElementById('navExtraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";

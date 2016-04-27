@@ -112,7 +112,7 @@
         <% if request.persisted? %>
         <%= f.button :submit, "Edit Request", :class=>"btn-primary btn-lg btn-block col-md-3" %>
         <% else %>
-        <%= f.button :submit, "NEXT", :class=>"btn btn-block submit_button  col-md-3",:id =>"cleanButton" %>
+        <%= f.button :submit, "Book A Cleaning", :class=>"btn btn-block submit_button  col-md-3",:id =>"cleanButton" %>
         <% end %>
       </div>
     </div>
@@ -144,5 +144,23 @@
     document.getElementById('request_frequency_5000').parentNode.setAttribute("data-placement", "bottom");
     document.getElementById('request_frequency_5000').parentNode.setAttribute("title", "Cleaning Services Done 12 times A Month");
   }
+</script>
+
+<script>
+  var schedule = document.querySelectorAll("#days > div > .request_weekdays > label")[0];
+
+  var a = document.getElementById('request_frequency_1500');
+  if(a.checked == true) {
+    schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose a day)</i>";
+  }
   
+  var b = document.getElementById('request_frequency_15001');
+  if(b.checked == true) {
+    schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
+  }
+
+  var c = document.getElementById('request_frequency_5000');
+  if(c.checked == true) {
+    schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
+  }
 </script>
