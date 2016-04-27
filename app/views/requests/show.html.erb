@@ -91,16 +91,16 @@
 
                 <% if @request.status == "resolved" %>
                 <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
-                <%= link_to "Back", :back, :class => "btn btn-danger" %>
+                <%#= link_to "Back", :back, :class => "btn btn-danger" %>
                   <% elsif @request.status == "done" %>
                   
                     <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
-                    <%= link_to "Back", :back, :class => "btn btn-danger" %>
+                    <%#= link_to "Back", :back, :class => "btn btn-danger" %>
                   
                   <% elsif ((Time.now.day + 1) - @request.updated_at.day) < 2 %>
-                    <%=  link_to "Edit", [:edit, @request], :class => "btn btn-default" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
+                    <%= link_to "Submit Another Request", new_request_path, :class => "btn btn-primary" %> <%=  link_to "Edit", [:edit, @request], :class => "btn btn-default" %> <%#= link_to "Back", :back, :class => "btn btn-danger" %>
                   <% else %>
-                    <%= link_to "Back", :back, :class => "btn btn-danger" %>
+                    <%#= link_to "Back", :back, :class => "btn btn-danger" %>
                 <% end %>
                
 
@@ -124,22 +124,22 @@
 
                 
                    <% price = one_off_package + (@rooms - 4)*5 + extra_services %>
-                   <h2> Your price is  GHc <%= price.to_i %> </h2>
+                   <h2> Your total cost is  GHc <%= price.to_i %> </h2>
 
                 <% elsif @request.frequency == weekly_package %>
 
                    <% price = weekly_package  + (@rooms - 4)*5 + extra_services %>
-                   <h2> Your price is  GHc <%= price.to_i %> </h2>
+                   <h2> Your total cost is  GHc <%= price.to_i %> </h2>
 
                 <% elsif  @request.frequency == monthly_package %>
                 
                   <% if @rooms > 8 %>
                   <% price = monthly_package + (@rooms - 8)*5 + extra_services %>
-                  <h2> Your price is GHc  <%= price.to_i %> </h2>
+                  <h2> Your total cost is GHc  <%= price.to_i %> </h2>
 
                   <% elsif @rooms <= 8 %>
                   <% price = monthly_package + extra_services %>
-                  <h2> Your price is  GHc <span class="daPrice"><%= price.to_i %>.00</span></h2>
+                  <h2> Your total cost is  GHc <span class="daPrice"><%= price.to_i %>.00</span></h2>
 
                   <% end %>         
                  
@@ -185,17 +185,17 @@
                           </tbody>
                             <% end %>
                             <% elsif  @request.status == "done" && current_client %>
-                            No worker assigned to you at the moment
+                            No cleaner assigned to you at the moment
                             <p><%= link_to "view previously assigned cleaners", workers_path,  class: "btn btn-primary" %></p>
                               
                             <% elsif @request.status == "resolved" && !current_client %>
-                                No worker assigned to you at the moment
+                                No cleaner assigned to you at the moment
                             <p><%= link_to "view previously assigned cleaners", new_client_session_path, data: {confirm: "You must be log in to have access to this. Click Ok to proceed to log in."}, class: "btn btn-primary" %></p>
                             <% elsif !current_client %>
-                            No worker assigned to you at the moment
+                            No cleaner assigned to you at the moment
                             <p><%= link_to "view previously assigned cleaners", new_client_session_path, data: {confirm: "You must be log in to have access to this. Click Ok to proceed to log in."}, class: "btn btn-primary" %></p>
                             <% elsif  @request.status == "unresolved" && current_client %>
-                            No worker assigned to you at the moment
+                            No cleaner assigned to you at the moment
                             <p><%= link_to "view previously assigned cleaners", workers_path,  class: "btn btn-primary" %></p>
                             <% end %>
                         </table>

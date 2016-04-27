@@ -1,8 +1,9 @@
 class NotifyAdminJob < ActiveJob::Base
   queue_as :default
 
-  def perform(recipient)
+  def perform(recipient, client)
     @recipient = recipient
-    AdminNotifier.notification(@recipient).deliver_later	
+    @client = client
+    AdminNotifier.notification(@recipient, @client).deliver_later	
   end
 end

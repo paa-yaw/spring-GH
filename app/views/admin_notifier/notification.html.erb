@@ -6,7 +6,7 @@
   <body>
     <h1>Hi, <%= @recipient.email %></h1>
     <p>
-      Someone just place a request to springgh.com.
+      <%= @client.first_name || @client.email %> just place a request to springgh.com.
     </p>
     <p>
       To login to the site, just follow this link: <%= @url %>.
