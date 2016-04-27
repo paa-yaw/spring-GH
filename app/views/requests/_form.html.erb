@@ -70,7 +70,7 @@
         <h4 class="form-content-label">
           When Do You Want Us To Come?
         </h4>
-        <%= f.datetime_select :date_time, :start_year => Time.now.year, :end_year => Time.now.year + 1, :ampm => true, :minute_step => 15, :class=>"btn btn-default text-center", :label =>"When Do You Want Us To Come?" %><br><br>
+        <%= f.datetime_select :date_time, :start_year => Time.now.year, :end_year => Time.now.year + 1, :ampm => true, :minute_step => 30, :class=>"btn btn-default text-center", :label =>"When Do You Want Us To Come?" %><br><br>
       </div>
       <% if request.errors.any? %>
       <div id="error_explanation">
