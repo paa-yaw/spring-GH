@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
   # before_filter :require_client
   # this code is required for request model to have access to current_client
   before_filter :set_current_client
-  before_action :set_request, only: [:show, :edit, :update, :destroy, :add, :display_request, :edit_request]
+  before_action :set_request, only: [:show, :edit, :update, :destroy, :add, :display_request, :edit_request, :confirmation]
 
   
   def show
@@ -68,7 +68,7 @@ class RequestsController < ApplicationController
               NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient, @client)
             end
 
-            redirect_to @request
+            redirect_to confirmation_path(@request)
           else  
             flash.now[:alert] = "something went wrong. Kindly make sure you complete the form before submitting."
             render 'new'
@@ -110,6 +110,9 @@ class RequestsController < ApplicationController
   end
 
   def display_request
+  end
+
+  def confirmation
   end
 
   def my_requests
