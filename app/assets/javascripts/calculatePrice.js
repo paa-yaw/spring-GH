@@ -66,6 +66,7 @@ function getLargeRoomNumber() {
    // console.log(extraLargeRooms);
  } else {
   var extraLargeRooms = 0;
+  document.getElementById("roomNumber").innerHTML = rooms;
  }
  return extraLargeRooms;
 }
