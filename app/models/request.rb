@@ -3,6 +3,8 @@ class Request < ActiveRecord::Base
 	has_and_belongs_to_many :workers
 
 	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
+  validates :phone_number, format: { with: /\A[-+]?[0-9]*\.?[0-9]+\Z/, message: "only allows numbers" }
+  validates_format_of :email,:with => Devise::email_regexp
   validate :weekday_array_cannot_be_empty
   validate :restrict_selection
   validate :forbidden_dates
@@ -47,11 +49,15 @@ class Request < ActiveRecord::Base
     end
 
     def day_and_date_match
-      if frequency == 150.00 
-        if weekdays[0] != date_time.strftime("%A") && date_time.year == Time.now.year && date_time.month == Time.now.month
+      if frequency == 150.00 && weekdays[0] != date_time.strftime("%A") && date_time.year == Time.now.year 
           errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}, 
-            but you choose #{weekdays[0]} ")
-        end
+            but you chose #{weekdays[0]} ")
+      elsif frequency == 150.01 && weekdays.exclude?(date_time.strftime("%A")) && date_time.year == Time.now.year 
+          errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}. Please choose a day that
+            corresponds with one of the selected days")
+      elsif frequency == 500.00 &&  weekdays.exclude?(date_time.strftime("%A")) && date_time.year == Time.now.year 
+          errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}. Please choose a day that
+            corresponds with one of the selected days")  
       end
     end
 
