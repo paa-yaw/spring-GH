@@ -59,7 +59,7 @@ class RequestsController < ApplicationController
             sign_in @client
             @request.client_id = @client.id
             @request.save           
-
+            
             # sends email notification to client after sign up 
             SendEmailJob.set(wait: 5.seconds).perform_later(@client, @secure_password)
 
