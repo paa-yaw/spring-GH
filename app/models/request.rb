@@ -3,6 +3,8 @@ class Request < ActiveRecord::Base
 	has_and_belongs_to_many :workers
 
 	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
+  validates :phone_number, format: { with: /\A[-+]?[0-9]*\.?[0-9]+\Z/, message: "only allows numbers" }
+  validates_format_of :email,:with => Devise::email_regexp
   validate :weekday_array_cannot_be_empty
   validate :restrict_selection
   validate :forbidden_dates

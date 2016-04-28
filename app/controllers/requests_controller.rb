@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  include Devise::Controllers::Helpers
   # before_filter :require_client
   # this code is required for request model to have access to current_client
   before_filter :set_current_client
