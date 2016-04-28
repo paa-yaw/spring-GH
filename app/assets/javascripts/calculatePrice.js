@@ -151,7 +151,7 @@ function checkSchedule() {
 
   var c = document.getElementById('request_frequency_5000');
   if(c.checked == true) {
-    schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
+    schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days. The 3 days selected is repetitive throughout the month.)</i>";
   }
 }
 
