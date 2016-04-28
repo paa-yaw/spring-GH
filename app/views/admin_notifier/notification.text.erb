@@ -1,8 +1,17 @@
 Hi <%= @recipient.email %>
 ===============================================
  
-<%= @client.first_name || @client.email %> just placed a request to springgh.com.
- 
+<%= @client.first_name || @client.email %> just placed a request to springgh.com. 
+Below is a summary of <%= @client.first_name %>'s details
+
+ Client's Detail
+ --------------
+ first name: <%= @client.first_name %>
+ last name: <%= @client.last_name %>
+ email: <%= @client.email %>
+ location: <%= @client.location %>
+ phone number <%= @client.phone_number %>
+
 To login to the site, just follow this link: <%= @url %>.
  
 Thanks for joining and have a great day!
