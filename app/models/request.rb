@@ -47,21 +47,15 @@ class Request < ActiveRecord::Base
     end
 
     def day_and_date_match
-      if frequency == 150.00 
-        if weekdays[0] != date_time.strftime("%A") && date_time.year == Time.now.year 
+      if frequency == 150.00 && weekdays[0] != date_time.strftime("%A") && date_time.year == Time.now.year 
           errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}, 
-            but you choose #{weekdays[0]} ")
-        end
-      elsif frequency == 150.00 
-        if !weekdays.include?(date_time.strftime("%A")) && date_time.year == Time.now.year 
+            but you chose #{weekdays[0]} ")
+      elsif frequency == 150.01 && weekdays.exclude?(date_time.strftime("%A")) && date_time.year == Time.now.year 
           errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}. Please choose a day that
             corresponds with one of the selected days")
-        end
-      elsif frequency == 500.00 
-        if !weekdays.include?(date_time.strftime("%A")) && date_time.year == Time.now.year 
+      elsif frequency == 500.00 &&  weekdays.exclude?(date_time.strftime("%A")) && date_time.year == Time.now.year 
           errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}. Please choose a day that
-            corresponds with one of the selected days")
-        end
+            corresponds with one of the selected days")  
       end
     end
 

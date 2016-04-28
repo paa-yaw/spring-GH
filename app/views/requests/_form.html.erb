@@ -46,7 +46,7 @@
 
          <div class="col-md-12 col-sm-12" id="frequency">
 
-          <%= f.input :frequency, :collection => [["Deep-Cleaning (GHc 150.00)", 150.00], ["Weekly (GHc 150.00)", 150.01], ["Monthly (GHc 500.00)", 500.00]], :as => :radio_buttons, :checked =>["Deep-Cleaning (GHc 150.00)", 150.00], :item_wrapper_class => "inline", :label => "Frequency" %>
+          <%= f.input :frequency, :collection => [["Deep-Cleaning (GHc 150.00)", 150.00], ["Weekly (GHc 150.00)", 150.01], ["Monthly (GHc 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "Frequency", :selected => request.frequency %>
         </div>
 
       </div>
