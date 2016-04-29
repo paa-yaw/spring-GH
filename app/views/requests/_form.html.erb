@@ -56,7 +56,7 @@
       </div>
     </div>
     
-    <div class="panel-body">
+    <div class="panel-body" style="padding-top:0px;padding-bottom:0px;">
 
       <div class="col-xs-12 text-center" id="datetime" onclick="checkMonth()">
         <h4 class="form-content-label">
@@ -76,7 +76,6 @@
       </div>
       <% end %>
     </div>
-    <br>
     <div class="panel-body" style="padding-top:0px;">
        <div class="col-md-12 col-sm-12">
        <% if !client_signed_in? %>
@@ -102,10 +101,12 @@
       <div class="col-md-12 col-sm-12">
 
         <%= f.input :terms, label: "I Have Carefully Read And Fully Agree To The Terms of Service", :selected => request.terms %> 
+
       </div>
     </div>
+    <!-- </div> -->
 
-    <div class="panel-body" style="padding-bottom:20px;">
+    <div class="panel-body" style="padding:0px 0px 20px;">
 
       <div class="col-xs-12">
         <%#= f.button :button, :class => "btn-primary btn-block btn-lg", :id => "back-to-schedule" %>

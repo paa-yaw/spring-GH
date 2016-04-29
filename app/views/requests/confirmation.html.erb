@@ -51,15 +51,15 @@
                       </b>
                       <p style="text-transform:uppercase;color:#122772;"> with a service package of </p>
                       <p> 
-                      <b>
-                      <% if @request.frequency == 150.00 %>
+                        <b>
+                          <% if @request.frequency == 150.00 %>
                               Deep Cleaning
-                              <% elsif @request.frequency == 150.01 %>
+                          <% elsif @request.frequency == 150.01 %>
                               Weekly
-                              <% elsif @request.frequency == 500.00 %>
+                          <% elsif @request.frequency == 500.00 %>
                               Monthly 
-                        <% end %>
-                      </b>                  
+                          <% end %>
+                        </b>                  
                       </p>
                       <br>
                   <p style="text-transform:uppercase;color:#122772;">

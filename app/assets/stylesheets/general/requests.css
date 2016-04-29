@@ -9,6 +9,14 @@ abbr {
   display: none;
 }
 
+html {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(<%= image_path "clean_living_room.jpg" %>) no-repeat center center fixed; 
+   /* background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;*/
+   
+}
+
 .simple_form #cleanButton{
   height: 48px;
   background-color: #ffd207;
@@ -351,11 +359,19 @@ label.check_boxes.optional.control-label{
 */
 
 @media only screen and (max-device-width: 480px) {
-  html {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(<%= image_path "clean_living_room.jpg" %>) no-repeat center center fixed; 
+/*  html {
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(<%= image_path "clean_living_room.jpg" %>);
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(<%= image_path "clean_living_room.jpg" %>);
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(<%= image_path "clean_living_room.jpg" %>);
+    background-image: linear-gradient(top, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(<%= image_path "clean_living_room.jpg" %>);
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: repeat-y;
     background-size: cover;
+*/
+html{
+  background: rgba(25,41,100,0.52);
   }
-
   #pricing-bar{
     top:50px;
     background-color: rgba(25,41,100,0.89);
