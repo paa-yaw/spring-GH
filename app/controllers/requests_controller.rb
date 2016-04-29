@@ -61,7 +61,7 @@ class RequestsController < ApplicationController
           sign_in @client
           @request.client_id = @client.id
           @request.save 
-          @request.calculate_total_rooms          
+          @request.total_rooms = @request.calculate_total_rooms          
 
               # sends email notification to client after sign up 
               SendEmailJob.set(wait: 5.seconds).perform_later(@client, @secure_password)
@@ -89,6 +89,7 @@ class RequestsController < ApplicationController
     def update
       if @request.update(request_params)
         flash[:notice] = "Your request has been updated!"
+        @request.total_rooms = @request.calculate_total_rooms
         redirect_to confirmation_path(@request)
       else
         flash.now[:alert] = "An update of your request failed!"
@@ -133,6 +134,6 @@ class RequestsController < ApplicationController
 end
 
 def request_params
-  params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location, :terms)
+  params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location, :terms, :total_rooms)
 end
 end

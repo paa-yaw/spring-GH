@@ -70,9 +70,7 @@ class Request < ActiveRecord::Base
 
     # before_save :calculate_total_cost
 
-    def calculate_total_rooms
-      self.total_rooms = bedrooms + bathrooms + hall + kitchens
-    end
+    
 
 
 
@@ -103,4 +101,9 @@ class Request < ActiveRecord::Base
 	  self.update(client_id: Client.current.id)
 	end
 	
+end
+
+
+def calculate_total_rooms
+  self.total_rooms = self.bedrooms + self.bathrooms + self.hall + self.kitchens
 end
