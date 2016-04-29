@@ -105,7 +105,8 @@
     <div class="panel-body">
     <label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path %></label>
       <div class="col-md-12 col-sm-12">
-        <%= f.input :terms, label: "I Have Carefully Read And Fully Agree To The Terms of Service" %> 
+        <%= f.input :terms, :collection => [["I Have Carefully Read And Fully Agree To The Terms of Service", true]], :as => :check_boxes, :item_wrapper_class => "inline" %> 
+
       </div>
     </div>
 
