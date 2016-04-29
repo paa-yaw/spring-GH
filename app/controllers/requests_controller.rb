@@ -85,7 +85,7 @@ class RequestsController < ApplicationController
   def update
     if @request.update(request_params)
       flash[:notice] = "Your request has been updated!"
-      redirect_to @request
+      redirect_to confirmation_path(@request)
     else
       flash.now[:alert] = "An update of your request failed!"
       render 'edit'

@@ -1,25 +1,83 @@
- 					<div class="row">
- 						<div class="col-sm-10 col-sm-offset-0 form-box"> 
- 							<div class="row">
- 								<div class="col-md-11 col-md-offset-1">  
- 									<div class="panel panel-default">
- 										<div class="panel-heading">
- 										<h2>Please Review and Confirm Your Request</h2>
- 											<div class="panel-body">
- 												<p>You have booked cleaning for <span style="font-size: 20px"><%= pluralize(@request.bedrooms, "bedroom")%></span>,  <span style="font-size: 20px"><%= pluralize(@request.bathrooms, "bathroom")%></span>, <span style="font-size: 20px"><%= pluralize(@request.hall, "living room")%></span>, <span style="font-size: 20px"><%= pluralize(@request.kitchens, "kitchen") %></span> with a service package of <% if @request.frequency == 150.00 %>
- 													<span style="font-size: 20px">Deep Cleaning</span>
- 													<% elsif @request.frequency == 150.01 %>
- 													<span style="font-size: 20px">Weekly</span>
- 													<% elsif @request.frequency == 500.00 %>
- 													<span style="font-size: 20px">Monthly</span>	
- 													<% end %>, scheduled for <span style="font-size: 20px"><%= @request.date_time.strftime("%A, %d %B %Y")%></span> at <span style="font-size: 20px"><%= @request.date_time.strftime("%l %P")%></span>. Your phone number is <span style="font-size: 20px"><%= @request.client.phone_number %></span> and you are located at <span style="font-size: 20px"><%= @request.client.location %></span></p>
+<div class="container">
+      <div class="row" >
+        <div class="col-sm-6 col-sm-offset-3 text-center" id="display-request" style="margin-top:5%;">
+        
+         <div class="panel-group">
 
- 													<h3><%= link_to fa_icon("thumbs-up") + " Confirm", request_path(@request), data: {confirm: "Click Ok if you are sure of your details"}, class: "btn btn-primary" %>  <%= link_to fa_icon("pencil") + " Edit", edit_request_path(@request), :class=>"btn btn-info" %></h3>  
+           <div class="panel panel-default" >
+          <!-- Default panel contents -->
+           <div class="panel-heading" style="background:#122772;"><h2 class="panel-title text-center" style="color:#fff;padding-top:10px;padding-bottom:10px;">Please Review Your Request</h2></div>
+          
+                 <div class="panel-body">
 
- 												</div>
- 											</div>
- 										</div>
- 									</div>
- 								</div>
- 							</div>
- 						</div>
+                     <!-- <div class="well">    -->
+                    <br>
+                      <p style="text-transform:uppercase;color:#122772;">You have booked cleaning for </p>  
+                      <p>
+                      <b>
+                   <%= pluralize(@request.bedrooms, "bedroom")%>,
+                      <%= pluralize(@request.bathrooms, "bathroom")%>,
+                      <%= pluralize(@request.hall, "living room")%>, 
+                      <%= pluralize(@request.kitchens, "kitchen") %>
+                      </b>
+                       </p>
+                      <br>
+                      <p style="text-transform:uppercase;color:#122772;"> with the following extra services</p>
+                      <b>
+                      <p>
+                      <% @request.extra_services.each do |extra_services| %>
+                      <% if extra_services == 15.00 %>
+                      <p>Compound Cleaning(GHc15.00)</p>
+                      <% end %>
+
+                      <% if extra_services == 10.01 %>
+                      <p>Fridge(GHc 10.00)</p>
+                      <% end %>
+
+                      <% if extra_services == 10.00 %>
+                      <p>Storeroom(GHc 10.00)</p>
+                      <% end %>
+
+                      <% if extra_services == 40.00 %>
+                      <p>Laundry(GHc40.00)</p>
+                      <% end %>
+
+                      <% if extra_services.nil? %>
+                      <p>No Extra Services</p>
+                      <% end %>
+
+                      <% end %>
+                      </p>
+                      </b>
+                      <p style="text-transform:uppercase;color:#122772;"> with a service package of </p>
+                      <p> 
+                      <b>
+                      <% if @request.frequency == 150.00 %>
+                              Deep Cleaning
+                              <% elsif @request.frequency == 150.01 %>
+                              Weekly
+                              <% elsif @request.frequency == 500.00 %>
+                              Monthly 
+                        <% end %>
+                      </b>                  
+                      </p>
+                      <br>
+                  <p style="text-transform:uppercase;color:#122772;">
+                      scheduled for </p>
+    <p><b> <%= @request.date_time.strftime("%A, %d %B %Y")%> at <%= @request.date_time.strftime("%l %P")%>.</b></p>
+    <br>
+    <p style="text-transform:uppercase;color:#122772;"> Your phone number is </p>
+    <p><b> <%= @request.client.phone_number %></b> </p>
+    <br>
+    <p style="text-transform:uppercase;color:#122772;">  you are located at </p>
+    <p><b> <%= @request.client.location %></b></p>
+                      <!-- </div> -->
+                      <h3><%= link_to fa_icon("thumbs-up") + " Confirm", request_path(@request), data: {confirm: "Click Ok if you are sure of your details"}, class: "btn btn-primary" %>  <%= link_to fa_icon("pencil") + " Edit", edit_request_path(@request), :class=>"btn btn-info" %></h3>  
+                  </div>
+
+                </div>
+              </div>
+
+    </div>
+  </div>
+</div>
