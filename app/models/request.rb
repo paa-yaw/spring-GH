@@ -68,6 +68,12 @@ class Request < ActiveRecord::Base
       end
     end
 
+    # before_save :calculate_total_cost
+
+    # def calculate_total_rooms
+    #   self.total_rooms = bedrooms + bathrooms + hall + kitchens
+    # end
+
 
 
 
