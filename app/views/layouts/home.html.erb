@@ -14,7 +14,7 @@
 
 <body class="landing">
  <% flash.each do |key, message| %>
-  <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%;" class="well well-sm well-primary text-center" id="flashmessage"><%= message %></p>
+  <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%;background:#EFF1F3; color:#4C5454; border:#4C5454;" class="well well-sm well-primary text-center" id="flashmessage"><%= message %></p>
  <% end %>
    <%= yield %>
 <script>
