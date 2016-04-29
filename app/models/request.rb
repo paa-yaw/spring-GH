@@ -5,7 +5,7 @@ class Request < ActiveRecord::Base
 	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, presence: true
   validates :phone_number, format: { with: /\A[-+]?[0-9]*\.?[0-9]+\Z/, message: "only allows numbers" }, allow_blank: true
   validates_format_of :email,:with => Devise::email_regexp, allow_blank: true
-  validates :terms, presence: true
+  validate :terms_of_service
   validate :weekday_array_cannot_be_empty
   validate :restrict_selection
   validate :forbidden_dates
@@ -61,6 +61,18 @@ class Request < ActiveRecord::Base
             corresponds with one of the selected days")  
       end
     end
+
+    def terms_of_service
+      if terms == false
+        errors.add(:terms, "you have to agree to our terms before you proceed.")
+      end
+    end
+
+    # before_save :calculate_total_cost
+
+    # def calculate_total_rooms
+    #   self.total_rooms = bedrooms + bathrooms + hall + kitchens
+    # end
 
 
 
