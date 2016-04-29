@@ -60,7 +60,8 @@ class RequestsController < ApplicationController
           @client.save
           sign_in @client
           @request.client_id = @client.id
-          @request.save           
+          @request.save 
+          @request.calculate_total_rooms          
 
               # sends email notification to client after sign up 
               SendEmailJob.set(wait: 5.seconds).perform_later(@client, @secure_password)
