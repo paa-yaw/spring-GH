@@ -1,8 +1,25 @@
-Please Review and Confirm Your Request
- <p>You have booked cleaning for <%= pluralize(@request.bedrooms, "bedroom")%>, <%= pluralize(@request.bathrooms, "bathroom")%>, <%= pluralize(@request.hall, "living room")%>, <%= pluralize(@request.kitchens, "kitchen") %> with a service package of <% if @request.frequency == 150.00 %>
- 					Deep Cleaning
- 					<% elsif @request.frequency == 150.01 %>
- 					Weekly
- 					<% elsif @request.frequency == 500.00 %>
- 					Monthly	
- 					<% end %>, scheduled for <%= @request.date_time.strftime("%A, %d %B %Y")%> at <%= @request.date_time.strftime("%l %P")%>. Your phone number is <%= @request.client.phone_number %> and you are located at <%= @request.client.location %></p>
+ 					<div class="row">
+ 						<div class="col-sm-10 col-sm-offset-0 form-box"> 
+ 							<div class="row">
+ 								<div class="col-md-11 col-md-offset-1">  
+ 									<div class="panel panel-default">
+ 										<div class="panel-heading">
+ 										<h2>Please Review and Confirm Your Request</h2>
+ 											<div class="panel-body">
+ 												<p>You have booked cleaning for <span style="font-size: 20px"><%= pluralize(@request.bedrooms, "bedroom")%></span>,  <span style="font-size: 20px"><%= pluralize(@request.bathrooms, "bathroom")%></span>, <span style="font-size: 20px"><%= pluralize(@request.hall, "living room")%></span>, <span style="font-size: 20px"><%= pluralize(@request.kitchens, "kitchen") %></span> with a service package of <% if @request.frequency == 150.00 %>
+ 													<span style="font-size: 20px">Deep Cleaning</span>
+ 													<% elsif @request.frequency == 150.01 %>
+ 													<span style="font-size: 20px">Weekly</span>
+ 													<% elsif @request.frequency == 500.00 %>
+ 													<span style="font-size: 20px">Monthly</span>	
+ 													<% end %>, scheduled for <span style="font-size: 20px"><%= @request.date_time.strftime("%A, %d %B %Y")%></span> at <span style="font-size: 20px"><%= @request.date_time.strftime("%l %P")%></span>. Your phone number is <span style="font-size: 20px"><%= @request.client.phone_number %></span> and you are located at <span style="font-size: 20px"><%= @request.client.location %></span></p>
+
+ 													<h3><%= link_to fa_icon("thumbs-up") + " Confirm", request_path(@request), data: {confirm: "Click Ok if you are sure of your details"}, class: "btn btn-primary" %>  <%= link_to fa_icon("pencil") + " Edit", edit_request_path(@request), :class=>"btn btn-info" %></h3>  
+
+ 												</div>
+ 											</div>
+ 										</div>
+ 									</div>
+ 								</div>
+ 							</div>
+ 						</div>

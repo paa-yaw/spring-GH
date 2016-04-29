@@ -33,7 +33,7 @@ class RequestsController < ApplicationController
           NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient)
         end
 
-        redirect_to display_request_path(@request)
+        redirect_to confirmation_path(@request)
       else
         flash.now[:alert] = "Your request failed. Please submit it again."
         render 'new'
