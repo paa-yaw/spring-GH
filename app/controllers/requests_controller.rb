@@ -33,7 +33,7 @@ class RequestsController < ApplicationController
           NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient)
         end
 
-        redirect_to display_request_path(@request)
+        redirect_to confirmation_path(@request)
       else
         flash.now[:alert] = "Your request failed. Please submit it again."
         render 'new'
@@ -85,7 +85,7 @@ class RequestsController < ApplicationController
   def update
     if @request.update(request_params)
       flash[:notice] = "Your request has been updated!"
-      redirect_to @request
+      redirect_to confirmation_path(@request)
     else
       flash.now[:alert] = "An update of your request failed!"
       render 'edit'
