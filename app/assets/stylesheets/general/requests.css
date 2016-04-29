@@ -289,7 +289,7 @@ div.panel.panel-default{
 
 div.panel.panel-info{
   background-color: #fff;
-  border: solid 1px rgba(25,41,100,0.4);
+  border: solid 1px rgba(25,41,100,0.8);
 }
 
 div.panel.panel-info > div.panel-heading{
@@ -351,6 +351,9 @@ label.check_boxes.optional.control-label{
 */
 
 @media only screen and (max-device-width: 480px) {
+  html {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(<%= image_path "clean_living_room.jpg" %>) no-repeat center center fixed; 
+  }
 
   #pricing-bar{
     top:50px;
@@ -381,7 +384,7 @@ label.check_boxes.optional.control-label{
 
   #navExtraRoomPrice, #navExtraServicePrice{
     color: #fff;
-  }
+    }
 
   #navPricingValue{
     color: #119822;
