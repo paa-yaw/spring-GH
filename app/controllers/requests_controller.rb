@@ -26,7 +26,7 @@ class RequestsController < ApplicationController
       @request = current_client.requests.new(request_params)
 
       if @request.save
-        flash[:notice] = "#{current_client.email}, your request has been made!"
+        flash[:notice] = "#{current_client.email}, your just placed a request!"
         
         # sends email to admin after a logged in client places a request
         Client.where(admin: true).each do |recipient|
@@ -40,95 +40,98 @@ class RequestsController < ApplicationController
       end
 
     else   
+
       @request = Request.new(request_params)
       if @request.email == "" || @request.phone_number == "" || @request.location == ""
-         flash.now[:alert] = "you left out your email, location or number."
-         render 'new'
+       flash.now[:alert] = "you left out your email, location or number."
+       render 'new'
       elsif @request.email != "" && @request.phone_number != "" && @request.location != "" 
-          @client = Client.new
-          @client.email = @request.email
-          @client.phone_number = @request.phone_number
-          @client.location = @request.location
-          @secure_password = SecureRandom.hex(5)
-          @client.password = @secure_password
-          @client.admin = false
-          @client.first_name = "#{@client.email}"
-          @client.last_name = "last name"
-          if @request.save
-            @client.save
-            sign_in @client
-            @request.client_id = @client.id
-            @request.save           
-            
-            # sends email notification to client after sign up 
-            SendEmailJob.set(wait: 5.seconds).perform_later(@client, @secure_password)
+      @client = Client.new
+      @client.email = @request.email
+      @client.phone_number = @request.phone_number
+      @client.location = @request.location
+      @secure_password = SecureRandom.hex(5)
+      @client.password = @secure_password
+      @client.admin = false
+      @client.first_name = "#{@client.email}"
+      @client.last_name = "last name"
 
-             # sends email notification to admin after client sign up
-             Client.where(admin: true).each do |recipient|
-              NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient, @client)
-            end
+        if @request.save
+          @client.save
+          sign_in @client
+          @request.client_id = @client.id
+          @request.save           
 
-            redirect_to confirmation_path(@request)
-          else  
-            flash.now[:alert] = "something went wrong. Kindly make sure you complete the form before submitting."
-            render 'new'
-          end
+              # sends email notification to client after sign up 
+              SendEmailJob.set(wait: 5.seconds).perform_later(@client, @secure_password)
+
+               # sends email notification to admin after client sign up
+               Client.where(admin: true).each do |recipient|
+                NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient, @client)
+              end
+
+          flash[:notice] = "Hi #{current_client.email}, Welcome to Spring"
+          redirect_to confirmation_path(@request)              
+      else  
+        flash.now[:alert] = "something went wrong. Kindly make sure you complete the form before submitting."
+        render 'new'
       end
-
-
     end
-  end 
 
-  def edit
-  end 
 
-  def update
-    if @request.update(request_params)
-      flash[:notice] = "Your request has been updated!"
-      redirect_to confirmation_path(@request)
-    else
-      flash.now[:alert] = "An update of your request failed!"
-      render 'edit'
+      end
+    end 
+
+    def edit
+    end 
+
+    def update
+      if @request.update(request_params)
+        flash[:notice] = "Your request has been updated!"
+        redirect_to confirmation_path(@request)
+      else
+        flash.now[:alert] = "An update of your request failed!"
+        render 'edit'
+      end
+    end 
+
+    def destroy
+      @request.destroy
+      flash[:notice] = "request has been deleted."
+      redirect_to new_request_path 
     end
-  end 
-
-  def destroy
-    @request.destroy
-    flash[:notice] = "request has been deleted."
-    redirect_to new_request_path 
-  end
 
 
 
-  def edit_request
-  end
+    def edit_request
+    end
 
-  def add
-    @request.add
-    flash[:notice] = "this request has been added to your account."
-    redirect_to @request
-  end
+    def add
+      @request.add
+      flash[:notice] = "this request has been added to your account."
+      redirect_to @request
+    end
 
-  def display_request
-  end
+    def display_request
+    end
 
-  def confirmation
-  end
+    def confirmation
+    end
 
-  def my_requests
-    @my_requests = current_client.requests.all
-    @worker = Worker.all
-  end
+    def my_requests
+      @my_requests = current_client.requests.all
+      @worker = Worker.all
+    end
 
-  private   
+    private   
 
-  def set_request
-    @request = Request.find(params[:id])
+    def set_request
+      @request = Request.find(params[:id])
   # rescue ActiveRecord::RecordNotFound
   #   redirect_to errors_not_found_path
-  end
+end
 
-  def request_params
-    params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location)
-  end
+def request_params
+  params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location)
+end
 end
