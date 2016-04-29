@@ -1,1 +1,8 @@
-confirmation page
+Please Review and Confirm Your Request
+ <p>You have booked cleaning for <%= pluralize(@request.bedrooms, "bedroom")%>, <%= pluralize(@request.bathrooms, "bathroom")%>, <%= pluralize(@request.hall, "living room")%>, <%= pluralize(@request.kitchens, "kitchen") %> with a service package of <% if @request.frequency == 150.00 %>
+ 					Deep Cleaning
+ 					<% elsif @request.frequency == 150.01 %>
+ 					Weekly
+ 					<% elsif @request.frequency == 500.00 %>
+ 					Monthly	
+ 					<% end %>, scheduled for <%= @request.date_time.strftime("%A, %d %B %Y")%> at <%= @request.date_time.strftime("%l %P")%>. Your phone number is <%= @request.client.phone_number %> and you are located at <%= @request.client.location %></p>
