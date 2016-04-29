@@ -141,16 +141,19 @@ function checkSchedule() {
 
   var a = document.getElementById('request_frequency_1500');
   if(a.checked == true) {
-    schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose a day)</i>";
+    // schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose a day)</i>";
+    document.getElementById('days').parentNode.style.display = 'none';
   }
   
   var b = document.getElementById('request_frequency_15001');
   if(b.checked == true) {
+    document.getElementById('days').parentNode.style.display = 'block';
     schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
   }
 
   var c = document.getElementById('request_frequency_5000');
   if(c.checked == true) {
+    document.getElementById('days').parentNode.style.display = 'block';
     schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days. The 3 days selected is repetitive throughout the month.)</i>";
   }
 }
