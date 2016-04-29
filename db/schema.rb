@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429143324) do
+
+ActiveRecord::Schema.define(version: 20160429153431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,10 +75,17 @@ ActiveRecord::Schema.define(version: 20160429143324) do
     t.string   "phone_number"
     t.text     "location"
     t.decimal  "frequency",          precision: 6,  scale: 2
+<<<<<<< HEAD
     t.boolean  "terms",                                       default: false
     t.decimal  "total_cost",         precision: 10, scale: 2
     t.integer  "total_rooms"
     t.decimal  "extra_services_sum", precision: 10, scale: 2
+=======
+    t.decimal  "total_cost",         precision: 10, scale: 2
+    t.integer  "total_rooms"
+    t.decimal  "extra_services_sum", precision: 10, scale: 2
+    t.boolean  "terms",                                       default: false
+>>>>>>> staging
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree

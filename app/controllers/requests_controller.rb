@@ -133,6 +133,6 @@ class RequestsController < ApplicationController
 end
 
 def request_params
-  params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location)
+  params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location, :terms)
 end
 end

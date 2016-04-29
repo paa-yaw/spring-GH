@@ -11,8 +11,6 @@
         <% end %>
       </div>
       <div class="panel-body">
-
-
         <div onchange="calculatePricing()"> 
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
           <label>Bedrooms</label>
@@ -43,12 +41,9 @@
 
       <div class="panel-body" style="padding-top:0px;">
        <div  onchange="calculatePricing()">
-
          <div class="col-md-12 col-sm-12" id="frequency">
-
           <%= f.input :frequency, :collection => [["Deep-Cleaning (GHc 150.00)", 150.00], ["Weekly (GHc 150.00)", 150.01], ["Monthly (GHc 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "Frequency", :selected => request.frequency %>
         </div>
-
       </div>
     </div>
 
@@ -105,8 +100,8 @@
     <div class="panel-body">
     <label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path %></label>
       <div class="col-md-12 col-sm-12">
-        <%= f.input :terms, :collection => [["I Have Carefully Read And Fully Agree To The Terms of Service", true]], :as => :check_boxes, :item_wrapper_class => "inline" %> 
 
+        <%= f.input :terms, label: "I Have Carefully Read And Fully Agree To The Terms of Service", :selected => request.terms %> 
       </div>
     </div>
 
@@ -124,6 +119,7 @@
   </div>
 </div>
 </div>
+
 </div>
 <% end %>
 
