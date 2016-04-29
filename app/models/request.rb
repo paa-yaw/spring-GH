@@ -2,7 +2,7 @@ class Request < ActiveRecord::Base
 	belongs_to :client, counter_cache: true
 	has_and_belongs_to_many :workers
 
-	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
+	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, presence: true
   validates :phone_number, format: { with: /\A[-+]?[0-9]*\.?[0-9]+\Z/, message: "only allows numbers" }, allow_blank: true
   validates_format_of :email,:with => Devise::email_regexp, allow_blank: true
   validate :weekday_array_cannot_be_empty
