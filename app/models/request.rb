@@ -5,7 +5,7 @@ class Request < ActiveRecord::Base
 	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, presence: true
   validates :phone_number, format: { with: /\A[-+]?[0-9]*\.?[0-9]+\Z/, message: "only allows numbers" }, allow_blank: true
   validates_format_of :email,:with => Devise::email_regexp, allow_blank: true
-  validates :terms, presence: true
+  validate :terms_of_service
   validate :weekday_array_cannot_be_empty
   validate :restrict_selection
   validate :forbidden_dates
@@ -59,6 +59,12 @@ class Request < ActiveRecord::Base
       elsif frequency == 500.00 &&  weekdays.exclude?(date_time.strftime("%A")) && date_time.year == Time.now.year 
           errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}. Please choose a day that
             corresponds with one of the selected days")  
+      end
+    end
+
+    def terms_of_service
+      if terms == false
+        errors.add(:terms, "you have to agree to our terms before you proceed.")
       end
     end
 
