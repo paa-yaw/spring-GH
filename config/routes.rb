@@ -110,9 +110,11 @@ Rails.application.routes.draw do
 
   get 'requests/:id/confirmation', to: 'requests#confirmation', as: :confirmation
 
+
   get '/.well-known/acme-challenge/:id' => 'home#letsencrypt'
 
   get 'faq/q_and_a', to: 'faq#q_and_a', as: :q_and_a
+  get 'faq/terms_of_service', to: 'faq#terms_of_service', as: :terms_of_service
   
 
   # get 'move/', to: 'admin/workers#move', as: :move

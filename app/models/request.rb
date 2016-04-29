@@ -5,6 +5,7 @@ class Request < ActiveRecord::Base
 	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, presence: true
   validates :phone_number, format: { with: /\A[-+]?[0-9]*\.?[0-9]+\Z/, message: "only allows numbers" }, allow_blank: true
   validates_format_of :email,:with => Devise::email_regexp, allow_blank: true
+  validate :terms, presence: true
   validate :weekday_array_cannot_be_empty
   validate :restrict_selection
   validate :forbidden_dates
