@@ -1,8 +1,36 @@
-Please Review and Confirm Your Request
- <p>You have booked cleaning for <%= pluralize(@request.bedrooms, "bedroom")%>, <%= pluralize(@request.bathrooms, "bathroom")%>, <%= pluralize(@request.hall, "living room")%>, <%= pluralize(@request.kitchens, "kitchen") %> with a service package of <% if @request.frequency == 150.00 %>
- 					Deep Cleaning
- 					<% elsif @request.frequency == 150.01 %>
- 					Weekly
- 					<% elsif @request.frequency == 500.00 %>
- 					Monthly	
- 					<% end %>, scheduled for <%= @request.date_time.strftime("%A, %d %B %Y")%> at <%= @request.date_time.strftime("%l %P")%>. Your phone number is <%= @request.client.phone_number %> and you are located at <%= @request.client.location %></p>
+<div class="container" >
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 text-center" id="display-request">
+        
+         <div class="panel-group">
+
+           <div class="panel panel-default" >
+          <!-- Default panel contents -->
+           <div class="panel-heading" style="background:#122772;"><h2 class="panel-title text-center" style="color:#fff;padding-top:10px;padding-bottom:10px;">Please Review & Confirm Your Request</h2></div>
+          
+                 <div class="panel-body">
+
+                     <div class="well">   
+
+                      <p>You have booked cleaning for: <br> 
+                      <%= pluralize(@request.bedrooms, "bedroom")%>,
+                      <%= pluralize(@request.bathrooms, "bathroom")%>,
+                      <%= pluralize(@request.hall, "living room")%>, 
+                      <%= pluralize(@request.kitchens, "kitchen") %> <br> with a service package of <br>
+  <% if @request.frequency == 150.00 %>
+          Deep Cleaning
+          <% elsif @request.frequency == 150.01 %>
+          Weekly
+          <% elsif @request.frequency == 500.00 %>
+          Monthly 
+    <% end %>, <br>scheduled for <br> <%= @request.date_time.strftime("%A, %d %B %Y")%> at <%= @request.date_time.strftime("%l %P")%>. <br> Your phone number is <br> <%= @request.client.phone_number %> <br>  and you are located at <br> <%= @request.client.location %>
+    </p>
+                      </div>
+                  </div>
+
+                </div>
+              </div>
+
+    </div>
+  </div>
+</div>
