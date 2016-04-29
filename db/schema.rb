@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429001920) do
+ActiveRecord::Schema.define(version: 20160429131626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160429001920) do
     t.string   "phone_number"
     t.text     "location"
     t.decimal  "frequency",      precision: 6, scale: 2
+    t.boolean  "terms",                                  default: false
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
