@@ -1,6 +1,6 @@
 <div class="container">
       <div class="row" >
-        <div class="col-sm-6 col-sm-offset-3 text-center" id="display-request" style="margin-top:5%;">
+        <div class="col-sm-6 col-sm-offset-3 text-center" id="display-request" style="margin-top:4%;">
         
          <div class="panel-group">
 
@@ -72,12 +72,13 @@
     <p style="text-transform:uppercase;color:#122772;">  you are located at </p>
     <p><b> <%= @request.client.location %></b></p>
                       <!-- </div> -->
-                      <h3><%= link_to fa_icon("thumbs-up") + " Confirm", request_path(@request), data: {confirm: "Click Ok if you are sure of your details"}, class: "btn btn-primary" %>  <%= link_to fa_icon("pencil") + " Edit", edit_request_path(@request), :class=>"btn btn-info" %></h3>  
-                  </div>
+    <hr>
+      <h3><%= link_to fa_icon("thumbs-up") + " Confirm", request_path(@request), data: {confirm: "Click Ok if you are sure of your details"}, class: "btn btn-primary" %>  <%= link_to fa_icon("pencil") + " Edit", edit_request_path(@request), :class=>"btn btn-info" %>
+      </h3>  
 
-                </div>
-              </div>
-
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
