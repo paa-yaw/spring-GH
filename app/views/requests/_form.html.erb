@@ -97,10 +97,11 @@
     </div>
 
     <div class="panel-body">
-      <div class="col-md-12 col-sm-12" style="padding-left:36px;">
-    
-      <label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path %></label>
-      <%= f.input :terms, label: "I Have Carefully Read And Fully Agree To The Terms of Service" %> 
+    <label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path %></label>
+      <div class="col-md-12 col-sm-12">
+
+        <%= f.input :terms, label: "I Have Carefully Read And Fully Agree To The Terms of Service", :selected => request.terms %> 
+
       </div>
     </div>
     <!-- </div> -->

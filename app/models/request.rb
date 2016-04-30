@@ -68,11 +68,47 @@ class Request < ActiveRecord::Base
       end
     end
 
-    # before_save :calculate_total_cost
+   
 
-    # def calculate_total_rooms
-    #   self.total_rooms = bedrooms + bathrooms + hall + kitchens
-    # end
+    def business_algorithm
+       rooms = self.bedrooms + self.bathrooms + self.hall + self.kitchens
+       extra_services = 0
+       a = self.extra_services.length.to_i - 1 
+
+       for i in 0...a
+         extra_services += self.extra_services[i].to_i 
+       end
+
+       one_off_package = 150.00
+       weekly_package = 150.01
+       monthly_package = 500.00
+
+       if self.frequency == one_off_package
+          total = one_off_package + (rooms - 4)*5 + extra_services
+          write_attribute(:total_cost, total)
+          write_attribute(:total_rooms, rooms)
+          save
+       elsif self.frequency == weekly_package
+          total = weekly_package + (rooms - 4)*5 + extra_services
+          write_attribute(:total_cost, total)
+          write_attribute(:total_rooms, rooms)
+          save
+       elsif self.frequency == monthly_package
+         if rooms > 8
+          total = monthly_package + (rooms - 8)*5 + extra_services
+          write_attribute(:total_cost, total)
+          write_attribute(:total_rooms, rooms)
+          save
+         elsif rooms <= 8
+         total = monthly_package + extra_services
+         write_attribute(:total_cost, total)
+         write_attribute(:total_rooms, rooms)
+         save
+         end                              
+       end 
+    end
+
+
 
 
 

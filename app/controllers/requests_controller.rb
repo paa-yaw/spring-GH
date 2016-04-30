@@ -27,6 +27,8 @@ class RequestsController < ApplicationController
 
       if @request.save
         flash[:notice] = "#{current_client.email}, your just placed a request!"
+        @request.business_algorithm          
+
         
         # sends email to admin after a logged in client places a request
         Client.where(admin: true).each do |recipient|
@@ -60,7 +62,8 @@ class RequestsController < ApplicationController
           @client.save
           sign_in @client
           @request.client_id = @client.id
-          @request.save           
+          @request.save 
+          @request.business_algorithm          
 
               # sends email notification to client after sign up 
               SendEmailJob.set(wait: 5.seconds).perform_later(@client, @secure_password)
@@ -88,6 +91,7 @@ class RequestsController < ApplicationController
     def update
       if @request.update(request_params)
         flash[:notice] = "Your request has been updated!"
+        @request.business_algorithm
         redirect_to confirmation_path(@request)
       else
         flash.now[:alert] = "An update of your request failed!"
@@ -127,11 +131,11 @@ class RequestsController < ApplicationController
 
     def set_request
       @request = Request.find(params[:id])
-  # rescue ActiveRecord::RecordNotFound
-  #   redirect_to errors_not_found_path
+  rescue ActiveRecord::RecordNotFound
+    redirect_to errors_not_found_path
 end
 
 def request_params
-  params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location, :terms)
+  params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location, :terms, :total_rooms, :total_cost)
 end
 end
