@@ -67,6 +67,8 @@
     <br>
     <p style="text-transform:uppercase;color:#122772;">  you are located at </p>
     <p><b> <%= @request.client.location %></b></p>
+    <p style="text-transform:uppercase;color:#122772;">  Your Total Cost is </p>
+    <p><b> <%= @request.total_cost %></b></p>
                       <!-- </div> -->
     <hr>
       <h3><%= link_to fa_icon("thumbs-up") + " Confirm", request_path(@request), data: {confirm: "Click Ok if you are sure of your details"}, class: "btn btn-primary" %>  <%= link_to fa_icon("pencil") + " Edit", edit_request_path(@request), :class=>"btn btn-info" %>

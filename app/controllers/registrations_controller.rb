@@ -27,6 +27,12 @@ class RegistrationsController < Devise::RegistrationsController
           new_request_path
         end  	  	
   end
+
+  def after_update_path_for(resource)
+    if current_client
+      new_request_path
+    end
+  end
 end
 
 
