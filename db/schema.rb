@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429143324) do
+ActiveRecord::Schema.define(version: 20160501222129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20160429143324) do
     t.integer  "requests_count"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "referral_code"
+    t.string   "referrer_code"
   end
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
@@ -57,6 +59,30 @@ ActiveRecord::Schema.define(version: 20160429143324) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "referrals", force: :cascade do |t|
+    t.string   "code"
+    t.string   "email"
+    t.string   "referrer_id"
+    t.integer  "client_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "referrals", ["client_id"], name: "index_referrals_on_client_id", using: :btree
+
+  create_table "reports", force: :cascade do |t|
+    t.integer  "worker_id"
+    t.integer  "client_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.datetime "date"
+    t.text     "event"
+    t.boolean  "sign",       default: false
+  end
+
+  add_index "reports", ["client_id"], name: "index_reports_on_client_id", using: :btree
+  add_index "reports", ["worker_id"], name: "index_reports_on_worker_id", using: :btree
+
   create_table "requests", force: :cascade do |t|
     t.datetime "created_at",                                                         null: false
     t.datetime "updated_at",                                                         null: false
@@ -68,16 +94,16 @@ ActiveRecord::Schema.define(version: 20160429143324) do
     t.integer  "kitchens",                                    default: 0
     t.integer  "hall",                                        default: 0
     t.string   "weekdays",                                    default: [],                        array: true
-    t.string   "extra_services",                              default: [],                        array: true
+    t.decimal  "extra_services",                              default: [],                        array: true
     t.string   "status",                                      default: "unresolved"
     t.string   "email"
     t.string   "phone_number"
     t.text     "location"
     t.decimal  "frequency",          precision: 6,  scale: 2
-    t.boolean  "terms",                                       default: false
     t.decimal  "total_cost",         precision: 10, scale: 2
     t.integer  "total_rooms"
     t.decimal  "extra_services_sum", precision: 10, scale: 2
+    t.boolean  "terms",                                       default: false
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
@@ -119,6 +145,9 @@ ActiveRecord::Schema.define(version: 20160429143324) do
     t.boolean  "assigned",     default: false
   end
 
+  add_foreign_key "referrals", "clients"
+  add_foreign_key "reports", "clients"
+  add_foreign_key "reports", "workers"
   add_foreign_key "requests", "clients"
   add_foreign_key "reviews", "clients"
   add_foreign_key "reviews", "workers"

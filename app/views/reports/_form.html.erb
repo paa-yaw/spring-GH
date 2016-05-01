@@ -1,0 +1,7 @@
+<%= simple_form_for([@worker, @worker.reports.build]) do |f| %>
+  <%= f.input :date %>
+  <%= f.input :event %>
+  <%= f.input :sign %>
+
+  <%= f.button :submit %>
+<% end %>

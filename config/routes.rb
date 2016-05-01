@@ -101,6 +101,7 @@ Rails.application.routes.draw do
 
   resources :workers, only: [:index, :show] do
     resources :reviews
+    resources :reports
   end
 
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
