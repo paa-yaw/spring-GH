@@ -1,84 +1,68 @@
-<section id="main-content">
-          <section class="wrapper">
-      <div class="row">
-      </div>
-      <div class="col-md-10">
-              <div class="row">
-                <!-- profile-widget -->
-              </div>
-              <!-- page start-->
-              <div class="row">
-                 <div class="col-lg-12">
-                    <section class="panel">
-                          <div class="panel-body">
-                              <div class="tab-content">
-                                                                    <!-- profile -->
-                                  <div id="profile" class="tab-pane active">
-                                    <section class="panel">
-                                      <div class="bio-graph-heading">
-                                      Hello, <%= current_client.first_name %>, we have assigned <%= @worker.first_name %> <%= @worker.last_name %> to your request. He will be with you shortly. Checkout <%= @worker.first_name %>'s below.
-                                      </div>
-                                      <div class="panel-body bio-graph-info">
-                                          <div class="row">
-                                              <div class="bio-row">
-                                                  <p><span>First Name: </span><%= @worker.first_name %></p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Education:</span> <%= @worker.education %></p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Last Name: </span> <%= @worker.last_name %></p>
-                                              </div>                                              
-                                              <div class="bio-row">
-                                                  <p><span>Work Experience: </span><%= @worker.experience %></p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Sex:</span>  <%= @worker.sex %></p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Email: </span>hello@springgh.com</p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Age:</span><%= @worker.age %></p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Phone: </span>020-061-0307</p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Remarks: </span> very hardworking</p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Ratings: </span><div class="star-rating" data-score= <%= @average_rating %>></div></p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                    </section>
-                                      <section>
-                                          <div class="row">                                              
-                                          </div>
-                                      </section>
-                                  </div>
+<div class="container-fluid">            
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+              
+         <div class="panel panel-info">
+            <div class="panel-heading">
+              <h2 class="panel-title text-center" style="color:#fff;">Assigned Worker</h2>
+            </div>
+              <div class="panel-body">
+              <div id="profile" class="tab-pane active">
 
-                              </div>
+                <section class="panel">
+                  <div style="color:#122772;">
+                  Hello <%= current_client.first_name %>, <strong><%= @worker.first_name %> <%= @worker.last_name %></strong> has been assigned to your request and will arrive at your location shortly. <br> Here is <%= @worker.first_name %>'s bio below:
+                  </div>
+                  <!-- </div> -->
+                  <div class="panel-body bio-graph-info">
+                      <div class="row">
+                          <div class="bio-row">
+                              <p><span><b>First Name:</b> </span><%= @worker.first_name %></p>
                           </div>
-                      </section>
-                 </div>
+                          <div class="bio-row">
+                              <p><span><b>Education:</b></span> <%= @worker.education %></p>
+                          </div>
+                          <div class="bio-row">
+                              <p><span><b>Last Name:</b> </span> <%= @worker.last_name %></p>
+                          </div>                                              
+                          <div class="bio-row">
+                              <p><span><b>Work Experience:</b> </span><%= @worker.experience %></p>
+                          </div>
+                          <div class="bio-row">
+                              <p><span><b>Sex:</b></span>  <%= @worker.sex %></p>
+                          </div>
+                          <div class="bio-row">
+                              <p><span><b>Email:</b></span>hello@springgh.com</p>
+                          </div>
+                          <div class="bio-row">
+                              <p><span><b>Age:</b></span><%= @worker.age %></p>
+                          </div>
+                          <div class="bio-row">
+                              <p><span><b>Phone:</b></span>020-061-0307</p>
+                          </div>
+                          <div class="bio-row">
+                              <p><span><b>Remarks:</b> </span> very hardworking</p>
+                          </div>
+                          <div class="bio-row">
+                              <p><span><b>Ratings:</b></span><div class="star-rating" data-score= <%= @average_rating %>></div></p>
+                          </div>
+                      </div>
+                  </div>
+                </section>
               </div>
               </div>
+          </div>
 
-              <!-- page end-->
-          </section>
-      </section>
-      
-      <div class="row">
-        <div class="col-lg-4 col-lg-offset-4 col-xs-12">
-          <section class="panel">
+          <section class="panel"  style="border: solid 1px #122772;">
             <div class="panel-body">
                   <%= render "reviews/form" %>
             </div>
           </section>
-        </div>
-      </div>
+                
+     </div>
+  </div>
+ </div>
+</div>
 
 
 
