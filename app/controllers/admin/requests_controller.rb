@@ -37,6 +37,7 @@ class Admin::RequestsController < Admin::ApplicationController
 
   def update
     if @request.update(request_params)
+      @request.business_algorithm
       flash[:notice] = "Your request has been updated!"
       redirect_to [:admin, @client, @request]
     else

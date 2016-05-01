@@ -33,6 +33,7 @@ class RegistrationsController < Devise::RegistrationsController
       new_request_path
     end
   end
+  
 end
 
 
