@@ -12,15 +12,18 @@ class Request < ActiveRecord::Base
   validate :day_and_date_match
 
     def weekday_array_cannot_be_empty
-      if weekdays == [""]
-      	errors.add(:weekdays, "please choose a day")
-      end      
+      if frequency == 150.00
+      elsif frequency == 150.01 || frequency == 500.00
+        if weekdays == [""]
+        	errors.add(:weekdays, "please choose a day")
+        end  
+      end    
     end
 
     def restrict_selection
-      if frequency == 150.00 && weekdays.length > 2
-      	errors.add(:weekdays, "You can only choose one day for Deep-Cleaning package")
-      elsif frequency == 150.01 && weekdays.length > 4
+      # if frequency == 150.00 && weekdays.length > 2
+      # 	errors.add(:weekdays, "You can only choose one day for Deep-Cleaning package")
+      if frequency == 150.01 && weekdays.length > 4
       	errors.add(:weekdays, "You can't choose more than 3 days for weekly package.")
       elsif frequency ==500.00 && weekdays.length > 4
       	errors.add(:weekdays, "You can't choose more than 3 days for Monthly package")
@@ -50,9 +53,7 @@ class Request < ActiveRecord::Base
     end
 
     def day_and_date_match
-      if frequency == 150.00 && weekdays[0] != date_time.strftime("%A") && date_time.year == Time.now.year 
-          errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}, 
-            but you chose #{weekdays[0]} ")
+      if frequency == 150.00
       elsif frequency == 150.01 && weekdays.exclude?(date_time.strftime("%A")) && date_time.year == Time.now.year 
           errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}. Please choose a day that
             corresponds with one of the selected days")
