@@ -1,17 +1,22 @@
 <%= simple_form_for([@worker, @worker.reviews.build]) do |f| %>
-  <label>Rate <%= @worker.first_name %></label>
+
+<div class="text-center">
+      <h3 class="text-center" style="color:#122772;">Rate <%= @worker.first_name %></h3>
+    <!-- </div> -->
+  <!-- <label>Rate <%= @worker.first_name %></label> -->
   <p><div id="star-rating"></div></p>
   <p><%= f.input :comment, label: "How Do You Feel About #{@worker.first_name}'s work?" %></p>
 
   <div class="actions">
-  	<%= f.button :submit, "Post Your Review", class: "btn btn-primary" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
+    <%= f.button :submit, "Post Your Review", class: "btn btn-primary" %> <%= link_to "Back", :back, :class => "btn btn-danger" %>
   </div>
+</div>
 <% end %>
 
 
 <script>
   $('#star-rating').raty({
-  	path: '/assets/',
-  	scoreName: 'review[rating]'
+    path: '/assets/',
+    scoreName: 'review[rating]'
   });
 </script> 
