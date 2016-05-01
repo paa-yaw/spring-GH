@@ -118,6 +118,11 @@ body{
   background-color: none!important;
 }
 
+.spring-brand{
+  float: left;
+  width: 73px;
+}
+
 select{
   height: 45px;
   background: #fff;
@@ -229,7 +234,7 @@ span.checkbox.inline{
 }
 
 img.img-responsive{
-  width: 6%;
+  width: 100%;
   margin-left: 20px;
 }
 
@@ -414,7 +419,7 @@ html{
   /*--MOBILE NAVBAR CONTENT PRICING END-- */
 
   img.img-responsive{
-    width: 22%;
+    width: 100%;
   }
 
   nav#navigation.navbar.navbar-default.navbar-fixed-top{
