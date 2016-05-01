@@ -58,7 +58,16 @@
       <h4 class="form-content-label">
         When Do You Want Us To Come?
       </h4>
-      <%= f.datetime_select :date_time, :ampm => true, :minute_step => 15 %><br><br>
+      <%= f.datetime_select :date_time, :ampm => true, :minute_step => 60 %><br><br>
+    </div>
+
+     <div class="panel-body">
+    <label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path %></label>
+      <div class="col-md-12 col-sm-12">
+
+        <%= f.input :terms, label: "I Have Carefully Read And Fully Agree To The Terms of Service", :selected => request.terms %> 
+
+      </div>
     </div>
 
     <br>

@@ -22,6 +22,7 @@ class Admin::RequestsController < Admin::ApplicationController
     @request = @client.requests.build(request_params)
 
     if @request.save
+      @request.business_algorithm
       flash[:notice] = "Request has been created."
       redirect_to [:admin, @client, @request]
     else
