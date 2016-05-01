@@ -135,7 +135,6 @@ function getFrequency(){
 }
 
 
-
 function checkSchedule() {
   var schedule = document.querySelectorAll("#days > div > .request_weekdays > label")[0];
 

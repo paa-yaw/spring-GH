@@ -1,7 +1,7 @@
 <div class="container-fluid" >
   <div class="row">
     <!-- <div class="col-sm-6 form-box wow fadeInUp content-box"></div> -->
-    <div class="col-sm-5 col-sm-offset-3">
+    <div class="col-lg-4 col-lg-offset-4">
 
       <div class="panel-group">
        <div class="panel panel-info">
@@ -43,7 +43,7 @@
                <div class="row">
                  <div class="col-md-6">
                     <div class="field">
-                      <%= f.label :password, :class=>"login-label" %>
+                      <%= f.label :password, :class=>"login-label" %>  <br>
                       <% if @minimum_password_length %>
                       <em>(<%= @minimum_password_length %> characters minimum)</em>
                       <% end %><br />
@@ -53,6 +53,7 @@
                  <div class="col-md-6">
                     <div class="field">
                       <%= f.label :password_confirmation, :class=>"login-label" %><br />
+                      <br>
                       <%= f.password_field :password_confirmation, autocomplete: "off", :class=>"form-control"  %>
                     </div>
                  </div>
