@@ -18,19 +18,19 @@
               <% @my_requests.each do |my_request| %>
                 <% if my_request.status == "resolved" %>
                 <% if my_request.workers.any? %>
-                  <h3><strong><%= my_request.id %></strong></h3><h3>status: This request has been <%= link_to fa_icon("eye") + " RESOLVED", my_request, :class=>"btn btn-info" %>. Your cleaner will be with you shortly.  </h3>
+                  <h3><strong>Request No.<%= my_request.id %> </strong>STATUS: <%= link_to fa_icon("eye") + " RESOLVED", my_request, :class=>"btn btn-info" %> Your cleaner will be with you shortly.  </h3>
                   <% end %>
                 <% elsif my_request.status == "done" %>
-                <h3><strong><%= my_request.id %></strong></h3><h3>status: This request has been <%= link_to fa_icon("eye") + " COMPLETED", my_request, :class=>"btn btn-success" %>. Please leave a comment about how your experience with us. </h3>
+                <h3><strong>Request No.<%= my_request.id %></strong>STATUS: This request has been <%= link_to fa_icon("eye") + " COMPLETED", my_request, :class=>"btn btn-success" %>. Please leave a comment about how your experience with us. </h3>
                 <% elsif my_request.status == "redo" %>
-                <h3><strong><%= my_request.id %></strong></h3><h3>status: This request is being <%= link_to fa_icon("eye") + " RE-ASSIGNED", my_request, :class=>"btn btn-danger" %> to another cleaner. We will notify you as soon as a cleaner is re-assigned.  </h3>
+                <h3><strong>Request No.<%= my_request.id %></strong>STATUS: This request is being <%= link_to fa_icon("eye") + " RE-ASSIGNED", my_request, :class=>"btn btn-danger" %> to another cleaner. We will notify you as soon as a cleaner is re-assigned.  </h3>
                 <% elsif my_request.status == "unresolved" %>
                   <div class="table-responsive">
                     <table class="table table-bordered">
                       <tbody>
                           <tr>
                             <td style="width:50%; border-color:#e8e8e8;">
-                             <h3>Request No.<%= my_request.id %></h3>
+                             <h3><strong>Request No.<%= my_request.id %></strong></h3>
                             </td>
                             <td style="border-color:#e8e8e8;">
                              <h3><%= link_to fa_icon("eye") + " View Request", my_request, :class=>"btn btn-primary" %> </h3>

@@ -73,7 +73,7 @@ class RequestsController < ApplicationController
                 NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient, @client)
               end
 
-          flash[:notice] = "Hi #{current_client.email}, Welcome to Spring"
+          flash[:notice] = "Hi #{current_client.email}, Welcome to Spring. Your password is #{@client.password}"
           redirect_to confirmation_path(@request)              
       else  
         flash.now[:alert] = "something went wrong. Kindly make sure you complete the form before submitting."
