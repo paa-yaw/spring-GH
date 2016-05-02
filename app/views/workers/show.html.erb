@@ -46,6 +46,9 @@
                           <div class="bio-row">
                               <p><span><b>Ratings:</b></span><div class="star-rating" data-score= <%= @average_rating %>></div></p>
                           </div>
+                          <div class="report-button pull-right">
+                            <%= link_to fa_icon("flag") + " Report This Cleaner", new_worker_report_path(@worker), class: "btn btn-danger" %>
+                          </div>
                       </div>
                   </div>
                 </section>
