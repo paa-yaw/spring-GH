@@ -73,7 +73,9 @@ Rails.application.routes.draw do
       resources :requests
     end
 
-    resources :workers 
+    resources :workers do 
+      resources :reports
+    end
 
     resources :requests do 
       member do 

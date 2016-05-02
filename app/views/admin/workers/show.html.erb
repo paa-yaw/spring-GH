@@ -79,7 +79,11 @@
                 </tbody>
               </table>
 
-              <h3><%= link_to fa_icon("pencil") + "Edit Worker", edit_admin_worker_path(@worker), class: "btn  btn-primary" %> <%= link_to "Back", :back, class: "btn btn-primary" %></h3>
+              <h3><%= link_to fa_icon("pencil") + " Edit Worker", edit_admin_worker_path(@worker), class: "btn  btn-primary" %> <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %>
+                <% if @worker.reports.any? %>
+                  <%= link_to fa_icon("flag") + " View Report(s)", admin_worker_reports_path(@worker), class: "btn btn-danger" %>
+                <% end %> 
+              </h3>
             </div>
           </div>
         </div>            

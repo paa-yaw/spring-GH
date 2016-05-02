@@ -1,6 +1,6 @@
 <% breadcrumb :workers, @workers %>
 <div class="admin-page">
-  <div class="con,tainer">
+  <div class="container">
   <div class="row">
     <div class="col-sm-12 col-sm-offset-0 form-box">
 
@@ -39,7 +39,12 @@
                 
                 <tbody>
                   <tr>
-                    <td></td>
+                    <td>
+                      <% if worker.reports.any? %>
+                        <span class="label label-danger"><strong>flagged</strong></span>
+                      <% end %>  
+                    </td>
+
                     <td><%= worker.first_name %></td>
                     <td><%= worker.last_name %></td>
                     <td><%= worker.sex %></td>
@@ -55,7 +60,11 @@
                   </tr>
                   <% else %>
                   <tr>
-                    <td></td>
+                    <td>
+                      <% if worker.reports.any? %>
+                        <span class="label label-danger"><strong>flagged</strong></span>
+                      <% end %> 
+                    </td>
                     <td><%= worker.first_name %></td>
                     <td><%= worker.last_name %></td>
                     <td><%= worker.sex %></td>
@@ -84,7 +93,7 @@
 
 </div>
 </div>
-<%= link_to fa_icon("plus") + " Register Worker", new_admin_worker_path, class: "btn btn-primary" %>
+<%= link_to fa_icon("plus") + " Register Worker", new_admin_worker_path, class: "btn btn-primary" %>  <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %>
 </div>
 </div>
 </div>
