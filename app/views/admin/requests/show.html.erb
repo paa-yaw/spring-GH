@@ -88,8 +88,12 @@
          <% end %>
        </td>
        <td>
+         <% if @request.weekdays.length == 1 %>
+         <%= @request.date_time.strftime("%A")%>
+         <% else %>
          <% @request.weekdays.each do |day| %>
          <p><%= day %></p>
+         <% end %>
          <% end %>
        </td> 
        <td>
