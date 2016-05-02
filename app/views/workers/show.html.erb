@@ -4,14 +4,14 @@
               
          <div class="panel panel-info">
             <div class="panel-heading">
-              <h2 class="panel-title text-center" style="color:#fff;">Assigned Worker</h2>
+              <h2 class="panel-title text-center" style="color:#fff;">Assigned Cleaner</h2>
             </div>
               <div class="panel-body">
               <div id="profile" class="tab-pane active">
 
                 <section class="panel">
                   <div style="color:#122772;">
-                  Hello <%= current_client.first_name %>, <strong><%= @worker.first_name %> <%= @worker.last_name %></strong> has been assigned to your request and will arrive at your location shortly. <br> Here is <%= @worker.first_name %>'s bio below:
+                  Hello <%= current_client.first_name %>,<br> <strong><%= @worker.first_name %> <%= @worker.last_name %></strong> has been assigned to your request and will arrive at your location shortly. <br> Here is <%= @worker.first_name %>'s bio below:
                   </div>
                   <!-- </div> -->
                   <div class="panel-body bio-graph-info">
