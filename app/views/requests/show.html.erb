@@ -65,8 +65,12 @@
                    <% end %>
                  </td>
                  <td>
-                   <% @request.weekdays.each do |day| %>
-                   <p><%= day %></p>
+                   <% if @request.weekdays.length == 1 %>
+                   <%= @request.date_time.strftime("%A")%>
+                   <% else %>
+                     <% @request.weekdays.each do |day| %>
+                     <p><%= day %></p>
+                     <% end %>
                    <% end %>
                  </td> 
                  <td>
