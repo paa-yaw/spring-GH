@@ -14,29 +14,16 @@
               <% elsif @my_requests.count > 0 %>
               <% @my_requests.each do |my_request| %>
                 <% if my_request.status == "resolved" %>
-                  <div class="table-responsive">
-                    <table class="table table-bordered">
-                      <tbody>
                   <% if my_request.workers.any? %>
-                          <tr>
-                            <td style="width:50%; border-color:#e8e8e8;">
-                              <h3><strong>Request No.<%= my_request.id %></strong></h3>
-                            </td>
-                            <td>
-                              <h3>STATUS: <%= link_to fa_icon("eye") + " RESOLVED", my_request, :class=>"btn btn-info" %></h3>
-                            </td>
-                            <td>
-                              <h3>
-                                 Your cleaner will be with you shortly. 
+                          <h3><strong>Request No.<%= my_request.id %></strong>&nbsp;&nbsp;STATUS: <%= link_to fa_icon("eye") + " RESOLVED", my_request, :class=>"btn btn-info" %>&nbsp;&nbsp;Your cleaner will be with you shortly.</h3> 
                               </h3>
-                            </td>
                           <!-- </tr> -->
 <!--                     <h3><strong>Request No.<%= my_request.id %> </strong>STATUS: <%#= link_to fa_icon("eye") + " RESOLVED", my_request, :class=>"btn btn-info" %> Your cleaner will be with you shortly.  </h3> -->
                   <% end %>
                 <% elsif my_request.status == "done" %>
-                    <h3><strong>Request No.<%= my_request.id %></strong>STATUS: This request has been <%= link_to fa_icon("eye") + " COMPLETED", my_request, :class=>"btn btn-success" %>. Please leave a comment about how your experience with us. </h3>
+                    <h3><strong>Request No.<%= my_request.id %></strong>&nbsp;&nbsp;STATUS: This request has been <%= link_to fa_icon("eye") + " COMPLETED", my_request, :class=>"btn btn-success" %> </h3>
                 <% elsif my_request.status == "redo" %>
-                    <h3><strong>Request No.<%= my_request.id %></strong>STATUS: This request is being <%= link_to fa_icon("eye") + " RE-ASSIGNED", my_request, :class=>"btn btn-danger" %> to another cleaner. We will notify you as soon as a cleaner is re-assigned.  </h3>
+                    <h3><strong>Request No.<%= my_request.id %></strong>&nbsp;&nbsp;STATUS: This request is being <%= link_to fa_icon("eye") + " RE-ASSIGNED", my_request, :class=>"btn btn-danger" %> to another cleaner. We will notify you as soon as a cleaner is re-assigned.  </h3>
                 <% elsif my_request.status == "unresolved" %>
                   <div class="table-responsive">
                     <table class="table table-bordered">
