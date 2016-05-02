@@ -3,7 +3,7 @@ class CloseNotifier < ApplicationMailer
 
    def close_request(client)
      @client = client
-     @url = "https://springgh.com/clients/sign_in"
+     @url = "https://www.springgh.com/clients/sign_in"
 	 mail(to: @client.email, subject: "Your request has been closed.")
    end
 end

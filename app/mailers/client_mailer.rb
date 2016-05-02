@@ -5,7 +5,7 @@ class ClientMailer < ApplicationMailer
   def welcome_email(client, password)
   	@client = client
   	@password = password
-  	@url = "https://springgh.com/clients/sign_in"
+  	@url = "https://www.springgh.com/clients/sign_in"
   	mail(to: @client.email, subject: "Welcome to Spring")
   end	
 end

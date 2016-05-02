@@ -1,7 +1,7 @@
 <%= simple_form_for([worker, worker.reports.build]) do |f| %>
 
   <%= f.input :date, start_year: Time.now.year, end_year: Time.now.year + 1, :ampm => true, :minute_step => 60,  label: "When did this even happen?" %>
-  <%= f.input :event, label: "Please record the details of the event." %>
+  <%= f.input :event, maxlength: "1000", label: "Please record the details of the event." %>
   <%= f.input :sign, label: "I hereby declare that this is an honest and true account of what happened and I am prepared to defend it at all cost." %>
 
   <%= f.button :submit, "File this report", class: "btn btn-danger" %>
