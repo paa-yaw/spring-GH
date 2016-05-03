@@ -117,7 +117,102 @@ function roomTotal() {
   return roomTotal;
 }
 
+function checkSchedule() {
+  var schedule = document.querySelectorAll("#days > div > .request_weekdays > label")[0];
+
+  var a = document.getElementById('request_frequency_1500');
+  if(a.checked == true) {
+    // schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose a day)</i>";
+    document.getElementById('days').parentNode.style.display = 'none';
+  }
+  
+  var b = document.getElementById('request_frequency_15001');
+  if(b.checked == true) {
+    document.getElementById('days').parentNode.style.display = 'block';
+    schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
+  }
+
+  var c = document.getElementById('request_frequency_5000');
+  if(c.checked == true) {
+    document.getElementById('days').parentNode.style.display = 'block';
+    schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days. The 3 days selected is repetitive throughout the month.)</i>";
+  }
+}
+
+function checkDays() {
+  var checkedDays;
+  var limit;
+
+  // getFrequency();
+  if (getFrequency() == 150.0){
+    checkedDays = 1;
+    limit = checkedDays;
+  } else if(getFrequency() == 150.01){
+    checkedDays = 3;
+    limit = checkedDays;
+  } else if (getFrequency() == 500.00 ) {
+    checkedDays = 3;
+    limit = checkedDays;
+  }
+
+  var listOfDays = document.getElementsByName("request[weekdays][]");
+
+  if(document.getElementById('request_weekdays_monday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+
+  if (document.getElementById('request_weekdays_tuesday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+
+  if (document.getElementById('request_weekdays_wednesday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+
+  if (document.getElementById('request_weekdays_thursday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+  
+  if (document.getElementById('request_weekdays_friday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+  
+  if (document.getElementById('request_weekdays_saturday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+    
+  if (document.getElementById('request_weekdays_sunday').checked == true) {
+    checkedDays -= 1;
+  } else {
+    checkedDays += 0;
+  }
+  
+  if (checkedDays < 0) {
+    alert("You can only choose "+limit+" day(s)");
+    for (var i = 0; i < listOfDays.length; i++) {
+      listOfDays[i].checked = false;
+    };
+  }
+}
+
+
 function calculatePricing() {
+  checkDays();
+  checkMonth();
+  checkSchedule();  
+
   var roomFactor = 0;
   var totalPrice = 0;
 
@@ -148,164 +243,7 @@ function calculatePricing() {
 }
 
 
-
-
-// function checkSchedule() {
-//   var schedule = document.querySelectorAll("#days > div > .request_weekdays > label")[0];
-
-//   var a = document.getElementById('request_frequency_1500');
-//   if(a.checked == true) {
-//     // schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose a day)</i>";
-//     document.getElementById('days').parentNode.style.display = 'none';
-//   }
-  
-//   var b = document.getElementById('request_frequency_15001');
-//   if(b.checked == true) {
-//     document.getElementById('days').parentNode.style.display = 'block';
-//     schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
-//   }
-
-//   var c = document.getElementById('request_frequency_5000');
-//   if(c.checked == true) {
-//     document.getElementById('days').parentNode.style.display = 'block';
-//     schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days. The 3 days selected is repetitive throughout the month.)</i>";
-//   }
-// }
-
-// function checkDays() {
-//   var checkedDays;
-//   var limit;
-//   // getFrequency();
-//   if (getFrequency() == 150.0){
-//     checkedDays = 1;
-//     limit = checkedDays;
-//   } else if(getFrequency() == 150.01){
-//     checkedDays = 3;
-//     limit = checkedDays;
-//   } else if (getFrequency() == 500.00 ) {
-//     checkedDays = 3;
-//     limit = checkedDays;
-//   }
-
-//   var listOfDays = document.getElementsByName("request[weekdays][]");
-
-//   if(document.getElementById('request_weekdays_monday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
-
-//   if (document.getElementById('request_weekdays_tuesday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
-
-//   if (document.getElementById('request_weekdays_wednesday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
-
-//   if (document.getElementById('request_weekdays_thursday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
-  
-//   if (document.getElementById('request_weekdays_friday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
-  
-//   if (document.getElementById('request_weekdays_saturday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
-    
-//   if (document.getElementById('request_weekdays_sunday').checked == true) {
-//     checkedDays -= 1;
-//   } else {
-//     checkedDays += 0;
-//   }
-  
-//   if (checkedDays < 0) {
-//     alert("You can only choose "+limit+" day(s)");
-//     for (var i = 0; i < listOfDays.length; i++) {
-//       listOfDays[i].checked = false;
-//     };
-//   }
-//   console.log(checkedDays);
-// }
-
-
-// function calculateTotal() {
-//   var total = getRoomNumber()*5 + getExtraServices(); 
-//   total = total + (150 || getFrequency());
-//   document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
-//   document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
-// }
-
-// // calculates pricing based on number of rooms.
-
-// function calculatePricing() {
-//   document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
-//   checkDays();
-//   checkMonth();
-//   getLargeRoomNumber();
-//   getRoomNumber();
-//   getExtraServices();
-//   getFrequency();
-//   calculateTotal();
-//   checkSchedule();  
-//     document.getElementById('packagePrice').innerHTML = "GHc "+ (150 || getFrequency())+".00";
-//     document.getElementById('extraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
-//     document.getElementById('navExtraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
-
-
-//   if (getFrequency() == 500) {
-//     document.getElementById("extraRooms").innerHTML =( 0 || getLargeRoomNumber() );
-//     document.getElementById("packagePrice").innerHTML = "GHc "+ ( 500|| getFrequency())+".00";
-//   } else {
-//     document.getElementById("extraRooms").innerHTML =( 0 || getRoomNumber() );
-//   }
-   
-//   if (getFrequency() == 500) {
-//     document.getElementById("extraRoomPrice").innerHTML = "GHc "+getLargeRoomNumber()*5+".00";
-//     document.getElementById("navExtraRoomPrice").innerHTML = "GHc "+getLargeRoomNumber()*5+".00";
-//   } else{
-//     document.getElementById("extraRoomPrice").innerHTML = "GHc "+getRoomNumber()*5+".00";
-//     document.getElementById("navExtraRoomPrice").innerHTML = "GHc "+getRoomNumber()*5+".00";
-//   }
-
-//   if (getFrequency() == 150){
-//     document.getElementById("roomNumber").innerHTML = 4;
-//     var total = 150 + getRoomNumber()*5 + getExtraServices(); 
-//     // console.log(total);
-//     document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
-//     document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
-//   }
-//   else if (getFrequency() == 150.01) {
-//     document.getElementById("packagePrice").innerHTML = "GHc "+ parseInt(150.01|| getFrequency())+".00";
-//     document.getElementById("roomNumber").innerHTML = 4;
-//     var total = parseInt(150.00001 + getRoomNumber()*5 + getExtraServices());
-//     // console.log(total);
-//     document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
-//     document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
-//   }
-//   else if (getFrequency() == 500) {
-//     var rooms = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
-
-//     var total = 500 + getLargeRoomNumber()*5 + getExtraServices();
-//     // console.log(total);
-//     document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
-//     document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
-//   }
-// }
-
-// $(document).ready(function() {
-//   // checks for current month and adds display:none to previous months
-//   checkMonth();
-// });
+$(document).ready(function() {
+  // checks for current month and adds display:none to previous months
+  checkMonth();
+});
