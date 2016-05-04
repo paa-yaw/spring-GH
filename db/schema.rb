@@ -11,20 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160503223432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "attachments", force: :cascade do |t|
-    t.string   "file"
-    t.integer  "worker_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "attachments", ["worker_id"], name: "index_attachments_on_worker_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "email",                  default: "",       null: false
@@ -144,9 +134,6 @@ ActiveRecord::Schema.define(version: 20160503223432) do
     t.string   "photo"
   end
 
-
-  add_foreign_key "attachments", "workers"
-  add_foreign_key "referrals", "clients"
   add_foreign_key "reports", "clients"
   add_foreign_key "reports", "workers"
   add_foreign_key "requests", "clients"
