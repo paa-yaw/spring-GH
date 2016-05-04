@@ -216,30 +216,65 @@ function calculatePricing() {
   var roomFactor = 0;
   var totalPrice = 0;
 
-  if(getFrequency() == 150.01) {
-    var roomFactor = -4;
-  } else if (getFrequency() == 500.00) {
-    var roomFactor = -8;
-  } else {
-    var roomFactor = -4;
-  }
 
-  var freq = parseInt(getFrequency());
+  //case of these three possible conditions
+  if( getFrequency() == 0 || getFrequency() == 150.01 || getFrequency() == 150.00 ) {
+    var roomFactor = -4;
+
+    var freq = parseInt(getFrequency());
+
     document.getElementById('packagePrice').innerHTML = "GHc "+freq+".00";
 
   var extraRoom = (roomTotal() + roomFactor);
+
     document.getElementById('extraRooms').innerHTML = extraRoom;
 
-  var extraRoomPrice = "GHc "+((roomTotal() + roomFactor)*5 )+".00";
+  var extraRoomValue = (roomTotal() + roomFactor);
+  var extraRoomPrice = "GHc "+((extraRoomValue)*5 )+".00";
+
     document.getElementById('extraRoomPrice').innerHTML = extraRoomPrice;
 
   var extraService = getExtraServices();
+
     document.getElementById('extraServicePrice').innerHTML = "GHc "+extraService+".00";
 
   var totalPrice = ( ( (roomTotal() + roomFactor)*5 ) + getExtraServices() + parseInt(getFrequency()) );
     document.getElementById('PricingValue').innerHTML = "GHc "+totalPrice+".00";
 
-  return totalPrice;
+ //case of this particular frequency
+  } else if (getFrequency() == 500.00) {
+    var roomFactor = -8;
+    // console.log(roomFactor);
+
+    var freq = parseInt(getFrequency());
+     // console.log(freq);
+    document.getElementById('packagePrice').innerHTML = "GHc "+freq+".00";
+
+    var extraRoom = (roomTotal() + roomFactor);
+    // var extraRoomValue
+
+    if (extraRoom <= 0) {
+      var extraRoom = 0;
+      var extraRoomPrice = 0;
+
+      document.getElementById('extraRooms').innerHTML = extraRoom;
+      document.getElementById('extraRoomPrice').innerHTML = "GHc "+extraRoomPrice+".00";
+    } else {
+      // var extraRoom = (roomTotal() + roomFactor);
+      var extraRoomPrice = ((extraRoom)*5 );
+
+      document.getElementById('extraRooms').innerHTML = extraRoom;
+      document.getElementById('extraRoomPrice').innerHTML = "GHc "+extraRoomPrice+".00";
+    }
+
+
+     var extraService = getExtraServices();
+      document.getElementById('extraServicePrice').innerHTML = "GHc "+extraService+".00";
+
+    var totalPrice = ( ( (extraRoom)*5 ) + getExtraServices() + parseInt(getFrequency()) );
+      document.getElementById('PricingValue').innerHTML = "GHc "+totalPrice+".00";
+  } 
+
 }
 
 
