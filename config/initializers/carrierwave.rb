@@ -32,5 +32,3 @@ CarrierWave.configure do |config|
   # config.fog_host = "#{ENV['S3_ASSET_URL']}/#{ENV['S3_BUCKET_NAME']}"
 
 end
-
-end
