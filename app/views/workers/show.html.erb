@@ -39,11 +39,6 @@
                           <li>
                               <p><span><b>Phone:</b></span>020-061-0307</p>
                           </li>
-                          <li>
-                             <div class="report-button pull-right">
-                            <%#= link_to fa_icon("flag") + " Report This Cleaner", new_worker_report_path(@worker), class: "btn btn-danger" %>
-                          </div>
-                          </li>
                         </div>
                         <div class="col-md-6" style="list-style:none;">
                           <li>
@@ -61,46 +56,14 @@
                         </div>
                       </div>
                     </div>
-
                   </div>
-                     <!--  <div class="row">
-                          <div class="bio-row">
-                          </div>
-                          <div class="bio-row">
-                              <p><span><b>Education:</b></span> <%= @worker.education %></p>
-                          </div>
-                          <div class="bio-row">
-                              <p><span><b>Last Name:</b> </span> <%= @worker.last_name %></p>
-                          </div>                                              
-                          <div class="bio-row">
-                              <p><span><b>Work Experience:</b> </span><%= @worker.experience %></p>
-                          </div>
-                          <div class="bio-row">
-                              <p><span><b>Sex:</b></span>  <%= @worker.sex %></p>
-                          </div>
-                          <div class="bio-row">
-                              <p><span><b>Email:</b></span>hello@springgh.com</p>
-                          </div>
-                          <div class="bio-row">
-                              <p><span><b>Age:</b></span><%= @worker.age %></p>
-                          </div>
-                          <div class="bio-row">
-                              <p><span><b>Phone:</b></span>020-061-0307</p>
-                          </div>
-                          <div class="bio-row">
-                              <p><span><b>Remarks:</b> </span> very hardworking</p>
-                          </div>
-                          <div class="bio-row">
-                              <p><span><b>Ratings:</b></span><div class="star-rating" data-score= <%= @average_rating %>></div></p>
-                          </div>
-                          <div class="report-button pull-right">
-                            <%#= link_to fa_icon("flag") + " Report This Cleaner", new_worker_report_path(@worker), class: "btn btn-danger" %>
-                          </div>
-                      </div> -->
-                  </div>
+                </div>
+                    <div class="report-button pull-right" style="">
+                      <%= link_to fa_icon("flag") + " Report This Cleaner", new_worker_report_path(@worker), class: "btn btn-danger" %>
+                    </div>
                 </section>
               </div>
-              </div>
+            </div>
           </div>
 
           <section class="panel"  style="border: solid 1px #122772;">
