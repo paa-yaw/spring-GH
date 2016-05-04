@@ -70,6 +70,6 @@ class Admin::WorkersController < Admin::ApplicationController
 
   def worker_params
   	params.require(:worker).permit(:first_name, :last_name, :sex, :age, :phone_number, :education, 
-  	:location, :experience, :minimum_wage, :email, :extra_info)
+  	:location, :experience, :minimum_wage, :email, :extra_info, :attachment, :attachment_cache, :photo, :photo_cache)
   end
 end
