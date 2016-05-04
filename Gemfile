@@ -57,5 +57,7 @@ gem "hirb",'~>0.7.3'
 gem "gretel"
 gem "carrierwave"
 gem "mini_magick", "~> 3.4"
+gem "fog"
 gem "fog-aws"
+
 
