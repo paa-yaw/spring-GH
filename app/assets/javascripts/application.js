@@ -14,5 +14,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require general/intro.min
 //= require_tree .
+
 
