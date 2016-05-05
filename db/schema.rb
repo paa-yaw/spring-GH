@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501222129) do
+ActiveRecord::Schema.define(version: 20160503223432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,8 @@ ActiveRecord::Schema.define(version: 20160501222129) do
     t.string   "email"
     t.text     "extra_info"
     t.boolean  "assigned",     default: false
+    t.string   "attachment"
+    t.string   "photo"
   end
 
   add_foreign_key "reports", "clients"
