@@ -21,4 +21,9 @@ class Client < ActiveRecord::Base
   end
 
 # accepts_nested_attributes_for :requests
+  def generate_code
+      code = SecureRandom.hex(5).upcase
+      write_attribute(:referral_code, code)
+      save
+  end
 end
