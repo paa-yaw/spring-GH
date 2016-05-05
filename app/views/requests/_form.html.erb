@@ -7,7 +7,11 @@
         <% if request.persisted? %>
           <h2 class="panel-title text-center">Edit Your House Details<small>&nbsp;&nbsp;edit</small></h2>
         <% else %>
-          <h2 class="panel-title text-center">Tell Us About Your House</h2>
+          <h2 class="panel-title text-center">Tell Us About Your House &nbsp;
+          <% if !client_signed_in? %>
+            <%= link_to fa_icon("question"), :class =>"fa-question", :style => "border-right:none;" %>
+            <% end %>
+            </h2>
         <% end %>
       </div>
       <div class="panel-body" data-intro='Choose number of rooms for cleaning' class="roomSection">
@@ -168,5 +172,11 @@
 </script>
 
 <script>
-  introJs.start(.roomSection);
+  document.getElementsByClassName('fa-question').onclick = intro();
+</script>
+
+<script>
+function intro() {
+  introJs().start('.roomSection');
+}
 </script>
