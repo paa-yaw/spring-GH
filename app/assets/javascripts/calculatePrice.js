@@ -208,6 +208,14 @@ function checkDays() {
 }
 
 
+
+navExtraRoomPrice
+navExtraServicePrice
+navPricingValue
+
+
+
+
 function calculatePricing() {
   checkDays();
   checkMonth();
@@ -233,13 +241,16 @@ function calculatePricing() {
   var extraRoomPrice = "GHc "+((extraRoomValue)*5 )+".00";
 
     document.getElementById('extraRoomPrice').innerHTML = extraRoomPrice;
+    document.getElementById('navExtraRoomPrice').innerHTML = extraRoomPrice;
 
   var extraService = getExtraServices();
 
     document.getElementById('extraServicePrice').innerHTML = "GHc "+extraService+".00";
+    document.getElementById('navExtraServicePrice').innerHTML = "GHc "+extraService+".00";
 
   var totalPrice = ( ( (roomTotal() + roomFactor)*5 ) + getExtraServices() + parseInt(getFrequency()) );
     document.getElementById('PricingValue').innerHTML = "GHc "+totalPrice+".00";
+    document.getElementById('navPricingValue').innerHTML = "GHc "+totalPrice+".00";
 
  //case of this particular frequency
   } else if (getFrequency() == 500.00) {
@@ -259,20 +270,24 @@ function calculatePricing() {
 
       document.getElementById('extraRooms').innerHTML = extraRoom;
       document.getElementById('extraRoomPrice').innerHTML = "GHc "+extraRoomPrice+".00";
+      document.getElementById('navExtraRoomPrice').innerHTML = "GHc "+extraRoomPrice+".00";
     } else {
       // var extraRoom = (roomTotal() + roomFactor);
       var extraRoomPrice = ((extraRoom)*5 );
 
       document.getElementById('extraRooms').innerHTML = extraRoom;
       document.getElementById('extraRoomPrice').innerHTML = "GHc "+extraRoomPrice+".00";
+      document.getElementById('navExtraRoomPrice').innerHTML = "GHc "+extraRoomPrice+".00";
     }
 
 
      var extraService = getExtraServices();
       document.getElementById('extraServicePrice').innerHTML = "GHc "+extraService+".00";
+      document.getElementById('navExtraServicePrice').innerHTML = "GHc "+extraService+".00";
 
     var totalPrice = ( ( (extraRoom)*5 ) + getExtraServices() + parseInt(getFrequency()) );
       document.getElementById('PricingValue').innerHTML = "GHc "+totalPrice+".00";
+      document.getElementById('navPricingValue').innerHTML = "GHc "+totalPrice+".00";
   } 
 
 }
