@@ -38,7 +38,7 @@
       <div class="panel-body" data-intro='Choose any extra service you are interested in' class="roomSection">
         <div onclick="calculatePricing()" id="extra">
           <div class="col-md-12 col-xs-12">
-            <%= f.input :extra_services, :collection => [["Compound Cleaning(GHc15.00)", 15.00], ["Fridge(GHc 10.00)", 10.01], ["Storeroom(GHc 10.00)", 10.00], ["Laundry(GHc40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
+            <%= f.input :extra_services, :collection => [["Compound Cleaning (GHc15.00)", 15.00], ["Fridge (GHc 10.00)", 10.01], ["Storeroom (GHc 10.00)", 10.00], ["Laundry (GHc40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
           </div>
         </div> 
       </div>
@@ -46,7 +46,7 @@
       <div class="panel-body" style="padding-top:0px;" data-intro='How many times do you want this done?' class="roomSection">
        <div  onchange="calculatePricing()">
          <div class="col-md-12 col-sm-12" id="frequency">
-          <%= f.input :frequency, :collection => [["Deep-Cleaning (GHc 150.00)", 150.00], ["Weekly (GHc 150.00)", 150.01], ["Monthly (GHc 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "Frequency", :selected => request.frequency %>
+          <%= f.input :frequency, :collection => [["Deep Cleaning (GHc 150.00)", 150.00], ["Weekly (GHc 150.00)", 150.01], ["Monthly (GHc 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "Frequency", :selected => request.frequency %>
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@
     <label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path %></label>
       <div class="col-md-12 col-sm-12">
 
-        <%= f.input :terms, label: "I Have Carefully Read And Fully Agree To The Terms of Service", :selected => request.terms %> 
+        <%= f.input :terms, label: "I Have Carefully Read And Fully Agreed To The Terms of Service", :selected => request.terms %> 
 
       </div>
     </div>
