@@ -14,6 +14,15 @@
             </h2>
         <% end %>
       </div>
+
+      <% @token = params[:referral_code] %>
+
+      <% if @token != nil %>
+        <%= f.hidden_field :ref_code, :value => @token %>
+      <% end %>
+
+    
+
       <div class="panel-body" data-intro='Choose number of rooms for cleaning' class="roomSection">
         <div onchange="calculatePricing()"> 
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
