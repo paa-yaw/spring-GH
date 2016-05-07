@@ -59,7 +59,7 @@ class RequestsController < ApplicationController
       @client.last_name = "last name"
 
         if @request.save
-          # transfer of referral_code to user: end of referral process
+          # transfer of referral_code to user
           if params[:request][:ref_code]
             @referral_code = params[:request][:ref_code]
             @client.referrer_code = @referral_code
@@ -84,6 +84,7 @@ class RequestsController < ApplicationController
                 NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient, @client)
               end
 
+          # end of referral process, data integrity in Referral model 
           if @client.referrer_code != nil
             @referral = Referral.find_by(email: current_client.email)
             @referral.recipient_id = current_client.id

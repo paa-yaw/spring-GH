@@ -110,9 +110,7 @@ class Request < ActiveRecord::Base
     end
 
 
-    def referral_system
-    end
-
+    
 
 
 

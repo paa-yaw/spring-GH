@@ -3,3 +3,5 @@
 => in the request form is a hidden attribute, which holds params[:referral_code], and passed to the client.referrer_id through the request controller
 
 new_request_url(:code => @referral.code)
+
+no. of referrals...emails of people referred and their status: converted/not converted...spring points

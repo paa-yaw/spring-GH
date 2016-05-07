@@ -1,6 +1,14 @@
 class ReferralsController < ApplicationController
-	before_action :set_referral, except: [:new, :create,]
-	# before_action :set_client
+	before_action :set_referral, except: [:new, :create, :index]
+
+  def index
+    if current_client
+      @referrals = current_client.referrals
+    else
+      flash[:alert] = "you have no referrals"
+      redirect_to new_referral_path
+    end
+  end
   
   def show
   end
@@ -22,11 +30,29 @@ class ReferralsController < ApplicationController
   	if @referral.save
   	  InviteJob.set(wait: 2.seconds).perform_later(@referral, @url)
       flash[:notice] = "You have made an invite"
-      redirect_to new_request_path
+      redirect_to new_referral_path
   	else
   	  flash.now[:alert] = "Your invite failed. try again"
   	  render "new"
   	end
+  end
+
+  def edit
+  end
+
+  def update
+    if @referral.recipient_id.nil?
+      if @referral.update(referral_params)
+        flash[:notice] = "you have sent a follow up invite"
+        redirect_to referrals_path
+      else
+        flash.now[:alert] = "your invite failed."
+        render "edit" 
+      end
+    else
+      flash.now[:alert] = "this person has already been converted."
+      redirect_to referrals_path
+    end
   end
 
 
@@ -38,11 +64,6 @@ class ReferralsController < ApplicationController
   	redirect_to errors_not_found_path
   end
 
-  # def set_client
-  # 	@client = Client.find(params[:client_id])
-  # rescue ActiveRecord::RecordNotFound
-  # 	redirect_to errors_not_found_path
-  # end
 
   def referral_params
   	params.require(:referral).permit(:sender_id, :recipient_id, :client_id, :email, :code)
