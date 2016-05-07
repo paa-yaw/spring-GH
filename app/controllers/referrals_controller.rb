@@ -26,9 +26,9 @@ class ReferralsController < ApplicationController
   	@referral.sender_id = current_client.id
     @referral.client_id = current_client.id
   	@referral.code = current_client.referral_code
-    @url = url_for(:controller => "requests", :action => "new", :host => "springgh.com")
+    # @url = url_for(:controller => "requests", :action => "new", :host => "springgh.com")
   	if @referral.save
-  	  InviteJob.set(wait: 2.seconds).perform_later(@referral, @url)
+  	  InviteJob.set(wait: 2.seconds).perform_later(@referral, new_request_url(:referral_code => @referral.code))
       flash[:notice] = "You have made an invite"
       redirect_to new_referral_path
   	else
@@ -43,6 +43,8 @@ class ReferralsController < ApplicationController
   def update
     if @referral.recipient_id.nil?
       if @referral.update(referral_params)
+         # @url = url_for(:controller => "requests", :action => "new", :host => "springgh.com")  
+        InviteJob.set(wait: 2.seconds).perform_later(@referral, new_request_url(:referral_code => @referral.code))
         flash[:notice] = "you have sent a follow up invite"
         redirect_to referrals_path
       else
