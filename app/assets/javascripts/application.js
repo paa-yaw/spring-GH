@@ -16,6 +16,5 @@
 //= require twitter/bootstrap
 //= require general/intro.min
 //= require_tree .
-//= require request
 
 
