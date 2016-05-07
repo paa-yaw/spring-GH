@@ -106,6 +106,8 @@ Rails.application.routes.draw do
     resources :reports
   end
 
+  resources :referrals, only: [:new, :create]
+
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
   get 'my_requests/', to: 'requests#my_requests', as: :my_requests
   get 'requests/:id/show_request', to: 'requests#show_request', as: :show_request

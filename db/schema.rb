@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506093030) do
+ActiveRecord::Schema.define(version: 20160506131644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,18 @@ ActiveRecord::Schema.define(version: 20160506093030) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "referrals", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.string   "code"
+    t.string   "email"
+    t.integer  "client_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "referrals", ["client_id"], name: "index_referrals_on_client_id", using: :btree
 
   create_table "reports", force: :cascade do |t|
     t.integer  "worker_id"
@@ -147,6 +159,7 @@ ActiveRecord::Schema.define(version: 20160506093030) do
   end
 
   add_foreign_key "attachments", "workers"
+  add_foreign_key "referrals", "clients"
   add_foreign_key "reports", "clients"
   add_foreign_key "reports", "workers"
   add_foreign_key "requests", "clients"

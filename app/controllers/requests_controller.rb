@@ -59,7 +59,7 @@ class RequestsController < ApplicationController
       @client.last_name = "last name"
 
         if @request.save
-          # @client.generate_code
+          # transfer of referral_code to user: end of referral process
           if params[:request][:ref_code]
             @referral_code = params[:request][:ref_code]
             @client.referrer_code = @referral_code
@@ -83,6 +83,12 @@ class RequestsController < ApplicationController
                Client.where(admin: true).each do |recipient|
                 NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient, @client)
               end
+
+          if @client.referrer_code != nil
+            @referral = Referral.find_by(email: current_client.email)
+            @referral.recipient_id = current_client.id
+            @referral.save
+          end
 
           flash[:notice] = "Hi #{current_client.email}, Welcome to Spring."
           redirect_to confirmation_path(@request)              

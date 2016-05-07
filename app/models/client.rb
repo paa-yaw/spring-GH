@@ -10,6 +10,7 @@ class Client < ActiveRecord::Base
   has_many :requests, dependent: :delete_all 
   has_many :reviews, dependent: :destroy
   has_many :reports, dependent: :destroy
+  has_many :referrals, dependent: :destroy
 
   # this code is required for request model to have access to current_client
   def self.current
