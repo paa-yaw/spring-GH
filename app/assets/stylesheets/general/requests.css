@@ -103,16 +103,12 @@ div#region{
 /* -- PRICING TABLE END*/
 
 /*-- PRICING TOTAL START*/
-.extraPricing{
-/*border-top: solid 1px #333;*/
-}
-
-/*#new-request > a > i.fa.fa-question{
-  border-right:none;
-}*/
 
 .panel .panel-heading i.fa.fa-question{
   border-right-width: 0px;
+  font-size: 25px;
+  border: solid 1px;
+  border-radius: 50%;
 }
 
 
