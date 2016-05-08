@@ -88,7 +88,7 @@ class RequestsController < ApplicationController
           if @client.referrer_code != nil
             @referral = Referral.find_by(email: current_client.email)
             if @referral.count != 0
-              @referral.try(:recipient_id) = current_client.id
+              @referral.recipient_id = current_client.id
               @referral.save
             else
             end
