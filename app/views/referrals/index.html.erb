@@ -1,13 +1,24 @@
+             
+  <div class="container-fluid">
               <div class="row">
-                  <div class="col-sm-6 col-sm-offset-3">
-                      <section class="panel">
+                  <div class="col-sm-6 col-sm-offset-3" style="padding-top:60px;">
+                      <div class="panel panel-info">
                           <header class="panel-heading">
-                          	<h4>CONVERSIONS: <%= @referrals.count - @referrals.where(recipient_id: nil).count %>/<%= pluralize(@referrals.count, "referral") %></h4>
-                          	 <h4>SPRING POINTS: <strong><%= (@referrals.count - @referrals.where(recipient_id: nil).count) * 5 %></strong></h4>  
+                               <h2 class="panel-title text-center" style="color:#fff;">My Points</h2>                         	  
                           </header>
                           
                           <table class="table table-striped table-advance table-hover">
                            <tbody>
+                           <tr>
+                           </tr>
+                           <tr>
+                             <td>
+                               <h4>CONVERSIONS: <%= @referrals.count - @referrals.where(recipient_id: nil).count %>/<%= pluralize(@referrals.count, "referral") %></h4>
+                             </td>
+                             <td>
+                               <h4>SPRING POINTS: <strong><%= (@referrals.count - @referrals.where(recipient_id: nil).count) * 5 %></strong></h4>
+                             </td>
+                           </tr>
                               <tr>
                                  <th><i class="fa fa-envelope"></i> Emails</th>
                                  <th></th>
@@ -38,7 +49,8 @@
                            <% end %>                              
                            </tbody>
                         </table>
-                      </section>
+                      </div>
                   </div>
+              </div>
               </div>
               <!-- page end-->
