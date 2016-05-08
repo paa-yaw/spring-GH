@@ -1,0 +1,7 @@
+=> generate referral_code on sign up, i.e through devise form or through request form
+=> create a referral model with attributes, email, sender_id, recipient_id, and referral_code
+=> in the request form is a hidden attribute, which holds params[:referral_code], and passed to the client.referrer_id through the request controller
+
+new_request_url(:code => @referral.code)
+
+no. of referrals...emails of people referred and their status: converted/not converted...spring points

@@ -61,5 +61,6 @@ gem "fog"
 gem "fog-aws"
 gem 'figaro'
 gem 'aws-sdk', '< 2.0'
+gem "puma"
 
 

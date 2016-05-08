@@ -45,6 +45,12 @@
               <ul style="display:inline-flex;">
                 <% if current_client %>
                     <li class="special visible-lg">
+                      <%= link_to "score board", referrals_path %>
+                    </li>
+                    <li class="special visible-lg">
+                      <%= link_to "Invite Others", new_referral_path %>
+                    </li>
+                    <li class="special visible-lg">
                         <%= link_to current_client.first_name, edit_client_registration_path %>
                     </li>
                     <li class="special visible-lg">
@@ -66,6 +72,12 @@
                   <div id="menu">
                     <ul>
                     <% if current_client %>
+                      <li class="special">
+                        <%= link_to "scoreboard", referrals_path %>
+                      </li>
+                      <li class="special">
+                        <%= link_to "Invite Others", new_referral_path %>
+                      </li>
                       <li class="special">
                           <%= link_to current_client.first_name, edit_client_registration_path %>
                       </li>

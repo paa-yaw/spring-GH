@@ -10,6 +10,7 @@ class Client < ActiveRecord::Base
   has_many :requests, dependent: :delete_all 
   has_many :reviews, dependent: :destroy
   has_many :reports, dependent: :destroy
+  has_many :referrals, dependent: :destroy
 
   # this code is required for request model to have access to current_client
   def self.current
@@ -21,4 +22,9 @@ class Client < ActiveRecord::Base
   end
 
 # accepts_nested_attributes_for :requests
+  def generate_code
+      code = SecureRandom.hex(5).upcase
+      write_attribute(:referral_code, code)
+      save
+  end
 end
