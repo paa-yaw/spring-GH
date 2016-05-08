@@ -87,8 +87,11 @@ class RequestsController < ApplicationController
           # end of referral process, data integrity in Referral model 
           if @client.referrer_code != nil
             @referral = Referral.find_by(email: current_client.email)
-            @referral.recipient_id = current_client.id
-            @referral.save
+            if @referral.count != 0
+              @referral.try(:recipient_id) = current_client.id
+              @referral.save
+            else
+            end
           end
 
           flash[:notice] = "Hi #{current_client.email}, Welcome to Spring."
