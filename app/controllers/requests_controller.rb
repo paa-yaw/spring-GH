@@ -87,7 +87,7 @@ class RequestsController < ApplicationController
           # end of referral process, data integrity in Referral model 
           if @client.referrer_code != nil
             @referral = Referral.find_by(email: current_client.email)
-            if @referral.count != 0
+            if @referral != nil
               @referral.recipient_id = current_client.id
               @referral.save
             else
