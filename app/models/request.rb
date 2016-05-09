@@ -85,26 +85,53 @@ class Request < ActiveRecord::Base
        monthly_package = 500.00
 
        if self.frequency == one_off_package
-          total = one_off_package + (rooms - 4)*5 + extra_services
+        total = one_off_package + (rooms - 4)*5 + extra_services
+        if self.promocode == "mothersday2016"
+         discount = total * 0.8
+         write_attribute(:total_cost, discount)
+         save
+        else            
           write_attribute(:total_cost, total)
           write_attribute(:total_rooms, rooms)
           save
+        end
+
        elsif self.frequency == weekly_package
+        total = one_off_package + (rooms - 4)*5 + extra_services
+        if self.promocode == "mothersday2016"
+          discount = total * 0.8
+          write_attribute(:total_cost, discount)
+          save
+        else
           total = weekly_package + (rooms - 4)*5 + extra_services
           write_attribute(:total_cost, total)
           write_attribute(:total_rooms, rooms)
           save
+        end
+
        elsif self.frequency == monthly_package
          if rooms > 8
           total = monthly_package + (rooms - 8)*5 + extra_services
-          write_attribute(:total_cost, total)
-          write_attribute(:total_rooms, rooms)
-          save
+            if self.promocode == "mothersday2016"
+              discount = total * 0.8
+              write_attribute(:total_cost, discount)
+              save
+            else
+              write_attribute(:total_cost, total)
+              write_attribute(:total_rooms, rooms)
+              save
+            end
          elsif rooms <= 8
          total = monthly_package + extra_services
-         write_attribute(:total_cost, total)
-         write_attribute(:total_rooms, rooms)
-         save
+           if self.promocode == "mothersday2016"
+              discount = total * 0.8
+              write_attribute(:total_cost, discount)
+              save
+           else
+             write_attribute(:total_cost, total)
+             write_attribute(:total_rooms, rooms)
+             save
+           end
          end                              
        end 
     end

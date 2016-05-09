@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506131644) do
+ActiveRecord::Schema.define(version: 20160509094455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 20160506131644) do
     t.integer  "total_rooms"
     t.decimal  "extra_services_sum", precision: 10, scale: 2
     t.string   "ref_code"
+    t.string   "promocode"
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
