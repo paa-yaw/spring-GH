@@ -27,19 +27,19 @@
                       <p>
                       <% @request.extra_services.each do |extra_services| %>
                       <% if extra_services == 15.00 %>
-                      <p>Compound Cleaning(GHc15.00)</p>
+                      <p>Compound Cleaning(GHS 15.00)</p>
                       <% end %>
 
                       <% if extra_services == 10.01 %>
-                      <p>Fridge(GHc 10.00)</p>
+                      <p>Fridge(GHS 10.00)</p>
                       <% end %>
 
                       <% if extra_services == 10.00 %>
-                      <p>Storeroom(GHc 10.00)</p>
+                      <p>Storeroom(GHS 10.00)</p>
                       <% end %>
 
                       <% if extra_services == 40.00 %>
-                      <p>Laundry(GHc40.00)</p>
+                      <p>Laundry(GHS 40.00)</p>
                       <% end %>
 
                       <% end %>
@@ -68,7 +68,7 @@
     <p style="text-transform:uppercase;color:#122772;">  you are located at </p>
     <p><b> <%= @request.client.location %></b></p>
     <p style="text-transform:uppercase;color:#122772;">  Your Total Cost is </p>
-    <p><b> GHc <%= @request.total_cost.to_i %>.00</b></p>
+    <p><b> GHS <%= @request.total_cost.to_i %>.00</b></p>
                       <!-- </div> -->
     <hr>
       <h3><%= link_to fa_icon("thumbs-up") + " Confirm", request_path(@request), data: {confirm: "Click Ok if you are sure of your details"}, class: "btn btn-primary" %>  <%= link_to fa_icon("pencil") + " Edit", edit_request_path(@request), :class=>"btn btn-info" %>

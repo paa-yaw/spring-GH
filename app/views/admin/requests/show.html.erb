@@ -24,22 +24,22 @@
 
         
         <% price = one_off_package + (@rooms - 4)*5 + extra_services %>
-        Price: GHc <%= price %> 
+        Price: GHS <%= price %> 
 
         <% elsif @request.frequency == weekly_package %>
 
         <% price = weekly_package + (@rooms - 4)*5 + extra_services %>
-        Price: GHc <%= price %> 
+        Price: GHS <%= price %> 
 
         <% elsif  @request.frequency == monthly_package %>
         
         <% if @rooms > 8 %>
         <% price = monthly_package + (@rooms - 8)*5 + extra_services %>
-        Price: GHc  <%= price %> 
+        Price: GHS  <%= price %> 
 
         <% elsif @rooms <= 8 %>
         <% price = monthly_package + extra_services %>
-        Price: GHc <%= price.to_i %>.00 
+        Price: GHS <%= price.to_i %>.00 
 
         <% end %>         
 
@@ -71,19 +71,19 @@
        <td>
          <% @request.extra_services.each do |services| %>
          <% if services == 15.00 %>
-         <p>Compound Cleaning(GHc 15.00)</p>
+         <p>Compound Cleaning(GHS 15.00)</p>
          <% end %>
 
          <% if services == 10.01 %>
-         <p>Fridge(GHc 10.00)</p>
+         <p>Fridge(GHS 10.00)</p>
          <% end %>
 
          <% if services == 10.00 %>
-         <p>Storeroom(GHc 10.00)</p>
+         <p>Storeroom(GHS 10.00)</p>
          <% end %>
 
          <% if services == 40.00 %>
-         <p>Laundry(GHc 40.00)</p>
+         <p>Laundry(GHS 40.00)</p>
          <% end %>
          <% end %>
        </td>
@@ -98,11 +98,11 @@
        </td> 
        <td>
         <% if @request.frequency == 150.00 %>
-        <p>Deep-Cleaning(GHc 150.00)</p>
+        <p>Deep-Cleaning(GHS 150.00)</p>
         <% elsif @request.frequency == 150.01 %>
-        <p>Weekly(GHc 150.00)</p>
+        <p>Weekly(GHS 150.00)</p>
         <% elsif @request.frequency == 500.00 %>
-        <p>Monthly(GHc 500.00)</p>
+        <p>Monthly(GHS 500.00)</p>
         <% end %>
       </td>  
       <td>
