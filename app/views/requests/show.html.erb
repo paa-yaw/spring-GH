@@ -199,7 +199,7 @@
   </div>
 
 
-<% if current_client.requests.count == 1 %>
+<% if current_client.sign_in_count == 1 && current_client.requests.count == 1 %>
   <script>
     (function(){
       $(window).ready(function () {
