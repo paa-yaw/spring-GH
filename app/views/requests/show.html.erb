@@ -121,7 +121,6 @@
 
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3 text-center">
-    <!-- <div class="well"> -->
     
     <div class="panel panel-info">
       <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
@@ -173,5 +172,43 @@
  </div>
 </div>
 </div>
+
+ <div class="modal fade" id="requestModal" style="margin-top:50px;">
+    <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1">
+      <div class="modal-header" style="border-bottom-width: 0px; border-top:solid 1px #000; padding-left:0px; padding-right:0px; border-radius:0px;background:#fff;">
+          <a class="close" data-dismiss="modal" style="margin-right:10px;">×</a>
+          <div class="text-center" style="width:30%; margin: 0 auto;">
+            <%= image_tag("spring-logo-mini.png", :alt => "spring logo", :class => "img-responsive") %>
+          </div> 
+      </div>
+      <div class="modal-body text-center" style="background:#fff;">
+      <p style="padding-bottom:10px;">Your password has been sent to your email address</p>
+          <!-- <button class="btn btn-lg btn-spring-ob" data-dismiss="modal">Guide</button> -->
+      </div>
+      <div class="modal-footer" style="background:#fff; border-top-width:0px;">
+        <div class="text-center"> 
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<!-- <script>
+
+(function(){
+  var modalshow = true;
+  $(window).ready(function () {
+      if (modalshow == true) {
+          $("#requestModal").modal(); 
+          modalshow = false;
+      }
+  }); 
+})();
+</script> -->
+
+
+
 
 

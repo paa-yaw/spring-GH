@@ -266,16 +266,16 @@ input[type=radio]{
 /*-- DISPLAY REQUEST PAGE END--*/
 
 
-
+/*MY REQUESTS PAGE*/
+#myRequests tbody tr td h3{
+  font-size: 20px;
+}
 
 
 /* TABLE PAGE */
 div.panel.panel-default > div.table-responsive{
   /*border-bottom:solid 1px #0E1E59;*/
 }
-
-
-
 
 div.offerings{
   color: #122772;
