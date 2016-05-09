@@ -93,11 +93,15 @@
 // </script>
 -->
 
-<script>
-  window.onload = function() {
-    $('#myModal').modal();
-  }
-</script>
+<% if !client_signed_in? %>
+  <script>
+  (function(){
+    $(window).ready(function () {
+      $('#myModal').modal();
+    });
+  })();
+  </script>
+<% end %>
 
 <script>
   $("#pricing-bar").click(function() {

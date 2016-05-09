@@ -195,20 +195,14 @@
     </div>
   </div>
 
-<!-- <script>
 
-(function(){
-  var modalshow = true;
-  $(window).ready(function () {
-      if (modalshow == true) {
-          $("#requestModal").modal(); 
-          modalshow = false;
-      }
-  }); 
-})();
-</script> -->
-
-
-
-
+<% if current_client.requests.count == 1 %>
+  <script>
+    (function(){
+      $(window).ready(function () {
+        $("#requestModal").modal(); 
+      }); 
+    })();
+  </script> 
+<% end %>
 
