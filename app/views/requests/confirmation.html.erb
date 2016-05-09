@@ -23,6 +23,7 @@
                     
                       <b>
                       <p>
+                        <% if @request.extra_services.length > 1 %>
                         <% @request.extra_services.each do |extra_services| %>
                         <% if extra_services == 15.00 %>
                         <p>Compound Cleaning(GHS 15.00)</p>
@@ -41,6 +42,10 @@
                         <% end %>
 
                         <% end %>
+                        <% elsif @request.extra_services.length < 2 %>
+                        <p>None Selected</p>
+                        <% end %>
+                          
                       </p>
                       </b>
 
