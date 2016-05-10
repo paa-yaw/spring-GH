@@ -300,8 +300,14 @@ $(document).ready(function() {
 
 function checkPromoCode(){
   var promo = document.getElementById('request_promocode').value;
-  if(promo == "mothersDay"){
+  if(promo == "mothersday"){
       document.querySelector('input#request_promocode').style.border = 'solid 1px #119822';
+      document.querySelector('h3#PricingValue').style.color = '#797979';
+      document.querySelector('h3#PricingValue').style.textDecoration = 'line-through';
+      document.querySelector('h3.DiscountTitle').style.color = '#797979';
+      document.querySelector('h3#DiscountValue').style.color = '#119822';
+      document.querySelector('h3.PricingTitle').style.color = 'rgba(121, 121, 121, .4)';
+      document.querySelector('h3#PricingValue').style.color = 'rgba(121, 121, 121, .4)';
   } else{
       document.querySelector('input#request_promocode').style.border = 'solid 1px #a94442';
   }

@@ -96,19 +96,20 @@ div#region{
     font-weight: bold;
   }
 
-  h3.DiscountTitle, h3#discountPrice{
+  h3.DiscountTitle, h3#DiscountValue{
     font-size: 15px;
+    color:rgba(121, 121, 121, .4);
    font-weight: bold; 
   }
 
+/*color: #797979;*/
   h3#PricingValue{
-    color: #797979;
+    color: #119822;
     font-size: 15px;
-    text-decoration: line-through;
+    /*text-decoration: line-through;*/
   }
 
   h3#DiscountValue{
-    color: #119822;
     font-size: 15px;
    font-weight: bold; 
   }
