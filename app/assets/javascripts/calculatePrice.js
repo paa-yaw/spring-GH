@@ -207,10 +207,35 @@ function checkDays() {
   }
 }
 
+function checkPromoCode(){
+  var promo = document.getElementById('request_promocode').value;
+  console.log(promo);
+  if(promo == "mothersday"){
+    console.log(promo);
+      document.querySelector('input#request_promocode').style.border = 'solid 1px #119822';
+      document.querySelector('h3#PricingValue').style.color = '#797979';
+      document.querySelector('h3#PricingValue').style.textDecoration = 'line-through';
+      document.querySelector('h3.DiscountTitle').style.color = '#797979';
+      document.querySelector('h3#DiscountValue').style.color = '#119822';
+      document.querySelector('h3.PricingTitle').style.color = 'rgba(121, 121, 121, .4)';
+      document.querySelector('h3#PricingValue').style.color = 'rgba(121, 121, 121, .4)';
+      document.querySelector('label#mobPricingLabel').innerHTML = "Discount Pricing";
+      var discountValue = document.querySelector('h3#DiscountValue').innerHTML;
+      document.getElementById('navPricingValue').innerHTML = discountValue;
+  } else{
+    console.log(' no promo');
+      document.querySelector('input#request_promocode').style.border = 'solid 1px #a94442';
+      document.querySelector('label#mobPricingLabel').innerHTML = "Pricing"
+      var noDiscountValue = document.querySelector('h3#PricingValue').innerHTML;
+      document.getElementById('navPricingValue').innerHTML = noDiscountValue;
+  }
+}
+
 function calculatePricing() {
   checkDays();
   checkMonth();
   checkSchedule();  
+  checkPromoCode();
 
   var roomFactor = 0;
   var totalPrice = 0;
@@ -298,26 +323,4 @@ $(document).ready(function() {
 });
 
 
-function checkPromoCode(){
-  var promo = document.getElementById('request_promocode').value;
-  console.log(promo);
-  if(promo == "mothersday"){
-    console.log(promo);
-      document.querySelector('input#request_promocode').style.border = 'solid 1px #119822';
-      document.querySelector('h3#PricingValue').style.color = '#797979';
-      document.querySelector('h3#PricingValue').style.textDecoration = 'line-through';
-      document.querySelector('h3.DiscountTitle').style.color = '#797979';
-      document.querySelector('h3#DiscountValue').style.color = '#119822';
-      document.querySelector('h3.PricingTitle').style.color = 'rgba(121, 121, 121, .4)';
-      document.querySelector('h3#PricingValue').style.color = 'rgba(121, 121, 121, .4)';
-      document.querySelector('label#mobPricingLabel').innerHTML = "Discount Pricing";
-      var discountValue = document.querySelector('h3#DiscountValue').innerHTML;
-      document.getElementById('navPricingValue').innerHTML = discountValue;
-  } else{
-    console.log(' no promo');
-      document.querySelector('input#request_promocode').style.border = 'solid 1px #a94442';
-      document.querySelector('label#mobPricingLabel').innerHTML = "Pricing"
-      var noDiscountValue = document.querySelector('h3#PricingValue').innerHTML;
-      document.getElementById('navPricingValue').innerHTML = noDiscountValue;
-  }
-}
+
