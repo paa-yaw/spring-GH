@@ -110,9 +110,9 @@
 
         
         <% if @request.promocode ==  "mothersday2016" %>
-        <h2> Your total cost is  GHc <span class="daPrice"><%= @request.total_cost.to_i %>.00(20% off)</span> Happy Mother's Day!!!</h2>
+        <h2> Your total cost is  GHS <span class="daPrice"><%= @request.total_cost.to_i %>.00(20% off)</span> Happy Mother's Day!!!</h2>
         <% else %>
-        <h2> Your total cost is  GHc <span class="daPrice"><%= @request.total_cost.to_i %>.00</span></h2>
+        <h2> Your total cost is  GHS <span class="daPrice"><%= @request.total_cost.to_i %>.00</span></h2>
         <% end %>
         
       </div>
