@@ -301,6 +301,8 @@ $(document).ready(function() {
 function checkPromoCode(){
   var promo = document.getElementById('request_promocode').value;
   if(promo == "mothersDay"){
-      console.log(promo);
+      document.querySelector('input#request_promocode').style.border = 'solid 1px #119822';
+  } else{
+      document.querySelector('input#request_promocode').style.border = 'solid 1px #a94442';
   }
 }
