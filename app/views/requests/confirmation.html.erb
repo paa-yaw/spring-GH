@@ -72,7 +72,12 @@
     <p style="text-transform:uppercase;color:#122772;">  you are located at </p>
     <p><b> <%= @request.client.location %></b></p>
     <p style="text-transform:uppercase;color:#122772;">  Your Total Cost is </p>
-    <p><b> GHS <%= @request.total_cost.to_i %>.00</b></p>
+    <% if @request.promocode == "mothersday2016" %>
+    <p><b style="text-decoration: line-through;">GHS <%= @request.total_cost.to_i / 0.8 %>.00</b></p>
+    <p><b> GHS <%= @request.total_cost.to_i %>.00</b>(20% off)</p>
+    <% else %>
+    <p><b>GHS <%= @request.total_cost.to_i %>.00</b></p>
+    <% end %>
                       <!-- </div> -->
     <hr>
       <h3><%= link_to fa_icon("thumbs-up") + " Confirm", request_path(@request), data: {confirm: "Click Ok if you are sure of your details"}, class: "btn btn-primary" %>  <%= link_to fa_icon("pencil") + " Edit", edit_request_path(@request), :class=>"btn btn-info" %>
