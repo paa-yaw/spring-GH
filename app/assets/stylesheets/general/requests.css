@@ -96,9 +96,21 @@ div#region{
     font-weight: bold;
   }
 
+  h3.DiscountTitle, h3#discountPrice{
+    font-size: 15px;
+   font-weight: bold; 
+  }
+
   h3#PricingValue{
+    color: #797979;
+    font-size: 15px;
+    text-decoration: line-through;
+  }
+
+  h3#DiscountValue{
     color: #119822;
     font-size: 15px;
+   font-weight: bold; 
   }
 /* -- PRICING TABLE END*/
 

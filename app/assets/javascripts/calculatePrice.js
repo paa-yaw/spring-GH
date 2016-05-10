@@ -207,15 +207,6 @@ function checkDays() {
   }
 }
 
-
-
-navExtraRoomPrice
-navExtraServicePrice
-navPricingValue
-
-
-
-
 function calculatePricing() {
   checkDays();
   checkMonth();
@@ -223,7 +214,8 @@ function calculatePricing() {
 
   var roomFactor = 0;
   var totalPrice = 0;
-
+  var discountPrice = 0;
+  var discountValue = 0.8;
 
   //case of these three possible conditions
   if( getFrequency() == 0 || getFrequency() == 150.01 || getFrequency() == 150.00 ) {
@@ -251,6 +243,11 @@ function calculatePricing() {
   var totalPrice = ( ( (roomTotal() + roomFactor)*5 ) + getExtraServices() + parseInt(getFrequency()) );
     document.getElementById('PricingValue').innerHTML = "GHS "+totalPrice+".00";
     document.getElementById('navPricingValue').innerHTML = "GHS "+totalPrice+".00";
+
+  discountPrice = parseInt(totalPrice * discountValue);
+    document.getElementById('DiscountValue').innerHTML = "GHS "+discountPrice+".00";
+
+
 
  //case of this particular frequency
   } else if (getFrequency() == 500.00) {
@@ -280,7 +277,6 @@ function calculatePricing() {
       document.getElementById('navExtraRoomPrice').innerHTML = "GHS "+extraRoomPrice+".00";
     }
 
-
      var extraService = getExtraServices();
       document.getElementById('extraServicePrice').innerHTML = "GHS "+extraService+".00";
       document.getElementById('navExtraServicePrice').innerHTML = "GHS "+extraService+".00";
@@ -288,6 +284,9 @@ function calculatePricing() {
     var totalPrice = ( ( (extraRoom)*5 ) + getExtraServices() + parseInt(getFrequency()) );
       document.getElementById('PricingValue').innerHTML = "GHS "+totalPrice+".00";
       document.getElementById('navPricingValue').innerHTML = "GHS "+totalPrice+".00";
+
+    discountPrice = parseInt(totalPrice * discountValue);
+      document.getElementById('DiscountValue').innerHTML = "GHS "+discountPrice+".00";
   } 
 
 }
@@ -297,3 +296,11 @@ $(document).ready(function() {
   // checks for current month and adds display:none to previous months
   checkMonth();
 });
+
+
+function checkPromoCode(){
+  var promo = document.getElementById('request_promocode').value;
+  if(promo == "mothersDay"){
+      console.log(promo);
+  }
+}
