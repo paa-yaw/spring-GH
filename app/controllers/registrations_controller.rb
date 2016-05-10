@@ -6,6 +6,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    @client.generate_code
+    @client.save
   end
 
   protected

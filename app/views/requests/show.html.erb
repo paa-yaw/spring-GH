@@ -48,19 +48,19 @@
                  <td>
                    <% @request.extra_services.each do |services| %>
                    <% if services == 15.00 %>
-                   <p>Compound Cleaning(GHc 15.00)</p>
+                   <p>Compound Cleaning(GHS 15.00)</p>
                    <% end %>
 
                    <% if services == 10.01 %>
-                   <p>Fridge(GHc 10.00)</p>
+                   <p>Fridge(GHS 10.00)</p>
                    <% end %>
 
                    <% if services == 10.00 %>
-                   <p>Storeroom(GHc 10.00)</p>
+                   <p>Storeroom(GHS 10.00)</p>
                    <% end %>
 
                    <% if services == 40.00 %>
-                   <p>Laundry(GHc 40.00)</p>
+                   <p>Laundry(GHS 40.00)</p>
                    <% end %>
                    <% end %>
                  </td>
@@ -75,11 +75,11 @@
                  </td> 
                  <td>
                    <% if @request.frequency == 150.00 %>
-                   <p>Deep-Cleaning(GHc 150.00)</p>
+                   <p>Deep-Cleaning(GHS 150.00)</p>
                    <% elsif @request.frequency == 150.01 %>
-                   <p>Weekly(GHc 150.00)</p>
+                   <p>Weekly(GHS 150.00)</p>
                    <% elsif @request.frequency == 500.00 %>
-                   <p>Monthly(GHc 500.00)</p>
+                   <p>Monthly(GHS 500.00)</p>
                    <% end %>
                  </td>  
                  <td>
@@ -109,8 +109,11 @@
         
 
         
-        
-        <h2> Your total cost is  GHc <span class="daPrice"><%= @request.total_cost.to_i %>.00</span></h2>
+        <% if @request.promocode ==  "mothersday2016" %>
+        <h2> Your total cost is  GHS <span class="daPrice"><%= @request.total_cost.to_i %>.00(20% off)</span> Happy Mother's Day!!!</h2>
+        <% else %>
+        <h2> Your total cost is  GHS <span class="daPrice"><%= @request.total_cost.to_i %>.00</span></h2>
+        <% end %>
         
       </div>
     </div>
@@ -121,7 +124,6 @@
 
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3 text-center">
-    <!-- <div class="well"> -->
     
     <div class="panel panel-info">
       <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
@@ -174,4 +176,39 @@
 </div>
 </div>
 
+ <div class="modal fade" id="requestModal" style="margin-top:50px;">
+    <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1">
+      <div class="modal-header" style="border-bottom-width: 0px; border-top:solid 1px #000; padding-left:0px; padding-right:0px; border-radius:0px;background:#fff;">
+          <a class="close" data-dismiss="modal" style="margin-right:10px;">×</a>
+          <div class="text-center" style="width:30%; margin: 0 auto;">
+            <%= image_tag("spring-logo-mini.png", :alt => "spring logo", :class => "img-responsive") %>
+          </div> 
+      </div>
+      <div class="modal-body text-center" style="background:#fff;">
+      <p style="padding-bottom:10px;">Your password has been sent to your email address</p>
+          <!-- <button class="btn btn-lg btn-spring-ob" data-dismiss="modal">Guide</button> -->
+      </div>
+      <div class="modal-footer" style="background:#fff; border-top-width:0px;">
+        <div class="text-center"> 
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+<% if current_client.sign_in_count == 1 && current_client.requests.count == 1 %>
+  <script>
+    (function(){
+      $(window).ready(function () {
+        if (sessionStorage['modalshown'] == null) {
+          $("#requestModal").modal(); 
+          sessionStorage['modalshown'] = "yes"
+        };
+      }); 
+    })();
+  </script> 
+<% end %>
 

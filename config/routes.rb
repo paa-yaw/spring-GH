@@ -67,13 +67,19 @@ Rails.application.routes.draw do
     # routes to get worker history
     get 'workers/history', to: 'workers#history'
     get 'workers/:id/worker_history', to: 'workers#worker_history', as: :worker_history
+
+    get 'clients/:client_id/referrals', to: 'referrals#view', as: :client_referrals
     
 
     resources :clients, except: [:edit, :update] do
       resources :requests
     end
+    
+    resources :referrals, only: [:index]
 
-    resources :workers 
+    resources :workers do 
+      resources :reports
+    end
 
     resources :requests do 
       member do 
@@ -103,6 +109,8 @@ Rails.application.routes.draw do
     resources :reviews
     resources :reports
   end
+
+  resources :referrals, only: [:new, :create, :show, :index, :edit, :update]
 
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
   get 'my_requests/', to: 'requests#my_requests', as: :my_requests

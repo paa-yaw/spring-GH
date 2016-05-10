@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row" >
+		<div class="col-md-10">
+
+			<div class="panel-group">
+
+				<div class="panel panel-default" >
+					
+					<div class="panel-heading"><h2 class="panel-title text-center">Report</h2></div>
+
+					<div class="panel-body">
+
+						<%= simple_format(@report.event) %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	  <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %>	
+</div>

@@ -55,3 +55,12 @@ gem "delayed_job_active_record"
 gem "font-awesome-rails"
 gem "hirb",'~>0.7.3'
 gem "gretel"
+gem "carrierwave"
+gem "mini_magick", "~> 3.4"
+gem "fog"
+gem "fog-aws"
+gem 'figaro'
+gem 'aws-sdk', '< 2.0'
+gem "puma"
+
+

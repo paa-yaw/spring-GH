@@ -1,69 +1,123 @@
-<div class="container-fluid navbar-fixed-top visible-xs hidden-md" id="pricing-bar">
+<div class="container-fluid navbar-fixed-top visible-xs hidden-md" id="pricing-bar" >
   <ul class="nav navbar-nav">
-    <li><a href="#"><label>Extra Rooms</label><span id="navExtraRoomPrice">GHc 0.00</span></a></li>
-    <li><a href="#"><label>Extra Services</label><span id="navExtraServicePrice">GHc 0.00</span></a></li>
-    <li><a href="#"><label>Pricing</label><strong><span id="navPricingValue">GHc 150.00</span></strong></a></li>
+    <li><a href="#"><label>Extra Rooms</label><span id="navExtraRoomPrice">GHS 0.00</span></a></li>
+    <li><a href="#"><label>Extra Services</label><span id="navExtraServicePrice">GHS 0.00</span></a></li>
+    <li><a href="#"><label id="mobPricingLabel">Pricing</label><strong><span id="navPricingValue">GHS 0.00</span></strong></a></li>
   </ul>
 </div>
-    <div class="container-fluid" >
-      
-      <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-1" id="request-form" style="border:rgba(18, 39, 114, 0.2);">
 
-            <div class="form-bottom">
-               <%= render 'form', request: @request %><br>
-           </div>
-        
-       <div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1" id="pricingBox">
-        <div class="panel panel-info">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-1" id="request-form" style="border:rgba(18, 39, 114, 0.2);">
 
-          <div class="panel-heading">
-            <!-- <h2 class="panel-title text-center">Tell Us About Your House</h2> -->
-            <h2 class="panel-title text-center" style="color:#fff;">Pricing</h2>
-          </div>
+        <div class="form-bottom">
+           <%= render 'form', request: @request %><br>
+       </div>
 
-           <div class="panel-body" style="border:1px solid rgba(18, 39, 114, 0.2); border:#fff; padding-top:0px;">
-      
+    
+   <div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1" id="pricingBox">
+    <div class="panel panel-info">
 
-               <div class="grid-container">
-                  <div class="row labelRow">              
-                    <div class="col-1"><i>Description</i></div>
-                    <div class="col-2"><i>Quantity</i></div>
-                    <div class="col-3 text-right"><i>Price</i></div>
-                  </div>
-                   <div class="row basePrice">
-                    <div class="col-1">Base Price</div>
-                    <div class="col-2"><span id="roomNumber">4</span>&nbsp;Rooms</div>
-                    <div class="col-3 text-right" id="packagePrice" style="padding-right:0px;">GHc 150.00</div>
-                  </div>
-                   <div class="row extraRooms">
-                    <div class="col-1">Extra Room(s)</div>
-                    <div class="col-2"><span id="extraRooms">0</span>&nbsp;&nbsp;Rooms</div>
-                    <div class="col-3 text-right" id="extraRoomPrice" style="padding-right:0px;">GHc 0.00</div>
-                  </div>
-                   <div class="row extraServices">
-                    <div class="col-1">Extra Services</div>
-                    <div class="col-2"></div>
-                    <div class="col-3 text-right" id="extraServicePrice" style="padding-right:0px;">GHc 0.00</div>
-                  </div>
-                   <div class="row extraPricing">
-                    <div class="col-1" style="padding-top:0px;padding-right:0px;"><h3 class="PricingTitle">Total Price</h3></div>
-                    <div class="col-2" style="padding-top:0px;">&nbsp;</div>
-                    <div class="col-3 text-right" id="totalPrice" style="padding-top:0px;padding-left:0px; padding-right:0px;"><h3 id="PricingValue">GHc 150.00</h3></div>
-                  </div>
-                </div>               
+      <div class="panel-heading">
+        <!-- <h2 class="panel-title text-center">Tell Us About Your House</h2> -->
+        <h2 class="panel-title text-center" style="color:#fff;">Pricing</h2>
+      </div>
+
+       <div class="panel-body" style="border:1px solid rgba(18, 39, 114, 0.2); border:#fff; padding-top:0px;">
+  
+
+           <div class="grid-container">
+              <div class="row labelRow">              
+                <div class="col-1"><i>Description</i></div>
+                <div class="col-2"><i>Quantity</i></div>
+                <div class="col-3 text-right" id=""><i>Price</i></div>
               </div>
-            </div>
+               <div class="row basePrice">
+                <div class="col-1">Base Price</div>
+                <div class="col-2"><span id="roomNumber">4</span>&nbsp;Rooms</div>
+                <div class="col-3 text-right" id="packagePrice" style="padding-right:0px;">GHS 0.00</div>
+              </div>
+               <div class="row extraRooms">
+                <div class="col-1">Extra Room(s)</div>
+                <div class="col-2"><span id="extraRooms">0</span>&nbsp;&nbsp;Rooms</div>
+                <div class="col-3 text-right" id="extraRoomPrice" style="padding-right:0px;">GHS 0.00</div>
+              </div>
+               <div class="row extraServices">
+                <div class="col-1">Extra Services</div>
+                <div class="col-2"></div>
+                <div class="col-3 text-right" id="extraServicePrice" style="padding-right:0px;">GHS 0.00</div>
+              </div>
+              <div class="row extraPricing">
+                <div class="col-1" style="padding-top:0px;padding-right:0px;"><h3 class="PricingTitle">Total Price</h3></div>
+                <div class="col-2" style="padding-top:0px;">&nbsp;</div>
+                <div class="col-3 text-right" id="totalPrice" style="padding-top:0px;padding-left:0px; padding-right:0px;"><h3 id="PricingValue">GHS 0.00</h3></div>
+              </div>
+              <div class="row discountPricing">
+                <div class="col-1" style="padding-top:0px;padding-right:0px;"><h3 class="DiscountTitle">Discounted Price</h3></div>
+                <div class="col-2" style="padding-top:0px;">&nbsp;</div>
+                <div class="col-3 text-right" id="DiscountPrice" style="padding-top:0px;padding-left:0px; padding-right:0px;"><h3 id="DiscountValue">GHS 0.00</h3></div>
+              </div>
+           </div>   
+
           </div>
         </div>
       </div>
+
     </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="myModal" style="margin-top:50px;">
+    <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1">
+      <div class="modal-header" style="border-bottom-width: 0px; border-top:solid 1px #000; padding-left:0px; padding-right:0px; border-radius:0px;background:#fff;">
+          <a class="close" data-dismiss="modal" style="margin-right:10px;">×</a>
+          <div class="text-center" style="width:30%; margin: 0 auto;">
+            <%= image_tag("spring-logo-mini.png", :alt => "spring logo", :class => "img-responsive") %>
+          </div> 
+      </div>
+      <div class="modal-body text-center" style="background:#fff;">
+      <h4 class="text-center" style="margin-top:0px; padding-bottom:10px;">Welcome! </h4>
+      <p style="padding-bottom:10px;">Let us walk you through placing a request</p>
+          <button class="btn btn-lg btn-spring-ob" data-dismiss="modal" onclick="intro()">Guide</button>
+          <br>
+      <p style="padding-top:15px;">If you are a returning user, you can 'Login' on the top-right corner</p>
+      </div>
+      <div class="modal-footer" style="background:#fff; border-top-width:0px;">
+        <div class="text-center">
+            <p>You can also skip the tutorial</p><a href="#" class="btn" data-dismiss="modal">Skip</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<!--
+// <script>
+//   $(document).ready(function() { $('#myModal').modal({ show: true, }) }); 
+// </script>
+-->
+
+<% if !client_signed_in? %>
+  <script>
+  (function(){
+    $(window).ready(function () {
+      $('#myModal').modal();
+    });
+  })();
+  </script>
+<% end %>
 
 <script>
   $("#pricing-bar").click(function() {
     $('html,body').animate({
         scrollTop: $("#pricingBox").offset().top-100},
         1000);
-});
-
+   });
 </script>
+
+<script>
+ function intro() {
+   introJs().start('.roomSection');
+ }
+</script> 

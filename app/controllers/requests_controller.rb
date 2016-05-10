@@ -59,11 +59,22 @@ class RequestsController < ApplicationController
       @client.last_name = "last name"
 
         if @request.save
+          # transfer of referral_code to user
+          if params[:request][:ref_code]
+            @referral_code = params[:request][:ref_code]
+            @client.referrer_code = @referral_code
+            @client.generate_code
+          else
+            @client.generate_code
+          end
+
+
           @client.save
           sign_in @client
           @request.client_id = @client.id
           @request.save 
-          @request.business_algorithm          
+          @request.business_algorithm
+
 
               # sends email notification to client after sign up 
               SendEmailJob.set(wait: 5.seconds).perform_later(@client, @secure_password)
@@ -73,12 +84,22 @@ class RequestsController < ApplicationController
                 NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient, @client)
               end
 
+          # end of referral process, data integrity in Referral model 
+          if @client.referrer_code != nil
+            @referral = Referral.find_by(email: current_client.email)
+            if @referral != nil
+              @referral.recipient_id = current_client.id
+              @referral.save
+            else
+            end
+          end
+
           flash[:notice] = "Hi #{current_client.email}, Welcome to Spring."
           redirect_to confirmation_path(@request)              
-      else  
-        flash.now[:alert] = "something went wrong. Kindly make sure you complete the form before submitting."
-        render 'new'
-      end
+        else  
+          flash.now[:alert] = "something went wrong. Kindly make sure you complete the form before submitting."
+          render 'new'
+        end
     end
 
 
@@ -136,6 +157,6 @@ class RequestsController < ApplicationController
 end
 
 def request_params
-  params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location, :terms, :total_rooms, :total_cost)
+  params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location, :terms, :total_rooms, :total_cost, :referral_code, :promocode)
 end
 end

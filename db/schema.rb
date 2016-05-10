@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502023455) do
+ActiveRecord::Schema.define(version: 20160510203626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "worker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "attachments", ["worker_id"], name: "index_attachments_on_worker_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "email",                  default: "",       null: false
@@ -38,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160502023455) do
     t.string   "last_name"
     t.string   "referral_code"
     t.string   "referrer_code"
+    t.integer  "points",                 default: 0
   end
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
@@ -60,12 +70,13 @@ ActiveRecord::Schema.define(version: 20160502023455) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "referrals", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
     t.string   "code"
     t.string   "email"
-    t.string   "referrer_id"
     t.integer  "client_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "referrals", ["client_id"], name: "index_referrals_on_client_id", using: :btree
@@ -104,6 +115,8 @@ ActiveRecord::Schema.define(version: 20160502023455) do
     t.integer  "total_rooms"
     t.decimal  "extra_services_sum", precision: 10, scale: 2
     t.boolean  "terms",                                       default: false
+    t.string   "ref_code"
+    t.string   "promocode"
   end
 
   add_index "requests", ["client_id"], name: "index_requests_on_client_id", using: :btree
@@ -143,8 +156,11 @@ ActiveRecord::Schema.define(version: 20160502023455) do
     t.string   "email"
     t.text     "extra_info"
     t.boolean  "assigned",     default: false
+    t.string   "attachment"
+    t.string   "photo"
   end
 
+  add_foreign_key "attachments", "workers"
   add_foreign_key "referrals", "clients"
   add_foreign_key "reports", "clients"
   add_foreign_key "reports", "workers"

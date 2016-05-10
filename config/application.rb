@@ -28,6 +28,5 @@ module Workforce
 
     # allows rails to serve error pages from the app itself
     config.exceptions_app = self.routes
-
   end
 end

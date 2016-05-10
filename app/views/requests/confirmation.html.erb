@@ -1,17 +1,14 @@
-<div class="container">
-      <div class="row" >
-        <div class="col-sm-6 col-sm-offset-3 text-center" id="display-request" style="margin-top:4%;">
-        
-         <div class="panel-group">
+ <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" style="margin-top:50px;">
+    <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1">
+      <div class="modal-header" style="border-bottom-width: 0px; border-top:solid 1px #000; padding-left:0px; padding-right:0px; border-radius:0px;background:#fff;">
+          <!-- <a class="close" data-dismiss="modal" style="margin-right:10px;">×</a> -->
+          <div class="text-center" style="width:30%; margin: 0 auto;">
+            <%= image_tag("spring-logo-mini.png", :alt => "spring logo", :class => "img-responsive") %>
+          </div> 
+      </div>
+      <div class="modal-body text-center" style="background:#fff;">
 
-           <div class="panel panel-default" >
-          <!-- Default panel contents -->
-           <div class="panel-heading" style="background:#122772;"><h2 class="panel-title text-center" style="color:#fff;padding-top:10px;padding-bottom:10px;">Please Review Your Request</h2></div>
-          
-                 <div class="panel-body">
-
-                     <!-- <div class="well">    -->
-                    <br>
                       <p style="text-transform:uppercase;color:#122772;">You have booked cleaning for </p>  
                       <p>
                       <b>
@@ -23,28 +20,35 @@
                        </p>
                       <br>
                       <p style="text-transform:uppercase;color:#122772;"> with the following extra services</p>
+                    
                       <b>
                       <p>
-                      <% @request.extra_services.each do |extra_services| %>
-                      <% if extra_services == 15.00 %>
-                      <p>Compound Cleaning(GHc15.00)</p>
-                      <% end %>
+                        <% if @request.extra_services.length > 1 %>
+                        <% @request.extra_services.each do |extra_services| %>
+                        <% if extra_services == 15.00 %>
+                        <p>Compound Cleaning(GHS 15.00)</p>
+                        <% end %>
 
-                      <% if extra_services == 10.01 %>
-                      <p>Fridge(GHc 10.00)</p>
-                      <% end %>
+                        <% if extra_services == 10.01 %>
+                        <p>Fridge(GHS 10.00)</p>
+                        <% end %>
 
-                      <% if extra_services == 10.00 %>
-                      <p>Storeroom(GHc 10.00)</p>
-                      <% end %>
+                        <% if extra_services == 10.00 %>
+                        <p>Storeroom(GHS 10.00)</p>
+                        <% end %>
 
-                      <% if extra_services == 40.00 %>
-                      <p>Laundry(GHc40.00)</p>
-                      <% end %>
+                        <% if extra_services == 40.00 %>
+                        <p>Laundry(GHS 40.00)</p>
+                        <% end %>
 
-                      <% end %>
+                        <% end %>
+                        <% elsif @request.extra_services.length < 2 %>
+                        <p>None Selected</p>
+                        <% end %>
+                          
                       </p>
                       </b>
+
                       <p style="text-transform:uppercase;color:#122772;"> with a service package of </p>
                       <p> 
                         <b>
@@ -57,26 +61,43 @@
                           <% end %>
                         </b>                  
                       </p>
-                      <br>
+                      <!-- <br> -->
                   <p style="text-transform:uppercase;color:#122772;">
                       scheduled for </p>
     <p><b> <%= @request.date_time.strftime("%A, %d %B %Y")%> at <%= @request.date_time.strftime("%l %P")%>.</b></p>
-    <br>
+    <!-- <br> -->
     <p style="text-transform:uppercase;color:#122772;"> Your phone number is </p>
     <p><b> <%= @request.client.phone_number %></b> </p>
-    <br>
+    <!-- <br> -->
     <p style="text-transform:uppercase;color:#122772;">  you are located at </p>
     <p><b> <%= @request.client.location %></b></p>
     <p style="text-transform:uppercase;color:#122772;">  Your Total Cost is </p>
-    <p><b> GHc <%= @request.total_cost.to_i %>.00</b></p>
+    <% if @request.promocode == "mothersday2016" %>
+    <p><b style="text-decoration: line-through;">GHS <%= @request.total_cost.to_i / 0.8 %>.00</b></p>
+    <h4><b> GHS <%= @request.total_cost.to_i %>.00</b>(20% off)</h4>
+    <% else %>
+    <p><b>GHS <%= @request.total_cost.to_i %>.00</b></p>
+    <% end %>
                       <!-- </div> -->
     <hr>
       <h3><%= link_to fa_icon("thumbs-up") + " Confirm", request_path(@request), data: {confirm: "Click Ok if you are sure of your details"}, class: "btn btn-primary" %>  <%= link_to fa_icon("pencil") + " Edit", edit_request_path(@request), :class=>"btn btn-info" %>
       </h3>  
-
-          </div>
-        </div>
+          <!-- </div> -->
+      </div>
       </div>
     </div>
   </div>
-</div>
+
+  <script>
+  (function(){
+    $(window).ready(function () {
+      $('#myModal').modal();
+    });
+  })();
+  </script>
+
+  <style>
+#header{
+ z-index: 900;
+  }
+  </style>

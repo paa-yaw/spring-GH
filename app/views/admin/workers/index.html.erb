@@ -1,6 +1,6 @@
 <% breadcrumb :workers, @workers %>
 <div class="admin-page">
-  <div class="con,tainer">
+  <div class="container">
   <div class="row">
     <div class="col-sm-12 col-sm-offset-0 form-box">
 
@@ -39,7 +39,12 @@
                 
                 <tbody>
                   <tr>
-                    <td></td>
+                    <td>
+                      <% if worker.reports.any? %>
+                        <span class="label label-danger fa fa-flag"><strong> flagged</strong></span>
+                      <% end %>  
+                    </td>
+
                     <td><%= worker.first_name %></td>
                     <td><%= worker.last_name %></td>
                     <td><%= worker.sex %></td>
@@ -47,15 +52,19 @@
                     <td><span class="label label-danger"><strong>assigned <%= worker.try(:requests).try(:first).try(:client).try(:first_name) %>(No.<%= worker.try(:requests).try(:uniq).try(:last).try(:id) %>)</strong></span></td>
                    <td></td>
                     <td>
-                      <%= link_to fa_icon("arrow-circle-right") + "Go To Requests" , admin_requests_path, class: "btn btn-primary" %>     
+                      <%= link_to fa_icon("arrow-circle-right") + " Go To Requests" , admin_requests_path, class: "btn btn-primary" %>     
                     </td>
-                    <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
-                    <td><%= link_to "Remove", admin_worker_path(worker), method: :delete, data: { confirm: "Are you sure you want to delete #{worker.first_name} from the database?"}, class: "btn btn-danger" %></td>
+                    <td><%= link_to fa_icon("eye") + " View", admin_worker_path(worker), class: "btn btn-info" %></td>
+                    <td><%= link_to fa_icon("trash") + " Remove", admin_worker_path(worker), method: :delete, data: { confirm: "Are you sure you want to delete #{worker.first_name} from the database?"}, class: "btn btn-danger" %></td>
                     <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                   </tr>
                   <% else %>
                   <tr>
-                    <td></td>
+                    <td>
+                      <% if worker.reports.any? %>
+                        <span class="label label-danger fa fa-flag"><strong> flagged</strong></span>
+                      <% end %> 
+                    </td>
                     <td><%= worker.first_name %></td>
                     <td><%= worker.last_name %></td>
                     <td><%= worker.sex %></td>
@@ -63,10 +72,10 @@
                     <td><strong><span class="label label-success">available</span></strong></td>
                     <td></td>
                     <td>
-                      <%= link_to fa_icon("arrow-circle-right") + "Go To Requests" , admin_requests_path, class: "btn btn-primary" %>     
+                      <%= link_to fa_icon("arrow-circle-right") + " Go To Requests" , admin_requests_path, class: "btn btn-primary" %>     
                     </td>
-                    <td><%= link_to fa_icon("eye") + "View", admin_worker_path(worker), class: "btn btn-info" %></td>
-                    <td><%= link_to "Remove", admin_worker_path(worker), method: :delete, data: { confirm: "Are you sure you want to delete #{worker.first_name} from the database?"}, class: "btn btn-danger" %></td>
+                    <td><%= link_to fa_icon("eye") + " View", admin_worker_path(worker), class: "btn btn-info" %></td>
+                    <td><%= link_to fa_icon("trash") + " Remove", admin_worker_path(worker), method: :delete, data: { confirm: "Are you sure you want to delete #{worker.first_name} from the database?"}, class: "btn btn-danger" %></td>
                     <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                   </tr>
                   
@@ -84,7 +93,7 @@
 
 </div>
 </div>
-<%= link_to fa_icon("plus") + " Register Worker", new_admin_worker_path, class: "btn btn-primary" %>
+<%= link_to fa_icon("plus") + " Register Worker", new_admin_worker_path, class: "btn btn-primary" %>  <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %>
 </div>
 </div>
 </div>

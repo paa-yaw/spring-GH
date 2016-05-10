@@ -1,0 +1,56 @@
+             
+  <div class="container-fluid">
+              <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3">
+                      <div class="panel panel-info">
+                          <header class="panel-heading">
+                               <h2 class="panel-title text-center" style="color:#fff;">My Points</h2>                         	  
+                          </header>
+                          
+                          <table class="table table-striped table-advance">
+                           <tbody>
+                           <tr>
+                           </tr>
+                           <tr>
+                             <td>
+                               <h4>CONVERSIONS: <%= @referrals.count - @referrals.where(recipient_id: nil).count %>/<%= pluralize(@referrals.count, "referral") %></h4>
+                             </td>
+                             <td>
+                               <h4>SPRING POINTS: <strong><%= (@referrals.count - @referrals.where(recipient_id: nil).count) * 5 %></strong></h4>
+                             </td>
+                           </tr>
+                              <tr>
+                                 <th><i class="fa fa-envelope"></i> Emails</th>
+                                 <th></th>
+                              </tr>
+                              <% if @referrals.any? %>
+                              <% @referrals.each do |referral| %>
+                              <tr>
+                                 <td><p><%= referral.email %></p></td>
+                                 <td>
+                                 <% if referral.recipient_id.nil? %>
+                                 <%= link_to fa_icon("share") + " Follow Up", edit_referral_path(referral), class: "btn btn-primary" %>
+                                 <% else %>
+                                 <span class="label label-success">CONVERTED!</span>
+                                 <% end %>
+                                 </td>
+                              </tr>
+                              <% end %>
+                           <% else %>
+                           <tr>
+                           <td>
+                           	<p>No emails</p>
+                           </td>
+                           <td>
+                           	No referrals
+                           </td> 
+                           </tr>
+                          
+                           <% end %>                              
+                           </tbody>
+                        </table>
+                      </div>
+                  </div>
+              </div>
+              </div>
+              <!-- page end-->

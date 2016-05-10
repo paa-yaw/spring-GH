@@ -12,14 +12,27 @@
       <%= f.input :phone_number, label: "Phone Number" %>
       <%= f.input :location, label: "Location" %>
       <%= f.input :education, label: "Level of education" %>
-      <%= f.input :minimum_wage, label: "Salary Expectation(in GHc)" %>
+      <%= f.input :minimum_wage, label: "Salary Expectation(in GHS)" %>
       <%= f.input :experience, label: "Experience" %>
   </div>
 
   <div class="col-md-4">
       <%= f.input :extra_info, label: "Extra Info" %>
   </div>
+
+
+  <div class="col-md-4">
+   <%= f.input :attachment, as: :file, label: "Document" %>
+   <%= f.input :attachment_cache, as: :hidden %>
  </div>
+
+ <div class="col-md-4">
+   <%= f.input :photo, as: :file, label: "Profile photo" %>
+   <%= f.input :photo_cache, as: :hidden %>
+ </div>
+ </div>
+
+
 
  <div class="text-center">
 

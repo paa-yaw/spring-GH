@@ -47,31 +47,7 @@ function getHallNumber() {
   return hallNumber;
 }
 
-function getRoomNumber() {
-  var rooms = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
-  if (rooms > 4){
-    var extraRooms = parseInt(rooms-4);
-    // console.log(extraRooms);
-  } else {
-    var extraRooms = 0;
-  }
-    return extraRooms;
-}
-
-
-function getLargeRoomNumber() {
- var rooms = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
- if (rooms > 8) {
-   var extraLargeRooms = parseInt(rooms - 8);
-   // console.log(extraLargeRooms);
- } else {
-  var extraLargeRooms = 0;
-  document.getElementById("roomNumber").innerHTML = rooms;
- }
- return extraLargeRooms;
-}
-
-
+// get extra services
 function getExtraServices(){
   var extraServices = [0,0,0,0];
 
@@ -102,6 +78,7 @@ function getExtraServices(){
   var extraServiceTotal = parseInt(extraServices[0] + extraServices[1] + extraServices[2] + extraServices[3]);
   return extraServiceTotal;
 }
+
 
 function getFrequency(){
   // document.getElementById('request_frequency_60').checked = true;
@@ -134,6 +111,11 @@ function getFrequency(){
     return totalFrequency;
 }
 
+function roomTotal() {
+  var roomTotal = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
+  // console.log(roomTotal);
+  return roomTotal;
+}
 
 function checkSchedule() {
   var schedule = document.querySelectorAll("#days > div > .request_weekdays > label")[0];
@@ -160,6 +142,7 @@ function checkSchedule() {
 function checkDays() {
   var checkedDays;
   var limit;
+
   // getFrequency();
   if (getFrequency() == 150.0){
     checkedDays = 1;
@@ -222,75 +205,149 @@ function checkDays() {
       listOfDays[i].checked = false;
     };
   }
-  console.log(checkedDays);
 }
 
-
-function calculateTotal() {
-  var total = getRoomNumber()*5 + getExtraServices(); 
-  total = total + (150 || getFrequency());
-  document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
-  document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
+function promoCode() {
+  var promo = document.getElementById('request_promocode').value;
+  if (promo == "mothersday2016") {
+      document.querySelector('input#request_promocode').style.border = 'solid 1px #119822';
+      document.querySelector('h3#PricingValue').style.color = '#797979';
+      document.querySelector('h3#PricingValue').style.textDecoration = 'line-through';
+      document.querySelector('h3.DiscountTitle').style.color = '#797979';
+      document.querySelector('h3#DiscountValue').style.color = '#119822';
+      document.querySelector('h3.PricingTitle').style.color = 'rgba(121, 121, 121, .4)';
+      document.querySelector('h3#PricingValue').style.color = 'rgba(121, 121, 121, .4)';
+      document.querySelector('label#mobPricingLabel').innerHTML = "Discount Pricing";
+      var discountValue = document.querySelector('h3#DiscountValue').innerHTML;
+        document.getElementById('navPricingValue').innerHTML = discountValue;
+        // console.log(0.8);
+      return 0.8;
+  } else {
+      document.querySelector('input#request_promocode').style.border = 'solid 1px #a94442';
+      document.querySelector('label#mobPricingLabel').innerHTML = "Pricing";
+      // document.querySelector('h3#DiscountValue').style.textDecoration = 'line-through';
+      var noDiscountValue = document.querySelector('h3#PricingValue').innerHTML;
+        document.getElementById('navPricingValue').innerHTML = noDiscountValue;
+        // console.log(1);
+      return 1;
+  }
 }
-
-// calculates pricing based on number of rooms.
 
 function calculatePricing() {
-  document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
   checkDays();
   checkMonth();
-  getLargeRoomNumber();
-  getRoomNumber();
-  getExtraServices();
-  getFrequency();
-  calculateTotal();
   checkSchedule();  
-    document.getElementById('packagePrice').innerHTML = "GHc "+ (150 || getFrequency())+".00";
-    document.getElementById('extraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
-    document.getElementById('navExtraServicePrice').innerHTML = "GHc "+getExtraServices()+".00";
+  promoCode();
+
+  var roomFactor = 0;
+  var totalPrice = 0;
+  // var discountPrice = 0;
+  // var discountValue = 0.8;
+
+  //case of these three possible conditions
+  if( getFrequency() == 0 || getFrequency() == 150.01 || getFrequency() == 150.00 ) {
+    var roomFactor = -4;
+
+    var freq = parseInt(getFrequency());
+
+    document.getElementById('packagePrice').innerHTML = "GHS "+freq+".00";
+
+    var extraRoom = (roomTotal() + roomFactor);
+
+      document.getElementById('extraRooms').innerHTML = extraRoom;
+
+    var extraRoomValue = (roomTotal() + roomFactor);
+    var extraRoomPrice = "GHS "+((extraRoomValue)*5 )+".00";
+
+      document.getElementById('extraRoomPrice').innerHTML = extraRoomPrice;
+      document.getElementById('navExtraRoomPrice').innerHTML = extraRoomPrice;
+
+    var extraService = getExtraServices();
+
+      document.getElementById('extraServicePrice').innerHTML = "GHS "+extraService+".00";
+      document.getElementById('navExtraServicePrice').innerHTML = "GHS "+extraService+".00";
+
+    var totalPrice = ( ( (roomTotal() + roomFactor)*5 ) + getExtraServices() + parseInt(getFrequency()) );
+      document.getElementById('PricingValue').innerHTML = "GHS "+totalPrice+".00";
+      document.getElementById('navPricingValue').innerHTML = "GHS "+totalPrice+".00";
+
+    var discountPrice = (totalPrice * promoCode());
+    document.getElementById('navPricingValue').innerHTML ="GHS "+discountPrice+".00";
+     document.getElementById('DiscountValue').innerHTML = "GHS "+discountPrice+".00";
 
 
-  if (getFrequency() == 500) {
-    document.getElementById("extraRooms").innerHTML =( 0 || getLargeRoomNumber() );
-    document.getElementById("packagePrice").innerHTML = "GHc "+ ( 500|| getFrequency())+".00";
-  } else {
-    document.getElementById("extraRooms").innerHTML =( 0 || getRoomNumber() );
-  }
-   
-  if (getFrequency() == 500) {
-    document.getElementById("extraRoomPrice").innerHTML = "GHc "+getLargeRoomNumber()*5+".00";
-    document.getElementById("navExtraRoomPrice").innerHTML = "GHc "+getLargeRoomNumber()*5+".00";
-  } else{
-    document.getElementById("extraRoomPrice").innerHTML = "GHc "+getRoomNumber()*5+".00";
-    document.getElementById("navExtraRoomPrice").innerHTML = "GHc "+getRoomNumber()*5+".00";
-  }
+    // discountPrice = parseInt(totalPrice * discountValue);
 
-  if (getFrequency() == 150){
-    document.getElementById("roomNumber").innerHTML = 4;
-    var total = 150 + getRoomNumber()*5 + getExtraServices(); 
-    // console.log(total);
-    document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
-    document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
-  }
-  else if (getFrequency() == 150.01) {
-    document.getElementById("packagePrice").innerHTML = "GHc "+ parseInt(150.01|| getFrequency())+".00";
-    document.getElementById("roomNumber").innerHTML = 4;
-    var total = parseInt(150.00001 + getRoomNumber()*5 + getExtraServices());
-    // console.log(total);
-    document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
-    document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
-  }
-  else if (getFrequency() == 500) {
-    var rooms = (getBedroomNumber() + getBathroomNumber() + getKitchenNumber() + getHallNumber());
 
-    var total = 500 + getLargeRoomNumber()*5 + getExtraServices();
-    // console.log(total);
-    document.getElementById("PricingValue").innerHTML = "GHc "+total+".00";
-    document.getElementById("navPricingValue").innerHTML = "GHc "+total+".00";
-  }
+ //case of this particular frequency
+  } else if (getFrequency() == 500.00) {
+    var roomFactor = -8;
+    // console.log(roomFactor);
+
+    var freq = parseInt(getFrequency());
+     // console.log(freq);
+    document.getElementById('packagePrice').innerHTML = "GHS "+freq+".00";
+
+    var extraRoom = (roomTotal() + roomFactor);
+    // var extraRoomValue
+
+    if (extraRoom <= 0) {
+      var extraRoom = 0;
+      var extraRoomPrice = 0;
+
+      document.getElementById('extraRooms').innerHTML = extraRoom;
+      document.getElementById('extraRoomPrice').innerHTML = "GHS "+extraRoomPrice+".00";
+      document.getElementById('navExtraRoomPrice').innerHTML = "GHS "+extraRoomPrice+".00";
+    } else {
+      // var extraRoom = (roomTotal() + roomFactor);
+      var extraRoomPrice = ((extraRoom)*5 );
+
+      document.getElementById('extraRooms').innerHTML = extraRoom;
+      document.getElementById('extraRoomPrice').innerHTML = "GHS "+extraRoomPrice+".00";
+      document.getElementById('navExtraRoomPrice').innerHTML = "GHS "+extraRoomPrice+".00";
+    }
+
+     var extraService = getExtraServices();
+      document.getElementById('extraServicePrice').innerHTML = "GHS "+extraService+".00";
+      document.getElementById('navExtraServicePrice').innerHTML = "GHS "+extraService+".00";
+
+    var totalPrice = ( ( (extraRoom)*5 ) + getExtraServices() + parseInt(getFrequency()) );
+      document.getElementById('PricingValue').innerHTML = "GHS "+totalPrice+".00";
+      document.getElementById('navPricingValue').innerHTML = "GHS "+totalPrice+".00";
+
+    var discountPrice = (totalPrice * promoCode());
+      document.getElementById('navPricingValue').innerHTML = "GHS "+discountPrice+".00";
+        document.getElementById('DiscountValue').innerHTML = "GHS "+discountPrice+".00";
+  } 
 }
+
 
 $(document).ready(function() {
   // checks for current month and adds display:none to previous months
   checkMonth();
 });
+
+
+// function checkPromoCode(){
+//   var promo = document.getElementById('request_promocode').value;
+//   console.log(promo);
+//   if(promo == "mothersday"){
+//     // console.log(promo);
+//       document.querySelector('input#request_promocode').style.border = 'solid 1px #119822';
+//       document.querySelector('h3#PricingValue').style.color = '#797979';
+//       document.querySelector('h3#PricingValue').style.textDecoration = 'line-through';
+//       document.querySelector('h3.DiscountTitle').style.color = '#797979';
+//       document.querySelector('h3#DiscountValue').style.color = '#119822';
+//       document.querySelector('h3.PricingTitle').style.color = 'rgba(121, 121, 121, .4)';
+//       document.querySelector('h3#PricingValue').style.color = 'rgba(121, 121, 121, .4)';
+//       document.querySelector('label#mobPricingLabel').innerHTML = "Discount Pricing";
+//       var discountValue = document.querySelector('h3#DiscountValue').innerHTML;
+//       // document.getElementById('navPricingValue').innerHTML = discountValue;
+//   } else{
+//     // console.log('no promo');
+//       document.querySelector('input#request_promocode').style.border = 'solid 1px #a94442';
+//       document.querySelector('label#mobPricingLabel').innerHTML = "Pricing";
+//       var noDiscountValue = document.querySelector('h3#PricingValue').innerHTML;
+//       // document.getElementById('navPricingValue').innerHTML = noDiscountValue;
+//   }
+// }

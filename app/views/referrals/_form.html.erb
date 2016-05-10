@@ -1,0 +1,4 @@
+<%= simple_form_for(referral) do |f|%>
+  <%= f.input :email %>
+  <%= f.button :submit, "Invite", class: "btn btn-primary" %> <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-danger" %>
+<% end %>

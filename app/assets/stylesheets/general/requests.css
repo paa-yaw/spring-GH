@@ -96,16 +96,34 @@ div#region{
     font-weight: bold;
   }
 
+  h3.DiscountTitle, h3#DiscountValue{
+    font-size: 15px;
+    color:rgba(121, 121, 121, .4);
+   font-weight: bold; 
+  }
+
+/*color: #797979;*/
   h3#PricingValue{
     color: #119822;
     font-size: 15px;
+    /*text-decoration: line-through;*/
+  }
+
+  h3#DiscountValue{
+    font-size: 15px;
+   font-weight: bold; 
   }
 /* -- PRICING TABLE END*/
 
 /*-- PRICING TOTAL START*/
-.extraPricing{
-/*border-top: solid 1px #333;*/
+
+.panel .panel-heading i.fa.fa-question{
+  border-right-width: 0px;
+  font-size: 27px;
+  border: solid 1px;
+  border-radius: 50%;
 }
+
 
 /*-- PRICING TOTAL END*/
 
@@ -261,16 +279,16 @@ input[type=radio]{
 /*-- DISPLAY REQUEST PAGE END--*/
 
 
-
+/*MY REQUESTS PAGE*/
+#myRequests tbody tr td h3{
+  font-size: 20px;
+}
 
 
 /* TABLE PAGE */
 div.panel.panel-default > div.table-responsive{
   /*border-bottom:solid 1px #0E1E59;*/
 }
-
-
-
 
 div.offerings{
   color: #122772;
@@ -348,17 +366,56 @@ label.check_boxes.optional.control-label{
 #preference span.radio.inline{
   padding-left: 20px;
 }
-/*
-#days span.checkbox{
-  columns:2;
-}*/
 
 
-/*#days span.checkbox.inline:nth-child(-n+5){
-  display: inline-block;
-  width:50%;
-  float:left;
-}*/
+/*SPECIAL SPRING BUTTON FOR ONBOARDING*/
+.btn-spring-ob { 
+  color: #192964; 
+  background-color: #FFFFFF; 
+  border-color: #192964; 
+} 
+ 
+.btn-spring-ob:hover, 
+.btn-spring-ob:focus, 
+.btn-spring-ob:active, 
+.btn-spring-ob.active, 
+.open .dropdown-toggle.btn-spring-ob { 
+  color: #192964; 
+  background-color: #FFD207; 
+  border-color: #192964; 
+} 
+ 
+.btn-spring-ob:active, 
+.btn-spring-ob.active, 
+.open .dropdown-toggle.btn-spring-ob { 
+  background-image: none; 
+} 
+ 
+.btn-spring-ob.disabled, 
+.btn-spring-ob[disabled], 
+fieldset[disabled] .btn-spring-ob, 
+.btn-spring-ob.disabled:hover, 
+.btn-spring-ob[disabled]:hover, 
+fieldset[disabled] .btn-spring-ob:hover, 
+.btn-spring-ob.disabled:focus, 
+.btn-spring-ob[disabled]:focus, 
+fieldset[disabled] .btn-spring-ob:focus, 
+.btn-spring-ob.disabled:active, 
+.btn-spring-ob[disabled]:active, 
+fieldset[disabled] .btn-spring-ob:active, 
+.btn-spring-ob.disabled.active, 
+.btn-spring-ob[disabled].active, 
+fieldset[disabled] .btn-spring-ob.active { 
+  background-color: #FFFFFF; 
+  border-color: #192964; 
+} 
+ 
+.btn-spring-ob .badge { 
+  color: #FFFFFF; 
+  background-color: #192964; 
+}
+
+
 /*
 // MOBILE VIEW
 */
@@ -377,6 +434,19 @@ label.check_boxes.optional.control-label{
 html{
   background: rgba(25,41,100,0.52);
   }
+
+  #myModal{
+    padding-top: 60px;
+  }
+  .modal-footer{   
+    background: #fff;
+    border-top-width: 0px;
+  }
+
+  .modal-body{
+   border-top-width: 0px; 
+  }
+
   #pricing-bar{
     top:50px;
     background-color: rgba(25,41,100,0.89);
@@ -509,6 +579,53 @@ html{
     display: block;
     max-width: 80%;
   }
+
+    .btn-spring-ob { 
+    color: #192964; 
+    background-color: #FFFFFF; 
+    border-color: #192964; 
+  } 
+   
+  .btn-spring-ob:hover, 
+  .btn-spring-ob:focus, 
+  .btn-spring-ob:active, 
+  .btn-spring-ob.active, 
+  .open .dropdown-toggle.btn-spring-ob { 
+    color: #192964; 
+    background-color: #FFD207; 
+    border-color: #192964; 
+  } 
+   
+  .btn-spring-ob:active, 
+  .btn-spring-ob.active, 
+  .open .dropdown-toggle.btn-spring-ob { 
+    background-image: none; 
+  } 
+   
+  .btn-spring-ob.disabled, 
+  .btn-spring-ob[disabled], 
+  fieldset[disabled] .btn-spring-ob, 
+  .btn-spring-ob.disabled:hover, 
+  .btn-spring-ob[disabled]:hover, 
+  fieldset[disabled] .btn-spring-ob:hover, 
+  .btn-spring-ob.disabled:focus, 
+  .btn-spring-ob[disabled]:focus, 
+  fieldset[disabled] .btn-spring-ob:focus, 
+  .btn-spring-ob.disabled:active, 
+  .btn-spring-ob[disabled]:active, 
+  fieldset[disabled] .btn-spring-ob:active, 
+  .btn-spring-ob.disabled.active, 
+  .btn-spring-ob[disabled].active, 
+  fieldset[disabled] .btn-spring-ob.active { 
+    background-color: #FFFFFF; 
+    border-color: #192964; 
+  } 
+   
+  .btn-spring-ob .badge { 
+    color: #FFFFFF; 
+    background-color: #192964; 
+  }
+
 }
 
 

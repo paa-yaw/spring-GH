@@ -14,7 +14,7 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+            <div class="col-md-3 col-lg-3 " align="center"><%= link_to (image_tag @worker.photo_url(:thumb)), @worker.photo.url, class: "img-circle img-responsive" %></div>
 
             <div class=" col-md-9 col-lg-9 "> 
               <table class="table table-user-information">
@@ -60,7 +60,7 @@
                   </tr>
                   <tr>
                     <td><strong>Salary Expectation:</strong></td>
-                    <td> GHc <%= @worker.minimum_wage %></td>
+                    <td> GHS <%= @worker.minimum_wage %></td>
                   </tr>
                   <tr>
                     <td><strong>Work Experience:</strong></td>
@@ -74,12 +74,28 @@
                     <td><strong>Rating:</strong></td>
                     <td><div class="star-rating" data-score= <%= @worker.average_rating %>></div></td>
                   </tr>
+                  <tr>
+                    <td><strong>Attachment</strong></td>
+                    <td>
+                      <% if @worker.attachment.present? %>
+                      <p>
+                      <%= link_to (image_tag @worker.attachment_url(:thumb)), @worker.attachment.url %></p>
+                        <%#= link_to File.basename(@worker.attachment.url), @worker.attachment.url %>
+                        (<%= number_to_human_size(@worker.attachment.size) %>)
+                     
+                      <% end %>
+                    </td>
+                  </tr>
 
 
                 </tbody>
               </table>
 
-              <h3><%= link_to fa_icon("pencil") + "Edit Worker", edit_admin_worker_path(@worker), class: "btn  btn-primary" %> <%= link_to "Back", :back, class: "btn btn-primary" %></h3>
+              <h3><%= link_to fa_icon("pencil") + " Edit Worker", edit_admin_worker_path(@worker), class: "btn  btn-primary" %> <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %>
+                <% if @worker.reports.any? %>
+                  <%= link_to fa_icon("flag") + " View Report(s)", admin_worker_reports_path(@worker), class: "btn btn-danger" %>
+                <% end %> 
+              </h3>
             </div>
           </div>
         </div>            
@@ -87,6 +103,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 <script>

@@ -11,10 +11,11 @@
 
        <tbody>
         <tr>
-          <th><i class="fa fa-user"></i>Client's Name</th>
-          <th><i class="fa fa-folder"></i>No. of Requests</th>
-          <th><i class="fa fa-comments-o"></i>Client's Remarks</th>
-          <th><i class="fa fa-star"></i>Client's Rating</th>
+          <th><i class="fa fa-user"></i> Client's Name</th>
+          <th><i class="fa fa-folder"></i> No. of Requests</th>
+          <th><i class="fa fa-comments-o"></i> Client's Remarks</th>
+          <th><i class="fa fa-star"></i> Client's Rating</th>
+          <th><i class="fa fa-flag"></i> Client's Report</th>
         </tr>
         <% if @worker.requests.exists? %>
         <% @worker.requests.uniq.each do |request| %>
@@ -24,6 +25,13 @@
          <td><%= link_to request.client.requests.count, admin_client_requests_path(request.client) %></td>
          <td><%= @worker.reviews.where(client_id: request.client).first.try(:comment) || nil %></td>
          <td><div class="star-rating" data-score= <%= request.client.reviews.where(worker_id: @worker).first.try(:rating) %>></div></td>
+         <td>
+           <% if request.client.reports.any? %>
+             <p><%= link_to pluralize(request.client.reports.count, "report"), admin_worker_reports_path(@worker) %> filed</p>
+           <% else %>
+             <p>No report</p>  
+           <% end %>
+         </td>
        </tr>
        <% end %>
        <% else %>
@@ -32,6 +40,7 @@
         <td>No Data yet!</td>
         <td>No remark</td>
         <td>No Data yet!</td>
+        <td>No Report</td>
       </tr>
       <% end %>
     </tbody>
@@ -56,6 +65,10 @@
           <tr>
             <td>No. of Clients Handled</td>
             <td><%= @worker.requests.joins(:client).uniq.count %></td>
+          </tr>
+          <tr>
+            <td>No. of Reports Filed Against</td>
+            <td><%= @worker.reports.count %></td>
           </tr>
         </tbody>
       </table>

@@ -13,3 +13,6 @@
 /tmp
 
 /public/.well-known/*
+# Ignore application configuration
+/config/application.yml
+/public/uploads
