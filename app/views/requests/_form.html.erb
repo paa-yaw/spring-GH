@@ -12,7 +12,6 @@
             <%= link_to fa_icon("question"), :class =>"fa-question pull-right", :style => "border-right:none;" %>
             <% end %>
             </h2>
-
         <% end %>
       </div>
       <div class="panel-body" data-step="1" data-intro='Choose number of rooms for cleaning' >
@@ -108,7 +107,7 @@
        <% end %>
     </div>
      <div class="panel-body"> 
-      <div class="col-md-6 col-sm-12" onkeyup="promoCode()">
+      <div class="col-md-6 col-sm-12" onkeyup="calculatePricing()">
         <%= f.input :promocode, label: "Enter the promocode to enjoy a 20% discount." %>
       </div> 
        </div> 
@@ -190,7 +189,10 @@
 
 
 <script>
+
+if(window.location.pathname.split('/').pop() == "new"){ 
   function intro() {
     introJs().start('.roomSection');
   }
+}
 </script>

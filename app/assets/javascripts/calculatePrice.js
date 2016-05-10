@@ -209,7 +209,7 @@ function checkDays() {
 
 function promoCode() {
   var promo = document.getElementById('request_promocode').value;
-  if (promo == "mothersday") {
+  if (promo == "mothersday2016") {
       document.querySelector('input#request_promocode').style.border = 'solid 1px #119822';
       document.querySelector('h3#PricingValue').style.color = '#797979';
       document.querySelector('h3#PricingValue').style.textDecoration = 'line-through';
@@ -225,6 +225,7 @@ function promoCode() {
   } else {
       document.querySelector('input#request_promocode').style.border = 'solid 1px #a94442';
       document.querySelector('label#mobPricingLabel').innerHTML = "Pricing";
+      // document.querySelector('h3#DiscountValue').style.textDecoration = 'line-through';
       var noDiscountValue = document.querySelector('h3#PricingValue').innerHTML;
         document.getElementById('navPricingValue').innerHTML = noDiscountValue;
         // console.log(1);
