@@ -27,4 +27,13 @@ class Client < ActiveRecord::Base
       write_attribute(:referral_code, code)
       save
   end
+
+  # spring points
+  def spring_points
+    if referrals.any?
+      points = (referrals.count - referrals.where(recipient_id: nil).count) * 5
+      write_attribute(:points, points)
+      save
+    end
+  end
 end
