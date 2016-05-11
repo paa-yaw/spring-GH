@@ -34,11 +34,8 @@
 
          <header id="header" class="alt" style="background:#fff;box-shadow:-1px 2px 3px 0px rgba(46,56,66,.21);">
 
-            <!-- <h1><%#= link_to "Spring", root_path %></h1> -->
-
-            
               <a href="/" class="spring-brand">
-                <%= image_tag("spring2-logo-final.png", :alt => "spring logo", :class => "img-responsive") %>
+                <%= image_tag("spring2-logo-final.png", :alt => "spring logo", :class => "img-responsive", :style=>'margin-left: 0px;') %>
               </a>
             
             <nav id="nav">
@@ -85,23 +82,10 @@
                       <li class="special">
                           <%= link_to "Requests", my_requests_path %>
                       </li>
-                    <!--   <li class="special">
-                        <%#= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                  data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                      </li>  -->
                       <li>
                       <%= link_to "Book a Cleaning", new_request_path, :style=>'color: #ffd207;' %>
                     </li>
                     <% else %>
-                    <!--     <li class="special">
-                          <a href="#one">About</a>
-                        </li>
-                        <li class="special">
-                          <a href="#two">Services</a>
-                        </li>
-                        <li class="special">
-                          <a href="#cta">Contact</a>
-                        </li> -->
                        <li><%= link_to "FAQ", q_and_a_path %></li>
 
                         <li class="special">

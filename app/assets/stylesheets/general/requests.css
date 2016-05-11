@@ -253,7 +253,7 @@ span.checkbox.inline{
 
 img.img-responsive{
   width: 100%;
-  margin-left: 20px;
+  margin-left: -15px;
 }
 
 input[type=checkbox]{

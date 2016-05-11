@@ -271,9 +271,9 @@ function calculatePricing() {
       document.getElementById('PricingValue').innerHTML = "GHS "+totalPrice+".00";
       document.getElementById('navPricingValue').innerHTML = "GHS "+totalPrice+".00";
 
-    var discountPrice = (totalPrice * promoCode());
-    document.getElementById('navPricingValue').innerHTML ="GHS "+discountPrice;
-     document.getElementById('DiscountValue').innerHTML = "GHS "+discountPrice;
+    var discountPrice = Math.round(totalPrice * promoCode());
+    document.getElementById('navPricingValue').innerHTML ="GHS "+discountPrice+".00";
+     document.getElementById('DiscountValue').innerHTML = "GHS "+discountPrice+".00";
 
 
     // discountPrice = parseInt(totalPrice * discountValue);
@@ -315,9 +315,9 @@ function calculatePricing() {
       document.getElementById('PricingValue').innerHTML = "GHS "+totalPrice+".00";
       document.getElementById('navPricingValue').innerHTML = "GHS "+totalPrice+".00";
 
-    var discountPrice = (totalPrice * promoCode());
-      document.getElementById('navPricingValue').innerHTML = "GHS "+discountPrice;
-        document.getElementById('DiscountValue').innerHTML = "GHS "+discountPrice;
+    var discountPrice = Math.round(totalPrice * promoCode());
+      document.getElementById('navPricingValue').innerHTML = "GHS "+discountPrice+".00";
+        document.getElementById('DiscountValue').innerHTML = "GHS "+discountPrice+".00";
   } 
 }
 
