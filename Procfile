@@ -1,2 +1,2 @@
 web: bundle exec puma -C config/puma.rb
-worker: heroku run rake jobs:work 
+worker:  bundle exec rake jobs:work 
