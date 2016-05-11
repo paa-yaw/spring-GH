@@ -74,7 +74,7 @@
     <p style="text-transform:uppercase;color:#122772;">  Your Total Cost is </p>
     <% if @request.promocode == "mothersday2016" %>
     <p><b style="text-decoration: line-through;">GHS <%= @request.total_cost.to_i / 0.8 %>.00</b></p>
-    <p><b> GHS <%= @request.total_cost.to_i %>.00</b>(20% off)</p>
+    <h4><b> GHS <%= @request.total_cost.to_i %>.00</b>(20% off)</h4>
     <% else %>
     <p><b>GHS <%= @request.total_cost.to_i %>.00</b></p>
     <% end %>

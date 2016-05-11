@@ -5,3 +5,8 @@
 new_request_url(:code => @referral.code)
 
 no. of referrals...emails of people referred and their status: converted/not converted...spring points
+
+
+score board in admin
+-list of clients...number of referrals...number of spring points
+-click on a client reveals number of referrals, list of referred clients, list of converted clients, rate of cnversion, number of spring points, rank

@@ -67,11 +67,15 @@ Rails.application.routes.draw do
     # routes to get worker history
     get 'workers/history', to: 'workers#history'
     get 'workers/:id/worker_history', to: 'workers#worker_history', as: :worker_history
+
+    get 'clients/:client_id/referrals', to: 'referrals#view', as: :client_referrals
     
 
     resources :clients, except: [:edit, :update] do
       resources :requests
     end
+    
+    resources :referrals, only: [:index]
 
     resources :workers do 
       resources :reports
