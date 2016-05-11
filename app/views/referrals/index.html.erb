@@ -31,7 +31,7 @@
                                  <% if referral.recipient_id.nil? %>
                                  <%= link_to fa_icon("share") + " Follow Up", edit_referral_path(referral), class: "btn btn-primary" %>
                                  <% else %>
-                                 <span class="label label-success">just placed a request <%= time_ago_in_words(referral.updated_at)%> ago</span>
+                                 <span class="label label-success"> placed a request <%= time_ago_in_words(referral.updated_at)%> ago</span>
                                  <% end %>
                                  </td>
                               </tr>

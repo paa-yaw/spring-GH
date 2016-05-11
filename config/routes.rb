@@ -90,6 +90,10 @@ Rails.application.routes.draw do
     end
   end
 
+
+
+  
+
   
   # devise_for :clients
   devise_for :clients, controllers: {registrations: "registrations"}
