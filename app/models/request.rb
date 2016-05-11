@@ -87,7 +87,7 @@ class Request < ActiveRecord::Base
        if self.frequency == one_off_package
         total = one_off_package + (rooms - 4)*5 + extra_services
         if self.promocode == "mothersday2016"
-         discount = total * 0.8
+         discount = total * 0.85
          write_attribute(:total_cost, discount)
          save
         else            
@@ -99,7 +99,7 @@ class Request < ActiveRecord::Base
        elsif self.frequency == weekly_package
         total = one_off_package + (rooms - 4)*5 + extra_services
         if self.promocode == "mothersday2016"
-          discount = total * 0.8
+          discount = total * 0.85
           write_attribute(:total_cost, discount)
           save
         else
@@ -113,7 +113,7 @@ class Request < ActiveRecord::Base
          if rooms > 8
           total = monthly_package + (rooms - 8)*5 + extra_services
             if self.promocode == "mothersday2016"
-              discount = total * 0.8
+              discount = total * 0.85
               write_attribute(:total_cost, discount)
               save
             else
@@ -124,7 +124,7 @@ class Request < ActiveRecord::Base
          elsif rooms <= 8
          total = monthly_package + extra_services
            if self.promocode == "mothersday2016"
-              discount = total * 0.8
+              discount = total * 0.85
               write_attribute(:total_cost, discount)
               save
            else
