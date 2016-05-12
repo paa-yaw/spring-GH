@@ -15,10 +15,15 @@
 					</tr>
 					
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td><%= @client.referrals.count %></td>
+						<td><%= @client.referrals.where(recipient_id: nil).count %>/<%= @client.referrals.count %></td>
+						<td><% if @client.referrals.any? %>
+						    <% @client.referrals.each do |referral| %>
+						    <p><%= referral.email%></p>
+						    <% end %>
+						    <% end %>
+						</td>
+						<td><%= @client.points %></td>
 					</tr>                             
 				</tbody>
 			</table>
