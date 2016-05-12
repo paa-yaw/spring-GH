@@ -19,8 +19,8 @@ class ReferralsController < ApplicationController
     else
       redirect_to root_path
     end
-  end
-
+  end 
+   
   def create
   	@referral = Referral.new(referral_params)
   	@referral.sender_id = current_client.id
@@ -30,6 +30,7 @@ class ReferralsController < ApplicationController
   	if @referral.save
   	  InviteJob.set(wait: 2.seconds).perform_later(@referral, new_request_url(:referral_code => @referral.code))
       flash[:notice] = "You have made an invite"
+      current_client.spring_points
       redirect_to new_referral_path
   	else
   	  flash.now[:alert] = "Your invite failed. try again"
@@ -46,6 +47,7 @@ class ReferralsController < ApplicationController
          # @url = url_for(:controller => "requests", :action => "new", :host => "springgh.com")  
         InviteJob.set(wait: 2.seconds).perform_later(@referral, new_request_url(:referral_code => @referral.code))
         flash[:notice] = "you have sent a follow up invite"
+        current_client.spring_points
         redirect_to referrals_path
       else
         flash.now[:alert] = "your invite failed."
