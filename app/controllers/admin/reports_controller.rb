@@ -16,7 +16,7 @@ class Admin::ReportsController < Admin::ApplicationController
   # 	  flash.now[:alert] = "your report failed to save."
   #     render "new" 
   # 	end
-  # end
+  # endd
 
   def index
   	@reports = @worker.reports.all
