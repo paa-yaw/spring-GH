@@ -2,26 +2,34 @@
 	<div class="col-lg-12">
 		<section class="panel">
 			<header class="panel-heading">
-				<%= @client.first_name %>, <%= @client.last_name %>
+			    <h1>Referral Score & Detail</h1>
+				<h2><%= @client.first_name %>, <%= @client.last_name %></h2>
 			</header>
 
 			<table class="table table-striped table-advance table-hover">
-				<tbody>
+				<thead>
 					<tr>
 						<th><i class="fa fa-user"></i> Number of Referrals </th>
 						<th><i class="fa fa-share"></i> Referral Conversion</th>
 						<th><i class="fa fa-envelope"></i> Referred Emails</i></th>
 						<th><i class="fa sort-numeric-asc"></i> Spring Points</th>
 					</tr>
-					
+					</thead>
+					<tbody>	
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td><%= @client.referrals.count %></td>
+						<td><%= @client.referrals.count - @client.referrals.where(recipient_id: nil).count %>/<%= @client.referrals.count %></td>
+						<td><% if @client.referrals.any? %>
+						    <% @client.referrals.each do |referral| %>
+						    <p><%= referral.email%></p>
+						    <% end %>
+						    <% end %>
+						</td>
+						<td><%= @client.points %></td>
 					</tr>                             
 				</tbody>
 			</table>
 		</section>
+			 <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %>
 	</div>
 </div>
