@@ -89,12 +89,13 @@
     </div>
 
      <!-- <div class="panel-body" data-step="5" data-intro='Enter your promo code'> 
+
       <div class="col-md-6 col-sm-12" onchange="calculatePricing()">
         <%#= f.input :promocode, label: "Enter a promocode" %>
       </div> 
      </div>  -->
      
-    <div class="panel-body" style="padding-top:0px;" data-step="6" data-intro='Enter your email, phone number and location'>
+    <div class="panel-body" style="padding-top:0px;" data-step="5" data-intro='Enter your email, phone number and location'>
        <div class="col-md-12 col-sm-12">
 
        <% if !client_signed_in? %>
@@ -114,7 +115,7 @@
     </div>
   </div>
 
-    <div class="panel-body" data-step="7" data-intro='Agree to our Terms of Service'>
+    <div class="panel-body" data-step="6" data-intro='Agree to our Terms of Service'>
     <label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path, target: '_blank' %></label>
       <div class="col-md-12 col-sm-12">
       <%= f.input :terms, label: "I Have Carefully Read And Fully Agreed To The Terms of Service", :selected => request.terms %> 

@@ -94,12 +94,15 @@
 
 <% if !client_signed_in? %>
   <script>
-  (function(){
-    $(window).ready(function () {
-      $('#myModal').modal();
-    });
-  })();
-  </script>
+      (function(){
+        $(window).ready(function () {
+          if (sessionStorage['newmodalshown'] == null) {
+            $("#myModal").modal(); 
+            sessionStorage['newmodalshown'] = "yes"
+          };
+      }); 
+    })();
+  </script> 
 <% end %>
 
 <script>
