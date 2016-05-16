@@ -5,18 +5,7 @@
 		<nav id="nav">
 
 			<ul>
-               <!-- <li class="special desktop-only-view">
-                    <a href="/#one"><span>About</span></a>
-               </li>
-               <li class="special desktop-only-view">
-                    <a href="/#two"><span>Services</span></a>
-               </li>
-               <li class="special desktop-only-view">
-                    <a href="/#cta"><span>Contact</span></a>
-               </li>
-               <li class="special desktop-only-view">
-                  <%#= link_to "FAQ", q_and_a_path%>
-              </li> -->
+
               <li class="special desktop-only-view">
               	<%= link_to "Home", root_path %>
               </li>
@@ -32,10 +21,6 @@
               	data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
               </li>
 
-               <!--  <li class="special desktop-only-view">
-                  <%#= link_to "Log Out", destroy_client_session_path, method: :delete,
-                            data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                        </li>  -->
                         <% else %>
                         <li class="special desktop-only-view">
                         	<%= link_to "Log In", new_client_session_path %>
@@ -66,8 +51,6 @@
                         				<%= link_to "Requests", my_requests_path %>
                         			</li>
                         			<li class="special">
-                            <%#= link_to "Log Out", destroy_client_session_path, method: :delete,
-                            data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
                         </li>  
                         <% else %>
                         <li class="special">
@@ -109,10 +92,6 @@
 		<section class="wrapper style5">
 			<div class="inner">
 				<header>
-
-
-
-
 
 				<strong>RECITALS</strong><br>
 					Spring operates an online platform at www.springgh.com (“the Website”) through which customers (“Users”) can book for the provision of cleaning services (“Cleaning Services”), by submitting a Booking Request. Spring then matches the most suitable Cleaner from its database to the Booking Request.
