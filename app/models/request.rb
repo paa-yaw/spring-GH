@@ -10,6 +10,15 @@ class Request < ActiveRecord::Base
   validate :restrict_selection
   validate :forbidden_dates
   validate :day_and_date_match
+  validate :length_of_phone_number
+
+    def length_of_phone_number
+      if phone_number.present?
+        if phone_number.length != 10
+          errors.add(:phone_number, "please make sure your phone number has the correct number of digits")
+        end
+      end        
+    end
 
     def weekday_array_cannot_be_empty
       if frequency == 150.00
