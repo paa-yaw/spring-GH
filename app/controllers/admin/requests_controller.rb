@@ -61,7 +61,7 @@ class Admin::RequestsController < Admin::ApplicationController
     @security_code = SecureRandom.hex(5)
 
     @client = @request.client
-    NotifyClientJob.set(wait: 2.seconds).perform_later(@client, @security_code)
+    NotifyClientJob.set(wait: 2.seconds).perform_later(@client, @security_code, @worker)
     flash[:alert] = "You just assigned #{@worker.first_name} to #{@request.id}."
 
     # redirect_to admin_root_path

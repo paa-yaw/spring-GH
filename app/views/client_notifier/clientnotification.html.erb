@@ -6,8 +6,19 @@
   <body>
     <h1>Hi, <%= @client.first_name %></h1>
     <p>
-      A cleaner has been assigned to you and is on his way.
+      A cleaner has been assigned to you and is on his way. Below is a brief bio of the assigned cleaner:
     </p>
+
+    <h2><strong>Cleaner Bio</strong></h2>
+    <h3>Photo</h3>
+    <%= link_to (image_tag @worker.photo_url(:thumb)), @worker.photo.url, class: "img-circle img-responsive" %>
+    <p><strong>first name: <%= @worker.first_name %></strong></p>
+    <p><strong>last name: <%= @worker.last_name %></strong></p>
+    <p><strong>sex: <%= @worker.sex %></strong></p>
+    <p><strong>age: <%= @worker.age %></strong></p>
+    <p><strong>experience: <%= @worker.experience %></strong></p>
+
+
     <p>
       Per protocol you are suppose to verify the identity of the cleaner sent to you.
       The following security code has been generated:
