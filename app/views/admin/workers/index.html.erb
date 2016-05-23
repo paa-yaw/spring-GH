@@ -42,6 +42,8 @@
                     <td>
                       <% if worker.reports.any? %>
                         <%= link_to fa_icon("flag") + " flagged", admin_worker_reports_path(worker), class: "btn btn-danger" %>
+                      <% else %>
+                        no report  
                       <% end %>  
                     </td>
 
@@ -68,6 +70,8 @@
                     <td>
                       <% if worker.reports.any? %>
                         <%= link_to fa_icon("flag") + " flagged", admin_worker_reports_path(worker), class: "btn btn-danger" %>
+                      <% else %>
+                        no report  
                       <% end %> 
                     </td>
                     <td><%= link_to worker.first_name, admin_worker_path(worker) %></td>
