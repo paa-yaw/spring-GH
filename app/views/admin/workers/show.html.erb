@@ -74,6 +74,17 @@
                     <td><strong>Rating:</strong></td>
                     <td><div class="star-rating" data-score= <%= @worker.average_rating %>></div></td>
                   </tr>
+                  <% if @worker.status == "vetted and confirmed" %>
+                  <tr>
+                    <td><strong>Status:</strong></td>
+                    <td><span class="label label-success"><%= @worker.status.upcase %></span></td>
+                  </tr>
+                  <% else %>
+                  <tr>
+                    <td><strong>Status:</strong></td>
+                    <td><span class="label label-danger"><%= @worker.status.upcase %></span></td>
+                  </tr>
+                  <% end %>
                   <!-- <tr>
                     <td><strong>Attachment</strong></td>
                     <td>

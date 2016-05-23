@@ -30,7 +30,14 @@
    <%= f.input :photo, as: :file, label: "Profile photo" %>
    <%= f.input :photo_cache, as: :hidden %>
  </div>
+
+ <div class="col-md-4">
+   <h5><strong><%= f.input :status, :collection => ["vetted and confirmed", "not vetted"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "STATUS" %></strong></h5>
  </div>
+
+ </div>
+
+ 
 
 
 

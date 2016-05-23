@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510203626) do
+ActiveRecord::Schema.define(version: 20160523111135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "worker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "attachments", ["worker_id"], name: "index_attachments_on_worker_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "email",                  default: "",       null: false
@@ -96,16 +105,16 @@ ActiveRecord::Schema.define(version: 20160510203626) do
     t.integer  "kitchens",                                    default: 0
     t.integer  "hall",                                        default: 0
     t.string   "weekdays",                                    default: [],                        array: true
-    t.string   "extra_services",                              default: [],                        array: true
+    t.decimal  "extra_services",                              default: [],                        array: true
     t.string   "status",                                      default: "unresolved"
     t.string   "email"
     t.string   "phone_number"
     t.text     "location"
     t.decimal  "frequency",          precision: 6,  scale: 2
-    t.boolean  "terms",                                       default: false
     t.decimal  "total_cost",         precision: 10, scale: 2
     t.integer  "total_rooms"
     t.decimal  "extra_services_sum", precision: 10, scale: 2
+    t.boolean  "terms",                                       default: false
     t.string   "ref_code"
     t.string   "promocode"
   end
@@ -133,8 +142,8 @@ ActiveRecord::Schema.define(version: 20160510203626) do
   add_index "reviews", ["worker_id"], name: "index_reviews_on_worker_id", using: :btree
 
   create_table "workers", force: :cascade do |t|
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "sex"
@@ -149,8 +158,10 @@ ActiveRecord::Schema.define(version: 20160510203626) do
     t.boolean  "assigned",     default: false
     t.string   "attachment"
     t.string   "photo"
+    t.string   "status",       default: "not vetted"
   end
 
+  add_foreign_key "attachments", "workers"
   add_foreign_key "referrals", "clients"
   add_foreign_key "reports", "clients"
   add_foreign_key "reports", "workers"
