@@ -1,19 +1,38 @@
 <%= simple_form_for (request) do |f| %>
-<div class="container-fluid" >
+  <div id="rootwizard">
+    <!--navbar starts -->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul>
+            <li><a href="#tab1" data-toggle="tab">House Info</a></li>
+            <li><a href="#tab2" data-toggle="tab">Extra Services</a></li>
+            <li><a href="#tab3" data-toggle="tab">Frequency</a></li>
+            <li><a href="#tab4" data-toggle="tab">Arrival</a></li>
+            <li><a href="#tab5" data-toggle="tab">Sign Up</a></li>
+            <li><a href="#tab6" data-toggle="tab">Final</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+    <!-- navbar ends -->
+  </div>
 
-  <div class="row">
+ <div class="tab-pane" id="tab1">
     <div class="panel panel-info">
-      <div class="panel-heading">
+
+      <div class="panel-heading form-panel-heading">
         <% if request.persisted? %>
         <h2 class="panel-title text-center">Edit Your House Details<small>&nbsp;&nbsp;edit</small></h2>
         <% else %>
         <h2 class="panel-title text-center">Tell Us About Your House &nbsp;
-          <% if !client_signed_in? %>
-            <%= link_to fa_icon("question"), :class =>"fa-question pull-right", :style => "border-right:none;" %>
-            <% end %>
+<!--           <#% if !client_signed_in? %>
+            <%#= link_to fa_icon("question"), :class =>"fa-question pull-right", :style => "border-right:none;" %>
+            <#% end %> -->
             </h2>
         <% end %>
       </div>
+
       <div class="panel-body" data-step="1" data-intro='Choose number of rooms for cleaning' >
       <% @token = params[:referral_code] %>
 
@@ -21,6 +40,7 @@
       <%= f.hidden_field :ref_code, :value => @token %>
       <% end %>
         <div onchange="calculatePricing()"> 
+      <h4>Choose which rooms do you want cleaned? </h4>
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
             <label>Bedrooms</label>
             <%= f.select :bedrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
@@ -39,40 +59,84 @@
           </div>
         </div>
       </div>
-      
+        <br>
+    </div>
+  </div>
+
+
+<div class="tab-pane" id="tab2">
+    <div class="panel panel-info">     
+
+    <div class="panel-heading form-panel-heading">
+      <h2 class="panel-title text-center">Extra Services</h2>
+    </div>
+
       <div class="panel-body"  data-step="2" data-intro='Choose any extra service you are interested in' >
         <div onclick="calculatePricing()" id="extra">
           <div class="col-md-12 col-xs-12">
-            <%= f.input :extra_services, :collection => [["Compound Cleaning (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00], ["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Extra Services" %>
+      <h4>Any extra services? </h4>
+            <%#= f.input :extra_services, :collection => [["Compound Cleaning (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00], ["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "" %>
           </div>
         </div> 
       </div>
 
+    </div>
+</div>
+
+<div class="tab-pane" id="tab3">
+    <div class="panel panel-info">
+
+      <div class="panel-heading form-panel-heading">
+        <h2 class="panel-title text-center">Frequency</h2>
+      </div>
+
       <div data-step="3" data-intro='How many times do you want this done?'>
-        
         <div class="panel-body" style="padding-top:0px;">
-         <div  onchange="calculatePricing()">
+         <div onchange="calculatePricing()">
+         <br>
            <div class="col-md-12 col-sm-12" id="frequency">
-            <%= f.input :frequency, :collection => [["Deep Cleaning (GHS 150.00)", 150.00], ["Weekly (GHS 150.00)", 150.01], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "Frequency", :selected => request.frequency %>
+        <h4>How many times should we clean? </h4>
+            <%= f.input :frequency, :collection => [["Deep Cleaning (GHS 150.00)", 150.00], ["Weekly (GHS 150.00)", 150.01], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %>
             </div>
           </div>
         </div>
+      </div>
+
+    <!-- </div> -->
+
+  <!-- <div class="panel panel-info"> -->
+
+      <div class="panel-heading form-panel-heading">
+        <h2 class="panel-title text-center">Schedule with us</h2>
+      </div>
 
         <div class="panel-body" data-step="4" style="padding-top:0px;" data-intro='Which days do you want this done?'>
+
           <div onclick="checkDays()" id="days">
-            <div class="col-md-10 col-sm-12">
-              <%= f.input :weekdays, :collection => [["Monday", "Monday"], ["Tuesday", "Tuesday"], ["Wednesday", "Wednesday"], ["Thursday", "Thursday"], ["Friday", "Friday"], ["Saturday", "Saturday"], ["Sunday", "Sunday"]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "Schedule with us" %>
+            <div class="col-md-12 col-sm-12">
+            <br>
+              <%= f.input :weekdays, :collection => [["Monday", "Monday"], ["Tuesday", "Tuesday"], ["Wednesday", "Wednesday"], ["Thursday", "Thursday"], ["Friday", "Friday"], ["Saturday", "Saturday"], ["Sunday", "Sunday"]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "" %>
             </div>
           </div>
         </div>
 
       </div>
+  </div>
     
+<div class="tab-pane" id="tab4">
+  <div class="panel panel-info">
+
+      <div class="panel-heading form-panel-heading">
+        <h2 class="panel-title text-center">When Do You Want Us To Come?</h2>
+      </div>
+
     <div class="panel-body" style="padding-top:0px;padding-bottom:0px;" data-step="4" data-intro='Which day and time should we arrive on?'>
       <div class="col-xs-12 text-center" id="datetime" onclick="checkMonth()">
-        <h4 class="form-content-label">
+        <h4>What date and time should we first arrive? </h4>
+        <!-- <h4 class="form-content-label">
           When Do You Want Us To Come?
-        </h4>
+        </h4> -->
+        <br>
         <%= f.datetime_select :date_time, :start_year => Time.now.year, :end_year => Time.now.year + 1, :ampm => true, :minute_step => 60, :class=>"btn btn-default text-center", :label =>"When Do You Want Us To Come?" %><br><br>
       </div>
       <% if request.errors.any? %>
@@ -88,17 +152,21 @@
       <% end %>
     </div>
 
-     <!-- <div class="panel-body" data-step="5" data-intro='Enter your promo code'> 
+  </div>
+</div>
+  
+<div class="tab-pane" id="tab5">
+     <div class="panel panel-info">
 
-      <div class="col-md-6 col-sm-12" onchange="calculatePricing()">
-        <%#= f.input :promocode, label: "Enter a promocode" %>
-      </div> 
-     </div>  -->
+      <div class="panel-heading form-panel-heading">
+        <h2 class="panel-title text-center">Sign-Up Information</h2>
+      </div>
 
-     
     <div class="panel-body" style="padding-top:0px;" data-step="5" data-intro='Enter your email, phone number and location'>
-       <div class="col-md-12 col-sm-12">
 
+        <h4>Please provide your name, email and telephone number </h4>
+       <div class="col-md-12 col-sm-12">
+        <br>
        <% if !client_signed_in? %>
 
        <div class="col-md-6 col-sm-12">
@@ -116,33 +184,51 @@
     </div>
   </div>
 
-    <div class="panel-body" data-step="6" data-intro='Agree to our Terms of Service'>
-    <label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path, target: '_blank' %></label>
-      <div class="col-md-12 col-sm-12">
-      <%= f.input :terms, label: "I Have Carefully Read And Fully Agreed To The Terms of Service", :selected => request.terms %> 
-      </div>
   </div>
-  <!-- </div> -->
+</div>
 
+<div class="tab-pane" id="tab6">
+    <div class="panel panel-info">
+        <div class="panel-heading form-panel-heading">
+          <h2 class="panel-title text-center">Completion</h2>
+        </div>
 
-  <div class="panel-body" style="padding:0px 0px 20px;">
-    <div class="col-xs-12" data-intro='That is all, Click the big yellow button to get a cleaner' class="roomSection">
-      <%#= f.button :button, :class => "btn-primary btn-block btn-lg", :id => "back-to-schedule" %>
-      <% if request.persisted? %>
-      <%= f.button :submit, "Edit Request", :class=>"btn-primary btn-lg btn-block col-md-3" %>
-      <% else %>
-      <%= f.button :submit, "Book A Cleaning", :class=>"btn btn-block submit_button  col-md-3",:id =>"cleanButton" %>
-      <% end %>
+        <div class="panel-body" data-step="6" data-intro='Agree to our Terms of Service'>
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+          <label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path, target: '_blank' %></label>
+            <%= f.input :terms, label: "I Have Carefully Read And Fully Agreed To The Terms of Service", :selected => request.terms %> 
+          </div>
+        </div>
+       
+        <div class="panel-body" style="padding:0px 0px 20px;">
+          <div class="col-xs-12" data-intro='That is all, Click the big yellow button to get a cleaner' class="roomSection">
+            <%#= f.button :button, :class => "btn-primary btn-block btn-lg", :id => "back-to-schedule" %>
+            <% if request.persisted? %>
+            <%= f.button :submit, "Edit Request", :class=>"btn-primary btn-lg btn-block col-md-3" %>
+            <% else %>
+            <%= f.button :submit, "Book A Cleaning", :class=>"btn btn-block submit_button  col-md-3",:id =>"cleanButton" %>
+            <% end %>
+          </div>
+        </div>
+
     </div>
-  </div>
+</div>
+  <ul class="pager wizard">
+      <li class="previous first" style="display:none;"><a href="#">First</a></li>
+      <li class="previous"><a href="#">Previous</a></li>
+      <li class="next last" style="display:none;"><a href="#">Last</a></li>
+      <li class="next"><a href="#">Next</a></li>
+  </ul>
 
-</div>
-</div>
-</div>
-
-</div>
 <% end %>
 
+
+<script>
+  $(document).ready(function() {
+    $('#rootwizard').bootstrapWizard({'nextSelector': '.button-next', 'previousSelector': '.button-previous'});
+});
+</script>
 
 <script>
   var e = document.getElementById('request_frequency_1500').parentNode;
@@ -190,12 +276,10 @@
   document.getElementsByClassName('fa-question').onclick = intro();
 </script>
 
-
 <script>
-
-if(window.location.pathname.split('/').pop() == "new"){ 
-  function intro() {
-    introJs().start('.roomSection');
+  if(window.location.pathname.split('/').pop() == "new"){ 
+    function intro() {
+      introJs().start('.roomSection');
+    }
   }
-}
 </script>

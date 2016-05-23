@@ -7,12 +7,13 @@
 </div>
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-1" id="request-form" style="border:rgba(18, 39, 114, 0.2);">
-
-        <div class="form-bottom">
-           <%= render 'form', request: @request %><br>
-       </div>
+  <!-- <div class="row tab-content"> -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-1" id="request-form" style="border:rgba(18, 39, 114, 0.2);">
+        <div class="tab-content">
+          <%= render 'form', request: @request %><br>
+        </div>
+      </div>
 
     
    <div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1" id="pricingBox">
@@ -58,7 +59,6 @@
       </div>
 
     </div>
-  </div>
 </div>
 
   <div class="modal fade" id="myModal" style="margin-top:50px;">
@@ -117,3 +117,4 @@
 <script>
   document.getElementsByClassName('discountPricing')[0].style.display="none";
 </script>
+

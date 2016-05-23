@@ -1,8 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 /*Place all the styles related to the requests controller here.
 They will automatically be included in application.css.
 You can use Sass (SCSS) here: http://sass-lang.com/
 
 REQUEST PAGE
+
+
 */
 /*Asterisks for Labels */
 abbr {
@@ -52,6 +55,13 @@ h2.panel-title {
   font-size: 25px;
   font-weight:bolder;
   color:#fff;
+}
+
+.form-panel-heading h2{
+  background: #fff;
+  color: rgba(25,41,100,0.82);
+  font-weight:lighter;
+  font-family:'Raleway', Arial, sans-serif;
 }
 
 div#region > div.container-fluid > div.row{
