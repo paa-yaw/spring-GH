@@ -1,9 +1,9 @@
 <%= simple_form_for (request) do |f| %>
   <div id="rootwizard">
     <!--navbar starts -->
-    <div class="navbar">
+    <div class="navbar" style="background:#fff; min-height:42px; height:42px;">
       <div class="navbar-inner">
-        <div class="container">
+        <!-- <div class="container"> -->
           <ul>
             <li><a href="#tab1" data-toggle="tab">House Info</a></li>
             <li><a href="#tab2" data-toggle="tab">Extra Services</a></li>
@@ -12,13 +12,13 @@
             <li><a href="#tab5" data-toggle="tab">Sign Up</a></li>
             <li><a href="#tab6" data-toggle="tab">Final</a></li>
           </ul>
-        </div>
+        <!-- </div> -->
       </div>
     </div> 
     <!-- navbar ends -->
 <div class="tab-content">
  <div class="tab-pane" id="tab1">
-    <div class="panel panel-info">
+    <div class="panel panel-info panel-size">
 
       <div class="panel-heading form-panel-heading">
         <% if request.persisted? %>
@@ -39,7 +39,7 @@
       <%= f.hidden_field :ref_code, :value => @token %>
       <% end %>
         <div onchange="calculatePricing()"> 
-      <h4>Choose which rooms do you want cleaned? </h4>
+      <h4 class="descriptionText">Which rooms do you want cleaned? </h4><br>
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
             <label>Bedrooms</label>
             <%= f.select :bedrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
@@ -63,7 +63,7 @@
   </div>
 
 <div class="tab-pane" id="tab2">
-    <div class="panel panel-info">     
+    <div class="panel panel-info panel-size">     
 
     <div class="panel-heading form-panel-heading">
       <h2 class="panel-title text-center">Extra Services</h2>
@@ -72,7 +72,7 @@
       <div class="panel-body"  data-step="2" data-intro='Choose any extra service you are interested in' >
         <div onclick="calculatePricing()" id="extra">
           <div class="col-md-12 col-xs-12">
-      <h4>Any extra services? </h4>
+      <h4 class="descriptionText">Any extra services? </h4>
             <%#= f.input :extra_services, :collection => [["Compound Cleaning (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00], ["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "" %>
           </div>
         </div> 
@@ -82,7 +82,7 @@
 </div>
 
 <div class="tab-pane" id="tab3">
-    <div class="panel panel-info">
+    <div class="panel panel-info panel-size">
 
       <div class="panel-heading form-panel-heading">
         <h2 class="panel-title text-center">Frequency</h2>
@@ -93,8 +93,62 @@
          <div onchange="calculatePricing()">
          <br>
            <div class="col-md-12 col-sm-12" id="frequency">
-        <h4>How many times should we clean? </h4>
-            <%= f.input :frequency, :collection => [["Deep Cleaning (GHS 150.00)", 150.00], ["Weekly (GHS 150.00)", 150.01], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %>
+        <h4 class="descriptionText">How many times should we clean? </h4>
+      
+      <!-- <section class="container"> -->
+  <div class="row white">
+        <div class="block">
+
+          <div class="col-xs-12 col-sm-4 col-md-4">
+              <ul class="pricing p-green">
+                <li>
+                  <!-- <img src="http://bread.pp.ua/n/settings_g.svg" alt=""> -->
+                  <big>Deep Cleaning</big>
+                </li>
+                <li>One-time cleaning</li>
+                <li>Thorough cleaning</li>
+                <li>
+                  <h3>GHS 150.<small>00</small></h3>
+                  <span>per cleaning</span>
+                </li>
+              </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-4 col-md-4">
+              <ul class="pricing p-yel">
+                <li>
+                  <!-- <img src="http://bread.pp.ua/n/settings_y.svg" alt=""> -->
+                  <big>Weekly Cleaning</big>
+                </li>
+                <li>3 times a week</li>
+                <li>1 cleaning</li>
+                <li>
+                  <h3>GHS 150.<small>00</small></h3>
+                  <span>per week</span>
+                </li>
+              </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-4 col-md-4">
+              <ul class="pricing p-red">
+                <li>
+                  <!-- <img src="http://bread.pp.ua/n/settings_r.svg" alt=""> -->
+                  <big>Monthly Cleaning</big>
+                </li>
+                <li>12 times a month</li>
+                <li>Cleaning</li>
+                <li>
+                  <h3>GHS 500.<small>00</small></h3>
+                  <span>per month</span>
+                </li>
+              </ul>
+          </div>
+
+        </div><!-- /block -->
+      </div><!-- /row -->
+  <!-- </section> -->
+
+            <!-- <#%= f.input :frequency, :collection => [["Deep Cleaning (GHS 150.00)", 150.00], ["Weekly (GHS 150.00)", 150.01], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %> -->
             </div>
           </div>
         </div>
@@ -122,7 +176,7 @@
   </div>
     
 <div class="tab-pane" id="tab4">
-  <div class="panel panel-info">
+  <div class="panel panel-info panel-size">
 
       <div class="panel-heading form-panel-heading">
         <h2 class="panel-title text-center">When Do You Want Us To Come?</h2>
@@ -130,7 +184,7 @@
 
     <div class="panel-body" style="padding-top:0px;padding-bottom:0px;" data-step="4" data-intro='Which day and time should we arrive on?'>
       <div class="col-xs-12 text-center" id="datetime" onclick="checkMonth()">
-        <h4>What date and time should we first arrive? </h4>
+        <h4 class="descriptionText">What date and time should we first arrive? </h4>
         <!-- <h4 class="form-content-label">
           When Do You Want Us To Come?
         </h4> -->
@@ -154,7 +208,7 @@
 </div>
   
 <div class="tab-pane" id="tab5">
-     <div class="panel panel-info">
+     <div class="panel panel-info panel-size">
 
       <div class="panel-heading form-panel-heading">
         <h2 class="panel-title text-center">Sign-Up Information</h2>
@@ -162,7 +216,7 @@
 
     <div class="panel-body" style="padding-top:0px;" data-step="5" data-intro='Enter your email, phone number and location'>
 
-        <h4>Please provide your name, email and telephone number </h4>
+        <h4 class="descriptionText">Please provide your name, email and telephone number </h4>
        <div class="col-md-12 col-sm-12">
         <br>
        <% if !client_signed_in? %>
@@ -186,7 +240,7 @@
 </div>
 
 <div class="tab-pane" id="tab6">
-    <div class="panel panel-info">
+    <div class="panel panel-info panel-size">
         <div class="panel-heading form-panel-heading">
           <h2 class="panel-title text-center">Completion</h2>
         </div>
@@ -284,3 +338,96 @@
     }
   }
 </script>
+
+
+<style>
+  .pricing {
+  text-align: center;
+  border: 1px solid #f0f0f0;
+  color: #777;
+  font-size: 14px;
+  padding-left: 0;
+  margin-bottom: 30px;
+  font-family: 'Lato';
+}
+.pricing img {
+  display: block;
+  margin: auto;
+  width: 32px;
+}
+.pricing li:first-child,
+.pricing li:last-child {
+  padding: 20px 13px;
+}
+.pricing li {
+  list-style: none;
+  padding: 13px;
+}
+.pricing li + li {
+  border-top: 1px solid #f0f0f0;
+}
+.pricing big {
+  font-size: 32px;
+}
+.pricing h3 {
+  margin-bottom: 0;
+  font-size: 36px;
+}
+.pricing span {
+  font-size: 12px;
+  color: #999;
+  font-weight: normal;
+}
+/*.pricing li:nth-last-child(2) {
+  padding: 30px 13px;
+}*/
+.pricing button {
+  width: auto;
+  margin: auto;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 50px;
+  color: #fff;
+  padding: 9px 24px;
+  background: #aaa;
+  opacity: 1;
+  transition: opacity .2s ease;
+  border: none;
+  outline: none;
+}
+.pricing button:hover {
+  opacity: .9;
+}
+.pricing button:active {
+  box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+/* pricing color */
+.p-green big,
+.p-green h3 {
+  color: #4c7737;
+}
+.p-green button {
+  background: #4c7737;
+}
+.p-yel big,
+.p-yel h3 {
+  color: #ffbb42;
+}
+.p-yel button {
+  background: #ffbb42;
+}
+.p-red big,
+.p-red h3 {
+  color: #e13c4c;
+}
+.p-red button {
+  background: #e13c4c;
+}
+.p-blue big,
+.p-blue h3 {
+  color: #3f4bb8;
+}
+.p-blue button {
+  background: #3f4bb8;
+}
+</style>
