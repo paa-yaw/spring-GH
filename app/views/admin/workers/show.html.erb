@@ -14,7 +14,13 @@
         </div>
         <div class="panel-body">
           <div class="row">
+          <% if @worker.photo.present? %>
             <div class="col-md-3 col-lg-3 " align="center"><%= link_to (image_tag @worker.photo_url(:thumb)), @worker.photo.url, class: "img-circle img-responsive" %></div>
+          <% else %>
+          <div class="col-md-3 col-lg-3 " align="center">
+           <h2>No Photo</h2>
+           </div>
+          <% end %>  
 
             <div class=" col-md-9 col-lg-9 "> 
               <table class="table table-user-information">
@@ -74,15 +80,15 @@
                     <td><strong>Rating:</strong></td>
                     <td><div class="star-rating" data-score= <%= @worker.average_rating %>></div></td>
                   </tr>
-                  <% if @worker.status == "vetted and confirmed" %>
+                  <% if @worker.status == "verified" %>
                   <tr>
                     <td><strong>Status:</strong></td>
-                    <td><span class="label label-success"><%= @worker.status.upcase %></span></td>
+                    <td><span class="label label-success"><i class="fa fa-check-circle" aria-hidden="true"></i> <%= @worker.status.upcase %></span></td>
                   </tr>
                   <% else %>
                   <tr>
                     <td><strong>Status:</strong></td>
-                    <td><span class="label label-danger"><%= @worker.status.upcase %></span></td>
+                    <td><span class="label label-danger"><i class="fa fa-ban" aria-hidden="true"></i> <%= @worker.status.upcase %></span></td>
                   </tr>
                   <% end %>
                   <!-- <tr>

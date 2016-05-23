@@ -16,15 +16,6 @@ ActiveRecord::Schema.define(version: 20160523111135) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attachments", force: :cascade do |t|
-    t.string   "file"
-    t.integer  "worker_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "attachments", ["worker_id"], name: "index_attachments_on_worker_id", using: :btree
-
   create_table "clients", force: :cascade do |t|
     t.string   "email",                  default: "",       null: false
     t.string   "encrypted_password",     default: "",       null: false
@@ -142,8 +133,8 @@ ActiveRecord::Schema.define(version: 20160523111135) do
   add_index "reviews", ["worker_id"], name: "index_reviews_on_worker_id", using: :btree
 
   create_table "workers", force: :cascade do |t|
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "sex"
@@ -158,10 +149,9 @@ ActiveRecord::Schema.define(version: 20160523111135) do
     t.boolean  "assigned",     default: false
     t.string   "attachment"
     t.string   "photo"
-    t.string   "status",       default: "not vetted"
+    t.string   "status",       default: "not verified"
   end
 
-  add_foreign_key "attachments", "workers"
   add_foreign_key "referrals", "clients"
   add_foreign_key "reports", "clients"
   add_foreign_key "reports", "workers"

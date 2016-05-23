@@ -41,12 +41,12 @@
                   <tr>
                     <td>
                       <% if worker.reports.any? %>
-                        <span class="label label-danger fa fa-flag"><strong> flagged</strong></span>
+                        <%= link_to fa_icon("flag") + " flagged", admin_worker_reports_path(worker), class: "btn btn-danger" %>
                       <% end %>  
                     </td>
 
-                    <td><%= worker.first_name %></td>
-                    <td><%= worker.last_name %></td>
+                    <td><%= link_to worker.first_name, admin_worker_path(worker) %></td>
+                    <td><%= link_to worker.last_name, admin_worker_path(worker) %></td>
                     <td><%= worker.sex %></td>
                     <td><%= worker.phone_number %></td>
                     <td><span class="label label-danger"><strong>assigned <%= worker.try(:requests).try(:first).try(:client).try(:first_name) %>(No.<%= worker.try(:requests).try(:uniq).try(:last).try(:id) %>)</strong></span></td>
@@ -54,7 +54,12 @@
                     <td>
                       <%= link_to fa_icon("arrow-circle-right") + " Go To Requests" , admin_requests_path, class: "btn btn-primary" %>     
                     </td>
-                    <td><%= link_to fa_icon("eye") + " View", admin_worker_path(worker), class: "btn btn-info" %></td>
+                    <% if worker.status == "verified" %>
+                    <td><span class="label label-success"><i class="fa fa-check-circle" aria-hidden="true"></i> <%= worker.status.upcase %></span></td>
+                    <% else %>
+                    <td><span class="label label-danger"><i class="fa fa-ban" aria-hidden="true"></i> 
+                    <%= worker.status.upcase %></span></td>
+                    <% end %>
                     <td><%= link_to fa_icon("trash") + " Remove", admin_worker_path(worker), method: :delete, data: { confirm: "Are you sure you want to delete #{worker.first_name} from the database?"}, class: "btn btn-danger" %></td>
                     <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                   </tr>
@@ -62,11 +67,11 @@
                   <tr>
                     <td>
                       <% if worker.reports.any? %>
-                        <span class="label label-danger fa fa-flag"><strong> flagged</strong></span>
+                        <%= link_to fa_icon("flag") + " flagged", admin_worker_reports_path(worker), class: "btn btn-danger" %>
                       <% end %> 
                     </td>
-                    <td><%= worker.first_name %></td>
-                    <td><%= worker.last_name %></td>
+                    <td><%= link_to worker.first_name, admin_worker_path(worker) %></td>
+                    <td><%= link_to worker.last_name, admin_worker_path(worker) %></td>
                     <td><%= worker.sex %></td>
                     <td><%= worker.phone_number %></td>
                     <td><strong><span class="label label-success">available</span></strong></td>
@@ -74,7 +79,12 @@
                     <td>
                       <%= link_to fa_icon("arrow-circle-right") + " Go To Requests" , admin_requests_path, class: "btn btn-primary" %>     
                     </td>
-                    <td><%= link_to fa_icon("eye") + " View", admin_worker_path(worker), class: "btn btn-info" %></td>
+                    <% if worker.status == "verified" %>
+                    <td><span class="label label-success"><i class="fa fa-check-circle" aria-hidden="true"></i>  <%= worker.status.upcase %></span></td>
+                    <% else %>
+                    <td><span class="label label-danger"><i class="fa fa-ban" aria-hidden="true"></i> 
+                    <%= worker.status.upcase %></span></td>
+                    <% end %>
                     <td><%= link_to fa_icon("trash") + " Remove", admin_worker_path(worker), method: :delete, data: { confirm: "Are you sure you want to delete #{worker.first_name} from the database?"}, class: "btn btn-danger" %></td>
                     <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                   </tr>

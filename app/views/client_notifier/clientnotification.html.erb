@@ -6,17 +6,14 @@
   <body>
     <h1>Hi, <%= @client.first_name %></h1>
     <p>
-      A cleaner has been assigned to you and is on his way. Below is a brief bio of the assigned cleaner:
+      A cleaner has been assigned to your request. Below is a brief bio of the assigned cleaner:
     </p>
 
     <h2><strong>Cleaner Bio</strong></h2>
     <h3>Photo</h3>
     <%= link_to (image_tag @worker.photo_url(:thumb)), @worker.photo.url, class: "img-circle img-responsive" %>
-    <p><strong>first name: <%= @worker.first_name %></strong></p>
-    <p><strong>last name: <%= @worker.last_name %></strong></p>
+    <p><strong><%= @worker.first_name %>, <%= @worker.last_name %></strong></p>
     <p><strong>sex: <%= @worker.sex %></strong></p>
-    <p><strong>age: <%= @worker.age %></strong></p>
-    <p><strong>experience: <%= @worker.experience %></strong></p>
 
 
     <p>
