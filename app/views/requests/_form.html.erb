@@ -6,11 +6,11 @@
         <!-- <div class="container"> -->
           <ul>
             <li><a href="#tab1" data-toggle="tab">House Info</a></li>
-            <li><a href="#tab2" data-toggle="tab">Extra Services</a></li>
-            <li><a href="#tab3" data-toggle="tab">Frequency</a></li>
-            <li><a href="#tab4" data-toggle="tab">Arrival</a></li>
-            <li><a href="#tab5" data-toggle="tab">Sign Up</a></li>
-            <li><a href="#tab6" data-toggle="tab">Final</a></li>
+            <!-- <li><a href="#tab2" data-toggle="tab">Extra Services</a></li> -->
+            <li><a href="#tab2" data-toggle="tab">Frequency</a></li>
+            <li><a href="#tab3" data-toggle="tab">Arrival</a></li>
+            <li><a href="#tab4" data-toggle="tab">Sign Up</a></li>
+            <li><a href="#tab5" data-toggle="tab">Final</a></li>
           </ul>
         <!-- </div> -->
       </div>
@@ -24,7 +24,7 @@
         <% if request.persisted? %>
         <h2 class="panel-title text-center">Edit Your House Details<small>&nbsp;&nbsp;edit</small></h2>
         <% else %>
-        <h2 class="panel-title text-center">Tell Us About Your House &nbsp;
+        <h2 class="panel-title descriptionText">Tell Us About Your House &nbsp;
 <!--           <#% if !client_signed_in? %>
             <%#= link_to fa_icon("question"), :class =>"fa-question pull-right", :style => "border-right:none;" %>
             <#% end %> -->
@@ -49,7 +49,7 @@
             <%= f.select :bathrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bathrooms),{},{:class => "btn btn-default"} %>
           </div>
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
-            <label>Kitchens</label>&nbsp;
+            <label>Kitchens</label><br>
             <%= f.select :kitchens, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.kitchens),{},{:class => "btn btn-default"} %> 
           </div>
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
@@ -58,21 +58,68 @@
           </div>
         </div>
       </div>
-        <br>
-    </div>
+        <!-- <br> -->
+  <!--   </div>
   </div>
 
 <div class="tab-pane" id="tab2">
-    <div class="panel panel-info panel-size">     
+    <div class="panel panel-info panel-size">    -->  
 
-    <div class="panel-heading form-panel-heading">
-      <h2 class="panel-title text-center">Extra Services</h2>
+   <!--  <div class="panel-heading form-panel-heading">
+      <h2 class="panel-title descriptionText">Extra Services</h2>
     </div>
-
+ -->
       <div class="panel-body"  data-step="2" data-intro='Choose any extra service you are interested in' >
         <div onclick="calculatePricing()" id="extra">
           <div class="col-md-12 col-xs-12">
-      <h4 class="descriptionText">Any extra services? </h4>
+      <h4>Any extra services? </h4>
+      <div class="row">
+        <div class="col-md-3">
+           <ul class="pricing p-green">
+                <li>
+                  <big>Compound</big>
+                </li>
+                <li><img src="/assets/people.png" alt=""></li>
+                <li style="padding-top:0px;">
+                  <h3>GHS 15.<small>00</small></h3>
+                </li>
+              </ul>
+        </div>
+        <div class="col-md-3">
+               <ul class="pricing p-green">
+                <li>
+                  <big>Fridge</big>
+                </li>
+                <li><img src="/assets/refrigerator.png" alt=""></li>
+                <li style="padding-top:0px;">
+                  <h3>GHS 10.<small>00</small></h3>
+                </li>
+              </ul>
+        </div>
+        <div class="col-md-3">
+               <ul class="pricing p-green">
+                <li>
+                  <big>Storeroom</big>
+                </li>
+                <li><img src="/assets/door.png" alt=""></li>
+                <li style="padding-top:0px;">
+                  <h3>GHS 10.<small>00</small></h3>
+                </li>
+              </ul>
+        </div>
+        <div class="col-md-3">
+               <ul class="pricing p-green">
+                <li>
+                  
+                  <big>Laundry</big>
+                </li>
+                <li><img src="/assets/washing.png" alt=""></li>
+                <li style="padding-top:0px;">
+                  <h3>GHS 40.<small>00</small></h3>
+                </li>
+              </ul>
+        </div>
+      </div>
             <%#= f.input :extra_services, :collection => [["Compound Cleaning (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00], ["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "" %>
           </div>
         </div> 
@@ -81,11 +128,11 @@
     </div>
 </div>
 
-<div class="tab-pane" id="tab3">
+<div class="tab-pane" id="tab2">
     <div class="panel panel-info panel-size">
 
       <div class="panel-heading form-panel-heading">
-        <h2 class="panel-title text-center">Frequency</h2>
+        <h2 class="panel-title descriptionText">Routine</h2>
       </div>
 
       <div data-step="3" data-intro='How many times do you want this done?'>
@@ -93,10 +140,10 @@
          <div onchange="calculatePricing()">
          <br>
            <div class="col-md-12 col-sm-12" id="frequency">
-        <h4 class="descriptionText">How many times should we clean? </h4>
+        <h4>How many times should we clean? </h4>
       
       <!-- <section class="container"> -->
-  <div class="row white">
+      <div class="row white">
         <div class="block">
 
           <div class="col-xs-12 col-sm-4 col-md-4">
@@ -107,7 +154,7 @@
                 </li>
                 <li>One-time cleaning</li>
                 <li>Thorough cleaning</li>
-                <li>
+                <li style="padding-top:0px;">
                   <h3>GHS 150.<small>00</small></h3>
                   <span>per cleaning</span>
                 </li>
@@ -122,7 +169,7 @@
                 </li>
                 <li>3 times a week</li>
                 <li>1 cleaning</li>
-                <li>
+                <li style="padding-top:0px;">
                   <h3>GHS 150.<small>00</small></h3>
                   <span>per week</span>
                 </li>
@@ -137,7 +184,7 @@
                 </li>
                 <li>12 times a month</li>
                 <li>Cleaning</li>
-                <li>
+                <li style="padding-top:0px;">
                   <h3>GHS 500.<small>00</small></h3>
                   <span>per month</span>
                 </li>
@@ -157,25 +204,15 @@
     <!-- </div> -->
 
   <!-- <div class="panel panel-info"> -->
-
+<!-- 
       <div class="panel-heading form-panel-heading">
         <h2 class="panel-title text-center">Schedule with us</h2>
-      </div>
-
-        <div class="panel-body" data-step="4" style="padding-top:0px;" data-intro='Which days do you want this done?'>
-
-          <div onclick="checkDays()" id="days">
-            <div class="col-md-12 col-sm-12">
-            <br>
-              <%= f.input :weekdays, :collection => [["Monday", "Monday"], ["Tuesday", "Tuesday"], ["Wednesday", "Wednesday"], ["Thursday", "Thursday"], ["Friday", "Friday"], ["Saturday", "Saturday"], ["Sunday", "Sunday"]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "" %>
-            </div>
-          </div>
-        </div>
+      </div> -->
 
       </div>
   </div>
     
-<div class="tab-pane" id="tab4">
+<div class="tab-pane" id="tab3">
   <div class="panel panel-info panel-size">
 
       <div class="panel-heading form-panel-heading">
@@ -204,10 +241,22 @@
       <% end %>
     </div>
 
+
+        <div class="panel-body" data-step="4" style="padding-top:0px;" data-intro='Which days do you want this done?'>
+          <h4 class="descriptionText">Schedule with us</h4>
+
+          <div onclick="checkDays()" id="days">
+            <div class="col-md-12 col-sm-12">
+            <br>
+              <%= f.input :weekdays, :collection => [["Monday", "Monday"], ["Tuesday", "Tuesday"], ["Wednesday", "Wednesday"], ["Thursday", "Thursday"], ["Friday", "Friday"], ["Saturday", "Saturday"], ["Sunday", "Sunday"]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "" %>
+            </div>
+          </div>
+        </div>
+
   </div>
 </div>
   
-<div class="tab-pane" id="tab5">
+<div class="tab-pane" id="tab4">
      <div class="panel panel-info panel-size">
 
       <div class="panel-heading form-panel-heading">
@@ -218,28 +267,30 @@
 
         <h4 class="descriptionText">Please provide your name, email and telephone number </h4>
        <div class="col-md-12 col-sm-12">
-        <br>
-       <% if !client_signed_in? %>
+         <div class="row">
+              <br>
+             <% if !client_signed_in? %>
 
-       <div class="col-md-6 col-sm-12">
-        <%= f.input :email, placeholder:"your email", label: "email" %>
-      </div>
+             <div class="col-md-6 col-md-offset-3 col-sm-12">
+              <%= f.input :email, placeholder:"your email", label: "email" %>
+            </div>
 
-      <div class="col-md-6 col-sm-12">
-        <%= f.input :phone_number, maxlength: "10", placeholder:"024 123 4567", label: "phone number" %>
-      </div>
+            <div class="col-md-6 col-md-offset-3 col-sm-12">
+              <%= f.input :phone_number, maxlength: "10", placeholder:"024 123 4567", label: "phone number" %>
+            </div>
 
-      <div class="col-md-6 col-sm-12">
-        <%= f.input :location, maxlength: "55", placeholder:"House No., Area, or Landmark", label: "location" %>
-      </div>
-       <% end %>
+            <div class="col-md-6 col-md-offset-3 col-sm-12">
+              <%= f.input :location, maxlength: "55", placeholder:"House No., Area, or Landmark", label: "location" %>
+            </div>
+             <% end %>
+       </div>
     </div>
   </div>
 
   </div>
 </div>
 
-<div class="tab-pane" id="tab6">
+<div class="tab-pane" id="tab5">
     <div class="panel panel-info panel-size">
         <div class="panel-heading form-panel-heading">
           <h2 class="panel-title text-center">Completion</h2>
@@ -341,7 +392,7 @@
 
 
 <style>
-  .pricing {
+.pricing {
   text-align: center;
   border: 1px solid #f0f0f0;
   color: #777;
@@ -367,11 +418,11 @@
   border-top: 1px solid #f0f0f0;
 }
 .pricing big {
-  font-size: 32px;
+  font-size: 16px;
 }
 .pricing h3 {
   margin-bottom: 0;
-  font-size: 36px;
+  font-size: 21px;
 }
 .pricing span {
   font-size: 12px;
@@ -403,22 +454,28 @@
 }
 /* pricing color */
 .p-green big,
-.p-green h3 {
-  color: #4c7737;
+.p-green h3,
+.p-green small {
+  /*color: #4c7737;*/
+  color:#18BADB;
 }
 .p-green button {
   background: #4c7737;
 }
 .p-yel big,
-.p-yel h3 {
-  color: #ffbb42;
+.p-yel h3,
+.p-yel small {
+  /*color: #ffbb42;*/
+  color:#18BADB;
 }
 .p-yel button {
   background: #ffbb42;
 }
 .p-red big,
-.p-red h3 {
-  color: #e13c4c;
+.p-red h3,
+.p-red small {
+  /*color: #e13c4c;*/
+  color: #18BADB;
 }
 .p-red button {
   background: #e13c4c;
