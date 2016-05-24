@@ -32,6 +32,15 @@ html {
 }
 
 /* --NAVBAR CONTENT PADDING-- */
+header#header{
+  border-bottom: 2px solid #18BADB;
+}
+
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus {
+  background-color:#18BADB;
+}
+
 ul.nav.navbar-nav.navbar-right > li.page-scroll > a{
   padding-bottom: 0px;
   padding-top: 20px;
