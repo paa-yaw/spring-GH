@@ -142,8 +142,7 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
         <table class="table bootstrap-datatable countries">
           <thead>
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
+              <th>Name</th>
               <th>Phone Number</th>
               <th>Location</th>
               <th>Availability</th>
@@ -158,8 +157,11 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
           <% if worker.assigned== true %>
           <tbody>
             <tr>
-              <td><%= link_to worker.first_name, admin_worker_path(worker) %></td>
-              <td><%= worker.last_name %></td>
+              <% if worker.reports.any? %>
+              <td><%= link_to worker.first_name, admin_worker_path(worker) %>, <%= link_to worker.last_name, admin_worker_path(worker) %> <i class="fa fa-flag" aria-hidden="true" style="color:red"></i></td>
+              <% else %>
+              <td><%= link_to worker.first_name, admin_worker_path(worker) %>, <%= link_to worker.last_name, admin_worker_path(worker) %></td>
+              <% end %>
               <td><%= worker.phone_number %></td>
               <td><%= worker.location %></td>
               <td><span class="label label-danger"><strong>assigned to <%= worker.try(:requests).try(:find, worker.try(:request_ids).try(:last)).try(:client).try(:first_name) %>(No.<%= worker.try(:request_ids).try(:last) %>)</strong></span></td>
@@ -181,8 +183,11 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
                <% else %>
 
                <tr>
-                <td><%= link_to worker.first_name, admin_worker_path(worker) %></td>
-                <td><%= worker.last_name %></td>
+                <% if worker.reports.any? %>
+                <td><%= link_to worker.first_name, admin_worker_path(worker) %>, <%= link_to worker.last_name, admin_worker_path(worker) %> <i class="fa fa-flag" aria-hidden="true" style="color:red"></i></td>
+                <% else %>
+                <td><%= link_to worker.first_name, admin_worker_path(worker) %>, <%= link_to worker.last_name, admin_worker_path(worker) %></td>
+                <% end %>
                 <td><%= worker.phone_number %></td>
                 <td><%= worker.location %></td>
                 <td><strong><span class="label label-success">available</span></strong></td>

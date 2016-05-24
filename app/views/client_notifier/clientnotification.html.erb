@@ -12,8 +12,8 @@
     <h2><strong>Cleaner Bio</strong></h2>
     <h3>Photo</h3>
     <%= link_to (image_tag @worker.photo_url(:thumb)), @worker.photo.url, class: "img-circle img-responsive" %>
-    <p><strong><%= @worker.first_name %>, <%= @worker.last_name %></strong></p>
-    <p><strong>sex: <%= @worker.sex %></strong></p>
+    <p><strong>Name: <%= @worker.first_name %>, <%= @worker.last_name %></strong></p>
+    <p><strong>Sex: <%= @worker.sex %></strong></p>
 
 
     <p>
