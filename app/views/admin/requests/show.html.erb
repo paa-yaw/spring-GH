@@ -142,14 +142,13 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
         <table class="table bootstrap-datatable countries">
           <thead>
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
+              <th>Name</th>
               <th>Phone Number</th>
               <th>Location</th>
-              <th>status</th>
-              <th></th>
-              <th></th>
+              <th>Availability</th>
+              <th>Status</th>
               <th>Rating</th>
+              <th></th>
             </tr>
           </thead> 
 
@@ -158,34 +157,49 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
           <% if worker.assigned== true %>
           <tbody>
             <tr>
-              <td><%= link_to worker.first_name, admin_worker_path(worker) %></td>
-              <td><%= worker.last_name %></td>
+              <% if worker.reports.any? %>
+              <td><%= link_to worker.first_name, admin_worker_path(worker) %>, <%= link_to worker.last_name, admin_worker_path(worker) %> <i class="fa fa-flag" aria-hidden="true" style="color:red"></i></td>
+              <% else %>
+              <td><%= link_to worker.first_name, admin_worker_path(worker) %>, <%= link_to worker.last_name, admin_worker_path(worker) %></td>
+              <% end %>
               <td><%= worker.phone_number %></td>
               <td><%= worker.location %></td>
               <td><span class="label label-danger"><strong>assigned to <%= worker.try(:requests).try(:find, worker.try(:request_ids).try(:last)).try(:client).try(:first_name) %>(No.<%= worker.try(:request_ids).try(:last) %>)</strong></span></td>
-              <td></td>
+              <% if worker.status == "verified" %>
+              <td><span class="label label-success"><i class="fa fa-check-circle" aria-hidden="true"></i> <%= worker.status.upcase %></span></td>
+              <% else %>
+              <td><span class="label label-danger"><i class="fa fa-ban" aria-hidden="true"></i> 
+              <%= worker.status.upcase %></span></td>
+              <% end %>
               <!-- <td><%#= link_to fa_icon("user-times") +
                " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, method: :delete,  
                data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-warning" %></td> -->
-
+               <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                <td><%= link_to fa_icon("user-times") +
                  " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, data: {confirm: "You are about to unassign this worker"}, class: "btn btn-warning" %></td>
-                 <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                </tr>
 
                
                <% else %>
 
                <tr>
-                <td><%= link_to worker.first_name, admin_worker_path(worker) %></td>
-                <td><%= worker.last_name %></td>
+                <% if worker.reports.any? %>
+                <td><%= link_to worker.first_name, admin_worker_path(worker) %>, <%= link_to worker.last_name, admin_worker_path(worker) %> <i class="fa fa-flag" aria-hidden="true" style="color:red"></i></td>
+                <% else %>
+                <td><%= link_to worker.first_name, admin_worker_path(worker) %>, <%= link_to worker.last_name, admin_worker_path(worker) %></td>
+                <% end %>
                 <td><%= worker.phone_number %></td>
                 <td><%= worker.location %></td>
                 <td><strong><span class="label label-success">available</span></strong></td>
-                <td></td>
+                <% if worker.status == "verified" %>
+                <td><span class="label label-success"><i class="fa fa-check-circle" aria-hidden="true"></i> <%= worker.status.upcase %></span></td>
+                <% else %>
+                <td><span class="label label-danger"><i class="fa fa-ban" aria-hidden="true"></i> 
+                <%= worker.status.upcase %></span></td>
+                <% end %>
+                <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                 <td><%= link_to fa_icon("user-plus") + " Assign", admin_assign_path(@request, worker_id: worker.id), worker_id: worker.id, 
                   data: {confirm: "Are you sure you want to assign #{worker.first_name} to #{(@request.id)}?"}, class: "btn btn-primary"  %></td>
-                  <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
                 </tr>
               </tbody>
               <% end %>

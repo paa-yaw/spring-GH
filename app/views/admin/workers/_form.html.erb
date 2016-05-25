@@ -21,16 +21,23 @@
   </div>
 
 
-  <div class="col-md-4">
-   <%= f.input :attachment, as: :file, label: "Document" %>
-   <%= f.input :attachment_cache, as: :hidden %>
+  <!-- <div class="col-md-4">
+   <#%= f.input :attachment, as: :file, label: "Document" %>
+   <#%= f.input :attachment_cache, as: :hidden %>
  </div>
-
+ -->
  <div class="col-md-4">
    <%= f.input :photo, as: :file, label: "Profile photo" %>
    <%= f.input :photo_cache, as: :hidden %>
  </div>
+
+ <div class="col-md-4">
+   <h5><strong><%= f.input :status, :collection => ["verified", "not verified"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "STATUS" %></strong></h5>
  </div>
+
+ </div>
+
+ 
 
 
 

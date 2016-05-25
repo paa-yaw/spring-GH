@@ -4,7 +4,8 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Dear <%= @client.first_name %>, Welcome to springgh.com</h1>
+    <% customer = "Valued Customer" %>
+    <h1>Dear <%= @client.first_name || customer %>, Welcome to Spring</h1>
     <p>
       You have successfully signed up to springgh.com.
     </p>
