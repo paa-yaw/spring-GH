@@ -96,16 +96,16 @@ ActiveRecord::Schema.define(version: 20160523111135) do
     t.integer  "kitchens",                                    default: 0
     t.integer  "hall",                                        default: 0
     t.string   "weekdays",                                    default: [],                        array: true
-    t.decimal  "extra_services",                              default: [],                        array: true
+    t.string   "extra_services",                              default: [],                        array: true
     t.string   "status",                                      default: "unresolved"
     t.string   "email"
     t.string   "phone_number"
     t.text     "location"
     t.decimal  "frequency",          precision: 6,  scale: 2
+    t.boolean  "terms",                                       default: false
     t.decimal  "total_cost",         precision: 10, scale: 2
     t.integer  "total_rooms"
     t.decimal  "extra_services_sum", precision: 10, scale: 2
-    t.boolean  "terms",                                       default: false
     t.string   "ref_code"
     t.string   "promocode"
   end
