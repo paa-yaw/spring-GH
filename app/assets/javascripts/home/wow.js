@@ -1,4 +1,4 @@
-(function() {
+function() {
   var Util,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
@@ -22,7 +22,7 @@
 
     return Util;
 
-  })();
+  };
 
   this.WOW = (function() {
     WOW.prototype.defaults = {

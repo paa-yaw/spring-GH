@@ -2,7 +2,7 @@
 //= require ./home/bootstrap.min
 //= require ./home/jquery.nav
 //= require ./home/owl.carousel
-//= require ./home/wow
+//= require wow
 //= require ./home/jquery.mixitup
 //= require ./home/lightbox.min
 //= require ./home/scroll-top
