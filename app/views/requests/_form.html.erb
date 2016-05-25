@@ -73,7 +73,7 @@
         <div onclick="calculatePricing()" id="extra">
           <div class="col-md-12 col-xs-12">
       <h4>Any extra services? </h4>
-      <div class="row">
+     <!--  <div class="row">
         <div class="col-md-3">
            <ul class="pricing p-green">
                 <li>
@@ -119,8 +119,8 @@
                 </li>
               </ul>
         </div>
-      </div>
-            <%#= f.input :extra_services, :collection => [["Compound Cleaning (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00], ["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "" %>
+      </div> -->
+            <%= f.input :extra_services, :collection => [["Compound Cleaning (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00], ["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "" %>
           </div>
         </div> 
       </div>
@@ -143,59 +143,53 @@
         <h4>How many times should we clean? </h4>
       
       <!-- <section class="container"> -->
-      <div class="row white">
+    <!--   <div class="row white">
         <div class="block">
-
-          <div class="col-xs-12 col-sm-4 col-md-4">
+ -->
+         <!--  <div class="col-xs-12 col-sm-4 col-md-4">
               <ul class="pricing p-green">
                 <li>
-                  <!-- <img src="http://bread.pp.ua/n/settings_g.svg" alt=""> -->
                   <big>Deep Cleaning</big>
                 </li>
                 <li>One-time <br>cleaning</li>
-                <!-- <li>Thorough cleaning</li> -->
                 <li style="padding-top:0px;">
                   <h3>GHS 150.<small>00</small></h3>
                   <span>per cleaning</span>
                 </li>
               </ul>
-          </div>
+          </div> -->
 
-          <div class="col-xs-12 col-sm-4 col-md-4">
+        <!--   <div class="col-xs-12 col-sm-4 col-md-4">
               <ul class="pricing p-yel">
                 <li>
-                  <!-- <img src="http://bread.pp.ua/n/settings_y.svg" alt=""> -->
                   <big>Weekly Cleaning</big>
                 </li>
                 <li>maximum of 3 times a week</li>
-                <!-- <li>1 cleaning</li> -->
                 <li style="padding-top:0px;">
                   <h3>GHS 150.<small>00</small></h3>
                   <span>per week</span>
                 </li>
               </ul>
-          </div>
+          </div> -->
 
-          <div class="col-xs-12 col-sm-4 col-md-4">
+    <!--       <div class="col-xs-12 col-sm-4 col-md-4">
               <ul class="pricing p-red">
                 <li>
-                  <!-- <img src="http://bread.pp.ua/n/settings_r.svg" alt=""> -->
                   <big>Monthly Cleaning</big>
                 </li>
                 <li>maximum of 12 times a month</li>
-                <!-- <li>Cleaning</li> -->
                 <li style="padding-top:0px;">
                   <h3>GHS 500.<small>00</small></h3>
                   <span>per month</span>
                 </li>
               </ul>
-          </div>
+          </div> -->
 
-        </div><!-- /block -->
-      </div><!-- /row -->
+        <!-- </div> /block -->
+      <!-- </div>    /row -->
   <!-- </section> -->
 
-            <!-- <#%= f.input :frequency, :collection => [["Deep Cleaning (GHS 150.00)", 150.00], ["Weekly (GHS 150.00)", 150.01], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %> -->
+            <%= f.input :frequency, :collection => [["Deep Cleaning (GHS 150.00)", 150.00], ["Weekly (GHS 150.00)", 150.01], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %>
             </div>
           </div>
         </div>
