@@ -1,271 +1,430 @@
-
-    <!-- Page Wrapper -->
-      <div id="page-wrapper">
-
-        <!-- Header -->
-          <header id="header" class="alt">
-
-            <h1><%= link_to "Spring", root_path %></h1>
-
-            <nav id="nav">
-
-              <ul>
-               <li class="special desktop-only-view">
-                    <a href="#one"><span>About</span></a>
-               </li>
-               <li class="special desktop-only-view">
-                    <a href="#two"><span>Services</span></a>
-               </li>
-               <li class="special desktop-only-view">
-                    <a href="#cta"><span>Contact</span></a>
-               </li>
-               <li class="special desktop-only-view">
-                  <%= link_to "FAQ", q_and_a_path%>
-               </li>
-              <% if current_client %>
-                <li class="special desktop-only-view">
-                    <%= link_to current_client.first_name, edit_client_registration_path %>
-                </li>
-                <li class="special desktop-only-view">
-                    <%= link_to "Requests", my_requests_path %>
-                </li>
-                <li class="special desktop-only-view">
-                   <%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                </li>
-               
-               <!--  <li class="special desktop-only-view">
-                  <%#= link_to "Log Out", destroy_client_session_path, method: :delete,
-                            data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                </li>  -->
-              <% else %>
-                  <li class="special desktop-only-view">
-                    <%= link_to "Log In", new_client_session_path %>
-                  </li>
-                  <li class="special desktop-only-view">
-                          <%= link_to "Sign Up", new_client_registration_path %>
-                  </li>
-              <% end %>
-
-                <li class="special mobile-only-view">
-                  <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                  <div id="menu">
-                    <ul>
-
-
-                    <% if current_client %>
-                     <li class="special">
-                        <a href="#one">About</a>
-                      </li>
-                      <li class="special">
-                        <a href="#two">Services</a>
-                      </li>
-                      <li class="special">
-                        <a href="#cta">Contact</a>
-                      </li>
-                      <li class="special">
-                          <%= link_to current_client.first_name, edit_client_registration_path %>
-                      </li>
-                      <li class="special">
-                          <%= link_to "Requests", my_requests_path %>
-                      </li>
-                      <li class="special">
-                        <%#= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                  data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                      </li>  
-                    <% else %>
-                        <li class="special">
-                          <a href="#one">About</a>
-                        </li>
-                        <li class="special">
-                          <a href="#two">Services</a>
-                        </li>
-                        <li class="special">
-                          <a href="#cta">Contact</a>
-                        </li>
-                        <li class="special">
-                          <%= link_to "FAQ", q_and_a_path %>
-                        </li>
-                        <li class="special">
-                          <%= link_to "Log In", new_client_session_path %>
-                        </li>
-                        <li class="special">
-                          <%= link_to "Sign Up", new_client_registration_path %>
-                        </li>
-                    <% end %>
-
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </nav> 
-
-
-          </header>
-
-        <!-- Banner -->
-          <section id="banner">
-            <div class="inner">
-              <h2>Spring</h2>
-              <p>Trustworthy, Quality & Reliable Home Cleaning.</p>
-              <ul class="actions">
-                <li>
-                  <%= link_to "Book a Cleaning", new_request_path, :class => "button special" %>
-                </li>
-              </ul>
-            </div>
-            <a href="#one" class="more scrolly">Learn More</a>
-          </section>
-
-        <!-- About One -->
-          <section id="one" class="wrapper style1 special">
-            <div class="inner">
-              <header class="major">
-                <h2>About Spring</h2>
-                <p>Spring is a service that provides TRUSTWORTHY, QUALITY and RELIABLE cleaning services to households. Spring can be trusted because all the cleaners with Spring have gone through extensive police background checks and have had their references verified. Spring also takes cleaners through quality training so that YOU as a client has a WORRY FREE CLEANING EXPERIENCE.</p>
-                <h4>Scroll below to see our service offerings</h4>
-              </header>
-            </div>
-          </section>
-
-        <!-- Our Services Two -->
-          <section id="two" class="wrapper alt style2">
-            <section class="spotlight">
-              <div class="image"><%= image_tag "pic01.jpg" %> </div><div class="content">
-                <h2>Living Room</h2>
-                <i class="fa fa-check-square-o">Wiping of Windows</i><br>
-                <i class="fa fa-check-square-o">Removing of cobwebs</i><br>
-                <i class="fa fa-check-square-o">Vacuuming of carpet if needed</i><br>
-                <i class="fa fa-check-square-o">Sweeping and mopping of floors</i><br>
-                <i class="fa fa-check-square-o">Dusting of furniture and surfaces</i><br>
-                <i class="fa fa-check-square-o mob">Dusting and wiping of electronics, picture frames etc</i><br>
-                <i class="fa fa-check-square-o mob">Dusting and wiping of light switches and other fixtures</i><br><br><br>
-              </div>
-            </section>
-            <section class="spotlight">
-              <div class="image"><%= image_tag "pic02.jpg" %></div><div class="content">
-                <h2>Kitchen</h2>
-                <i class="fa fa-check-square-o">Removing of cobwebs</i><br>
-                <i class="fa fa-check-square-o">Putting together displaced items</i><br>
-                <i class="fa fa-check-square-o">Dusting of surfaces and appliances</i><br>
-                <i class="fa fa-check-square-o">Emptying bins and cleaning bin area</i><br>
-                <i class="fa fa-check-square-o">Wiping outside of cupboards and fridge</i><br>
-                <i class="fa fa-check-square-o">Cleaning of sink and washing of dishes</i><br>
-                <i class="fa fa-check-square-o mob">Sweeping, mopping of floor and wiping of walls</i><br><br>
-              </div>
-            </section>
-            <section class="spotlight">
-              <div class="image"><%= image_tag "pic03.jpg" %></div><div class="content">
-                <h2>Bedroom</h2>
-                <i class="fa fa-check-square-o mob-clr-right-xt">Making bed</i><br>
-                <i class="fa fa-check-square-o">Wiping of windows</i><br>
-                <i class="fa fa-check-square-o">Removing of cobwebs</i><br>
-                <i class="fa fa-check-square-o">Dusting of furniture and surfaces</i><br>
-                <i class="fa fa-check-square-o mob">Folding or hanging of clothes in bedroom</i><br>
-                <i class="fa fa-check-square-o mob">Sweeping or Vacuuming and/or mopping floors</i><br><br>
-              </div>
-            </section>
-            <section class="spotlight">
-              <div class="image"><%= image_tag "pic04.jpg" %></div><div class="content">
-                <h2>Bathroom</h2>
-                <i class="fa fa-check-square-o mob-clr-right-xt">Mopping floors</i><br>
-                <i class="fa fa-check-square-o">Removing of cobwebs</i><br>
-                <i class="fa fa-check-square-o">Wiping of walls and mirrors</i><br>
-                <i class="fa fa-check-square-o">Folding or hanging of clean towels</i><br>
-                <i class="fa fa-check-square-o">Emptying bins and cleaning bin area</i><br>
-                <i class="fa fa-check-square-o">Wiping of windows, counters and taps</i><br>
-                <i class="fa fa-check-square-o mob">Cleaning of shower, bath, sinks and toilet</i><br>
-                <i class="fa fa-check-square-o mob">Wiping outside of cupboards and cabinets</i><br><br>
-              </div>
-            </section>
-          </section>
-
-        <!-- Extra Services Three -->
-          <section id="three" class="wrapper style3 special">
-            <div class="inner">
-              <header class="major">
-                <h2>Extra Services</h2>
-                <p>These services come at an extra cost.</p>
-              </header>
-              <ul class="features">
-                <li>
-                  <%= image_tag "fridge.png", style:"width:100px" %>
-                  <h3>Inside Fridge Cleaning</h3>
-                </li>
-                <li >
-                  <%= image_tag "laundry.png", style:"width:100px" %>
-                  <h3>Laundry</h3>
-                </li>
-                <li>
-                  <%= image_tag "store.png", style:"width:100px" %>
-                  <h3>Storage Room Cleaning</h3>
-                </li>
-                <li>
-                  <%= image_tag "compound.png", style:"width:100px" %>
-                  <h3>Compound Cleaning</h3>
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          <!-- Pricing -->
-           <section id="price" class="wrapper special style2">
-           <!--  <div class="inner"> -->
-              <header class="major">
-                <h2>Pricing</h2>
-              </header>
-                  <div class="container pricing-container">
-                  <div class="row">
-                  <div class="col-md-4 pricing-column">
-                    <h3>Deep Cleaning<br> GHS 150</h3>
-                    <p> This is a One Time Service. </p>
-                 </div>
-                  <div class="col-md-4 pricing-column">
-                    <h3>Weekly Cleaning<br>GHS 150</h3>
-                    <p>This service occurs maximum of 3 times a week. </p>
-                  </div>
-                  <div  class="col-md-4 pricing-column">
-                    <h3>Monthly Cleaning <br> Starting from GHS 500</h3>
-                   <p>This service occurs maximum of 12 days in a month.</p>
-                  </div>
-                  
-                  </div>
-                  </div>
-            
-          </section>
-
-
-        <!-- Contact CTA -->
-          <section id="cta" class="wrapper style4">
-            <div class="inner">
-              <header>
-                <h2>Contact Us</h2>
-                <p>Do you have any questions?<br>
-                  Send us an email: hello@springgh.com</p>
-                <p>Use Spring for all your Home Cleaning and be assured of a reliable and quality job done.</p>
-  
-              </header>
-              <ul class="actions vertical" style="padding-top: 60px;">
-                <li>
-                <%= link_to "Book a Cleaning", new_request_path, :class => "button fit special", :style=>"padding:0px;" %>
-                </li>
-                <li><%= link_to "FAQ", q_and_a_path, class: "button fit", :style=>"padding:0px;" %></li>
-              </ul>
-            </div>
-          </section>
-
-        <!-- Social Footer -->
-          <footer id="footer">
-            <ul class="icons">
-              <li><a href="http://www.twitter.com/spring_ghana" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-              <li><a href="https://www.facebook.com/springghhome" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-              <li><a href="http://www.instagram.com/spring_ghana" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            </ul>
-            <ul class="copyright">
-              <li>&copy;2016 Spring</li><li>Call Us on 020-061-0307</li>
-            </ul>
-          </footer>
-
+  <!-- nav bar begin -->
+  <header id="header">
+    <nav class="main-navigation navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="200">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+          <!-- logo here -->
+          <a href="index.html" class="navbar-brand"><%= image_tag "logo.png" %></a>
+        </div>
+        <!-- Start Navigation Menu -->
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right" id="main_navigation_menu">
+            <li class="active"><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li> 
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#testimonial">Testimonials</a></li>
+            <li><a href="#connected">Contact</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+        <!-- End Navigation Menu -->
       </div>
+    </nav>
+  </header>
+  <!-- nav bar end -->
 
-<!-- </body> -->
+  <!-- intro begin -->
+  <section id="intro" class="section-intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="main-text">
+            <h1 class="wow fadeInUp"><span>On - Demand</span> Cleaning Service</h1>
+            <h2 class="wow fadeInUp" data-wow-delay=".7s">Trustworthy, Quality & Reliable Cleaners</h2>
+            <div class="wow fadeInUp" data-wow-delay="1.5s"><a onclick="smoothScr.anim('services')" class="btn btn-border btn-lg">Book a Cleaner</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- intro end -->
+
+  <!-- about begin -->
+  <section id="about" class="about-section">
+    <div class="overlay">
+      <div class="container">
+        <h1 class="section-title wow fadeIn" data-wow-delay=".2s"><span>About</span> Us</h1>
+        <div class="row">
+          <div class="item">
+            <div class="col-sm-6 col-md-6 wow fadeInLeft" data-wow-offset="10"> 
+              <div class="info">
+                <h3>What is Spring</h3>
+                <p>
+                  Spring is an online on-demand cleaning service for the home. Each Spring cleaner is backround checked, interviewed in person, have past verified experience and speaks English. You as a client can then be assured that you would be satisfied at the end of every clean.
+                  <br>
+                  With Spring you are assured of cleaner you can trust and who would do a quality and reliable job for you.
+                </p>
+                <a href="#" class="btn btn-border"></i>Become a Cleaner</a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 wow fadeInRight" data-wow-offset="10">
+              <div class="info">
+                <h3>The Spring Story</h3>
+                <p>
+                  Spring was founded by 4 individuals who are passionate about providing quality home cleaning services to home owners. 
+                  The founding team has a combined 5 year experience building software solutions for consumers. Our mission is to become the trusted provider for all your home needs. 
+                  <br>
+                  We are a young and fast growing company. We are proud that we leave all our customers happy as well as our Spring Cleaners. We have started with cleaning your house, other home service could follow soon.
+                </p>
+                <a href="#" class="btn btn-border"></i>Book a Cleaner</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- about  end -->
+
+  <!-- services begin -->
+  <section id="services">
+    <div class="container">
+      <h1 class="section-title wow fadeIn" data-wow-delay=".2s"><span>Our</span> Services</h1>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 wow fadeInUp">
+          <div class="service-box">
+            <div class="content">
+              <div class="icon-wrapper">
+                <i class="fa fa-leaf"></i>
+              </div>
+              <h2>Living Room</h2>
+              <p>Wipe Windows<br>Remove cobwebs<br>Sweep & Mop floor<br>Dust furniture,fixtures & electricals<br>Dust skirting boards</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-delay=".2s" data-wow-offset="10">
+          <div class="service-box">
+            <div class="content">
+              <div class="icon-wrapper">
+                <i class="fa fa-heart"></i>
+              </div>
+              <h2>Kitchen</h2>
+              <p>Sweep & Mop floor<br>Remove cobwebs<br>Dust surfaces<br> Clean appliances<br>Wash dishes<br>Empty & Clean bin</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-delay=".4s" data-wow-offset="10">
+          <div class="service-box">
+            <div class="content">
+              <div class="icon-wrapper">
+                <i class="fa fa-child"></i>
+              </div>
+              <h2>Bedroom</h2>
+              <p>Make bed<br>Sweep & Mop floor<br>Dust furniture & other surfaces<br>Remove cobwebs<br>Fold clothes on bed & furniture</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-delay=".6s" data-wow-offset="10">
+          <div class="service-box">
+            <div class="content">
+              <div class="icon-wrapper">
+                <i class="fa fa-mobile-phone"></i>
+              </div>
+              <h2>Bathroom</h2>
+              <p>Sweep & Mop<br>Remove cobwebs<br>Wipe wall & Mirror<br>Fold or Hang towels<br>Empty and Clean bin<br>Scrub shower, bath tub & sink</p>
+            </div>
+          </div>
+        </div>  
+        <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-delay=".2s" data-wow-offset="10">
+          <div class="service-box">
+            <div class="content">
+              <div class="icon-wrapper">
+                <i class="fa fa-heart"></i>
+              </div>
+              <h2>Add on Services</h2>
+              <p>Fridge Cleaning<br>Laundry<br>Compound Cleaning<br>Storeroom</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-delay=".4s" data-wow-offset="10">
+          <div class="service-box">                <div class="content">
+              <div class="icon-wrapper">
+                <i class="fa fa-child"></i>
+              </div>
+              <h2>Special Requests</h2>
+              <p>We call each Spring Cleaner before their first clean to talk through any special requests including locking instructions for your home</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- services end -->
+
+  <!-- why us begin -->
+  <section id="why-chose">
+    <div class="container">
+      <h1 class="section-title wow fadeIn" data-wow-delay=".2s"><span>Why</span> choose Spring</h1>
+      <div class="row">
+        <div class="col-md-4 wow fadeInLeft" data-wow-offset="10" data-wow-delay="0.5s">
+          <div class="content-left">
+            <div class="box-left">
+              <span class="icon">
+                <i class="fa fa-suitcase"></i>
+              </span>
+              <div class="content">
+                <h4>Experienced</h4>
+                <p>Each Spring cleaner has a minimun of verified 6 months experience</p>
+              </div>
+            </div>
+            <br>
+            <div class="box-left">
+              <span class="icon">
+                <i class="fa fa-comments"></i>
+              </span>
+              <div class="content">
+                <h4>Speaks English</h4>
+                <p>If you can't speak the local languages you can still communicate to let your Spring Cleaner know exactly how you like your home cleaned</p>
+              </div>
+            </div>
+            <br>
+            <div class="box-left">
+              <span class="icon">
+                <i class="fa fa-check-circle-o"></i>
+              </span>
+              <div class="content">
+                <h4>Background Checked</h4>
+                <p>All Spring Cleaners undergo background checks, carried out by the CID department of Ghana Police.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 wow fadeInUp" data-wow-offset="10"  data-wow-delay="0.3s">
+          <div class="showcase-box">
+            <%= image_tag "why.png" %>
+          </div>
+        </div>
+        <div class="col-md-4 wow fadeInRight" data-wow-offset="10" data-wow-delay="0.5s">
+          <div class="content-right">
+            <div class="box-right">
+              <span class="icon">
+                <i class="fa fa-book"></i>
+              </span>
+              <div class="content">
+                <h4>Trained Quartely</h4>
+                <p>We equip our Spring Cleaners with the necessary skills to ensure that clients are always 100% satisfied</p>
+              </div>
+            </div>
+            <br>
+            <div class="box-right">
+              <span class="icon">
+                <i class="fa fa-star-half-o"></i>
+              </span>
+              <div class="content">
+                <h4>Reviews</h4>
+                <p>Regular reviews and feedback from our client to ensure that Spring Cleaners maintian a high standard.</p>
+              </div>
+            </div>
+            <br>
+            <div class="box-right">
+              <span class="icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <div class="content">
+                <h4>24hr Service Deliveyr</h4>
+                <p>Have a Spring Cleaner at your home within 24 hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- why us end -->
+
+  <!-- Pricing begin -->
+  <section id="pricing">
+    <div class="container">
+      <h1 class="section-title wow fadeIn" data-wow-delay=".2s"><span>Pricing</span> Table</h1>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 wow bounceIn" data-wow-offset="10" data-wow-delay="0.2s">
+          <div class="table text-center">
+            <div class="pricing-header">
+              <p class="price-quality">One-Off</p>
+            </div>
+            <div class="price">
+              <p class="price-value">GHS 150</p>
+            </div>
+            <div class="pricing-list">
+              <ul>
+                <li>Contract</li>
+                <li>Cancellation fee of 40% of cost of service, if appointment is cancelled 3 ours prior to scheduled time</li>
+                <li>Pay 100% of the cost of service before service is rendered.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 wow bounceIn" data-wow-offset="10" data-wow-delay="0.4s">
+          <div class="table text-center">
+            <div class="pricing-header">
+              <p class="price-quality">Every Week</p>
+            </div>
+            <div class="price">
+              <p class="price-value">GHS 200</p>
+            </div>
+            <div class="pricing-list">
+              <ul>
+                <li>Contract</li>
+                <li>Occurs a maximum of 3 days a week</li>
+                <li>Cancellation fee of 35% of cost of service, if appointment is cancelled 3 ours prior to scheduled time</li>
+                <li>If you are a business please contact us</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 wow bounceIn" data-wow-offset="10" data-wow-delay="0.6s">
+          <div class="table text-center">
+            <div class="pricing-header">
+              <p class="price-quality">Monthly</p>
+            </div>
+            <div class="price">
+              <p class="price-value">GHS 500</p>
+            </div>
+            <div class="pricing-list">
+              <ul>
+                <li>Contract</li>
+                <li>Occurs maximum of 12 days a month</li>
+                <li>Cancellation fee of 30% of cost of service, if appointment is cancelled 3 ours prior to scheduled time</li>
+                <li>If you are a business please contact us</li>
+              </ul>
+            </div>
+          </div>            
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Pricing end -->
+
+  <!-- Testimonial begin -->
+  <section id="testimonial">
+    <div class="container">
+      <div class="row">
+        <h2 class="section-title wow fadeIn" data-wow-delay=".2s">Testimonials</h2>         
+        <div id="testimonial-slider" class="owl-carousel">
+          <div class="item wow fadeInDown" data-wow-delay="0.3s">
+            <div class="testimonial">
+              <div class="testimonial-text">
+                <i class="fa fa-quote-left"></i>
+                <p>It was a splendid job done. My home was cleaned beyond my expectation, worth every cedi. I highly recommend Spring as the go to cleaning service</p>
+                <i class="fa fa-quote-right pull-right"></i>
+              </div>
+              <div class="testimonial-info">
+                <p><span class="name">Solomon Bekoe | </span>
+                <span class="company">General Manager - Automation Solutions Limited</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="item wow fadeInDown"  data-wow-delay="0.6s">
+            <div class="testimonial">
+              <div class="testimonial-text">
+                <i class="fa fa-quote-left"></i>
+                <p>I hired Spring after my house cleaner upped and left me one morning. They did a splendid job. The Spring Cleaner was also friendly and professional</p>
+                <i class="fa fa-quote-right pull-right"></i>
+              </div>
+              <div class="testimonial-info">
+                <p><span class="name">Amma Baffoe | </span>
+                <span class="company">Communications & Recruitment Head - MEST Ghana</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="item wow fadeInDown" data-wow-delay="0.9s">
+            <div class="testimonial">
+              <div class="testimonial-text">
+                <i class="fa fa-quote-left"></i>
+                <p>I came home to a clean fresh smelling house. Noting to complain about. I loved the job done.</p>
+                <i class="fa fa-quote-right pull-right"></i>
+              </div>
+              <div class="testimonial-info">
+                <p><span class="name">Nelson Klutse | </span>
+                <span class="company">Developer - Meltwater Group</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial">
+              <div class="testimonial-text">
+                <i class="fa fa-quote-left"></i>
+                <p>I hired Spring to do my laundry, it was returned folded and smelling fresh. Would be using them again </p>
+                <i class="fa fa-quote-right pull-right"></i>
+              </div>
+              <div class="testimonial-info">
+                <p><span class="name">Precious Ewusi | </span>
+                <span class="company">Developer</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial">
+              <div class="testimonial-text">
+                <i class="fa fa-quote-left"></i>
+                <p>I Spring to do my laundry in my home, the service was good and fast. The ladies assigned to me were friendly and professional</p>
+                <i class="fa fa-quote-right pull-right"></i>
+              </div>
+              <div class="testimonial-info">
+                <p><span class="name">Jennifer Tweneboah | </span>
+                <span class="company">Administrator - MEST Ghana</span></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Testimonial end -->
+
+  <!-- Contact begin -->
+  <section id="connected">
+    <div class="container">
+      <div class="row">
+        <h2 class="section-title wow fadeInUp" data-wow-delay=".2s">Stay Connected</h2>   
+        <h3 class="discription wow fadeIn" data-wow-delay=".2s">Do you have any questions or concerns?</h3>
+        <div class="wow fadeInUp" data-wow-delay=".2s"><a class="btn btn-border btn-lg" style=" border-color: white;">Book a Cleaner</a></div>
+        <hr>
+        <div class="connected-wrapper text-center">
+          <div class="col-sm-6 col-md-3 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="contact-item">
+              <a href="#"><i class="fa fa-phone"></i></a>
+              <h5>Customer Care</h5>
+              <h4>020 0610 307</h4>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="contact-item">
+              <a href="#"><i class="fa fa-user"></i></a>
+              <h5>Support Team</h5>
+              <h4>hello@springgh.com</h4>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="contact-item">
+              <a href="www.twitter.com/spring_ghana"><i class="fa fa-twitter"></i></a>
+              <h5>Twitter</h5>
+              <h4>@spring_ghana</h4>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="contact-item">
+              <a href="www.facebook.com/springhome"><i class="fa fa-facebook"></i></a>
+              <h5>Facebook</h5>
+              <h4>Spring, Ghana</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact end -->
+
+  <!-- Scroll Top -->
+  <div class="scroll-top" data-spy="affix" data-offset-top="300">
+    <a href="#header"><i class="fa fa-angle-up"></i></a>
+  </div>
+  <!-- Scroll End -->

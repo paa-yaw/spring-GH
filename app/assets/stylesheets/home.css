@@ -3,7 +3,14 @@
  You can use Sass (SCSS) here: http://sass-lang.com/
 */
 /*
- *= require_tree ./home
- *= require font-awesome
- */
-
+  *= require ./home/bootstrap.min
+  *= require font-awesome
+  *= require ./home/style
+  *= require ./home/responsive
+  *= require ./home/normalize
+  *= require ./home/animate
+  *= require ./home/lightbox
+  *= require ./home/owl/owl.carousel
+  *= require ./home/owl/owl.theme
+  *= require ./home/owl/owl.transitions
+  */
