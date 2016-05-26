@@ -8,7 +8,7 @@ class Worker < ActiveRecord::Base
   
 
   validates :first_name, :last_name, :sex, :phone_number, :location, :experience,
-  :minimum_wage, presence: true 
+  :minimum_wage, :status, presence: true 
 
 
   def engage

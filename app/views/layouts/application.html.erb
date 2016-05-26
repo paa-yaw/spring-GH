@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
    <title>Book a Cleaning, View Cleaning Requests - Spring Gh Cleaning Service</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="ekk5nq_UoqHnmI-X2AO7JNLZsgclWEvyO1Y5OTweFQ4" />
   <meta name="description" content="Request for cleaning through a request and get your household cleaned by a reliable cleaner."/>
-  <%= stylesheet_link_tag 'nav', media: 'all', 'data-turbolinks-track' => true %>  
-  <%= javascript_include_tag 'nav', 'data-turbolinks-track' => true %>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -21,7 +19,9 @@
   <!-- bootstrap cdn -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <!-- google analytics -->
+
   <% if Rails.env == "production" %>
+  <!-- GOOGLE ANALYTICS PLUGIN -->
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -32,6 +32,7 @@
         ga('send', 'pageview');
     </script>
 
+  <!-- KISSMETRICS PLUGIN -->
     <script type="text/javascript">var _kmq = _kmq || [];
       var _kmk = _kmk || '5efeda5534b54f7ef3096d87a158f07a2dd73d6b';
       function _kms(u){
@@ -50,79 +51,6 @@
   </head>
 
 <body>
-
-         <header id="header" class="alt" style="background:#fff;box-shadow:-1px 2px 3px 0px rgba(46,56,66,.21);">
-
-              <a href="/" class="spring-brand">
-                <%= image_tag("spring2-logo-final.png", :alt => "spring logo", :class => "img-responsive", :style=>'margin-left: 0px;') %>
-              </a>
-            
-            <nav id="nav">
-
-              <ul style="display:inline-flex;">
-                <% if current_client %>
-                    <li class="special visible-lg">
-                      <%= link_to "score board", referrals_path %>
-                    </li>
-                    <li class="special visible-lg">
-                      <%= link_to "Invite Others", new_referral_path %>
-                    </li>
-                    <li class="special visible-lg">
-                        <%= link_to current_client.first_name, edit_client_registration_path %>
-                    </li>
-                    <li class="special visible-lg">
-                        <%= link_to "Requests", my_requests_path %>
-                    </li>
-                    <li class="special visible-lg">
-                      <%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                    </li> 
-                <% else %>
-                    <li class="special visible-lg">
-                      <%= link_to "Log In", new_client_session_path %>
-                    </li>
-                <% end %>
-
-
-                <li class="special">
-                  <a href="#menu" class="menuToggle visible-xs"><span>Menu</span></a>
-                  <div id="menu">
-                    <ul>
-                    <% if current_client %>
-                      <li class="special">
-                        <%= link_to "scoreboard", referrals_path %>
-                      </li>
-                      <li class="special">
-                        <%= link_to "Invite Others", new_referral_path %>
-                      </li>
-                      <li class="special">
-                          <%= link_to current_client.first_name, edit_client_registration_path %>
-                      </li>
-                      <li class="special">
-                          <%= link_to "Requests", my_requests_path %>
-                      </li>
-                      <li>
-                      <%= link_to "Book a Cleaning", new_request_path, :style=>'color: #ffd207;' %>
-                    </li>
-                    <% else %>
-                       <li><%= link_to "FAQ", q_and_a_path %></li>
-
-                        <li class="special">
-                          <%= link_to "Log In", new_client_session_path %>
-                        </li>
-                        <li class="special">
-                          <%= link_to "Sign Up", new_client_registration_path %>
-                        </li>
-                    <% end %>
-
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </nav> 
-
-          </header>
-
 
  <% flash.each do |key, message| %>
     <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%; background:#BDE5F8; color:#00529B; border:solid 1px #00529B; padding:10px;" class="well well-sm text-center" id="flashmessage">
