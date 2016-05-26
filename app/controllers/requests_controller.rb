@@ -56,7 +56,7 @@ class RequestsController < ApplicationController
       @client.password = @secure_password
       @client.admin = false
       @client.first_name = "#{@client.email}"
-      @client.last_name = "last name"
+      @client.last_name = "no name"
 
         if @request.save
           # transfer of referral_code to user
