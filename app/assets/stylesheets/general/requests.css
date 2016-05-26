@@ -61,8 +61,8 @@ a.navbar-header{
 
 h2.panel-title {
   background: rgba(24, 186, 219, 1);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 11px;
+  padding-bottom: 11px;
   font-size: 25px;
   font-weight:bolder;
   color:#fff;
@@ -89,10 +89,6 @@ div#region{
 
 
 /* -- PRICING TABLE CONTENT*/
-div#pricingBox{
-  padding-top: 60px;
-}
-
 
   .grid-container *{
     width: 100%;
