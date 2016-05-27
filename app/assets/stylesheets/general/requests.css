@@ -79,6 +79,11 @@ div#region > div.container-fluid > div.row{
   padding-top: 20px;
   /*background: rgba(25,41,100,0.2);*/
 }
+
+#myRequests tbody tr td h3{
+  font-size: 22px;
+}
+
 /*
 div#region{
   background: rgba(25,41,100,0.2);
