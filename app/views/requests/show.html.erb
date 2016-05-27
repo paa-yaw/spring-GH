@@ -1,97 +1,96 @@
 <div class="container">
-  <div class="row">
-   <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center" style="margin-top: 1.3em;">
+  <div class="row" style="padding-top: 40px;">
 
-     <div class="panel-group"  style="padding-bottom:1px;">
-       <div class="panel panel-default" style="border: solid 1px rgba(25,41,100,0.4);">
-         <div class="panel-body" style="padding: 0px;">
 
-          <!-- Table -->
-          <div class="table-responsive">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th style="border-left-width: 0px;">
-                    Request ID
-                  </th>
-                  <th>
-                    House Details
-                  </th>
-                  <th>
-                    Extra Services
-                  </th>
-                  <th>
-                    Selected Days
-                  </th>
-                  <th>
-                    Frequency
-                  </th>
-                  <th>
-                    Date
-                  </th>
-                  <th>
-                    Time
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <h4><%= @request.id %></h4>
-                  </td>
-                  <td>
-                   <%= pluralize(@request.bedrooms, "bedroom") %>, 
-                   <%= pluralize(@request.bathrooms, "bathroom") %>, 
-                   <%= pluralize(@request.kitchens, "kitchen") %>, 
-                   <%= pluralize(@request.hall, "living room") %>
-                 </td> 
-                 <td>
-                   <% @request.extra_services.each do |services| %>
-                   <% if services == 15.00 %>
-                   <p>Compound Cleaning(GHS 15.00)</p>
-                   <% end %>
+   <div class="col-xs-12 col-md-5 col-md-offset-1 text-center">
+    <div class="panel panel-info">
+      <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
+        <h2 class="panel-title text-center"><strong>Cleaning Request</strong></h2>
+      </div>
+      <div class="panel-body" style="padding-left: 0px; padding-top: 0px;">
+         
+    <table id="hor-minimalist-b" class="responsive" style="width:457px;">
+        <tr>
+          <td> Request ID </td>
+          <td><%= @request.id %></td>
+        </tr>
+        <tr>
+          <td>House Details</td>
+            <td>
+             <%= pluralize(@request.bedrooms, "bedroom") %>, 
+             <%= pluralize(@request.bathrooms, "bathroom") %>, 
+             <%= pluralize(@request.kitchens, "kitchen") %>, 
+             <%= pluralize(@request.hall, "living room") %>
+           </td> 
+        </tr>
+        <tr>
+          <td>Extra Services</td>
+          <td>
+             <% @request.extra_services.each do |services| %>
+             <% if services == 15.00 %>
+             <p>Compound Cleaning(GHS 15.00)</p>
+             <% end %>
 
-                   <% if services == 10.01 %>
-                   <p>Fridge(GHS 10.00)</p>
-                   <% end %>
+             <% if services == 10.01 %>
+             <p>Fridge(GHS 10.00)</p>
+             <% end %>
 
-                   <% if services == 10.00 %>
-                   <p>Storeroom(GHS 10.00)</p>
-                   <% end %>
+             <% if services == 10.00 %>
+             <p>Storeroom(GHS 10.00)</p>
+             <% end %>
 
-                   <% if services == 40.00 %>
-                   <p>Laundry(GHS 40.00)</p>
-                   <% end %>
-                   <% end %>
-                 </td>
-                 <td>
-                   <% if @request.weekdays.length == 1 %>
-                   <%= @request.date_time.strftime("%A")%>
-                   <% else %>
-                     <% @request.weekdays.each do |day| %>
-                     <p><%= day %></p>
-                     <% end %>
-                   <% end %>
-                 </td> 
-                 <td>
-                   <% if @request.frequency == 150.00 %>
-                   <p>Deep-Cleaning(GHS 150.00)</p>
-                   <% elsif @request.frequency == 150.01 %>
-                   <p>Weekly(GHS 150.00)</p>
-                   <% elsif @request.frequency == 500.00 %>
-                   <p>Monthly(GHS 500.00)</p>
-                   <% end %>
-                 </td>  
-                 <td>
-                  <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
-                </td>
-                <td>
-                  <p><%= @request.date_time.strftime("%T") %></p>
-                </td>
-              </tr>
-            </tbody>
-          </table>           
-        </div> 
+             <% if services == 40.00 %>
+             <p>Laundry(GHS 40.00)</p>
+             <% end %>
+             <% end %>
+           </td>
+        </tr>
+        <tr>
+          <td>Selected Days</td>
+            <td>
+               <% if @request.weekdays.length == 1 %>
+               <%= @request.date_time.strftime("%A")%>
+               <% else %>
+                 <% @request.weekdays.each do |day| %>
+                 <p><%= day %></p>
+                 <% end %>
+               <% end %>
+             </td> 
+        </tr>
+        <tr>
+          <td>Frequency</td>
+            <td>
+             <% if @request.frequency == 150.00 %>
+             <p>Deep-Cleaning(GHS 150.00)</p>
+             <% elsif @request.frequency == 150.01 %>
+             <p>Weekly(GHS 150.00)</p>
+             <% elsif @request.frequency == 500.00 %>
+             <p>Monthly(GHS 500.00)</p>
+             <% end %>
+           </td>  
+        </tr>
+        <tr>
+          <td>Date</td>
+          <td>
+            <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>Time</td>
+           <td>
+              <p><%= @request.date_time.strftime("%T") %></p>
+            </td>
+        </tr>
+      </table>
+
+       <!-- </div> -->
+     <!-- </div> -->
+   <!-- </div> -->
+
+
+
+
+
 
         <% if @request.status == "resolved" %>
         <%= link_to fa_icon("arrow-circle-up") + "Submit Another Request", new_request_path, :class => "btn btn-primary" %>
@@ -115,65 +114,64 @@
         <h3> Your total cost is  GHS <span class="daPrice"><%= @request.total_cost.to_i %>.00</span></h3>
         <% end %>
         
-      </div>
-    </div>
-  </div>
+          </div>
+         </div>
+        </div>
 
-</div>
-</div>
 
-<div class="row">
-  <div class="col-sm-6 col-sm-offset-3 text-center">
-    
-    <div class="panel panel-info">
-      <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
-        <h2 class="panel-title text-center"><strong>Assigned Cleaners</strong></h2>
-      </div>
-      <div class="panel-body">
 
-        <h3 class="text-left" style="margin-top:0px;"></h3>
-        <h2> <p></p></h2>
-        <div class="table-responsive">
-          <table class="table table-bordered">
-            <% if @request.status == "resolved" && current_client %>
+      <div class="col-xs-12 col-md-4 col-md-offset-1 text-center">
+        
+        <div class="panel panel-info">
+          <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
+            <h2 class="panel-title text-center"><strong>Assigned Cleaners</strong></h2>
+          </div>
+          <div class="panel-body">
 
-            <% @request.workers.where(assigned: true).uniq.each do |worker| %>
-            <tbody>
-              <tr>
-                <td style="width:50%; border-color:#e8e8e8;">
-                 <h4><%= worker.first_name %>.</h4>
-               </td>
-               <td style="border-color:#e8e8e8;">
-                 <h3><%= link_to fa_icon("eye") + " View Cleaner", worker_path(worker), :class=>"btn btn-primary" %> </h3>
-               </td>
-               <td style="border-color:#e8e8e8;">
-                 <h3> </h3>
-               </td>
-             </tr>
-           </tbody>
-           <% end %>
-           <% elsif  @request.status == "done" && current_client %>
-           No cleaner assigned to you at the moment
-           <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", workers_path,  class: "btn btn-primary" %></p>
-           <% elsif  @request.status == "redo" && current_client %>
-           You request is currently being re-assigned. Please hold..
-           <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", workers_path,  class: "btn btn-primary" %></p>
-           <% elsif @request.status == "resolved" && !current_client %>
-           No cleaner assigned to you at the moment
-           <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", new_client_session_path, data: {confirm: "You must be logged in to have access to this. Click Ok to proceed to log in."}, class: "btn btn-primary" %></p>
-           <% elsif !current_client %>
-           No cleaner assigned to you at the moment
-           <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", new_client_session_path, data: {confirm: "You must be logged in to have access to this. Click Ok to proceed to log in."}, class: "btn btn-primary" %></p>
-           <% elsif  @request.status == "unresolved" && current_client %>
-           No cleaner assigned to you at the moment
-           <p><%= link_to fa_icon("eye") + " view previously assigned cleaners", workers_path,  class: "btn btn-primary" %></p>
-           <% end %>
-         </table>
+            <h3 class="text-left" style="margin-top:0px;"></h3>
+            <h2> <p></p></h2>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <% if @request.status == "resolved" && current_client %>
+
+                <% @request.workers.where(assigned: true).uniq.each do |worker| %>
+                <tbody>
+                  <tr>
+                    <td style="width:50%; border-color:#e8e8e8;">
+                     <h4><%= worker.first_name %>.</h4>
+                   </td>
+                   <td style="border-color:#e8e8e8;">
+                     <h3><%= link_to fa_icon("eye") + " View Cleaner", worker_path(worker), :class=>"btn btn-primary" %> </h3>
+                   </td>
+                   <td style="border-color:#e8e8e8;">
+                     <h3> </h3>
+                   </td>
+                 </tr>
+               </tbody>
+               <% end %>
+               <% elsif  @request.status == "done" && current_client %>
+               No cleaner assigned to you at the moment
+               <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", workers_path,  class: "btn btn-primary" %></p>
+               <% elsif  @request.status == "redo" && current_client %>
+               You request is currently being re-assigned. Please hold..
+               <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", workers_path,  class: "btn btn-primary" %></p>
+               <% elsif @request.status == "resolved" && !current_client %>
+               No cleaner assigned to you at the moment
+               <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", new_client_session_path, data: {confirm: "You must be logged in to have access to this. Click Ok to proceed to log in."}, class: "btn btn-primary" %></p>
+               <% elsif !current_client %>
+               No cleaner assigned to you at the moment
+               <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", new_client_session_path, data: {confirm: "You must be logged in to have access to this. Click Ok to proceed to log in."}, class: "btn btn-primary" %></p>
+               <% elsif  @request.status == "unresolved" && current_client %>
+               No cleaner assigned to you at the moment
+               <p><%= link_to fa_icon("eye") + " view previously assigned cleaners", workers_path,  class: "btn btn-primary" %></p>
+               <% end %>
+             </table>
+           </div>
+         </div>
        </div>
      </div>
-   </div>
- </div>
-</div>
+
+  </div>
 </div>
 
  <div class="modal fade" id="requestModal" style="margin-top:50px;">
@@ -212,3 +210,33 @@
   </script> 
 <% end %>
 
+   <style>
+          #hor-minimalist-b
+          {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-size: 14px;
+            background: #fff;
+            /*margin: 45px;*/
+            width: 480px;
+            border-collapse: collapse;
+            text-align: left;
+          }
+          #hor-minimalist-b th
+          {
+            font-size: 14px;
+            font-weight: normal;
+            color: #039;
+            padding: 10px 8px;
+            border-bottom: 2px solid #6678b1;
+          }
+          #hor-minimalist-b td
+          {
+            border-bottom: 1px solid #ccc;
+            color: #669;
+            padding: 13px 8px;
+          }
+          #hor-minimalist-b tbody tr:hover td
+          {
+            color: #009;
+          }
+      </style>

@@ -1,8 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+
 /*Place all the styles related to the requests controller here.
 They will automatically be included in application.css.
 You can use Sass (SCSS) here: http://sass-lang.com/
 
 REQUEST PAGE
+
+
 */
 /*Asterisks for Labels */
 abbr {
@@ -27,6 +32,15 @@ html {
 }
 
 /* --NAVBAR CONTENT PADDING-- */
+header#header{
+  border-bottom: 2px solid #18BADB;
+}
+
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus {
+  background-color:#18BADB;
+}
+
 ul.nav.navbar-nav.navbar-right > li.page-scroll > a{
   padding-bottom: 0px;
   padding-top: 20px;
@@ -46,18 +60,32 @@ a.navbar-header{
 }
 
 h2.panel-title {
-  background: rgba(25,41,100,0.82);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  background: rgba(24, 186, 219, 1);
+  padding-top: 11px;
+  padding-bottom: 11px;
   font-size: 25px;
-  font-weight:bolder;
+  font-weight:normal;
   color:#fff;
+}
+
+.form-panel-heading h2{
+  background: #fff;
+  color: rgba(24, 186, 219, 1);
+  font-weight:lighter;
+  font-family:'Raleway', Arial, sans-serif;
 }
 
 div#region > div.container-fluid > div.row{
   padding-top: 20px;
   /*background: rgba(25,41,100,0.2);*/
 }
+
+#myRequests tbody tr td h3{
+  font-size: 22px;
+}
+
+
+
 /*
 div#region{
   background: rgba(25,41,100,0.2);
@@ -68,6 +96,7 @@ div#region{
 
 
 /* -- PRICING TABLE CONTENT*/
+
   .grid-container *{
     width: 100%;
     max-width:1200px;
@@ -104,7 +133,7 @@ div#region{
 
 /*color: #797979;*/
   h3#PricingValue{
-    color: #119822;
+    color: #79C142;
     font-size: 15px;
     /*text-decoration: line-through;*/
   }
@@ -116,6 +145,14 @@ div#region{
 /* -- PRICING TABLE END*/
 
 /*-- PRICING TOTAL START*/
+.panel-size {
+  /*height:393px;*/
+  min-height: 393px;
+}
+
+.descriptionText{
+  padding-left: 40px;
+}
 
 .panel .panel-heading i.fa.fa-question{
   border-right-width: 0px;
@@ -123,7 +160,6 @@ div#region{
   border: solid 1px;
   border-radius: 50%;
 }
-
 
 /*-- PRICING TOTAL END*/
 
@@ -280,9 +316,9 @@ input[type=radio]{
 
 
 /*MY REQUESTS PAGE*/
-#myRequests tbody tr td h3{
+/*#myRequests tbody tr td h3{
   font-size: 20px;
-}
+}*/
 
 
 /* TABLE PAGE */
@@ -303,15 +339,15 @@ thead > tr > th {
   font-weight: 200;
   text-align: center;
 }
-
+/*
 th {
   background-color: rgba(25,41,100,0.82);
   color:#fff;
-}
+}*/
 
-td {
+/*td {
   background-color: #E8E8E8;
-}
+}*/
 
 div.panel.panel-default{
   /*border: solid 1px #0E1E59;*/
@@ -320,7 +356,7 @@ div.panel.panel-default{
 
 div.panel.panel-info{
   background-color: #fff;
-  border: solid 1px #122772;
+  /*border: solid 1px #122772;*/
 }
 
 div.panel.panel-info > div.panel-heading{
