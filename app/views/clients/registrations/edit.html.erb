@@ -2,7 +2,7 @@
   <div class="row">
     <!-- <div class="col-sm-6 form-box wow fadeInUp content-box"></div> -->
 
-    <div class="col-sm-6 col-sm-offset-3">
+    <div class="col-lg-4 col-lg-offset-4 col-sm-4 col-sm-offset-4">
 
      <div class="panel-group">
        <div class="panel panel-info">
@@ -47,7 +47,7 @@
             </div>  
             <div class="col-md-6 col-sm-12 col-xs-12">
               <div class="field">
-                <%= f.label :password_confirmation, :class=>"login-label" %><br /><br>
+                <%= f.label :password_confirmation, :class=>"login-label" %><br /><br><br>
                 <%= f.password_field :password_confirmation, autocomplete: "off", autofocus: true, :class=>"form-control" %>
               </div>
             </div>
@@ -55,7 +55,7 @@
           </div>
           <br>
           <div class="field">
-            <%= f.label :current_password, :class=>"login-label" %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.label :current_password, :class=>"login-label" %> <i>(type your current password to confirm your changes)</i><br />
             <%= f.password_field :current_password, autocomplete: "off", autofocus: true, :class=>"form-control" %>
           </div>
           <br>

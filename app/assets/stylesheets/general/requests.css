@@ -64,13 +64,13 @@ h2.panel-title {
   padding-top: 11px;
   padding-bottom: 11px;
   font-size: 25px;
-  font-weight:bolder;
+  font-weight:normal;
   color:#fff;
 }
 
 .form-panel-heading h2{
   background: #fff;
-  color: rgba(25,41,100,0.82);
+  color: rgba(24, 186, 219, 1);
   font-weight:lighter;
   font-family:'Raleway', Arial, sans-serif;
 }
@@ -309,9 +309,9 @@ input[type=radio]{
 
 
 /*MY REQUESTS PAGE*/
-#myRequests tbody tr td h3{
+/*#myRequests tbody tr td h3{
   font-size: 20px;
-}
+}*/
 
 
 /* TABLE PAGE */
@@ -332,15 +332,15 @@ thead > tr > th {
   font-weight: 200;
   text-align: center;
 }
-
+/*
 th {
   background-color: rgba(25,41,100,0.82);
   color:#fff;
-}
+}*/
 
-td {
+/*td {
   background-color: #E8E8E8;
-}
+}*/
 
 div.panel.panel-default{
   /*border: solid 1px #0E1E59;*/
