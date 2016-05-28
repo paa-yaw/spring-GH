@@ -1,0 +1,111 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h2>Invoice For <%= @request.try(:client).try(
+					:first_name) %></h2>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-3 col-lg-3 " align="center">
+
+						<%= image_tag("spring2-logo-final.png", :alt => "spring logo", :class => "img-responsive", :style=>'margin-left: 0px;height:60px;') %>
+
+						</div>
+
+						<div class=" col-md-9 col-lg-9 "> 
+							<table class="table table-user-information">
+								<tbody>
+								<tr>
+									<td><strong>Invoice ID:</strong></td>
+									<td><p><%= @invoice.id %></p></td>
+								</tr>
+									<tr>
+										<td><strong>To:</strong></td>
+										<td><p> <%= @invoice.invoice_to %></p>
+										</td>
+									</tr>
+									<tr>
+										<td><strong>From:</strong></td>
+										<td><p> <%= @invoice.invoice_from %></p></td>
+									</tr>
+									<tr>
+										<td><strong>Date Issue:</strong></td>
+										<td>
+											<p> <%= @invoice.date_issue.strftime("%B %d, %Y %r") %></p>
+										</td>
+									</tr>
+
+									<tr>
+										<tr>
+											<td><strong>Due Date:</strong></td>
+											<td><p> <%= @invoice.due_date.strftime("%B %d, %Y %r") %></p></td>
+										</tr>
+										<tr>
+											<td><strong>Amount Paid:</strong></td>
+											<td><p> GHS <%= @invoice.amount_paid %></p>
+											</td>
+										</tr>
+										<td><strong>Due Balance:</strong></td>
+										<td><p> GHS <%= @invoice.due_balance %></p>
+										</td>
+
+									</tr>
+									<tr>
+										<td><strong>Total Number of Rooms:</strong></td>
+										<td><p> <%= @invoice.rooms %></p></td>
+									</tr>
+									<tr>
+									<% if @invoice.extra_services.any? %>
+									<td><strong>Extra Services:</strong></td>
+									<% @invoice.extra_services.each do |service| %>
+									<% if service == 15.00 %>
+										<td>Compound Cleaning</td>
+									<% end %>
+
+									<% if service == 10.01 %>
+									    <td>Fridge</td>
+									<% end %>
+
+									<% if service == 10.00 %>
+										<td>Storeroom</td>
+									<% end %>
+									
+									<% if service == 40.00%>
+										<td>Laundry</td>
+									<% end %>		
+									<% end %>
+									<% else %>
+										<td><strong>Extra Services:</strong></td>
+										<td>No Services Listed</td>
+									<% end %>
+									
+									</tr>
+									<tr>
+										<td><strong>Package:</strong></td>
+										<td><p> <%= @invoice.package %></p></td>
+									</tr>
+									<tr>
+										<td><strong>Total Amount/Cost:</strong></td>
+										<td><p> GHS  <%= @invoice.total_amount %></p></td>
+									</tr>
+
+								</tbody>
+							</table>
+
+							<h3><%= link_to fa_icon("pencil") + " Edit Invoice", edit_admin_request_invoice_path(@request, @invoice), class: "btn  btn-primary" %> <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %> <%= link_to fa_icon("eye") + " View All Invoices", admin_invoices_path, class: "btn btn-primary" %> 
+							</h3>
+						</div>
+					</div>
+				</div>            
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+

@@ -1,6 +1,7 @@
 class Request < ActiveRecord::Base
 	belongs_to :client, counter_cache: true
 	has_and_belongs_to_many :workers
+  has_one :invoice, dependent: :destroy
 
 	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
   validates :phone_number, format: { with: /\A[-+]?[0-9]*\.?[0-9]+\Z/, message: "only allows numbers" }, allow_blank: true

@@ -1,0 +1,55 @@
+<div class="admin-page">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-11 col-sm-offset-0 form-box">  
+
+
+				<div class="row">
+
+					<div class="col-lg-12 col-md-12">  
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<p>Invoices Generated</p>
+							</div>
+							<div class="panel-body">
+								<table class="table bootstrap-datatable countries">
+									<thead>
+										<tr>
+											<th>Invoice ID</th>
+											<th>Date Issue</th>
+											<th>Amount Paid</th>
+											<th>Balance Due</th>
+											<th>Total Amount</th>
+											<th>Invoice To</th>
+											<th></th>
+											<th></th>
+										</tr>
+									</thead>  
+
+									<% @invoices.each do |invoice| %>
+									<tbody>
+										<h2>
+											<tr>
+												<td><%= invoice.id %></td>
+												<td><%= invoice.date_issue.strftime("%B %d, %Y %r") %></td>
+												<td><%= invoice.amount_paid %></td>
+												<td><%= invoice.due_balance %></td>
+												<td><%= invoice.total_amount %></td>
+												<td><%= invoice.invoice_to %></td>
+												<td><%= link_to fa_icon("arrow-circle-right") + " invoice details here", admin_request_invoice_path(invoice.request, invoice), class: "btn btn-primary" %></td>
+												<td><%= link_to fa_icon("envelope") + " Send Invoice Via Email", admin_invoices_path, class: "btn btn-primary" %></td>
+											</tr>
+										</h2>
+
+									</tbody>
+									<% end %>
+								</table>	
+							</div>
+						</div>
+						<%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary"%>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

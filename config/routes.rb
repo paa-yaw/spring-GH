@@ -77,6 +77,14 @@ Rails.application.routes.draw do
     
     resources :referrals, only: [:index]
 
+    resources :requests do
+      resources :invoices,except: [:index]
+    end
+
+    resources :invoices, only: [:index]
+
+    get 'invoices/all_requests', to: 'invoices#all_requests', as: :requests_for_invoice
+
     resources :workers do 
       resources :reports
     end
@@ -114,7 +122,10 @@ Rails.application.routes.draw do
     resources :reports
   end
 
+
   resources :referrals, only: [:new, :create, :show, :index, :edit, :update]
+
+
 
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
   get 'my_requests/', to: 'requests#my_requests', as: :my_requests

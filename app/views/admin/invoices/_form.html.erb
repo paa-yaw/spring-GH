@@ -1,0 +1,30 @@
+<%= simple_form_for([:admin, request, invoice]) do |f| %>
+<div class="row">
+<div class="col-md-4">
+  <%= f.input :invoice_to %>
+  <%= f.input :invoice_from %>
+ </div>
+
+ <div class="col-md-4">
+   <%= f.input :due_balance %> 
+   <%= f.input :amount_paid %>
+ </div>
+
+ <div class="col-md-4">
+   <%= f.input :recipient_email %>
+ </div>
+
+ <div class="col-md-12">
+  <%= f.input :due_date %>
+ </div>
+ </div>
+
+ <div class="text-center">
+ <% if invoice.persisted? %>
+ <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary"%> 
+ <%= f.button :submit, "confirm invoice", class: "btn btn-primary" %> 
+ <% else %>
+ <%= f.button :submit, "generate invoice", class: "btn btn-primary" %>
+ <% end %>
+ </div>
+<% end %>
