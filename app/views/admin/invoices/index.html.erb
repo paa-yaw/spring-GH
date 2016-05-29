@@ -37,7 +37,7 @@
 												<td><%= invoice.total_amount %></td>
 												<td><%= invoice.invoice_to %></td>
 												<td><%= link_to fa_icon("arrow-circle-right") + " invoice details here", admin_request_invoice_path(invoice.request, invoice), class: "btn btn-primary" %></td>
-												<td><%= link_to fa_icon("envelope") + " Send Invoice Via Email", admin_invoices_path, class: "btn btn-primary" %></td>
+												<td><%= link_to fa_icon("envelope") + " Send Invoice Via Email", admin_send_invoice_path(invoice), class: "btn btn-primary" %></td>
 											</tr>
 										</h2>
 

@@ -1,6 +1,6 @@
 class Admin::InvoicesController < Admin::ApplicationController
-  before_action :set_request, except: [:all_requests, :index]
-  before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+  before_action :set_request, except: [:all_requests, :index, :send_invoice_via_email]
+  before_action :set_invoice, only: [:show, :edit, :update, :destroy, :send_invoice_via_email]
   
   def index
   	@invoices = Invoice.all
@@ -24,6 +24,7 @@ class Admin::InvoicesController < Admin::ApplicationController
 
   	@invoice.package = @request.frequency
   	@invoice.total_amount = @request.total_cost
+    @invoice.recipient_email = @request.client.email
 
   	if @invoice.save
   	  flash[:notice] = "you successfully created an invoice"
@@ -53,6 +54,11 @@ class Admin::InvoicesController < Admin::ApplicationController
   def all_requests
   	@requests = Request.joins(:client).where(status: "resolved")
   	@clients = Client.where(admin: false).all
+  end
+
+  def send_invoice_via_email
+    SendInvoiceJob.set(wait: 2.seconds).perform_later(@request, @invoice)
+    redirect_to admin_invoices_path
   end
 
   private

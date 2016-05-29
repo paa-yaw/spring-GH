@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     get 'requests/:id/reopen', to: 'requests#reopen', as: :reopen_request
     get 'requests/:id/close', to: 'requests#close', as: :close_request
 
+    get 'invoices/:id/send_invoice_via_email', to: 'invoices#send_invoice_via_email', as: :send_invoice
+
     get 'requests/:id/unresolve', to: 'requests#unresolve', as: :unresolve_request
 
     # get 'requests/state_of_requests', to: 'requests#state_of_requests', as: :state_of_requests
