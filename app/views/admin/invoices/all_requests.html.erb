@@ -35,7 +35,13 @@
 			<td><%= link_to request.client.try(:first_name), admin_client_path(client) %></td>
 			<td><span class="label label-success"><%= link_to request.status.upcase %></span></td>
 			<td><%= request.created_at.strftime("%B %d, %Y %r") %></td>
-			<td><%= link_to fa_icon("arrow-circle-right") + " create invoice here", new_admin_request_invoice_path(request), class: "btn btn-primary" %></td>
+			<td>
+			<% if request.invoice.present? %>
+			<%=link_to fa_icon("eye") + " View Invoice Here", admin_request_invoice_path(request, request.invoice), class: "btn btn-default" %>
+			<% else %>
+			<%= link_to fa_icon("arrow-circle-right") + " create invoice here", new_admin_request_invoice_path(request), class: "btn btn-primary" %>
+			<% end %>	
+			</td>
 		</tr>
 	</h2>
 </tbody>
