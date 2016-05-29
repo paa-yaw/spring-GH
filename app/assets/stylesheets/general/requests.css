@@ -177,6 +177,86 @@ body{
   width: 110px;
 }
 
+
+
+
+ label[for="request_extra_services_150"]  > input[type="checkbox"]{
+ display: none;
+}
+ label[for="request_extra_services_150"]{
+  /*background-color: #000;*/
+  /*display: inline-block;*/
+  width: 60px;
+  height: 60px;
+  background: url("/assets/people.png") no-repeat;
+  cursor: pointer;
+  text-align: center;
+}
+label[for="request_extra_services_150"]  > input:checked{
+  opacity: 0.5;
+  border-radius: 2px;
+  border: solid 2px rgba(24, 186, 219, 1);
+}
+
+
+
+label[for="request_extra_services_1001"]  > input[type="checkbox"]{
+ display: none;
+}
+ label[for="request_extra_services_1001"]{
+  /*background-color: #000;*/
+  /*display: inline-block;*/
+  width: 60px;
+  height: 60px;
+  background: url("/assets/refrigerator.png") no-repeat;
+  cursor: pointer;
+  text-align: center;
+}
+label[for="request_extra_services_1001"]  > input:checked{
+  opacity: 0.5;
+  border-radius: 2px;
+  border: solid 2px rgba(24, 186, 219, 1);
+}
+
+
+ label[for="request_extra_services_100"]  > input[type="checkbox"]{
+ display: none;
+}
+ label[for="request_extra_services_100"]{
+  /*background-color: #000;*/
+  /*display: inline-block;*/
+  width: 60px;
+  height: 60px;
+  background: url("/assets/door.png") no-repeat;
+  cursor: pointer;
+  text-align: center;
+}
+label[for="request_extra_services_100"]  > input:checked{
+   opacity: 0.5;
+   border-radius: 2px;
+   border: solid 2px rgba(24, 186, 219, 1);
+}
+
+
+ label[for="request_extra_services_400"] > input[type="checkbox"]{
+ display: none;
+}
+ label[for="request_extra_services_400"]{
+  /*background-color: #000;*/
+  /*display: inline-block;*/
+  width: 60px;
+  height: 60px;
+  background: url("/assets/washingblue.png") no-repeat;
+  cursor: pointer;
+  text-align: center;
+}
+label[for="request_extra_services_400"] > input:checked{
+   opacity: 0.5;
+   border-radius: 2px;
+   border: solid 2px rgba(24, 186, 219, 1);
+}
+
+
 select{
   height: 45px;
   background: #fff;
