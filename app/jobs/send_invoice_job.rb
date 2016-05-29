@@ -2,9 +2,8 @@ class SendInvoiceJob < ActiveJob::Base
   queue_as :default
 
 
-  def perform(request, invoice)
-    @request = request
+  def perform(invoice)
     @invoice = invoice
-    InvoiceMailer.sendinvoice(@request, @invoice).deliver_later
+    InvoiceMailer.sendinvoice(@invoice).deliver_later
   end
 end

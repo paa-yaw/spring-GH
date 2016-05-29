@@ -1,5 +1,5 @@
 class Admin::InvoicesController < Admin::ApplicationController
-  before_action :set_request, except: [:all_requests, :index]
+  before_action :set_request, except: [:all_requests, :index, :send_invoice_via_email]
   before_action :set_invoice, only: [:show, :edit, :update, :destroy, :send_invoice_via_email]
   
   def index
@@ -57,7 +57,7 @@ class Admin::InvoicesController < Admin::ApplicationController
   end
 
   def send_invoice_via_email
-    SendInvoiceJob.set(wait: 2.seconds).perform_later(@request, @invoice)
+    SendInvoiceJob.set(wait: 2.seconds).perform_later(@invoice)
     redirect_to admin_invoices_path
   end
 
