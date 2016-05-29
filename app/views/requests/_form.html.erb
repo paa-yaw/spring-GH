@@ -24,7 +24,7 @@
 
       <div class="panel-heading form-panel-heading">
         <% if request.persisted? %>
-        <h2 class="panel-title text-center">Edit Your House Details<small>&nbsp;&nbsp;edit</small></h2>
+        <h2 class="panel-title text-center">Edit Your House Details</h2>
         <% else %>
         <h2 class="panel-title text-center
         ">Tell Us About Your House &nbsp;
@@ -193,7 +193,7 @@
       <!-- </div>    /row -->
   <!-- </section> -->
 
-            <%= f.input :frequency, :collection => [["Deep Cleaning (GHS 150.00)", 150.00], ["Weekly (GHS 150.00)", 150.01], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %>
+            <%= f.input :frequency, :collection => [["Deep Cleaning (GHS 150.00)", 150.00], ["Weekly (GHS 200.00)", 200.00], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %>
             </div>
           </div>
         </div>
@@ -349,11 +349,11 @@
     document.getElementById('request_frequency_1500').parentNode.setAttribute("title","Deep Cleaning Service in 1 Day");
   }
 
-  var f = document.getElementById('request_frequency_15001').parentNode;
+  var f = document.getElementById('request_frequency_2000').parentNode;
   f.onmouseover = function () {
-    document.getElementById('request_frequency_15001').parentNode.setAttribute("data-toggle", "tooltip");
-    document.getElementById('request_frequency_15001').parentNode.setAttribute("data-placement", "bottom");
-    document.getElementById('request_frequency_15001').parentNode.setAttribute("title", "Cleaning Services Done 3 times A Week");
+    document.getElementById('request_frequency_2000').parentNode.setAttribute("data-toggle", "tooltip");
+    document.getElementById('request_frequency_2000').parentNode.setAttribute("data-placement", "bottom");
+    document.getElementById('request_frequency_2000').parentNode.setAttribute("title", "Cleaning Services Done 3 times A Week");
   }
 
   var g = document.getElementById('request_frequency_5000').parentNode;
@@ -372,7 +372,7 @@
     schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose a day)</i>";
   }
   
-  var b = document.getElementById('request_frequency_15001');
+  var b = document.getElementById('request_frequency_2000');
   if(b.checked == true) {
     schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
   }

@@ -93,9 +93,9 @@ function getFrequency(){
     dayFrequency = 0;
   }
                                
-  if (document.getElementById("request_frequency_15001").checked) {
+  if (document.getElementById("request_frequency_2000").checked) {
     document.getElementById("roomNumber").innerHTML = 4;
-    weekFrequency = parseFloat(document.getElementById("request_frequency_15001").value);
+    weekFrequency = parseFloat(document.getElementById("request_frequency_2000").value);
   } else {
     weekFrequency = 0;  
   }
@@ -126,7 +126,7 @@ function checkSchedule() {
     document.getElementById('days').parentNode.style.display = 'none';
   }
   
-  var b = document.getElementById('request_frequency_15001');
+  var b = document.getElementById('request_frequency_2000');
   if(b.checked == true) {
     document.getElementById('days').parentNode.style.display = 'block';
     schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
@@ -147,7 +147,7 @@ function checkDays() {
   if (getFrequency() == 150.0){
     checkedDays = 1;
     limit = checkedDays;
-  } else if(getFrequency() == 150.01){
+  } else if(getFrequency() == 200.00){
     checkedDays = 3;
     limit = checkedDays;
   } else if (getFrequency() == 500.00 ) {
@@ -216,7 +216,7 @@ function calculatePricing() {
   var totalPrice = 0;
 
   //case of these three possible conditions
-  if( getFrequency() == 0 || getFrequency() == 150.00 || getFrequency() == 150.00 ) {
+  if( getFrequency() == 0 || getFrequency() == 200.00 || getFrequency() == 150.00 ) {
     var roomFactor = -4;
 
     var freq = parseInt(getFrequency());
