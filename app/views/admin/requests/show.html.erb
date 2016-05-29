@@ -16,7 +16,7 @@
         <% end %>
 
         <% one_off_package = 150.00 %>
-        <% weekly_package = 150.01 %>
+        <% weekly_package = 200.00 %>
         <% monthly_package = 500.00 %> 
 
 
@@ -99,7 +99,7 @@
        <td>
         <% if @request.frequency == 150.00 %>
         <p>Deep-Cleaning(GHS 150.00)</p>
-        <% elsif @request.frequency == 150.01 %>
+        <% elsif @request.frequency == 200.00 %>
         <p>Weekly(GHS 150.00)</p>
         <% elsif @request.frequency == 500.00 %>
         <p>Monthly(GHS 500.00)</p>
