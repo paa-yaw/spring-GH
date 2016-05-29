@@ -55,6 +55,10 @@ class Admin::InvoicesController < Admin::ApplicationController
   	@clients = Client.where(admin: false).all
   end
 
+  def send_invoice_via_email
+    @invoice.send_invoice
+  end
+
   private
 
   def set_invoice
