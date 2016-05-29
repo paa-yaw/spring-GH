@@ -29,10 +29,10 @@
                         <%= f.check_box :remember_me %>&nbsp;
                         <%= f.label :remember_me, :class=>"login-label" %>
                       </div>
-                    <% end -%>
+                    <% end %>
         <br>
                     <div class="actions">
-                      <%= f.submit "Log in", :class=>"btn-block btn-lg btn-login btn-primary" %>
+                      <%= f.submit "Log in", :class=>"btn btn-lg btn-block btn-border", :style=>"border-radius:2px;color:#fff;background:#79C142;" %>
                     </div>
                   <% end %>
 
@@ -43,3 +43,9 @@
       </div>
   </div>
 </div>
+
+<style>  
+.register-color{
+  background-color:#BADCE6!important;
+}
+</style>

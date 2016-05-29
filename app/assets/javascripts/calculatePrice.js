@@ -216,7 +216,7 @@ function calculatePricing() {
   var totalPrice = 0;
 
   //case of these three possible conditions
-  if( getFrequency() == 0 || getFrequency() == 150.01 || getFrequency() == 150.00 ) {
+  if( getFrequency() == 0 || getFrequency() == 150.00 || getFrequency() == 150.00 ) {
     var roomFactor = -4;
 
     var freq = parseInt(getFrequency());
