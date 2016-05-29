@@ -1,5 +1,5 @@
 class Admin::InvoicesController < Admin::ApplicationController
-  before_action :set_request, except: [:all_requests, :index, :send_invoice_via_email]
+  before_action :set_request, except: [:all_requests, :index]
   before_action :set_invoice, only: [:show, :edit, :update, :destroy, :send_invoice_via_email]
   
   def index
@@ -65,14 +65,14 @@ class Admin::InvoicesController < Admin::ApplicationController
 
   def set_invoice
   	@invoice = Invoice.find(params[:id])
-  # rescue ActiveRecord::RecordNotFound
-  # 	redirect_to errors_not_found_path
+  rescue ActiveRecord::RecordNotFound
+  	redirect_to errors_not_found_path
   end
 
   def set_request
   	@request = Request.find(params[:request_id])
-  # rescue ActiveRecord::RecordNotFound
-  # 	redirect_to errors_not_found_path
+  rescue ActiveRecord::RecordNotFound
+  	redirect_to errors_not_found_path
   end
 
   def invoice_params
