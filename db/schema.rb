@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(version: 20160530015217) do
     t.decimal  "package",         precision: 6, scale: 2
     t.decimal  "total_amount",    precision: 6, scale: 2
     t.string   "recipient_email"
-    t.string   "logo"
   end
 
   add_index "invoices", ["request_id"], name: "index_invoices_on_request_id", using: :btree

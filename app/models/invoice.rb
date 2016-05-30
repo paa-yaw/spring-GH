@@ -4,5 +4,5 @@ class Invoice < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
 
   validates_format_of :recipient_email,:with => Devise::email_regexp
-  validates :invoice_to, :invoice_from, :due_balance, :amount_paid, :logo, presence: true
+  validates :invoice_to, :invoice_from, :due_balance, :amount_paid,  presence: true
 end
