@@ -4,14 +4,14 @@
     <div class="navbar" style="background:#fff; min-height:42px; height:42px;border-radius:4px;">
       <div class="navbar-inner">
         <!-- <div class="container"> -->
-          <ul style="display:flex;">
+        <ul style="display:flex;">
             <li><a href="#tab1" data-toggle="tab"><span class="hidden-sm hidden-xs">House Info</span><span class="hidden-md hidden-lg"><img src="/assets/house.png" alt="" style="width:60%;"></span></a></li>
             <!-- <li><a href="#tab2" data-toggle="tab">Extra Services</a></li> -->
             <li><a href="#tab2" data-toggle="tab"><span class="hidden-sm hidden-xs">Routine</span><span class="hidden-md hidden-lg"><img src="/assets/routine.png" alt="" style="width:60%;"></span></a></li>
             <li><a href="#tab3" data-toggle="tab"><span class="hidden-sm hidden-xs">Arrival</span><span class="hidden-md hidden-lg"><img src="/assets/arrival.png" alt="" style="width:60%;"></span></a></li>
             <li><a href="#tab4" data-toggle="tab"><span class="hidden-sm hidden-xs">Contact</span><span class="hidden-md hidden-lg"><img src="/assets/contact.png" alt="" style="width:60%;"></span></a></li>
             <li><a href="#tab5" data-toggle="tab"><span class="hidden-sm hidden-xs">Final</span><span class="hidden-md hidden-lg"><img src="/assets/end.png" alt="" style="width:60%;"></span></a></li>
-          </ul>
+        </ul>
         <!-- </div> -->
       </div>
     </div> 
@@ -24,9 +24,9 @@
 
       <div class="panel-heading form-panel-heading">
         <% if request.persisted? %>
-        <h2 class="panel-title text-center">Edit Your House Details</h2>
+          <h2 class="panel-title text-center">Edit Your House Details</h2>
         <% else %>
-        <h2 class="panel-title text-center
+          <h2 class="panel-title text-center
         ">Tell Us About Your House &nbsp;
 <!--           <#% if !client_signed_in? %>
             <%#= link_to fa_icon("question"), :class =>"fa-question pull-right", :style => "border-right:none;" %>
@@ -37,103 +37,55 @@
 
 
 
-      <div class="panel-body" >
+    <div class="panel-body" >
+    <div class="container-fluid">
+      
+    
       <% @token = params[:referral_code] %>
       <% if @token != nil %>
       <%= f.hidden_field :ref_code, :value => @token %>
       <% end %>
-
-      <div onchange="calculatePricing()"> 
+      <div class="row">
       <h4 class="text-center">Which rooms do you want cleaned? </h4><br>
+      <div onchange="calculatePricing()"> 
+
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
             <label>Bedrooms</label>
             <%= f.select :bedrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
           </div>
+
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
             <label>Bathrooms</label>
             <%= f.select :bathrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bathrooms),{},{:class => "btn btn-default"} %>
           </div>
+
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
             <label>Kitchens</label><br>
             <%= f.select :kitchens, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.kitchens),{},{:class => "btn btn-default"} %> 
           </div>
+
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
             <label>Living Room</label>
             <%= f.select :hall, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.hall),{},{:class => "btn btn-default"} %>
           </div>
+
         </div>
       </div>
-        <!-- <br> -->
-  <!--   </div>
+      <br>
+<div class="row">
+      <h4 class="text-center">Any extra services? </h4>
+      <div onclick="calculatePricing()" id="extra" class="text-left">
+          <%= f.input_field :extra_services, :collection => [["Compound (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00],["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "", :label => "" %>
+      </div>
+    </div>
+
+      <!-- <div class="panel-body" > -->
+      <!-- </div> -->
+        </div>
+      </div>
+    </div>
   </div>
 
-<div class="tab-pane" id="tab2">
-    <div class="panel panel-info panel-size">    -->  
-
-   <!--  <div class="panel-heading form-panel-heading">
-      <h2 class="panel-title descriptionText">Extra Services</h2>
-    </div>
- -->
-      <div class="panel-body" >
-        <div onclick="calculatePricing()" id="extra">
-          <div class="col-md-12 col-xs-12">
-      <h4>Any extra services? </h4>
-     <!--  <div class="row">
-        <div class="col-md-3">
-           <ul class="pricing p-green">
-                <li>
-                  <big>Compound</big>
-                </li>
-                <li><img src="/assets/people.png" alt=""></li>
-                <li style="padding-top:0px;">
-                  <h3>GHS 15.<small>00</small></h3>
-                </li>
-              </ul>
-        </div>
-        <div class="col-md-3">
-               <ul class="pricing p-green">
-                <li>
-                  <big>Fridge</big>
-                </li>
-                <li><img src="/assets/refrigerator.png" alt=""></li>
-                <li style="padding-top:0px;">
-                  <h3>GHS 10.<small>00</small></h3>
-                </li>
-              </ul>
-        </div>
-        <div class="col-md-3">
-               <ul class="pricing p-green">
-                <li>
-                  <big>Storeroom</big>
-                </li>
-                <li><img src="/assets/door.png" alt=""></li>
-                <li style="padding-top:0px;">
-                  <h3>GHS 10.<small>00</small></h3>
-                </li>
-              </ul>
-        </div>
-        <div class="col-md-3">
-               <ul class="pricing p-green">
-                <li>
-                  
-                  <big>Laundry</big>
-                </li>
-                <li><img src="/assets/washing.png" alt=""></li>
-                <li style="padding-top:0px;">
-                  <h3>GHS 40.<small>00</small></h3>
-                </li>
-              </ul>
-        </div>
-      </div> -->
-      <div class="row">
-            <%= f.input :extra_services, :collection => [["Compound (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00], ["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "inline", :label => "" %>
-      </div>
-          </div>
-        </div> 
-      </div>
-
-    </div>
-</div>
 
 <div class="tab-pane" id="tab2">
     <div class="panel panel-info panel-size">
@@ -198,6 +150,7 @@
             <%= f.input :frequency, :collection => [["Deep Cleaning (GHS 150.00)", 150.00], ["Weekly (GHS 200.00)", 200.00], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %>
             </div>
           </div>
+          <h4 id="help-text" style="color:rgba(24, 186, 219, 1);" class="text-center"></h4>
         </div>
 
     <!-- </div> -->
@@ -349,6 +302,7 @@
     document.getElementById('request_frequency_1500').parentNode.setAttribute("data-toggle","tooltip");
     document.getElementById('request_frequency_1500').parentNode.setAttribute("data-placement","bottom");
     document.getElementById('request_frequency_1500').parentNode.setAttribute("title","Deep Cleaning Service in 1 Day");
+    document.getElementById('help-text').innerHTML = "One-time cleaning";
   }
 
   var f = document.getElementById('request_frequency_2000').parentNode;
@@ -356,6 +310,7 @@
     document.getElementById('request_frequency_2000').parentNode.setAttribute("data-toggle", "tooltip");
     document.getElementById('request_frequency_2000').parentNode.setAttribute("data-placement", "bottom");
     document.getElementById('request_frequency_2000').parentNode.setAttribute("title", "Cleaning Services Done 3 times A Week");
+    document.getElementById('help-text').innerHTML = "Maximum number of times of cleaning is 3 times a week";
   }
 
   var g = document.getElementById('request_frequency_5000').parentNode;
@@ -363,6 +318,7 @@
     document.getElementById('request_frequency_5000').parentNode.setAttribute("data-toggle", "tooltip");
     document.getElementById('request_frequency_5000').parentNode.setAttribute("data-placement", "bottom");
     document.getElementById('request_frequency_5000').parentNode.setAttribute("title", "Cleaning Services Done 12 times A Month");
+    document.getElementById('help-text').innerHTML = "Maximum number of times of cleaning is 12 times a month";
   }
 </script>
 
