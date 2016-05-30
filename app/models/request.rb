@@ -1,6 +1,7 @@
 class Request < ActiveRecord::Base
 	belongs_to :client, counter_cache: true
 	has_and_belongs_to_many :workers
+  has_one :invoice, dependent: :destroy
 
 	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
   validates :phone_number, format: { with: /\A[-+]?[0-9]*\.?[0-9]+\Z/, message: "only allows numbers" }, allow_blank: true
@@ -22,7 +23,7 @@ class Request < ActiveRecord::Base
 
     def weekday_array_cannot_be_empty
       if frequency == 150.00
-      elsif frequency == 150.01 || frequency == 500.00
+      elsif frequency == 200.00 || frequency == 500.00
         if weekdays == [""]
         	errors.add(:weekdays, "please choose a day")
         end  
@@ -32,7 +33,7 @@ class Request < ActiveRecord::Base
     def restrict_selection
       # if frequency == 150.00 && weekdays.length > 2
       # 	errors.add(:weekdays, "You can only choose one day for Deep-Cleaning package")
-      if frequency == 150.01 && weekdays.length > 4
+      if frequency == 200.00 && weekdays.length > 4
       	errors.add(:weekdays, "You can't choose more than 3 days for weekly package.")
       elsif frequency ==500.00 && weekdays.length > 4
       	errors.add(:weekdays, "You can't choose more than 3 days for Monthly package")
@@ -63,7 +64,7 @@ class Request < ActiveRecord::Base
 
     def day_and_date_match
       if frequency == 150.00
-      elsif frequency == 150.01 && weekdays.exclude?(date_time.strftime("%A")) && date_time.year == Time.now.year 
+      elsif frequency == 200.00 && weekdays.exclude?(date_time.strftime("%A")) && date_time.year == Time.now.year 
           errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}. Please choose a day that
             corresponds with one of the selected days")
       elsif frequency == 500.00 &&  weekdays.exclude?(date_time.strftime("%A")) && date_time.year == Time.now.year 
@@ -90,7 +91,7 @@ class Request < ActiveRecord::Base
        end
 
        one_off_package = 150.00
-       weekly_package = 150.01
+       weekly_package = 200.00
        monthly_package = 500.00
 
        if self.frequency == one_off_package

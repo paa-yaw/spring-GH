@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     get 'requests/:id/reopen', to: 'requests#reopen', as: :reopen_request
     get 'requests/:id/close', to: 'requests#close', as: :close_request
 
+    get 'invoices/:id/send_invoice_via_email', to: 'invoices#send_invoice_via_email', as: :send_invoice
+
     get 'requests/:id/unresolve', to: 'requests#unresolve', as: :unresolve_request
 
     # get 'requests/state_of_requests', to: 'requests#state_of_requests', as: :state_of_requests
@@ -77,6 +79,14 @@ Rails.application.routes.draw do
     
     resources :referrals, only: [:index]
 
+    resources :requests do
+      resources :invoices,except: [:index]
+    end
+
+    resources :invoices, only: [:index]
+
+    get 'invoices/all_requests', to: 'invoices#all_requests', as: :requests_for_invoice
+
     resources :workers do 
       resources :reports
     end
@@ -109,12 +119,18 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :workers, only: [:new, :create, :edit, :update, :destroy]
+
   resources :workers, only: [:index, :show] do
     resources :reviews
     resources :reports
   end
 
+
+
   resources :referrals, only: [:new, :create, :show, :index, :edit, :update]
+
+
 
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
   get 'my_requests/', to: 'requests#my_requests', as: :my_requests

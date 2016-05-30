@@ -1,0 +1,44 @@
+
+Invoice For <%= @invoice.request.try(:client).try(
+:first_name) %>
+
+
+<%#= image_tag("spring2-logo-final.png", :alt => "spring logo", :class => "img-responsive", :style=>'margin-left: 0px;height:60px;') %>
+
+Invoice ID: <%= @invoice.id %>
+To: <%= @invoice.invoice_to %>
+From: <%= @invoice.invoice_from %>
+Date Issue: <%= @invoice.date_issue.strftime("%B %d, %Y %r") %>
+Due Date: <%= @invoice.due_date.strftime("%B %d, %Y %r") %>
+Amount Paid: GHS <%= @invoice.amount_paid %>
+Due Balance: GHS <%= @invoice.due_balance %>
+Total Number of Rooms: <%= @invoice.rooms %>
+<% if @invoice.extra_services.any? %>
+Extra Services:
+<% @invoice.extra_services.each do |service| %>
+<% if service == 15.00 %>
+Compound Cleaning
+<% end %>
+<% if service == 10.01 %>
+Fridge
+<% end %>
+
+<% if service == 10.00 %>
+Storeroom
+<% end %>
+
+<% if service == 40.00%>
+Laundry
+<% end %>		
+<% end %>
+<% else %>
+Extra Services: No Services Listed
+<% end %>
+
+Package: <%= @invoice.package %>
+Total Amount/Cost: GHS  <%= @invoice.total_amount %>
+
+
+To login to the site, just follow this link: <%= @url %>.
+
+Thanks for joining and have a great day!

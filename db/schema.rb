@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523111135) do
+ActiveRecord::Schema.define(version: 20160530015217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,25 @@ ActiveRecord::Schema.define(version: 20160523111135) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "invoices", force: :cascade do |t|
+    t.integer  "request_id"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.string   "invoice_to"
+    t.string   "invoice_from"
+    t.datetime "due_date"
+    t.datetime "date_issue"
+    t.decimal  "due_balance",     precision: 6, scale: 2
+    t.decimal  "amount_paid",     precision: 6, scale: 2
+    t.integer  "rooms"
+    t.decimal  "extra_services",                          default: [],              array: true
+    t.decimal  "package",         precision: 6, scale: 2
+    t.decimal  "total_amount",    precision: 6, scale: 2
+    t.string   "recipient_email"
+  end
+
+  add_index "invoices", ["request_id"], name: "index_invoices_on_request_id", using: :btree
 
   create_table "referrals", force: :cascade do |t|
     t.integer  "sender_id"
