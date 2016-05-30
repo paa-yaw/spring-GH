@@ -7,7 +7,7 @@
           <div class="main-text">
             <h1 class="wow fadeInUp"><span>On - Demand</span> Cleaning Service</h1>
             <h2 class="wow fadeInUp" data-wow-delay=".7s">Trustworthy, Quality & Reliable Cleaners</h2>
-            <div class="wow fadeInUp" data-wow-delay="1.5s"><a class="btn btn-border btn-lg" href="/requests/new">Book a Cleaner</a></div>
+            <div class="wow fadeInUp" data-wow-delay="1.5s"><%= link_to "Book a Cleaner", new_request_path, class: "btn btn-border btn-lg" %></div>
           </div>
         </div>
       </div>
@@ -26,11 +26,11 @@
               <div class="info">
                 <h3>What is Spring</h3>
                 <p>
-                  Spring is an online on-demand cleaning service for the home. Each Spring cleaner is backround checked, interviewed in person, have past verified experience and speaks English. You as a client can then be assured that you would be satisfied at the end of every clean.
+                  Spring is an online on-demand cleaning service for the home. Each Spring cleaner is background checked, interviewed in person, have past verified experience and speaks English. You as a client can then be assured that you would be satisfied at the end of every clean.
                   <br>
                   With Spring you are assured of cleaner you can trust and who would do a quality and reliable job for you.
                 </p>
-                <a href="#" class="btn btn-border"></i>Become a Cleaner</a>
+                  <%= link_to "Become a Cleaner", new_worker_path, class: "btn btn-border" %>
               </div>
             </div>
             <div class="col-sm-6 col-md-6 wow fadeInRight" data-wow-offset="10">
@@ -42,7 +42,7 @@
                   <br>
                   We are a young and fast growing company. We are proud that we leave all our customers happy as well as our Spring Cleaners. We have started with cleaning your house, other home service could follow soon.
                 </p>
-                <a href="/requests/new" class="btn btn-border"></i>Book a Cleaner</a>
+                  <%= link_to "Book a Cleaner", new_request_path, class: "btn btn-border" %>
               </div>
             </div>
           </div>

@@ -119,10 +119,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :workers, only: [:new, :create, :edit, :update, :destroy]
+
   resources :workers, only: [:index, :show] do
     resources :reviews
     resources :reports
   end
+
 
 
   resources :referrals, only: [:new, :create, :show, :index, :edit, :update]
