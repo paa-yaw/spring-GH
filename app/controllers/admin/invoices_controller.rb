@@ -58,6 +58,7 @@ class Admin::InvoicesController < Admin::ApplicationController
 
   def send_invoice_via_email
     SendInvoiceJob.set(wait: 2.seconds).perform_later(@invoice)
+    flash[:notice] = "you just sent an invoice to #{@invoice.request.client.first_name}"
     redirect_to admin_invoices_path
   end
 
