@@ -4,6 +4,6 @@ class InvoiceMailer < ApplicationMailer
    def sendinvoice(invoice)
      @invoice = invoice
      @url = "https://www.springgh.com/clients/sign_in"
-	 mail(to: @invoice.recipient_email, subject: "Here is your invoice")
+	 mail(to: @invoice.recipient_email, subject: "INVOICE")
    end
 end
