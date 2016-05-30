@@ -77,7 +77,7 @@ class Admin::InvoicesController < Admin::ApplicationController
   end
 
   def invoice_params
-  	params.require(:invoice).permit(:invoice_to, :invoice_from, :due_date, :date_issue, :due_balance, :amount_paid, :rooms, :extra_services, :package, :total_amount, :recipient_email)
+  	params.require(:invoice).permit(:invoice_to, :invoice_from, :due_date, :date_issue, :due_balance, :amount_paid, :rooms, :extra_services, :package, :total_amount, :recipient_email, :logo, :logo_cache)
   end
 
 end

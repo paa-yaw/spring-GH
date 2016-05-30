@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526130639) do
+ActiveRecord::Schema.define(version: 20160530015217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20160526130639) do
     t.decimal  "package",         precision: 6, scale: 2
     t.decimal  "total_amount",    precision: 6, scale: 2
     t.string   "recipient_email"
+    t.string   "logo"
   end
 
   add_index "invoices", ["request_id"], name: "index_invoices_on_request_id", using: :btree
@@ -115,16 +116,16 @@ ActiveRecord::Schema.define(version: 20160526130639) do
     t.integer  "kitchens",                                    default: 0
     t.integer  "hall",                                        default: 0
     t.string   "weekdays",                                    default: [],                        array: true
-    t.string   "extra_services",                              default: [],                        array: true
+    t.decimal  "extra_services",                              default: [],                        array: true
     t.string   "status",                                      default: "unresolved"
     t.string   "email"
     t.string   "phone_number"
     t.text     "location"
     t.decimal  "frequency",          precision: 6,  scale: 2
-    t.boolean  "terms",                                       default: false
     t.decimal  "total_cost",         precision: 10, scale: 2
     t.integer  "total_rooms"
     t.decimal  "extra_services_sum", precision: 10, scale: 2
+    t.boolean  "terms",                                       default: false
     t.string   "ref_code"
     t.string   "promocode"
   end
