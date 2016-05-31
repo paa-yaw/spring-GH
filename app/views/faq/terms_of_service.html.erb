@@ -1,101 +1,31 @@
-<div id="page-wrapper">
-	<!-- Header -->
-	<header id="header" class="alt">
-		<h1><%= link_to "Spring", root_path %></h1>
-		<nav id="nav">
-
-			<ul>
-
-              <li class="special desktop-only-view">
-              	<%= link_to "Home", root_path %>
-              </li>
-              <% if current_client %>
-              <li class="special desktop-only-view">
-              	<%= link_to current_client.first_name, edit_client_registration_path %>
-              </li>
-              <li class="special desktop-only-view">
-              	<%= link_to "Requests", my_requests_path %>
-              </li>
-              <li class="special desktop-only-view">
-              	<%= link_to "Log Out", destroy_client_session_path, method: :delete,
-              	data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-              </li>
-
-                        <% else %>
-                        <li class="special desktop-only-view">
-                        	<%= link_to "Log In", new_client_session_path %>
-                        </li>
-                        <li class="special desktop-only-view">
-                        	<%= link_to "Sign Up", new_client_registration_path %>
-                        </li>
-                        <% end %>
-
-                        <li class="special mobile-only-view">
-                        	<a href="#menu" class="menuToggle"><span>Menu</span></a>
-                        	<div id="menu">
-                        		<ul>
-                        			<% if current_client %>
-                        			<li class="special">
-                        				<a href="/#one">About</a>
-                        			</li>
-                        			<li class="special">
-                        				<a href="/#two">Services</a>
-                        			</li>
-                        			<li class="special">
-                        				<a href="/#cta">Contact</a>
-                        			</li>
-                        			<li class="special">
-                        				<%= link_to current_client.first_name, edit_client_registration_path %>
-                        			</li>
-                        			<li class="special">
-                        				<%= link_to "Requests", my_requests_path %>
-                        			</li>
-                        			<li class="special">
-                        </li>  
-                        <% else %>
-                        <li class="special">
-                        	<a href="/#one">About</a>
-                        </li>
-                        <li class="special">
-                        	<a href="/#two">Services</a>
-                        </li>
-                        <li class="special">
-                        	<a href="/#cta">Contact</a>
-                        </li>
-                        <li class="special">
-                        	<%= link_to "FAQ", q_and_a_path %>
-                        </li>
-                        <li class="special">
-                        	<%= link_to "Log In", new_client_session_path %>
-                        </li>
-                        <li class="special">
-                        	<%= link_to "Sign Up", new_client_registration_path %>
-                        </li>
-                        <% end %>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </nav> 
-
-</header>
+	<!--  tos start  -->
+   <!--  <section id="faq" class="section-intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <header>
+           
+            </header>
+        </div>
+      </div>
+    </div>
+  </section>
+ -->
 <!-- Main -->
-<article id="main">
-	<header>
-		<h2>Welcome to the Spring website terms and conditions for use (“Terms”)</h2>
-		<p>These Terms apply to the use of this Website and by accessing this Website and/or making a Booking for Services you agree to be bound by the Terms set out below. If you do not agree to be bound by these Terms please do not use our Website.
-			Before you place an order with us, if you have any questions relating to these Terms please contact us by email at hello@springgh.com or by phone at 020 0610 307. Please note that all calls to our customer services representatives may be recorded for quality monitoring and training purposes</p>
-		</header>
 
-
-
-		<section class="wrapper style5">
-			<div class="inner">
-				<header>
-
-				<strong>RECITALS</strong><br>
-					Spring operates an online platform at www.springgh.com (“the Website”) through which customers (“Users”) can book for the provision of cleaning services (“Cleaning Services”), by submitting a Booking Request. Spring then matches the most suitable Cleaner from its database to the Booking Request.
-					The Cleaner is in the business of providing Cleaning Services.
+    <section class="faq-section tos-section">
+      <div class="container">
+        
+        <div class="tos-intro">
+          
+           <h2>Welcome to the Spring website terms and conditions for use (“Terms”)</h2>
+            <p>These Terms apply to the use of this Website and by accessing this Website and/or making a Booking for Services you agree to be bound by the Terms set out below. If you do not agree to be bound by these Terms please do not use our Website.
+              Before you place an order with us, if you have any questions relating to these Terms please contact us by email at hello@springgh.com or by phone at 020 0610 307. Please note that all calls to our customer services representatives may be recorded for quality monitoring and training purposes</p><br>
+        </div>
+      <!-- </div> -->
+        <strong>RECITALS</strong><br>
+          Spring operates an online platform at www.springgh.com (“the Website”) through which customers (“Users”) can book for the provision of cleaning services (“Cleaning Services”), by submitting a Booking Request. Spring then matches the most suitable Cleaner from its database to the Booking Request.
+          The Cleaner is in the business of providing Cleaning Services.
 					Spring does not offer Cleaning Services itself but is a third party facilitator of the contracts between the User and the Cleaner. Accordingly, Spring can receive and confirm Users’ requests for Cleaning Services, issue invoices on behalf of the Cleaners and pass on payments to the Cleaners.
 					The User enters into two contractual relationships. The first contract being with Spring, governing the access to and use of the Website in accordance with the terms and conditions of this Agreement. The second being with the Cleaners for the provision of Cleaning Services (“Cleaning Agreement”).
 					<br>
@@ -300,20 +230,21 @@
 					<br>
 					<br>
 
-				</header>
 			</div>
 		</section>
-	</article>
-
-	<footer id="footer">
-		<ul class="icons">
-			<li><a href="www.twitter.com/spring_ghana" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-			<li><a href="www.facebook.com/springhome" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-			<li><a href="www.instagram.com/spring_ghana" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-		</ul>
-		<ul class="copyright">
-			<li>&copy;2016 Spring</li><li>Call Us on 020-061-0307</li>
-		</ul>
-	</footer>
-
-</div>
+<!--   tos end    -->
+<!-- Footer Start -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright text-center">
+        <p class="fa fa-copyright">Spring 2016</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+  <!-- Scroll Top -->
+  <div class="scroll-top" data-spy="affix" data-offset-top="300">
+    <a href="#header"><i class="fa fa-angle-up"></i></a>
+  </div>
+  <!-- Scroll End -->
+  <!--   end      -->
