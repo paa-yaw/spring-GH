@@ -8,8 +8,8 @@
             <li><a href="#tab1" data-toggle="tab"><span class="hidden-sm hidden-xs">House Info</span><span class="hidden-md hidden-lg"><img src="/assets/house.png" alt="" style="width:60%;"></span></a></li>
             <!-- <li><a href="#tab2" data-toggle="tab">Extra Services</a></li> -->
             <li><a href="#tab2" data-toggle="tab"><span class="hidden-sm hidden-xs">Routine</span><span class="hidden-md hidden-lg"><img src="/assets/routine.png" alt="" style="width:60%;"></span></a></li>
-            <li><a href="#tab3" data-toggle="tab"><span class="hidden-sm hidden-xs">Arrival</span><span class="hidden-md hidden-lg"><img src="/assets/arrival.png" alt="" style="width:60%;"></span></a></li>
-            <li><a href="#tab4" data-toggle="tab"><span class="hidden-sm hidden-xs">Contact</span><span class="hidden-md hidden-lg"><img src="/assets/contact.png" alt="" style="width:60%;"></span></a></li>
+            <li><a href="#tab3" data-toggle="tab"><span class="hidden-sm hidden-xs">When</span><span class="hidden-md hidden-lg"><img src="/assets/arrival.png" alt="" style="width:60%;"></span></a></li>
+            <li><a href="#tab4" data-toggle="tab"><span class="hidden-sm hidden-xs">Your Contact</span><span class="hidden-md hidden-lg"><img src="/assets/contact.png" alt="" style="width:60%;"></span></a></li>
             <li><a href="#tab5" data-toggle="tab"><span class="hidden-sm hidden-xs">Final</span><span class="hidden-md hidden-lg"><img src="/assets/end.png" alt="" style="width:60%;"></span></a></li>
         </ul>
         <!-- </div> -->
@@ -147,7 +147,7 @@
       <!-- </div>    /row -->
   <!-- </section> -->
 
-            <%= f.input :frequency, :collection => [["Deep Cleaning (GHS 150.00)", 150.00], ["Weekly (GHS 200.00)", 200.00], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %>
+            <%= f.input :frequency, :collection => [["One-time (GHS 150.00)", 150.00], ["Weekly (GHS 200.00)", 200.00], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %>
             </div>
           </div>
           <h4 id="help-text" style="color:rgba(24, 186, 219, 1);" class="text-center"></h4>

@@ -22,7 +22,7 @@
         <h1 class="section-title wow fadeIn" data-wow-delay=".2s"><span>About</span> Us</h1>
         <div class="row">
           <div class="item">
-            <div class="col-sm-6 col-md-6 wow fadeInLeft" data-wow-offset="10"> 
+            <div class="col-sm-12 col-md-12 wow fadeInLeft" data-wow-offset="10"> 
               <div class="info">
                 <h3>What is Spring</h3>
                 <p>
@@ -31,9 +31,10 @@
                   With Spring you are assured of cleaner you can trust and who would do a quality and reliable job for you.
                 </p>
                   <%= link_to "Become a Cleaner", new_worker_path, class: "btn btn-border" %>
+                  <%= link_to "Book a Cleaner", new_request_path, class: "btn btn-border" %>
               </div>
             </div>
-            <div class="col-sm-6 col-md-6 wow fadeInRight" data-wow-offset="10">
+           <!--  <div class="col-sm-6 col-md-6 wow fadeInRight" data-wow-offset="10">
               <div class="info">
                 <h3>The Spring Story</h3>
                 <p>
@@ -42,9 +43,8 @@
                   <br>
                   We are a young and fast growing company. We are proud that we leave all our customers happy as well as our Spring Cleaners. We have started with cleaning your house, other home service could follow soon.
                 </p>
-                  <%= link_to "Book a Cleaner", new_request_path, class: "btn btn-border" %>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
                 <i class="fa fa-heart"></i>
               </div>
               <h2>Kitchen</h2>
-              <p>Sweep & Mop floor<br>Remove cobwebs<br>Dust surfaces<br> Clean appliances<br>Wash dishes<br>Empty & Clean bin</p>
+              <p>Sweep & Mop floor<br>Remove cobwebs<br>Dust surfaces<br>Wash dishes<br>Empty & Clean bin</p>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@
                 <i class="fa fa-mobile-phone"></i>
               </div>
               <h2>Bathroom</h2>
-              <p>Sweep & Mop<br>Remove cobwebs<br>Wipe wall & Mirror<br>Fold or Hang towels<br>Empty and Clean bin<br>Scrub shower, bath tub & sink</p>
+              <p>Sweep & Mop<br>Wipe wall & Mirror<br>Fold or Hang towels<br>Scrub shower, bath tub & sink</p>
             </div>
           </div>
         </div>  
@@ -121,6 +121,7 @@
               </div>
               <h2>Special Requests</h2>
               <p>We call each Spring Cleaner before their first clean to talk through any special requests including locking instructions for your home</p>
+              <br>
             </div>
           </div>
         </div>
