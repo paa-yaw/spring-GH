@@ -16,19 +16,28 @@
     						<thead>
     						<tr>
     						<tbody>
+                                    <% if @reports.any? %>
     								<% @reports.each do |report| %>
     							<tr>
 
-    								
+    								<li>
     								<h4><%= link_to truncate(report.event, length: 25), admin_worker_report_path(@worker, report) %></h4>
+                                    </li>
     								
     							</tr>
     							    <% end %>
+                                    <% else %>
+                                    <tr>
+                                        <p>no report filed</p>
+                                    </tr>
+                                    <% end %>
     						</tbody>
     						</tr>
     						</thead>
     					</table>
     				</div>
     			</div>
+                                    <%= link_to fa_icon("arrow-circle-left") + " back", :back, class: "btn btn-primary" %>
+
     		</div>
     	</div>

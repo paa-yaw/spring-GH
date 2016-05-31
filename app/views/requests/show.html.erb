@@ -4,9 +4,15 @@
 
    <div class="col-xs-12 col-md-5 col-md-offset-1 text-center">
     <div class="panel panel-info">
+    <% if @request.status == "done" %>
+    <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
+        <h2 class="panel-title text-center"><strong>This cleaning request has been completed.</strong></h2>
+    </div>
+    <% elsif @request.status == "resolved" %>
       <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
-        <h2 class="panel-title text-center"><strong>Cleaning Request</strong></h2>
+        <h2 class="panel-title text-center"><strong>A cleaner has been assigned to this cleaning request.</strong></h2>
       </div>
+    <% end %>
       <div class="panel-body" style="padding-left: 5px; padding-top: 0px;">
          
     <table id="hor-minimalist-b" class="table-responsive" style="width:450px;margin-bottom:10px;">
@@ -63,7 +69,7 @@
              <% if @request.frequency == 150.00 %>
              <p>Deep-Cleaning(GHS 150.00)</p>
              <% elsif @request.frequency == 200.00 %>
-             <p>Weekly(GHS 150.00)</p>
+             <p>Weekly(GHS 200.00)</p>
              <% elsif @request.frequency == 500.00 %>
              <p>Monthly(GHS 500.00)</p>
              <% end %>
@@ -124,7 +130,7 @@
         
         <div class="panel panel-info">
           <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
-            <h2 class="panel-title text-center"><strong>Assigned Cleaners</strong></h2>
+            <h2 class="panel-title text-center"><strong>Assigned Cleaner(s)</strong></h2>
           </div>
           <div class="panel-body">
 
@@ -150,19 +156,19 @@
                </tbody>
                <% end %>
                <% elsif  @request.status == "done" && current_client %>
-               No cleaner assigned to you at the moment
+               No cleaner assigned to this request at the moment.
                <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", workers_path,  class: "btn btn-primary" %></p>
                <% elsif  @request.status == "redo" && current_client %>
                You request is currently being re-assigned. Please hold..
                <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", workers_path,  class: "btn btn-primary" %></p>
                <% elsif @request.status == "resolved" && !current_client %>
-               No cleaner assigned to you at the moment
+               No cleaner assigned to this request at the moment.
                <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", new_client_session_path, data: {confirm: "You must be logged in to have access to this. Click Ok to proceed to log in."}, class: "btn btn-primary" %></p>
                <% elsif !current_client %>
-               No cleaner assigned to you at the moment
+               No cleaner assigned to this request at the moment.
                <p><%= link_to fa_icon("eye") + "view previously assigned cleaners", new_client_session_path, data: {confirm: "You must be logged in to have access to this. Click Ok to proceed to log in."}, class: "btn btn-primary" %></p>
                <% elsif  @request.status == "unresolved" && current_client %>
-               No cleaner assigned to you at the moment
+               No cleaner assigned to this request at the moment.
                <p><%= link_to fa_icon("eye") + " view previously assigned cleaners", workers_path,  class: "btn btn-primary" %></p>
                <% end %>
              </table>

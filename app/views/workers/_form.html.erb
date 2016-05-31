@@ -1,57 +1,57 @@
 <%= simple_form_for(worker) do |f| %>
- <div class="row">
-   <div class="col-md-4">
-       <%= f.input :first_name, label: "First Name" %>
-       <%= f.input :last_name, label: "Last Name" %>
-       <%= f.input :email, label: "Email" %>
-       <%= f.input :sex, :collection => ["Male","Female"], :as => :radio_buttons, :checked =>"Male",:item_wrapper_class => 'inline' ,:label => "Sex" %>
-       <%= f.input :age, label: "Age" %>
-  </div>
+<div class="row">
+ <div class="col-md-4">
+   <%= f.input :first_name, label: "First Name" %>
+   <%= f.input :last_name, label: "Last Name" %>
+   <%= f.input :email, label: "Email" %>
+   <%= f.input :sex, :collection => ["Male","Female"], :as => :radio_buttons, :checked =>"Male",:item_wrapper_class => 'inline' ,:label => "Sex" %>
+   <%= f.input :age, label: "Age" %>
+ </div>
 
-  <div class="col-md-4">
-      <%= f.input :phone_number, label: "Phone Number" %>
-      <%= f.input :location, label: "Location" %>
-      <%= f.input :education, label: "Level of education" %>
-      <%= f.input :minimum_wage, label: "Salary Expectation(in GHS)" %>
-      <%= f.input :experience, label: "Experience" %>
-  </div>
+ <div class="col-md-4">
+  <%= f.input :phone_number, label: "Phone Number" %>
+  <%= f.input :location, label: "Location" %>
+  <%= f.input :education, label: "Level of education" %>
+  <%= f.input :minimum_wage, label: "Salary Expectation(in GHS)" %>
+  <%= f.input :experience, label: "Experience" %>
+</div>
 
-  <div class="col-md-4">
-      <%= f.input :extra_info, label: "Extra Info" %>
-  </div>
+<div class="col-md-4">
+  <%= f.input :extra_info, label: "Extra Info" %>
+</div>
 
 
   <!-- <div class="col-md-4">
    <#%= f.input :attachment, as: :file, label: "Document" %>
    <#%= f.input :attachment_cache, as: :hidden %>
  </div>
- -->
- <div class="col-md-4">
-   <%= f.input :photo, as: :file, label: "Profile photo" %>
-   <%= f.input :photo_cache, as: :hidden %>
- </div>
+-->
+<div class="col-md-4">
+ <%= f.input :photo, as: :file, label: "Profile photo" %>
+ <%= f.input :photo_cache, as: :hidden %>
+</div>
 
  <!-- <div class="col-md-4">
    <h5><strong><%#= f.input :status, :collection => ["verified", "not verified"], :as => :radio_buttons, :item_wrapper_class => "inline", :label => "STATUS" %></strong></h5>
  </div> -->
 
- </div>
-
- 
+</div>
 
 
 
- <div class="text-center">
+
+
+<div class="text-center">
 
   <% if worker.persisted? %>
 
   <%= f.button :submit, "Confirm", :class=>"btn btn-primary " %>
- 
- <% else %>
- 
+  
+  <% else %>
+  
   <%= f.button :submit, :class=>"btn btn-primary " %>
 
- </div>
+</div>
 
- <% end %>
+<% end %>
 <% end %>

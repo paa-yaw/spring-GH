@@ -51,6 +51,9 @@ class WorkersController < ApplicationController
   end
 
   def destroy
+    @worker.destroy
+    flash[:alert] = "your details have been deleted!"
+    redirect_to root_path
   end
 
 
