@@ -88,8 +88,7 @@
             <li><a href="/faq/q_and_a">FAQ</a></li>
              <% if current_client %>
                <li>
-                  <%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                            data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
+                  <%= link_to "Log Out", destroy_client_session_path, method: :delete, data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
                 </li> 
               <% else %>
                 <li>

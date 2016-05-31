@@ -85,18 +85,17 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_client.first_name %><span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li>
+                    <li style="margin-left:1px;">
                         <%= link_to "Edit Profile", edit_client_registration_path %>
                     </li>
-                    <li>
+                    <li  style="margin-left:1px;">
                       <%= link_to "Referrals", referrals_path %>
                     </li>
-                    <li>
+                    <li  style="margin-left:1px;">
                       <%= link_to "Invite Others", new_referral_path %>
                     </li>
-                    <li>
-                      <%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
+                    <li  style="margin-left:1px;">
+                      <%= link_to "Log Out", destroy_client_session_path, method: :delete, data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
                     </li> 
                 <% else %>
                     <li>
