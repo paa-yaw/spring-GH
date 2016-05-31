@@ -85,9 +85,17 @@
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#testimonial">Testimonials</a></li>
             <li><a href="#connected">Contact</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><%= link_to "Log In", new_client_session_path %></li>
-            
+            <li><a href="/faq/q_and_a">FAQ</a></li>
+             <% if current_client %>
+               <li>
+                  <%= link_to "Log Out", destroy_client_session_path, method: :delete,
+                            data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
+                </li> 
+              <% else %>
+                <li>
+                  <%= link_to "Log In", new_client_session_path %>
+                </li>
+              <% end %>
           </ul>
         </div>
         <!-- End Navigation Menu -->

@@ -1,135 +1,150 @@
-<div id="page-wrapper">
-  <!-- Header -->
-          <header id="header" class="alt">
-            <h1><%= link_to "Spring", root_path %></h1>
-             <nav id="nav">
+  <!-- start -->
+    <section id="faq" class="section-intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- faq intro end -->
 
-              <ul>
-               <li class="special desktop-only-view">
-                 <%= link_to "Home", root_path %>
-               </li>
-              <% if current_client %>
-                <li class="special desktop-only-view">
-                    <%= link_to current_client.first_name, edit_client_registration_path %>
-                </li>
-                <li class="special desktop-only-view">
-                    <%= link_to "Requests", my_requests_path %>
-                </li>
-                <li class="special desktop-only-view">
-                   <%= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                </li>
-
-              <% else %>
-                  <li class="special desktop-only-view">
-                    <%= link_to "Log In", new_client_session_path %>
-                  </li>
-                  <li class="special desktop-only-view">
-                          <%= link_to "Sign Up", new_client_registration_path %>
-                  </li>
-              <% end %>
-
-                <li class="special mobile-only-view">
-                  <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                  <div id="menu">
-                    <ul>
-                      <% if current_client %>
-                         <li class="special">
-                            <a href="/#one">About</a>
-                          </li>
-                          <li class="special">
-                            <a href="/#two">Services</a>
-                          </li>
-                          <li class="special">
-                            <a href="/#cta">Contact</a>
-                          </li>
-                          <li class="special">
-                              <%= link_to current_client.first_name, edit_client_registration_path %>
-                          </li>
-                          <li class="special">
-                              <%= link_to "Requests", my_requests_path %>
-                          </li>
-                          <li class="special">
-                            <%#= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                      data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                          </li>  
-                      <% else %>
-                          <li class="special">
-                            <a href="/#one">About</a>
-                          </li>
-                          <li class="special">
-                            <a href="/#two">Services</a>
-                          </li>
-                          <li class="special">
-                            <a href="/#cta">Contact</a>
-                          </li>
-                          <li class="special">
-                            <%= link_to "FAQ", q_and_a_path %>
-                          </li>
-                          <li class="special">
-                            <%= link_to "Log In", new_client_session_path %>
-                          </li>
-                          <li class="special">
-                            <%= link_to "Sign Up", new_client_registration_path %>
-                          </li>
-                      <% end %>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </nav> 
-
-          </header>
-  <!-- Main -->
-          <article id="main">
-            <header>
-              <h2>Frequently Asked Questions</h2>
-              <p>Have any questions? To assist, we have answered some FAQ's below.<br> If you have an unanswered question, please do not hesistate to contact us. Send an email to hello@springgh.com</p>
-            </header>
-            <section class="wrapper style5">
-              <div class="inner">
-                <header>
-                  <h4>What are your operating hours?</h4>
-                  <p>We operate Monday to Saturday 7am - 5pm. You can however make bookings on our website 24/7</p>
-                  <h4>What areas do you currently operate in</h4>
-                  <p>We are currently operating in East Legon, Adenta and Spintex. Do not worry though, we are rapidly expanding into new areas.</p>
-                  <h4>How do payments work?</h4>
-                  <p>Payment is currently made by cash and would be collected at the end of the cleaning job by a Spring Personnel and not the cleaner. 
-                      No payments should be made directly to the cleaner</p>
-                  <h4>What do I do if my booking information is incorrect?</h4>
-                  <p>Booking information can be edited after submission in the requests panel.
-                      Booking information can only be edited before a cleaning job begins</p>
-                  <h4>How do I know the cleaner coming to my home?</h4>
-                  <p>We would send you a confirmation email with the details of the cleaner (name, picture, short bio). In addition you would be given a security code that is known only to you assigned cleaner to reconfirm that the cleaner at your doorstep is the one that was sent.</p>
-                  <h4>Is my home safe? </h4>
-                  <p>Our cleaners go through extensive police background checks and reference checks to ensure that they have a clean record.
-                    All the cleaners have a minimum of 1 year proven experience.
-                   In  the event where you are unhappy with a job done, we will send another cleaner to redo the job for free</p>
-                  <h4>How will the cleaner get to my place?</h4>
-                  <p>Spring will bring the cleaner to your place. In some cases the cleaner may come by public transport</p>
-                  <h4>What if I am not at home to recieve the cleaner</h4>
-                  <p>Please ensure to inform Spring if you will not be home to recieve the cleaner o alternative means of getting into your home in your absecnce can be made. 
-                  It is preferable that at the start time of the cleaning you are home to recieve the cleaner. </p>
-                  <h4>Do I need to feed the cleaner?</h4>
-                  <p>Your Spring cleaner would bring in their own lunch in most cases but please allow for the cleaner to have a brief lunch break</p>
-                  <h4>I am planning an event and I need my home to have an extra clean. What option is best to pick?</h4>
-                  <p>Please, choose the deep cleaning option for that extra clean you need</p>
-                  <h4>NB: You are allowed to edit your request form within 24 hours of submission. After 24 hours, the option to edit will no longer be there.</h4>
-                </header>
+  <!-- actual faq begin -->
+  <section id="faqquest" class="faq-section">
+    <div class="container">
+      <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">What are your operating hours?</a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse ">
+                   <div class="panel-body">
+                       We operate Monday to Saturday 7am - 5pm. You can however make bookings on our website 24/7.
+                    </div>
+                </div>
               </div>
-            </section>
-          </article>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">What areas do you currently operate in?</a>
+                    </h4>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                         We are currently operating in East Legon, Adenta and Spintex. Do not worry though, we are rapidly expanding into new areas.
+                    </div>
+                  </div>
+        </div>
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">How do payments work?</a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Payment is currently made by cash and would be collected by a Spring Personnel before service is rendered. No payments should be made directly to the cleaner.
+                    </div>
+                  </div>
+        </div>
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">What do I do if my booking information is incorrect?</a>
+                    </h4>
+                  </div>
+                  <div id="collapseFour" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Booking information can be edited after submission in the requests panel. Booking information can only be edited before a cleaning job begins.
+                    </div>
+                  </div>
+        </div>
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">How do I identify the cleaner coming to my home?</a>
+                    </h4>
+                  </div>
+                  <div id="collapseFive" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        We would send you a confirmation email with the details of the cleaner (name, picture, short bio).In addition you would be given a security code that is known only to your assigned cleaner. This is so you can confirm that the cleaner at your doorstep is the one that was sent.
+                    </div>
+                  </div>
+        </div>
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">Is my home safe?</a>
+                    </h4>
+                  </div>
+                  <div id="collapseSix" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Our cleaners go through extensive police background checks and reference checks to ensure that they have a clean record. All the cleaners have a minimum of 1 year proven experience. In the event where you are unhappy with a job done, we will send another cleaner to redo the job for free.
+                    </div>
+                  </div>
+        </div>
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">How would the cleaner get to my home?</a>
+                    </h4>
+                  </div>
+                  <div id="collapseSeven" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Spring will bring the cleaner to your place. In some cases the cleaner may come by public transport.
+                    </div>
+                  </div>
+        </div>
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">What is I am not home to receive the cleaner?</a>
+                    </h4>
+                  </div>
+                  <div id="collapseEight" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Please ensure to inform Spring if you will not be home to recieve the cleaner o alternative means of getting into your home in your absecnce can be made. It is preferable that at the start time of the cleaning you are home to recieve the cleaner.
+                    </div>
+                  </div>
+        </div>
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseNine">Do I need to feed the cleaner?</a>
+                    </h4>
+                  </div>
+                  <div id="collapseNine" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Your Spring cleaner would bring in their own lunch in most cases but please allow for the cleaner to have a brief lunch break.
+                    </div>
+                  </div>
+        </div>
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseTen">I am planning an event and I need my home to have an extra clean. What option is best to pick?</a>
+                    </h4>
+                  </div>
+                  <div id="collapseTen" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Please choose the one-off deep cleaning option for that extra clean you need.
+                    </div>
+                  </div>
+        </div>
+        <br>
+        <p class="faqnb">NB: YOU ARE ALLOWED TO EDIT YOUR REQUEST FORM UP TO 5 HOURS BEFORE YOU SCHEDULED CLEAN. AFTER THAT TIME THE EDIT OPTION WILL NO LONGER BE THERE</p>
+      </div>
+    </div>
+  </section>
+  <!-- actual faq end -->
 
-           <!-- Social Footer -->
-          <footer id="footer">
-            <ul class="icons">
-              <li><a href="www.twitter.com/spring_ghana" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-              <li><a href="www.facebook.com/springhome" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-              <li><a href="www.instagram.com/spring_ghana" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            </ul>
-            <ul class="copyright">
-              <li>&copy;2016 Spring</li><li>Call Us on 020-061-0307</li>
-            </ul>
-          </footer>
-
+  <!-- Scroll Top -->
+  <div class="scroll-top" data-spy="affix" data-offset-top="300">
+    <a href="#header"><i class="fa fa-angle-up"></i></a>
   </div>
+  <!-- Scroll End -->
+  <!-- end -->
+
+  <!-- </div> -->
