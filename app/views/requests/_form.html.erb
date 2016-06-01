@@ -98,70 +98,61 @@
          <div onchange="calculatePricing()">
          <br>
          <h4 class="text-center">How many times should we clean? </h4>
-         <div class="col-md-12 col-sm-12" id="frequency">
-      
       <!-- <section class="container"> -->
-    <!--   <div class="row white">
+         <div class="col-md-12 col-sm-12 text-center" id="frequency">
+      
+    
+  <!-- </section> -->
+
+            <%= f.input :frequency, :collection => [["One-time", 150.00], ["Weekly", 200.00], ["Monthly", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %>
+            </div>
+          </div>
+          <!-- <h4 id="help-text" style="color:rgba(24, 186, 219, 1);" class="text-center"></h4> -->
+            <div class="row white">
         <div class="block">
- -->
-         <!--  <div class="col-xs-12 col-sm-4 col-md-4">
-              <ul class="pricing p-green">
+
+          <div class="col-xs-12 col-sm-4 col-md-4">
+              <ul class="pricing p-green" id="option1">
                 <li>
-                  <big>Deep Cleaning</big>
+                  <big>One-time Cleaning</big>
                 </li>
-                <li>One-time <br>cleaning</li>
+                <li>One-time <br>complete cleaning</li>
                 <li style="padding-top:0px;">
                   <h3>GHS 150.<small>00</small></h3>
                   <span>per cleaning</span>
                 </li>
               </ul>
-          </div> -->
+          </div>
 
-        <!--   <div class="col-xs-12 col-sm-4 col-md-4">
-              <ul class="pricing p-yel">
+          <div class="col-xs-12 col-sm-4 col-md-4">
+              <ul class="pricing p-yel" id="option2">
                 <li>
                   <big>Weekly Cleaning</big>
                 </li>
-                <li>maximum of 3 times a week</li>
+                <li>maximum of 3 cleanings a week</li>
                 <li style="padding-top:0px;">
-                  <h3>GHS 150.<small>00</small></h3>
+                  <h3>GHS 200.<small>00</small></h3>
                   <span>per week</span>
                 </li>
               </ul>
-          </div> -->
+          </div>
 
-    <!--       <div class="col-xs-12 col-sm-4 col-md-4">
-              <ul class="pricing p-red">
+          <div class="col-xs-12 col-sm-4 col-md-4">
+              <ul class="pricing p-red"  id="option3">
                 <li>
                   <big>Monthly Cleaning</big>
                 </li>
-                <li>maximum of 12 times a month</li>
+                <li>maximum of 12 cleanings a month</li>
                 <li style="padding-top:0px;">
                   <h3>GHS 500.<small>00</small></h3>
                   <span>per month</span>
                 </li>
               </ul>
-          </div> -->
-
-        <!-- </div> /block -->
-      <!-- </div>    /row -->
-  <!-- </section> -->
-
-            <%= f.input :frequency, :collection => [["One-time (GHS 150.00)", 150.00], ["Weekly (GHS 200.00)", 200.00], ["Monthly (GHS 500.00)", 500.00]], :as => :radio_buttons,  :item_wrapper_class => "inline", :label => "", :selected => request.frequency %>
             </div>
-          </div>
-          <h4 id="help-text" style="color:rgba(24, 186, 219, 1);" class="text-center"></h4>
-        </div>
-
-    <!-- </div> -->
-
-  <!-- <div class="panel panel-info"> -->
-<!-- 
-      <div class="panel-heading form-panel-heading">
-        <h2 class="panel-title text-center">Schedule with us</h2>
-      </div> -->
-
-      </div>
+          </div> <!-- block -->
+        </div>  <!--    row -->
+      </div>    <!-- </div> -->
+    </div>
   </div>
     
 
@@ -255,7 +246,6 @@
         </div>
 
         <div class="panel-body">
-
           <div class="col-md-12 col-sm-12 col-xs-12">
           <label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path, target: '_blank' %></label>
             <%= f.input :terms, label: "I Have Carefully Read And Fully Agreed To The Terms of Service", :selected => request.terms %> 
@@ -275,9 +265,6 @@
 
     </div>
 </div>
-
-
-
     <ul class="pager wizard">
         <li class="previous first" style="display:none;"><a href="#">First</a></li>
         <li class="previous"><a href="#">Previous</a></li>
@@ -289,8 +276,7 @@
 
 <% end %>
 
-
-<script>
+<script>  
   $(document).ready(function() {
     $('#rootwizard').bootstrapWizard();
 });
@@ -298,27 +284,24 @@
 
 <script>
   var e = document.getElementById('request_frequency_1500').parentNode;
-  e.onmouseover = function () {
+  e.onmouseenter = function () {
     document.getElementById('request_frequency_1500').parentNode.setAttribute("data-toggle","tooltip");
     document.getElementById('request_frequency_1500').parentNode.setAttribute("data-placement","bottom");
     document.getElementById('request_frequency_1500').parentNode.setAttribute("title","Deep Cleaning Service in 1 Day");
-    document.getElementById('help-text').innerHTML = "One-time cleaning";
   }
 
   var f = document.getElementById('request_frequency_2000').parentNode;
-  f.onmouseover = function () {
+  f.onmouseenter = function () {
     document.getElementById('request_frequency_2000').parentNode.setAttribute("data-toggle", "tooltip");
     document.getElementById('request_frequency_2000').parentNode.setAttribute("data-placement", "bottom");
     document.getElementById('request_frequency_2000').parentNode.setAttribute("title", "Cleaning Services Done 3 times A Week");
-    document.getElementById('help-text').innerHTML = "Maximum number of times of cleaning is 3 times a week";
   }
 
   var g = document.getElementById('request_frequency_5000').parentNode;
-  g.onmouseover = function () {
+  g.onmouseenter = function () {
     document.getElementById('request_frequency_5000').parentNode.setAttribute("data-toggle", "tooltip");
     document.getElementById('request_frequency_5000').parentNode.setAttribute("data-placement", "bottom");
     document.getElementById('request_frequency_5000').parentNode.setAttribute("title", "Cleaning Services Done 12 times A Month");
-    document.getElementById('help-text').innerHTML = "Maximum number of times of cleaning is 12 times a month";
   }
 </script>
 
@@ -338,6 +321,35 @@
   var c = document.getElementById('request_frequency_5000');
   if(c.checked == true) {
     schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
+  }
+</script>
+
+<script>
+  document.getElementById('request_frequency_1500').onclick = function(){
+    document.getElementById('option1').style.backgroundColor ="#C2E7F2";
+    document.getElementById('option2').style.backgroundColor ="#FFF";
+    document.getElementById('option3').style.backgroundColor ="#FFF";
+    document.getElementById('option1').style.fontWeight ="600";
+    document.getElementById('option2').style.fontWeight ="400";
+    document.getElementById('option3').style.fontWeight ="400";
+  }
+
+  document.getElementById('request_frequency_2000').onclick = function(){
+    document.getElementById('option1').style.backgroundColor ="#FFF";
+    document.getElementById('option2').style.backgroundColor ="#C2E7F2";
+    document.getElementById('option3').style.backgroundColor ="#FFF";
+    document.getElementById('option1').style.fontWeight ="400";
+    document.getElementById('option2').style.fontWeight ="600";
+    document.getElementById('option3').style.fontWeight ="400";
+  }
+
+  document.getElementById('request_frequency_5000').onclick = function(){
+    document.getElementById('option1').style.backgroundColor ="#FFF";
+    document.getElementById('option2').style.backgroundColor ="#FFF";
+    document.getElementById('option3').style.backgroundColor ="#C2E7F2" ;
+    document.getElementById('option1').style.fontWeight ="400";
+    document.getElementById('option2').style.fontWeight ="400";
+    document.getElementById('option3').style.fontWeight ="600";
   }
 </script>
 

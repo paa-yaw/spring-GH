@@ -11,93 +11,11 @@
     <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body class="landing">
-   <% flash.each do |key, message| %>
-  <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%;" class="well well-sm well-primary text-center" id="flashmessage"><%= message %></p>
+  <% flash.each do |key, message| %>
+    <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%;" class="well well-sm well-primary text-center" id="flashmessage"><%= message %></p>
  <% end %>
    <!-- Header -->
-      <!--     <header id="header" class="alt">
-            <h1><%#= link_to "Spring", root_path %></h1>
-             <nav id="nav">
-
-              <ul>
-               <li class="special desktop-only-view">
-                 <%#= link_to "Home", root_path %>
-               </li>
-              <%# if current_client %>
-                <li class="special desktop-only-view">
-                    <%= link_to current_client.first_name, edit_client_registration_path %>
-                </li>
-                <li class="special desktop-only-view">
-                    <%#= link_to "Requests", my_requests_path %>
-                </li>
-                <li class="special desktop-only-view">
-                   <%#= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                </li>
-
-              <%# else %>
-                  <li class="special desktop-only-view">
-                    <%#= link_to "Log In", new_client_session_path %>
-                  </li>
-                  <li class="special desktop-only-view">
-                          <%#= link_to "Sign Up", new_client_registration_path %>
-                  </li>
-              <%# end %>
-
-                <li class="special mobile-only-view">
-                  <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                  <div id="menu">
-                    <ul>
-                      <% #if current_client %>
-                         <li class="special">
-                            <a href="/#one">About</a>
-                          </li>
-                          <li class="special">
-                            <a href="/#two">Services</a>
-                          </li>
-                          <li class="special">
-                            <a href="/#cta">Contact</a>
-                          </li>
-                          <li class="special">
-                              <%= link_to current_client.first_name, edit_client_registration_path %>
-                          </li>
-                          <li class="special">
-                              <%#= link_to "Requests", my_requests_path %>
-                          </li>
-                          <li class="special">
-                            <%#= link_to "Log Out", destroy_client_session_path, method: :delete,
-                                      data: {confirm: "#{current_client.email}, are you sure you want to log out?"} %>
-                          </li>  
-                      <%# else %>
-                          <li class="special">
-                            <a href="/#one">About</a>
-                          </li>
-                          <li class="special">
-                            <a href="/#two">Services</a>
-                          </li>
-                          <li class="special">
-                            <a href="/#cta">Contact</a>
-                          </li>
-                          <li class="special">
-                            <%#= link_to "FAQ", q_and_a_path %>
-                          </li>
-                          <li class="special">
-                            <%#= link_to "Log In", new_client_session_path %>
-                          </li>
-                          <li class="special">
-                            <%#= link_to "Sign Up", new_client_registration_path %>
-                          </li>
-                      <%# end %>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </nav> 
-
-          </header>
- -->
-
-           <header id="header">
+  <header id="header">
     <nav class="main-navigation navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="200">
       <div class="container">
         <div class="navbar-header">

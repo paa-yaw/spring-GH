@@ -448,7 +448,8 @@ div.panel-body > div.request-details.request-info{
     /*padding-right: 20px;*/
 
 #frequency span.radio.inline{
-  padding-left: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
   display: inline-block;
 }
 
@@ -550,6 +551,11 @@ html{
 
   .modal-body{
    border-top-width: 0px; 
+  }
+
+  .nav-pills > li.active > a,
+  .nav-pills > li.active > a:hover{
+    background-color: #18BADB;
   }
 
   #pricing-bar{
