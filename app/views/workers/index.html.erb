@@ -11,13 +11,28 @@
 
         <div class="panel-body">
           <ol>
+            <% list_of_workers =[] %>
             <% if current_client.requests.joins(:workers).any? %>
-            <% @current_client_requests.each do |request| %>
+            <% @current_client_requests.joins(:workers).uniq.each do |request| %>
             <% request.workers.uniq.each do |worker| %>
-            <li>
-              <p><%= link_to worker.first_name, worker %>, <%= link_to worker.last_name, worker %></p> 
-            </li>
+
+            <% list_of_workers << worker %>
+
+            <!-- <li>
+              <h4><strong><%#= link_to worker.first_name, worker %>, <%= link_to worker.last_name, worker %> was assigned to the following requests <%# worker.requests.each do |worker_request| %>
+                                   <%#= link_to worker_request.id, request_path(worker_request) %> 
+                                 <%# end %> -->
+             <!--  </strong></h4> 
+            </li> -->
             <% end %>
+            <% end %>
+
+            <% list_of_workers.uniq.each do |worker| %>
+            <h4><strong><%= link_to worker.first_name, worker_path(worker) %>  assigned to the following request(s): 
+                                                                               <% worker.requests.uniq.each do |request| %>
+                                                                                 <%= link_to request.id, request_path(request) %> 
+                                                                               <% end %> 
+            </strong></h4>
             <% end %>
             <% elsif current_client.requests.joins(:workers).empty? %>
             <li>
