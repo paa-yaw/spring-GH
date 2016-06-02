@@ -177,9 +177,6 @@ body{
   width: 110px;
 }
 
-
-
-
  label[for="request_extra_services_150"]  > input[type="checkbox"]{
  /*display: none;*/
 }
