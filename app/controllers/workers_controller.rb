@@ -51,6 +51,9 @@ class WorkersController < ApplicationController
   end
 
   def destroy
+    @worker.destroy
+    flash[:alert] = "your details have been deleted!"
+    redirect_to root_path
   end
 
 
@@ -58,8 +61,8 @@ class WorkersController < ApplicationController
 
   def set_worker
   	@worker = Worker.find(params[:id])
-  # rescue ActiveRecord::RecordNotFound
-  #   redirect_to errors_not_found_path
+  rescue ActiveRecord::RecordNotFound
+    redirect_to errors_not_found_path
   end
 
 

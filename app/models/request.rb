@@ -186,8 +186,8 @@ class Request < ActiveRecord::Base
   end
 
 
-	def add
-	  self.update(client_id: Client.current.id)
-	end
+	# def add
+	#   self.update(client_id: Client.current.id)
+	# end
 	
 end

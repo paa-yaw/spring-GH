@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
   	  flash[:notice] = "your report has been saved."
   	  redirect_to new_request_path
   	else
-  	  flash.now[:alert] = "your report failed to save."
+  	  flash.now[:alert] = "your report failed to save. You either didn't fill out the report or tick the option."
       render "new" 
   	end
   end

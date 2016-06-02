@@ -29,7 +29,9 @@ class RequestsController < ApplicationController
         flash[:notice] = "#{current_client.email}, your just placed a request!"
         @request.business_algorithm          
 
-        
+        # sends email to client to acknowledge receipt of request(s)
+        SendAcknowledgementJob.set(wait: 2.seconds).perform_later(@client)
+
         # sends email to admin after a logged in client places a request
         Client.where(admin: true).each do |recipient|
           NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient)
@@ -76,8 +78,11 @@ class RequestsController < ApplicationController
           @request.business_algorithm
 
 
+              # send email to client to acknowledge receipt of request(s)
+              SendAcknowledgementJob.set(wait: 3.seconds).perform_later(@client)
+
               # sends email notification to client after sign up 
-              SendEmailJob.set(wait: 5.seconds).perform_later(@client, @secure_password)
+              SendEmailJob.set(wait: 2.seconds).perform_later(@client, @secure_password)
 
                # sends email notification to admin after client sign up
                Client.where(admin: true).each do |recipient|
@@ -157,6 +162,6 @@ class RequestsController < ApplicationController
 end
 
 def request_params
-  params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location, :terms, :total_rooms, :total_cost, :referral_code, :promocode)
+  params.require(:request).permit({:weekdays=>[]}, {:extra_services=>[]}, :date_time, :frequency, :bathrooms, :bedrooms, :hall, :kitchens, :email, :phone_number, :location, :terms, :total_rooms, :total_cost, :referral_code, :promocode, :status)
 end
 end
