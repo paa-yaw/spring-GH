@@ -12,10 +12,10 @@
               <div id="profile" class="tab-pane active">
 
                 <section class="panel">
-                  <div style="color:#122772;">
+                  <div>
                   Hello <%= current_client.first_name %>,<br> <strong><%= @worker.first_name %> <%= @worker.last_name %></strong> has been assigned to your request and will arrive at your location shortly. <br> Here is <%= @worker.first_name %>'s bio below:
                   </div>
-                  <!-- </div> -->
+                  <br>
                   <div class="panel-body bio-graph-info">
                   <div class="row">
                     <div class="col-md-4">
@@ -69,7 +69,7 @@
             </div>
           </div>
 
-          <section class="panel"  style="border: solid 1px #122772;">
+          <section class="panel">
             <div class="panel-body">
                   <%= render "reviews/form" %>
             </div>
