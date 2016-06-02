@@ -178,6 +178,9 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
                <% if worker.try(:request_ids).try(:last) == @request.id %>
                <td><%= link_to fa_icon("user-times") +
                  " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, data: {confirm: "You are about to unassign this worker"}, class: "btn btn-warning" %></td>
+               <% else %>
+               <td><a class="btn btn-default" ><i class="fa fa-minus-circle" aria-hidden="true"></i>
+ Inactive</a></td>  
                <% end %>
                </tr>
 
