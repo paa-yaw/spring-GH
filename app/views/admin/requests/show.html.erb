@@ -175,8 +175,10 @@ data: { confirm: "Are you sure you want delete #{@request.id}'s details?" }, cla
                " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, method: :delete,  
                data: { confirm: "Are you sure you want unassign Request No.#{@request.id}?"}, class: "btn btn-warning" %></td> -->
                <td><div class="star-rating" data-score= <%= worker.average_rating %>></div></td>
+               <% if worker.try(:request_ids).try(:last) == @request.id %>
                <td><%= link_to fa_icon("user-times") +
                  " unassign", admin_unassign_path(worker, request_id: @request.id), request_id: @request.id, data: {confirm: "You are about to unassign this worker"}, class: "btn btn-warning" %></td>
+               <% end %>
                </tr>
 
                

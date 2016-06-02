@@ -12,6 +12,10 @@
       <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
         <h2 class="panel-title text-center"><strong>A cleaner has been assigned to this cleaning request.</strong></h2>
       </div>
+    <% else %>
+    <div class="panel-heading text-left" style="border-bottom:solid 1px rgba(25,41,100,0.2);">
+        <h2 class="panel-title text-center"><strong>Your cleaning request.</strong></h2>
+    </div>      
     <% end %>
       <div class="panel-body" style="padding-left: 5px; padding-top: 0px;">
          
@@ -32,6 +36,7 @@
         <tr>
           <td><b>Extra Services</b></td>
           <td>
+             <% if @request.extra_services.any? %>
              <% @request.extra_services.each do |services| %>
              <% if services == 15.00 %>
              <p>Compound Cleaning(GHS 15.00)</p>
@@ -48,6 +53,9 @@
              <% if services == 40.00 %>
              <p>Laundry(GHS 40.00)</p>
              <% end %>
+             <% end %>
+             <% else %>
+               none selected
              <% end %>
            </td>
         </tr>
@@ -67,7 +75,7 @@
           <td><b>Frequency</b></td>
             <td>
              <% if @request.frequency == 150.00 %>
-             <p>Deep-Cleaning(GHS 150.00)</p>
+             <p>One-Time Cleaning(GHS 150.00)</p>
              <% elsif @request.frequency == 200.00 %>
              <p>Weekly(GHS 200.00)</p>
              <% elsif @request.frequency == 500.00 %>
