@@ -4,4 +4,5 @@ class Referral < ActiveRecord::Base
   
   validates_format_of :email,:with => Devise::email_regexp, allow_blank: true
   validates :email, uniqueness: {message: "you have already invited this person"}
+  validates :email, presence: true
 end
