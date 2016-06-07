@@ -1,27 +1,12 @@
 function checkMonth() {
-  // var d = new Date();
 
-  // var month = d.getMonth();
-  // var hour = d.getHours();
+  for (var j= 1; j <= 7; j++) {
+    document.getElementById("request_time_4i").children[j].style.display="none";
+  }
+  for (var k= 19; k <= 24; k++) {
+    document.getElementById("request_time_4i").children[k].style.display="none";
+  }
 
-  // for (var i = 1; i <= hour; i++) {
-  //   document.getElementById("request_date_time_2i").children[(i-1)].style.display="none";
-  // }
-
-  // if (document.getElementById("request_date_time_2i").value == (d.getMonth()+1)) {
-    // 
-    for (var j= 1; j <= 7; j++) {
-      document.getElementById("request_time_4i").children[j].style.display="none";
-    }
-    for (var j= 19; j <= 24; j++) {
-      document.getElementById("request_time_4i").children[j].style.display="none";
-    }
-  // }
-   // else {
-    // for( var j = 1; j <= d.getDate(); j++) {
-    //   document.getElementById("request_date_time_3i").children[(j-1)].style.display="block";
-    // }
-  // }
 }  
 
 // converts value in the bedroom dropdown to integer and returns value on function call
@@ -128,18 +113,18 @@ function checkSchedule() {
   var a = document.getElementById('request_frequency_1500');
   if(a.checked == true) {
     // schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose a day)</i>";
-    document.getElementById('days').parentNode.style.display = 'none';
+    document.getElementById('selectDays').parentNode.style.display = 'none';
   }
   
   var b = document.getElementById('request_frequency_2000');
   if(b.checked == true) {
-    document.getElementById('days').parentNode.style.display = 'block';
+    document.getElementById('selectDays').parentNode.style.display = 'block';
     schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days)</i>";
   }
 
   var c = document.getElementById('request_frequency_5000');
   if(c.checked == true) {
-    document.getElementById('days').parentNode.style.display = 'block';
+    document.getElementById('selectDays').parentNode.style.display = 'block';
     schedule.innerHTML = "Schedule " + "&nbsp;<i>(Choose 3 days. The 3 days selected is repetitive throughout the month.)</i>";
   }
 }
@@ -300,4 +285,5 @@ function calculatePricing() {
 $(document).ready(function() {
   // checks for current month and adds display:none to previous months
   checkMonth();
+  checkSchedule()
 });
