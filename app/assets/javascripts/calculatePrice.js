@@ -1,23 +1,23 @@
-function checkMonth() {
-  var d = new Date();
+// function checkMonth() {
+//   var d = new Date();
 
-  var month = d.getMonth();
-  var hour = d.getHours();
+//   var month = d.getMonth();
+//   var hour = d.getHours();
 
-  for (var i = 1; i <= month; i++) {
-    document.getElementById("request_date_time_2i").children[(i-1)].style.display="none";
-  }
+//   for (var i = 1; i <= month; i++) {
+//     document.getElementById("request_date_time_2i").children[(i-1)].style.display="none";
+//   }
 
-  if (document.getElementById("request_date_time_2i").value == (d.getMonth()+1)) {
-    for (var j= 1; j <= d.getDate(); j++) {
-      document.getElementById("request_date_time_3i").children[(j-1)].style.display="none";
-    }
-  } else {
-    for( var j = 1; j <= d.getDate(); j++) {
-      document.getElementById("request_date_time_3i").children[(j-1)].style.display="block";
-    }
-  }
-}  
+//   if (document.getElementById("request_date_time_2i").value == (d.getMonth()+1)) {
+//     for (var j= 1; j <= d.getDate(); j++) {
+//       document.getElementById("request_date_time_3i").children[(j-1)].style.display="none";
+//     }
+//   } else {
+//     for( var j = 1; j <= d.getDate(); j++) {
+//       document.getElementById("request_date_time_3i").children[(j-1)].style.display="block";
+//     }
+//   }
+// }  
 
 // converts value in the bedroom dropdown to integer and returns value on function call
 function getBedroomNumber() {
@@ -209,7 +209,6 @@ function checkDays() {
 
 function calculatePricing() {
   checkDays();
-  checkMonth();
   checkSchedule();  
 
   var roomFactor = 0;
