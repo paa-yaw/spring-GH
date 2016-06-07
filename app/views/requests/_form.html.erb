@@ -173,6 +173,8 @@
         <br>
         <%#= f.datetime_select :date_time, :start_year => Time.now.year, :end_year => Time.now.year + 1, :ampm => true, :minute_step => 60, :class=>"btn btn-default text-center", :label =>"When Do You Want Us To Come?" %>
         <%= f.input :date, label: "Date" %>
+        <label><strong>Time</strong></label>
+        <%= f.time_select :time, prompt: {hour: 'Choose hour', minute: 'Choose minute', second: 'Choose seconds'}, label: "Time", :minute_step => 30, :ampm => true %>
         <br><br>
       </div>
       <% if request.errors.any? %>

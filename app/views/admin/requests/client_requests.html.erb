@@ -206,7 +206,7 @@
 								
 							</td>
 							<td><p><%= client_request.date.to_date.strftime("%B %d, %Y") %></p></td>
-							<td><p><%= client_request.date.to_date.strftime("%T") %></p></td>
+							<td><p><%= @request.time.strftime("%l %M %p")%></p></td>
 							<td><%= client_request.created_at %></td>
 							<td><%= link_to "unresolved", admin_client_request_path(@client, client_request), class: "btn btn-danger" %></td>
 						</tr>
@@ -296,7 +296,7 @@
 
 							</td>
 							<td><p><%= client_request.date.to_date.strftime("%B %d, %Y") %></p></td>
-							<td><p><%= client_request.date.to_date.strftime("%T") %></p></td>
+							<td><p><%= @request.time.strftime("%l %M %p")%></p></td>
 							<td><%= client_request.created_at %></td>
 							<td><%= link_to "resolved", admin_client_request_path(@client,client_request), class: "btn btn-success" %></td>
 						</tr>
@@ -386,7 +386,7 @@
 
 							</td>
 							<td><p><%= client_request.date.to_date.strftime("%B %d, %Y") %></p></td>
-							<td><p><%= client_request.date.to_date.strftime("%T") %></p></td>
+							<td><p><%= @request.time.strftime("%l %M %p")%></p></td>
 							<td><%= client_request.created_at %></td>
 							<td><%= link_to "resolved", admin_client_request_path(@client,client_request), class: "btn btn-success" %></td>
 						</tr>
