@@ -3,14 +3,16 @@ class Request < ActiveRecord::Base
 	has_and_belongs_to_many :workers
   has_one :invoice, dependent: :destroy
 
-	validates :bathrooms, :bedrooms, :kitchens, :hall, :date_time, :frequency, presence: true
+  # after_create :convert_string_date_to_date
+
+	validates :bathrooms, :bedrooms, :kitchens, :hall, :date, :frequency, presence: true
   validates :phone_number, format: { with: /\A[-+]?[0-9]*\.?[0-9]+\Z/, message: "only allows numbers" }, allow_blank: true
   validates_format_of :email,:with => Devise::email_regexp, allow_blank: true
   validate :terms_of_service
   validate :weekday_array_cannot_be_empty
   validate :restrict_selection
   validate :forbidden_dates
-  validate :day_and_date_match
+  # validate :day_and_date_match
   validate :length_of_phone_number
 
     def length_of_phone_number
@@ -41,37 +43,38 @@ class Request < ActiveRecord::Base
     end
 
     def forbidden_dates
-      if date_time.year == Time.now.year && date_time.month < Time.now.month
-      	errors.add(:date_time, ": Can't choose a month in the past")
-      elsif date_time.year == Time.now.year && date_time.month == Time.now.month && date_time.day == Time.now.day 
-        errors.add(:date_time, ": you cannot schedule for today. Please book from tomorrow onwards.")   
-      elsif date_time.year == Time.now.year && date_time.month > Time.now.month + 3
-      	errors.add(:date_time, ": Can't choose a month beyond 3 months from now.")      		
-      elsif date_time.year == Time.now.year && date_time.month == Time.now.month && date_time.day < Time.now.day
-      	errors.add(:date_time, ": Can't choose a day in the past.")
-      elsif  date_time.year == Time.now.year && (date_time.month == Time.now.month || date_time.day == Time.now.day) && (date_time.hour < 6 || date_time.hour > 17)
-      	errors.add(:date_time, ": service is not available at this time. Choose a time between 6am & 5pm")
-      elsif  date_time.year == Time.now.year && (date_time.hour < 6 || date_time.hour > 17)
-      	errors.add(:date_time, ": service is not available at this time. Choose a time between 6am & 5pm")
-      elsif date_time.day == Time.now.day && date_time.year == Time.now.year && date_time.month == Time.now.month && (date_time.hour > 6 && date_time.hour < 17)
-        errors.add(:date_time, "can't choose time in the past.") if date_time.hour < Time.now.hour		
-      elsif date_time.year == Time.now.year + 1 && date_time.month < 10
-      	errors.add(:date_time, ": the date selected is too far off")
-      elsif date_time.year == Time.now.year + 1
-      	errors.add(:date_time, ": the date selected is too far off")	      			      		
+       date = self.date.to_date
+      if date.year == Time.now.year && date.month < Time.now.month
+      	errors.add(:date, ": Can't choose a month in the past")
+      elsif date.year == Time.now.year && date.month == Time.now.month && date.day == Time.now.day 
+        errors.add(:date, ": you cannot schedule for today. Please book from tomorrow onwards.")   
+      elsif date.year == Time.now.year && date.month > Time.now.month + 3
+      	errors.add(:date, ": Can't choose a month beyond 3 months from now.")      		
+      elsif date.year == Time.now.year && date.month == Time.now.month && date.day < Time.now.day
+      	errors.add(:date, ": Can't choose a day in the past.")
+      # elsif  date.year == Time.now.year && (date.month == Time.now.month || date.day == Time.now.day) && (date.hour < 6 || date.hour > 17)
+      # 	errors.add(:date, ": service is not available at this time. Choose a time between 6am & 5pm")
+      # elsif  date.year == Time.now.year && (date.hour < 6 || date.hour > 17)
+      # 	errors.add(:date, ": service is not available at this time. Choose a time between 6am & 5pm")
+      # elsif date.day == Time.now.day && date.year == Time.now.year && date.month == Time.now.month && (date.hour > 6 && date.hour < 17)
+      #   errors.add(:date, "can't choose time in the past.") if date.hour < Time.now.hour		
+      elsif date.year == Time.now.year + 1 && date.month < 10
+      	errors.add(:date, ": the date selected is too far off")
+      elsif date.year == Time.now.year + 1
+      	errors.add(:date, ": the date selected is too far off")	      			      		
       end
     end
 
-    def day_and_date_match
-      if frequency == 150.00
-      elsif frequency == 200.00 && weekdays.exclude?(date_time.strftime("%A")) && date_time.year == Time.now.year 
-          errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}. Please choose a day that
-            corresponds with one of the selected days")
-      elsif frequency == 500.00 &&  weekdays.exclude?(date_time.strftime("%A")) && date_time.year == Time.now.year 
-          errors.add(:date_time, ": #{date_time.day.ordinalize} is a #{date_time.strftime("%A")}. Please choose a day that
-            corresponds with one of the selected days")  
-      end
-    end
+    # def day_and_date_match
+    #   if frequency == 150.00
+    #   elsif frequency == 200.00 && weekdays.exclude?(date.strftime("%A")) && date.year == Time.now.year 
+    #       errors.add(:date, ": #{date.day.ordinalize} is a #{date.strftime("%A")}. Please choose a day that
+    #         corresponds with one of the selected days")
+    #   elsif frequency == 500.00 &&  weekdays.exclude?(date.strftime("%A")) && date.year == Time.now.year 
+    #       errors.add(:date, ": #{date.day.ordinalize} is a #{date.strftime("%A")}. Please choose a day that
+    #         corresponds with one of the selected days")  
+    #   end
+    # end
 
     def terms_of_service
       if terms == false
@@ -189,5 +192,12 @@ class Request < ActiveRecord::Base
 	# def add
 	#   self.update(client_id: Client.current.id)
 	# end
+
+  # private
+
+  # def convert_string_date_to_date
+  #   self.date = self.date.to_date
+  # end
+
 	
 end

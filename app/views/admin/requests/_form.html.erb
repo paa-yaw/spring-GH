@@ -58,7 +58,8 @@
       <h4 class="form-content-label">
         When Do You Want Us To Come?
       </h4>
-      <%= f.datetime_select :date_time, :ampm => true, :minute_step => 60 %><br><br>
+      <%#= f.datetime_select :date_time, :ampm => true, :minute_step => 60 %>
+      <%= f.input :date , label: "Date" %><br><br>
     </div>
 
      <div class="panel-body">

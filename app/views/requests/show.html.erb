@@ -86,13 +86,13 @@
         <tr>
           <td><b>Date</b></td>
           <td>
-            <p><%= @request.date_time.strftime("%B %d, %Y") %></p>
+            <p><%= @request.date.to_date.strftime("%B %d, %Y") %></p>
           </td>
         </tr>
         <tr>
           <td><b>Time</b></td>
            <td>
-              <p><%= @request.date_time.strftime("%T") %></p>
+              <p><%= @request.date.to_date.strftime("%T") %></p>
             </td>
         </tr>
       </table>
