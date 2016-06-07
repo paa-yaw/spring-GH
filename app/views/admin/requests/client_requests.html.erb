@@ -117,8 +117,8 @@
 								<p>
 
 							</td>
-							<td><p><%= client_request.date_time.strftime("%B %d, %Y") %></p></td>
-							<td><p><%= client_request.date_time.strftime("%T") %></p></td>
+							<td><p><%= client_request.date.to_date.strftime("%B %d, %Y") %></p></td>
+							<td><p><%= client_request.date.to_date.strftime("%T") %></p></td>
 							<td><%= client_request.created_at %></td>
 							<td><%= link_to "resolved", admin_client_request_path(@client,client_request), class: "btn btn-success" %></td>
 						</tr>
@@ -205,8 +205,8 @@
 								<p>
 								
 							</td>
-							<td><p><%= client_request.date_time.strftime("%B %d, %Y") %></p></td>
-							<td><p><%= client_request.date_time.strftime("%T") %></p></td>
+							<td><p><%= client_request.date.to_date.strftime("%B %d, %Y") %></p></td>
+							<td><p><%= client_request.date.to_date.strftime("%T") %></p></td>
 							<td><%= client_request.created_at %></td>
 							<td><%= link_to "unresolved", admin_client_request_path(@client, client_request), class: "btn btn-danger" %></td>
 						</tr>
@@ -295,8 +295,8 @@
 								<p>
 
 							</td>
-							<td><p><%= client_request.date_time.strftime("%B %d, %Y") %></p></td>
-							<td><p><%= client_request.date_time.strftime("%T") %></p></td>
+							<td><p><%= client_request.date.to_date.strftime("%B %d, %Y") %></p></td>
+							<td><p><%= client_request.date.to_date.strftime("%T") %></p></td>
 							<td><%= client_request.created_at %></td>
 							<td><%= link_to "resolved", admin_client_request_path(@client,client_request), class: "btn btn-success" %></td>
 						</tr>
@@ -385,8 +385,8 @@
 								<p>
 
 							</td>
-							<td><p><%= client_request.date_time.strftime("%B %d, %Y") %></p></td>
-							<td><p><%= client_request.date_time.strftime("%T") %></p></td>
+							<td><p><%= client_request.date.to_date.strftime("%B %d, %Y") %></p></td>
+							<td><p><%= client_request.date.to_date.strftime("%T") %></p></td>
 							<td><%= client_request.created_at %></td>
 							<td><%= link_to "resolved", admin_client_request_path(@client,client_request), class: "btn btn-success" %></td>
 						</tr>

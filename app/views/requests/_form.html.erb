@@ -172,7 +172,7 @@
         </h4> -->
         <br>
         <%#= f.datetime_select :date_time, :start_year => Time.now.year, :end_year => Time.now.year + 1, :ampm => true, :minute_step => 60, :class=>"btn btn-default text-center", :label =>"When Do You Want Us To Come?" %>
-        <%= f.input :date_time %>
+        <%= f.input :date, label: "Date" %>
         <br><br>
       </div>
       <% if request.errors.any? %>
