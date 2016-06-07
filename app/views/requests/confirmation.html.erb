@@ -64,7 +64,7 @@
                       <!-- <br> -->
                   <p style="text-transform:uppercase;color:#18BADB;">
                       scheduled for </p>
-    <p><b> <%= @request.date.to_date.strftime("%A, %d %B %Y")%> at <%= @request.date.to_date.strftime("%l %P")%>.</b></p>
+    <p><b> <%= @request.date.to_date.strftime("%A, %d %B %Y")%> at <%= @request.time.strftime("%l %M %p")%>.</b></p>
     <!-- <br> -->
     <p style="text-transform:uppercase;color:#18BADB;"> Your phone number is </p>
     <p><b> <%= @request.client.phone_number %></b> </p>

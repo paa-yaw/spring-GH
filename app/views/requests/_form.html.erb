@@ -170,6 +170,8 @@
         <br>
         <%= f.input :date, data: {toggle: "datepicker"}, :label => "Date" %>
 
+        <label><strong>Time</strong></label>
+        <%= f.time_select :time, prompt: {hour: 'Choose hour', minute: 'Choose minute', second: 'Choose seconds'}, label: "Time", :minute_step => 30, :ampm => true %>
         <br><br>
       </div>
       

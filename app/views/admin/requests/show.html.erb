@@ -109,7 +109,7 @@
         <p><%= @request.date.to_date.strftime("%B %d, %Y") %></p>
       </td>
       <td>
-        <p><%= @request.date.to_date.strftime("%T") %></p>
+        <p><%= @request.time.strftime("%l %M %p")%></p>
       </td>
     </tr>
 
