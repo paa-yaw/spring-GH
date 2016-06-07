@@ -4,10 +4,10 @@
     <div class="navbar" style="background:#fff; min-height:42px; height:42px;border-radius:4px;">
       <div class="navbar-inner">
         <!-- <div class="container"> -->
-        <ul style="display:flex;">
-            <li><a href="#tab1" data-toggle="tab"><span class="hidden-sm hidden-xs">House Info</span><span class="hidden-md hidden-lg"><img src="/assets/house.png" alt="" style="width:60%;"></span></a></li>
+        <ul style="display:flex;cursor:default;">
+            <li><a href="#tab1" data-toggle="tab"><span class="hidden-sm hidden-xs">Routine</span><span class="hidden-md hidden-lg"><img src="/assets/routine.png" alt="" style="width:60%;"></span></a></li>
+            <li><a href="#tab2" data-toggle="tab"><span class="hidden-sm hidden-xs">House Info</span><span class="hidden-md hidden-lg"><img src="/assets/house.png" alt="" style="width:60%;"></span></a></li>
             <!-- <li><a href="#tab2" data-toggle="tab">Extra Services</a></li> -->
-            <li><a href="#tab2" data-toggle="tab"><span class="hidden-sm hidden-xs">Routine</span><span class="hidden-md hidden-lg"><img src="/assets/routine.png" alt="" style="width:60%;"></span></a></li>
             <li><a href="#tab3" data-toggle="tab"><span class="hidden-sm hidden-xs">When</span><span class="hidden-md hidden-lg"><img src="/assets/arrival.png" alt="" style="width:60%;"></span></a></li>
             <li><a href="#tab4" data-toggle="tab"><span class="hidden-sm hidden-xs">Your Contact</span><span class="hidden-md hidden-lg"><img src="/assets/contact.png" alt="" style="width:60%;"></span></a></li>
             <li><a href="#tab5" data-toggle="tab"><span class="hidden-sm hidden-xs">Final</span><span class="hidden-md hidden-lg"><img src="/assets/end.png" alt="" style="width:60%;"></span></a></li>
@@ -19,75 +19,8 @@
 
 <div class="tab-content">
 
- <div class="tab-pane" id="tab1">
-    <div class="panel panel-info panel-size">
 
-      <div class="panel-heading form-panel-heading">
-        <% if request.persisted? %>
-          <h2 class="panel-title text-center">Edit Your House Details</h2>
-        <% else %>
-          <h2 class="panel-title text-center
-        ">Tell Us About Your House &nbsp;
-<!--           <#% if !client_signed_in? %>
-            <%#= link_to fa_icon("question"), :class =>"fa-question pull-right", :style => "border-right:none;" %>
-            <#% end %> -->
-            </h2>
-        <% end %>
-      </div>
-
-
-
-    <div class="panel-body" >
-    <div class="container-fluid">
-      
-    
-      <% @token = params[:referral_code] %>
-      <% if @token != nil %>
-      <%= f.hidden_field :ref_code, :value => @token %>
-      <% end %>
-      <div class="row">
-      <h4 class="text-center">Which rooms do you want cleaned? </h4><br>
-      <div onchange="calculatePricing()"> 
-
-          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
-            <label>Bedrooms</label>
-            <%= f.select :bedrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
-          </div>
-
-          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
-            <label>Bathrooms</label>
-            <%= f.select :bathrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bathrooms),{},{:class => "btn btn-default"} %>
-          </div>
-
-          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
-            <label>Kitchens</label><br>
-            <%= f.select :kitchens, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.kitchens),{},{:class => "btn btn-default"} %> 
-          </div>
-
-          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
-            <label>Living Room</label>
-            <%= f.select :hall, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.hall),{},{:class => "btn btn-default"} %>
-          </div>
-
-        </div>
-      </div>
-      <br>
-<div class="row">
-      <h4 class="text-center">Any extra services? </h4>
-      <div onclick="calculatePricing()" id="extra" class="text-left">
-          <%= f.input_field :extra_services, :collection => [["Compound (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00],["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "", :label => "" %>
-      </div>
-    </div>
-
-      <!-- <div class="panel-body" > -->
-      <!-- </div> -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-<div class="tab-pane" id="tab2">
+<div class="tab-pane" id="tab1">
     <div class="panel panel-info panel-size">
 
         <div class="panel-heading form-panel-heading">
@@ -154,8 +87,73 @@
       </div>    <!-- </div> -->
     </div>
   </div>
-    
 
+ <div class="tab-pane" id="tab2">
+    <div class="panel panel-info panel-size">
+
+      <div class="panel-heading form-panel-heading">
+        <% if request.persisted? %>
+          <h2 class="panel-title text-center">Edit Your House Details</h2>
+        <% else %>
+          <h2 class="panel-title text-center
+        ">Tell Us About Your House &nbsp;
+<!--           <#% if !client_signed_in? %>
+            <%#= link_to fa_icon("question"), :class =>"fa-question pull-right", :style => "border-right:none;" %>
+            <#% end %> -->
+            </h2>
+        <% end %>
+      </div>
+
+
+
+    <div class="panel-body" >
+    <div class="container-fluid">
+      
+    
+      <% @token = params[:referral_code] %>
+      <% if @token != nil %>
+      <%= f.hidden_field :ref_code, :value => @token %>
+      <% end %>
+      <div class="row">
+      <h4 class="text-center">Which rooms do you want cleaned? </h4><br>
+      <div onchange="calculatePricing()"> 
+
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
+            <label>Bedrooms</label>
+            <%= f.select :bedrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
+          </div>
+
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
+            <label>Bathrooms</label>
+            <%= f.select :bathrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bathrooms),{},{:class => "btn btn-default"} %>
+          </div>
+
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
+            <label>Kitchens</label><br>
+            <%= f.select :kitchens, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.kitchens),{},{:class => "btn btn-default"} %> 
+          </div>
+
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
+            <label>Living Room</label>
+            <%= f.select :hall, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.hall),{},{:class => "btn btn-default"} %>
+          </div>
+
+        </div>
+      </div>
+      <br>
+<div class="row">
+      <h4 class="text-center">Any extra services? </h4>
+      <div onclick="calculatePricing()" id="extra" class="text-left">
+          <%= f.input_field :extra_services, :collection => [["Compound (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00],["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "", :label => "" %>
+      </div>
+    </div>
+
+      <!-- <div class="panel-body" > -->
+      <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
 
 <div class="tab-pane" id="tab3">
   <div class="panel panel-info panel-size">
@@ -165,16 +163,21 @@
       </div>
 
     <div class="panel-body" style="padding-top:0px;padding-bottom:0px;">
-      <div class="col-xs-12 text-center" id="datetime" onclick="checkMonth()">
         <h4 class="descriptionText">What date and time should we first arrive? </h4>
+        <div class="row">          
+      <div class="col-xs-12 col-md-6 text-center" id="datetime" onclick="checkMonth()">
         <!-- <h4 class="form-content-label">
           When Do You Want Us To Come?
         </h4> -->
         <br>
+
         <%#= f.datetime_select :date_time, :start_year => Time.now.year, :end_year => Time.now.year + 1, :ampm => true, :minute_step => 60, :class=>"btn btn-default text-center", :label =>"When Do You Want Us To Come?" %>
-        <%= f.input :date, label: "Date" %>
+
+        <%= f.input :date_time, data: {toggle: "datepicker"}, :label => "Date" %>
+
         <br><br>
       </div>
+      
       <% if request.errors.any? %>
         <div id="error_explanation">
           <!-- <h2><%#= pluralize(request.errors.count, "error") %> An error prohibited this article from being saved:</h2> -->
@@ -186,6 +189,7 @@
           </ul>
         </div>
       <% end %>
+      </div>
     </div>
 
 
@@ -200,8 +204,8 @@
           </div>
         </div>
 
+    </div>
   </div>
-</div>
   
 
 
@@ -268,10 +272,10 @@
     </div>
 </div>
     <ul class="pager wizard">
-        <li class="previous first" style="display:none;"><a href="#">First</a></li>
-        <li class="previous"><a href="#">Previous</a></li>
-        <li class="next last" style="display:none;"><a href="#">Last</a></li>
-        <li class="next"><a href="#">Next</a></li>
+        <li class="previous first"><a href="javascript:;">First</a></li>
+        <li class="previous"><a href="javascript:;">Previous</a></li>
+        <li class="next"><a href="javascript:;">Next</a></li>
+        <!-- <li class="next last"><a href="javascript:;">Last</a></li> -->
     </ul>
   </div>
 </div>
@@ -280,8 +284,27 @@
 
 <script>  
   $(document).ready(function() {
-    $('#rootwizard').bootstrapWizard();
-});
+    $('#rootwizard').bootstrapWizard({
+      'nextSelector':'li.next',
+      'previousSelector':'li.previous',
+      onTabClick: function(tab, navigation, index) {
+        return false;
+    }});
+  });
+</script>
+
+<% if client_signed_in? %>
+  <script>
+ $(document).ready(function() {
+   $('#rootwizard').bootstrapWizard('hide',3);
+ });
+  </script>
+<% end %>
+
+<script>
+  $('#request_date_time').datepicker({
+    format: 'yyyy/mm/dd'
+  });
 </script>
 
 <script>
@@ -366,7 +389,6 @@
 //   //   }
 //   // }
 // </script> -->
-
 
 <style>
 .pricing {
@@ -463,5 +485,9 @@
 }
 .p-blue button {
   background: #3f4bb8;
+}
+
+div#rootwizard .nav .nav-pills, div#rootwizard .nav > li > a:hover{
+  cursor:default;
 }
 </style>

@@ -13,6 +13,7 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require general/datepicker
 //= require twitter/bootstrap
 //= require general/intro.min
 //= require_tree .

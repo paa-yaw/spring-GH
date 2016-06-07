@@ -16,4 +16,7 @@ Rails.application.config.assets.precompile += %w( home.css )
 Rails.application.config.assets.precompile += %w( home.js )
 Rails.application.config.assets.precompile += %w( admin/application.css )
 Rails.application.config.assets.precompile += %w( admin/application.js )
+Rails.application.config.assets.precompile += %w( general/datepicker.css )
+Rails.application.config.assets.precompile += %w( general/datepicker.js )
+
 
