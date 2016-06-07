@@ -24,13 +24,13 @@
     <div class="panel panel-info panel-size">
 
         <div class="panel-heading form-panel-heading">
-          <h2 class="panel-title descriptionText text-center">Routine</h2>
+          <h2 class="panel-title text-center">Routine</h2>
         </div>
 
          <div class="panel-body" style="padding-top:0px;">
          <div onchange="calculatePricing()">
          <br>
-         <h4 class="text-center">How many times should we clean? </h4>
+         <h4 class="text-center" style="margin-top:0px;">How many times should we clean? </h4>
       <!-- <section class="container"> -->
          <div class="col-md-12 col-sm-12 text-center" id="frequency">
       
@@ -307,7 +307,12 @@ finalDate.setDate(today.getDate() +90 );
   $('#request_date').datepicker({
     format: 'yyyy/mm/dd',
     startDate: tomorrow,
-    endDate: finalDate
+    endDate: finalDate,
+    filter: function(date) {
+      if(date.getDay() == 0) {
+        return false;
+      }
+    }
   });
 </script>
 
