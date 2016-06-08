@@ -71,7 +71,14 @@ Rails.application.routes.draw do
     get 'workers/:id/worker_history', to: 'workers#worker_history', as: :worker_history
 
     get 'clients/:client_id/referrals', to: 'referrals#view', as: :client_referrals
-    
+
+
+
+    resources :clients do
+      resources :articles 
+    end   
+
+    resources :articles, only: [:index]
 
     resources :clients, except: [:edit, :update] do
       resources :requests
@@ -129,7 +136,8 @@ Rails.application.routes.draw do
 
 
   resources :referrals, only: [:new, :create, :show, :index, :edit, :update]
-
+  resources :comments, only: [:new, :create, :show, :edit, :update]
+  resources :articles, only: [:index, :show]
 
 
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
