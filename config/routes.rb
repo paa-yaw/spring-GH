@@ -78,6 +78,8 @@ Rails.application.routes.draw do
       resources :articles 
     end   
 
+    resources :articles, only: [:index]
+
     resources :clients, except: [:edit, :update] do
       resources :requests
     end
