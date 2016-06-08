@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607114701) do
+ActiveRecord::Schema.define(version: 20160608144402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "caption"
+    t.text     "content"
+    t.string   "picture"
+    t.integer  "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "articles", ["client_id"], name: "index_articles_on_client_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "email",                  default: "",       null: false
@@ -43,6 +54,15 @@ ActiveRecord::Schema.define(version: 20160607114701) do
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["client_id"], name: "index_comments_on_client_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -114,16 +134,16 @@ ActiveRecord::Schema.define(version: 20160607114701) do
     t.integer  "kitchens",                                    default: 0
     t.integer  "hall",                                        default: 0
     t.string   "weekdays",                                    default: [],                        array: true
-    t.string   "extra_services",                              default: [],                        array: true
+    t.decimal  "extra_services",                              default: [],                        array: true
     t.string   "status",                                      default: "unresolved"
     t.string   "email"
     t.string   "phone_number"
     t.text     "location"
     t.decimal  "frequency",          precision: 6,  scale: 2
-    t.boolean  "terms",                                       default: false
     t.decimal  "total_cost",         precision: 10, scale: 2
     t.integer  "total_rooms"
     t.decimal  "extra_services_sum", precision: 10, scale: 2
+    t.boolean  "terms",                                       default: false
     t.string   "ref_code"
     t.string   "promocode"
     t.string   "date"
@@ -172,6 +192,8 @@ ActiveRecord::Schema.define(version: 20160607114701) do
     t.string   "status",       default: "not verified"
   end
 
+  add_foreign_key "articles", "clients"
+  add_foreign_key "comments", "clients"
   add_foreign_key "referrals", "clients"
   add_foreign_key "reports", "clients"
   add_foreign_key "reports", "workers"
