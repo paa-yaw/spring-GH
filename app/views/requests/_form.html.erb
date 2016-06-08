@@ -5,8 +5,8 @@
       <div class="navbar-inner">
         <!-- <div class="container"> -->
         <ul style="display:flex;cursor:default;">
-            <li><a href="#tab1" data-toggle="tab"><span class="hidden-sm hidden-xs">Routine</span><span class="hidden-md hidden-lg"><img src="/assets/routine.png" alt="" style="width:60%;"></span></a></li>
-            <li><a href="#tab2" data-toggle="tab"><span class="hidden-sm hidden-xs">House Info</span><span class="hidden-md hidden-lg"><img src="/assets/house.png" alt="" style="width:60%;"></span></a></li>
+            <li><a href="#tab1" data-toggle="tab"><span class="hidden-sm hidden-xs">House Info</span><span class="hidden-md hidden-lg"><img src="/assets/house.png" alt="" style="width:60%;"></span></a></li>
+            <li><a href="#tab2" data-toggle="tab"><span class="hidden-sm hidden-xs">Routine</span><span class="hidden-md hidden-lg"><img src="/assets/routine.png" alt="" style="width:60%;"></span></a></li>
             <!-- <li><a href="#tab2" data-toggle="tab">Extra Services</a></li> -->
             <li><a href="#tab3" data-toggle="tab"><span class="hidden-sm hidden-xs">When</span><span class="hidden-md hidden-lg"><img src="/assets/arrival.png" alt="" style="width:60%;"></span></a></li>
             <li><a href="#tab4" data-toggle="tab"><span class="hidden-sm hidden-xs">Your Contact</span><span class="hidden-md hidden-lg"><img src="/assets/contact.png" alt="" style="width:60%;"></span></a></li>
@@ -20,7 +20,74 @@
 <div class="tab-content">
 
 
-<div class="tab-pane" id="tab1">
+ <div class="tab-pane" id="tab1">
+    <div class="panel panel-info panel-size">
+
+      <div class="panel-heading form-panel-heading">
+        <% if request.persisted? %>
+          <h2 class="panel-title text-center">Edit Your House Details</h2>
+        <% else %>
+          <h2 class="panel-title text-center
+        ">Tell Us About Your House &nbsp;
+<!--           <#% if !client_signed_in? %>
+            <%#= link_to fa_icon("question"), :class =>"fa-question pull-right", :style => "border-right:none;" %>
+            <#% end %> -->
+            </h2>
+        <% end %>
+      </div>
+
+
+
+    <div class="panel-body" >
+    <div class="container-fluid">
+      
+    
+      <% @token = params[:referral_code] %>
+      <% if @token != nil %>
+      <%= f.hidden_field :ref_code, :value => @token %>
+      <% end %>
+      <div class="row">
+      <h4 class="text-center">Which rooms do you want cleaned? </h4><br>
+      <div onchange="calculatePricing()"> 
+
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
+            <label>Bedrooms</label>
+            <%= f.select :bedrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
+          </div>
+
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
+            <label>Bathrooms</label>
+            <%= f.select :bathrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bathrooms),{},{:class => "btn btn-default"} %>
+          </div>
+
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
+            <label>Kitchens</label><br>
+            <%= f.select :kitchens, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.kitchens),{},{:class => "btn btn-default"} %> 
+          </div>
+
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
+            <label>Living Room</label>
+            <%= f.select :hall, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.hall),{},{:class => "btn btn-default"} %>
+          </div>
+
+        </div>
+      </div>
+      <br>
+<div class="row">
+      <h4 class="text-center">Any extra services? </h4>
+      <div onclick="calculatePricing()" id="extra" class="text-left">
+          <%= f.input_field :extra_services, :collection => [["Compound (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00],["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "", :label => "" %>
+      </div>
+    </div>
+
+      <!-- <div class="panel-body" > -->
+      <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="tab-pane" id="tab2">
     <div class="panel panel-info panel-size">
 
         <div class="panel-heading form-panel-heading">
@@ -85,73 +152,6 @@
           </div> <!-- block -->
         </div>  <!--    row -->
       </div>    <!-- </div> -->
-    </div>
-  </div>
-
- <div class="tab-pane" id="tab2">
-    <div class="panel panel-info panel-size">
-
-      <div class="panel-heading form-panel-heading">
-        <% if request.persisted? %>
-          <h2 class="panel-title text-center">Edit Your House Details</h2>
-        <% else %>
-          <h2 class="panel-title text-center
-        ">Tell Us About Your House &nbsp;
-<!--           <#% if !client_signed_in? %>
-            <%#= link_to fa_icon("question"), :class =>"fa-question pull-right", :style => "border-right:none;" %>
-            <#% end %> -->
-            </h2>
-        <% end %>
-      </div>
-
-
-
-    <div class="panel-body" >
-    <div class="container-fluid">
-      
-    
-      <% @token = params[:referral_code] %>
-      <% if @token != nil %>
-      <%= f.hidden_field :ref_code, :value => @token %>
-      <% end %>
-      <div class="row">
-      <h4 class="text-center">Which rooms do you want cleaned? </h4><br>
-      <div onchange="calculatePricing()"> 
-
-          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
-            <label>Bedrooms</label>
-            <%= f.select :bedrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
-          </div>
-
-          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
-            <label>Bathrooms</label>
-            <%= f.select :bathrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bathrooms),{},{:class => "btn btn-default"} %>
-          </div>
-
-          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
-            <label>Kitchens</label><br>
-            <%= f.select :kitchens, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.kitchens),{},{:class => "btn btn-default"} %> 
-          </div>
-
-          <div class="col-md-3 col-sm-12 col-xs-12 text-center">
-            <label>Living Room</label>
-            <%= f.select :hall, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.hall),{},{:class => "btn btn-default"} %>
-          </div>
-
-        </div>
-      </div>
-      <br>
-<div class="row">
-      <h4 class="text-center">Any extra services? </h4>
-      <div onclick="calculatePricing()" id="extra" class="text-left">
-          <%= f.input_field :extra_services, :collection => [["Compound (GHS 15.00)", 15.00], ["Fridge (GHS 10.00)", 10.01], ["Storeroom (GHS 10.00)", 10.00],["Laundry (GHS40.00)", 40.00]], :as => :check_boxes, :item_wrapper_class => "", :label => "" %>
-      </div>
-    </div>
-
-      <!-- <div class="panel-body" > -->
-      <!-- </div> -->
-        </div>
-      </div>
     </div>
   </div>
 
