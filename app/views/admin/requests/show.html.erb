@@ -89,7 +89,7 @@
        </td>
        <td>
          <% if @request.weekdays.length == 1 %>
-         <%= @request.date_time.strftime("%A")%>
+         <%= @request.date.to_date.strftime("%A")%>
          <% else %>
          <% @request.weekdays.each do |day| %>
          <p><%= day %></p>
