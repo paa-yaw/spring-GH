@@ -165,13 +165,15 @@
     <div class="panel-body" style="padding-top:0px;padding-bottom:0px;">
         <div class="row">  
 
-      <div class="col-xs-12 col-md-8 col-md-offset-2 text-center" id="datetime" >
+      <div class="col-xs-12 col-md-8 col-md-offset-2 text-center" >
         <h4>What date and time should we first arrive? </h4>
         <br>
         <%= f.input :date, data: {toggle: "datepicker"}, :label => "Date" %>
+        </div>
 
+        <div class="col-xs-12 col-md-8 col-md-offset-2 text-center" id="datetime" >
         <label><strong>Time</strong></label><br>
-        <%= f.time_select :time, prompt: {hour: 'Choose hour', minute: 'Choose minute', second: 'Choose seconds'}, label: "Time", :minute_step => 30, :ampm => true %>
+        <%= f.time_select :time, prompt: {hour: 'Choose hour', minute: 'Choose minute', second: 'Choose seconds'}, label: "Time", :minute_step => 30, :ampm => true, :item_wrapper_class => "inline" %>
         <br><br>
       </div>
       

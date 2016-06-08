@@ -4,7 +4,7 @@ function checkMonth() {
     document.getElementById("request_time_4i").children[j].style.display="none";
   }
   for (var k= 19; k <= 24; k++) {
-    document.getElementById("request_time_4i").children[k].style.display="none";
+    document.getElementById("request_time_5i").children[k].style.display="none";
   }
 
 }  

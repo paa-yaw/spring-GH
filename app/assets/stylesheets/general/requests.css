@@ -177,6 +177,7 @@ body{
   width: 110px;
 }
 
+
  label[for="request_extra_services_150"]  > input[type="checkbox"]{
  /*display: none;*/
 }
@@ -649,6 +650,13 @@ html{
   padding-top: 65px;
 }
 
+#request_time_4i{
+  float: left;
+}
+#request_time_5i{
+  float:right;
+}
+
 /* --MOBILE NAVBAR CONTENT PRICING END-- */
 
 
@@ -665,6 +673,7 @@ html{
     margin-left: 0px;
     padding-left: 0px;
   }
+
   
   select#request_date_time_1i, select#request_date_time_2i, select#request_date_time_3i, select#request_date_time_4i, select#request_date_time_5i{
     width:80%; 
