@@ -44,7 +44,7 @@ class Admin::ClientsController < Admin::ApplicationController
     @client.destroy
     # send an email to admin
     @clients = Client.all.where(admin: false)
-    render 'index'
+    redirect_to admin_clients_path
   end
 
 

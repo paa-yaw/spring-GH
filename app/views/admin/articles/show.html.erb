@@ -5,7 +5,7 @@
 
       <div class="panel panel-info">
         <div class="panel-heading">
-          <h1>Caption: <%= @article.caption%></h1>
+          <h1><strong>Caption: <%= @article.caption%></strong></h1>
         </div>
         <div class="panel-body">
           <div class="row">
@@ -13,8 +13,7 @@
               <table class="table table-user-information">
                 <tbody>
                   <tr>
-                    <td><strong>Content:</strong></td>
-                    <td><%= @article.content %></td>
+                    <td><h4><strong><%= simple_format(@article.content) %></strong></h4></td>
                   </tr>
                 </tbody>
               </table>
@@ -22,7 +21,7 @@
           </div>
         </div>            
       </div>
-      <h3><%= link_to fa_icon("pencil") + " Edit Article", edit_admin_client_article_path(@client, @article), class: "btn  btn-primary" %> <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %> 
+      <h3><%= link_to fa_icon("pencil") + " Edit Article", edit_admin_client_article_path(@client, @article), class: "btn  btn-primary" %> <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %> <%= link_to fa_icon("trash") + " Delete Blog Post", admin_client_article_path(@client, @article), method: :delete, data: {confirm: "Are you sure you want to delete this blog post?"}, class: "btn btn-primary" %>
               </h3>
     </div>
   </div>
