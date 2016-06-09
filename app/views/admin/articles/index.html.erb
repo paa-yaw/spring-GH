@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-	<div class="col-sm-12" >
+	<div class="col-sm-8 col-sm-offset-2">
 
 
 			<div class="panel panel-info">
@@ -9,13 +9,14 @@
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class=" col-md-12 col-lg-12 "> 
+						<div class=" col-md-8 col-lg-8 "> 
 							<table class="table table-user-information">
 								<tbody>
 									<tr>
 										<% @articles.each do |article| %>
-										<h1><strong><%= article.caption %></strong></h1>
-										<p><%= truncate(article.content, :length=> 500) %> <%= link_to "Read More", admin_client_article_path(current_client, article) %></p>
+										<h1><strong><%= link_to article.caption, admin_client_article_path(current_client, article) %></strong></h1>
+										<p><%= link_to (image_tag article.caption_photo_url(:thumb)), admin_client_article_path(current_client, article) %></p>
+										<p><%= truncate(article.content, :length=> 500) %> <strong><%= link_to "Read More", admin_client_article_path(current_client, article) %></strong></p>
 										<p><strong>written by <%= article.client.first_name %> <%= article.client.last_name %>, <%= article.created_at.strftime("%A, %d %B %Y") %></strong></p>
 										<% end %>
 									</tbody>

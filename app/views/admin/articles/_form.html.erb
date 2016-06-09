@@ -1,6 +1,8 @@
 <%= simple_form_for([:admin, client, article]) do |f| %>
 <%= f.input :caption, label: "Caption" %>
 <%= f.input :content, label: "Content" %>
+<%= f.input :caption_photo, as: :file, label: "photo" %>
+<%= f.input :caption_photo_cache, as: :hidden %>
 
 <% if article.persisted? %>
 <%= f.button :submit, "Edit Blog", class: "btn btn-primary" %>
