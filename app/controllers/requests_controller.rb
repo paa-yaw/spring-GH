@@ -60,6 +60,13 @@ class RequestsController < ApplicationController
       @client.first_name = "#{@client.email}"
       @client.last_name = "no name"
 
+      if Client.where(admin: false).pluck(:email).include?(@request.email)
+        flash[:notice] = "#{@request.email} already exists."
+        @request.destroy
+        render 'new'
+      else
+      
+
         if @request.save
           # transfer of referral_code to user
           if params[:request][:ref_code]
@@ -105,6 +112,7 @@ class RequestsController < ApplicationController
           flash.now[:alert] = "something went wrong. Kindly make sure you complete the form before submitting."
           render 'new'
         end
+      end
     end
 
 
