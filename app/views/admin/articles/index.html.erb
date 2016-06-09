@@ -30,7 +30,8 @@
 										<p><strong><i class="fa fa-book" aria-hidden="true"></i> 5 min read</strong></p>
 										<% end %>	
 
-										<p><strong>written by <%= article.client.first_name %> <%= article.client.last_name %>, <%= article.created_at.strftime("%A, %d %B %Y") %></strong></p>
+										<p><strong><i class="fa fa-user" aria-hidden="true"></i>
+ written by <%= article.client.first_name %> <%= article.client.last_name %>, <%= article.created_at.strftime("%A, %d %B %Y") %></strong></p>
 										<% end %>
 									</tbody>
 								</table>
