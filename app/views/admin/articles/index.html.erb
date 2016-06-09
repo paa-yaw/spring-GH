@@ -14,9 +14,9 @@
 								<tbody>
 									<tr>
 										<% @articles.each do |article| %>
-										<h1><%= article.caption %></h1>
+										<h1><strong><%= article.caption %></strong></h1>
 										<p><%= truncate(article.content, :length=> 500) %> <%= link_to "Read More", admin_client_article_path(current_client, article) %></p>
-										<p>written by <%= article.client.first_name %> <%= article.client.last_name %>, <%= article.created_at.strftime("%A, %d %B %Y") %></p>
+										<p><strong>written by <%= article.client.first_name %> <%= article.client.last_name %>, <%= article.created_at.strftime("%A, %d %B %Y") %></strong></p>
 										<% end %>
 									</tbody>
 								</table>
