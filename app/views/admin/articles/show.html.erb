@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 form-box" >
+
+
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h1>Caption: <%= @article.caption%></h1>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class=" col-md-9 col-lg-9 "> 
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td><strong>Content:</strong></td>
+                    <td><%= @article.content %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>            
+      </div>
+      <h3><%= link_to fa_icon("pencil") + " Edit Article", edit_admin_client_article_path(@client, @article), class: "btn  btn-primary" %> <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %> 
+              </h3>
+    </div>
+  </div>
+</div>
