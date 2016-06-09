@@ -15,7 +15,7 @@
                 <p>
                   <%= link_to (image_tag @article.caption_photo_url(:wide)), @article.caption_photo.url %>
                 </p>
-                <h1><strong>Caption: <%= @article.caption%></strong></h1>
+                <h1><strong><%= @article.caption%></strong></h1>
                   
                    
                     <h4><%= simple_format(@article.content) %></h4>
