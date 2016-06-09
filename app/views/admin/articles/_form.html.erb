@@ -1,0 +1,10 @@
+<%= simple_form_for([:admin, client, article]) do |f| %>
+<%= f.input :caption, label: "Caption" %>
+<%= f.input :content, label: "Content" %>
+
+<% if article.persisted? %>
+<%= f.button :submit, "Edit Blog", class: "btn btn-primary" %>
+<% else %>
+<%= f.button :submit, "Publish this blog post", class: "btn btn-primary" %> <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %>
+<% end %>
+<% end %>

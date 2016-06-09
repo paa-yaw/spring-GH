@@ -41,7 +41,7 @@ class Admin::WorkersController < Admin::ApplicationController
   def destroy
   	@worker.destroy
   	@workers = Worker.all 
-    render 'index'
+    redirect_to admin_workers_path
   end
 
 

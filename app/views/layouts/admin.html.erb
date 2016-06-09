@@ -29,10 +29,14 @@
                 <!--  search form start -->
                 <ul class="nav top-menu">                    
                     <li>
-                        <form class="navbar-form">
+                        <!-- <form class="navbar-form">
                             <input class="form-control" placeholder="Search" type="text">
-                        </form>
-                    </li>                    
+                        </form> -->
+                        <%= link_to fa_icon("folder-open-o") + " Publish A Blog Post", new_admin_client_article_path(current_client) %>
+                    </li>  
+                    <li>
+                      <%= link_to fa_icon("eye") + " view blog posts", admin_articles_path %>
+                    </li>                  
                 </ul>
                 <!--  search form end -->                
             </div>
