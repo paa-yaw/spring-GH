@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1" >
+
+
+      <div class="panel panel-info">
+       <!--  <div class="panel-heading">
+          
+        </div> -->
+        <div class="panel-body">
+          <div class="row">
+            <div class=" col-md-8 col-lg-8 "> 
+              <table class="table table-user-information">
+                <tbody>
+                <p>
+                  <%= link_to (image_tag @article.caption_photo_url(:wide)), @article.caption_photo.url %>
+                </p>
+                <h1><strong><%= @article.caption%></strong></h1>
+                  
+                   
+                    <h4><%= simple_format(@article.content) %></h4>
+                </tbody>
+              </table>
+              <p><strong><i class="fa fa-user" aria-hidden="true"></i> written by <%= @article.client.first_name %> <%= @article.client.last_name %>, <%= @article.created_at.strftime("%A, %d %B %Y") %></strong></p>
+            </div>
+          </div>
+        </div>            
+      </div>
+      <h3><%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %></h3>
+    </div>
+  </div>
+</div>
