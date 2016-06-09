@@ -1,0 +1,5 @@
+<%= simple_form_for([:admin, client, article]) do |f| %>
+<%= f.input :caption, label: "Caption" %>
+<%= f.input :content, label: "Content" %>
+<%= f.button :submit, "Create an article", class: "btn btn-primary" %>
+<% end %>

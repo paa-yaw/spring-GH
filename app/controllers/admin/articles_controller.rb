@@ -1,5 +1,6 @@
 class Admin::ArticlesController < Admin::ApplicationController
-  before_action :set_client, except: [:index]
+  # before_action :set_current_client
+  before_action :set_client
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,11 +11,13 @@ class Admin::ArticlesController < Admin::ApplicationController
   end
 
   def new
-  	@article = @client.articles.build
+    if current_client.admin == true
+  	  @article = @client.articles.build
+    end
   end
 
   def create
-  	@article = @client.articles.build(article_params)
+  	@article = current_client.articles.build(article_params)
 
   	if @article.save
   	  flash[:notice] = "you successfully created an article."
@@ -51,14 +54,12 @@ class Admin::ArticlesController < Admin::ApplicationController
 
   def set_article
   	@article = Article.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-  	redirect_to errors_not_found_path
+  # rescue ActiveRecord::RecordNotFound
+  # 	redirect_to errors_not_found_path
   end
 
   def set_client
-  	@client = Client.find(params[:client_id])
-  rescue ActiveRecord::RecordNotFound
-  	redirect_to errors_not_found_path
+  	@client = current_client
   end
 
   def article_params
