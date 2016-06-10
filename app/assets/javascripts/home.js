@@ -1,4 +1,5 @@
 //= require ./home/jquery-min
+//= require jquery_ujs
 //= require ./home/bootstrap.min
 //= require ./home/jquery.nav
 //= require ./home/owl.carousel
