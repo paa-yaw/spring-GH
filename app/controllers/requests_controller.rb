@@ -57,8 +57,8 @@ class RequestsController < ApplicationController
       @secure_password = SecureRandom.hex(5)
       @client.password = @secure_password
       @client.admin = false
-      @client.first_name = "#{@client.email}"
-      @client.last_name = "no name"
+      @client.first_name = @client.email[/[^@]+/]
+      @client.last_name = " "
 
       if Client.where(admin: false).pluck(:email).include?(@request.email)
         flash[:notice] = "#{@request.email} already exists."

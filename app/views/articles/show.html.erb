@@ -26,8 +26,7 @@
           </div>
         </div>            
       </div>
-      <h3><%= link_to fa_icon("pencil") + " Edit Article", edit_admin_client_article_path(@client, @article), class: "btn  btn-primary" %> <%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %> <%= link_to fa_icon("trash") + " Delete Blog Post", admin_client_article_path(@client, @article), method: :delete, data: {confirm: "Are you sure you want to delete this blog post?"}, class: "btn btn-primary" %>
-              </h3>
+      <h3><%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %></h3>
     </div>
   </div>
 </div>

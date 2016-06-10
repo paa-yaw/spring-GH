@@ -63,6 +63,6 @@ class Admin::ArticlesController < Admin::ApplicationController
   end
 
   def article_params
-  	params.require(:article).permit(:caption, :content, :picture)
+  	params.require(:article).permit(:caption, :content, :picture, :caption_photo, :caption_photo_cache)
   end
 end
