@@ -1,3 +1,4 @@
+<br>
 <div class="container">
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1" >
@@ -24,6 +25,8 @@
               <p><strong><i class="fa fa-user" aria-hidden="true"></i> written by <%= @article.client.first_name %> <%= @article.client.last_name %>, <%= @article.created_at.strftime("%A, %d %B %Y") %></strong></p>
             </div>
           </div>
+          <%= link_to "Subscribe to our newsletter", root_path, class: "btn btn-info pull-left" %>
+
         </div>            
       </div>
       <h3><%= link_to fa_icon("arrow-circle-left") + " Back", :back, class: "btn btn-primary" %></h3>
