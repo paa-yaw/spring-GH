@@ -38,4 +38,12 @@ class Client < ActiveRecord::Base
       save
     end
   end
+
+  def subscribe_to_newsletter
+    self.update(subscribe: true)
+  end
+
+  def unsubscribe_from_newsletter
+    self.update(subscribe: false)
+  end
 end

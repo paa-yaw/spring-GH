@@ -23,13 +23,21 @@
                   
                    
                     <h4><%= simple_format(@article.content) %></h4>
-                <!-- </tbody>
-              </table> -->
 
-              
-            <!-- </div> -->
-          <!-- </div> -->
-          <%= link_to "Subscribe to our newsletter", root_path, class: "btn btn-info pull-left" %>
+                </tbody>
+              </table>
+              <p><strong><i class="fa fa-user" aria-hidden="true"></i> written by <%= @article.client.first_name %> <%= @article.client.last_name %>, <%= @article.created_at.strftime("%A, %d %B %Y") %></strong></p>
+            </div>
+          </div>
+          <% if current_client %>
+            <% if current_client.subscribe == false %>
+            <%= link_to fa_icon("envelope") + " Subscribe to our weekly newsletter", subscribe_to_newsletter_path, class: "btn btn-info pull-right" %>
+             <% else %>
+            <%= link_to fa_icon("ban") + " Unsubscribe from our weekly newsletter", unsubscribe_from_newsletter_path, class: "btn btn-danger pull-right" %></strong></h1> 
+            <% end %>
+          <% else %>
+          <%= link_to fa_icon("envelope") + " Subscribe to our weekly newsletter", subscribe_to_newsletter_path, class: "btn btn-info pull-right" %>
+          <% end %>
 
         </div>            
       </div>
