@@ -1,51 +1,107 @@
 <div class="container">
 <br>
 	<div class="row">
-		<div class="col-sm-8 col-sm-offset-2">
+		<div class="col-sm-12 col-md-8 col-md-offset-2">
 
 
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<h1><strong>Blog Posts<%= link_to "Subscribe to our weekly newsletter", root_path, class: "btn btn-info pull-right" %></strong></h1> 
-
+					<h2 class="panel-title text-center">
+					  <strong class="blogTitle">Blog Posts</strong><%= link_to "Subscribe to our weekly newsletter", root_path, class: "btn btn-info pull-right blogButton" %>
+					</h2> 
 				</div>
 				<div class="panel-body">
-					<div class="row">
-						<div class=" col-md-8 col-lg-8 "> 
-							<table class="table table-user-information">
+	<!-- 				<div class="row">
+						<div class=" col-md-8 col-lg-8 ">  -->
+
+						<!-- 	<table class="table table-user-information">
 								<tbody>
-									<tr>
+									<tr> -->
+									<div class="container-fluid">
+
 
 										<% @articles.each do |article| %>
-										<h1><strong><%= link_to article.caption, article_path(article) %></strong></h1>
-										<p><%= link_to (image_tag article.caption_photo_url(:thumb)), article_path(article) %></p>
+										<div class="row blogRow">
+								
 
-										<p>
-											<%= truncate(article.content, :length => 500) %>
-											<% if article.content.length > 500 %>
-											<strong><%= link_to "Read More", article_path(article) %></strong>
-										</p>
-										<% end %>
+											<div class="col-md-4">
+													<!-- Blog Image -->
+													<p><%= link_to (image_tag article.caption_photo_url(:thumb), :width => "100%"), article_path(article) %></p>
 
-										<% if article.content.length < 1000 %>
-										<p><strong><i class="fa fa-book" aria-hidden="true"></i> 1 min read</strong></p>
-										<% elsif article.content.length > 1000 && article.content.length < 2000 %>
-										<p><strong><i class="fa fa-book" aria-hidden="true"></i> 2 min read</strong></p>
-										<% elsif article.content.length > 2000 %>
-										<p><strong><i class="fa fa-book" aria-hidden="true"></i> 5 min read</strong></p>
-										<% end %>	
-										<p><strong><i class="fa fa-user" aria-hidden="true"></i>
-											written by <%= article.client.first_name %> <%= article.client.last_name %>, <%= article.created_at.strftime("%A, %d %B %Y") %></strong></p>
-											<% end %>
+											</div>
+											<div class="col-md-8">
+											    <!-- Header -->
+													<h1 id="blogHeader"><strong><%= link_to article.caption, article_path(article) %></strong>
+													</h1>
 
+													<!-- Blog Summary Author -->
+														<p>
+														<strong><i class="fa fa-user" aria-hidden="true"></i>
+															by <%= article.client.first_name %> <%= article.client.last_name %>, <%= article.created_at.strftime("%A, %d %B %Y") %></strong>  &nbsp;|&nbsp; 
+													  <% if article.content.length < 1000 %>
+																<strong><i class="fa fa-book" aria-hidden="true"></i> 1 min read</strong>
+																<% elsif article.content.length > 1000 && article.content.length < 2000 %>
+																<strong><i class="fa fa-book" aria-hidden="true"></i> 2 min read</strong>
+																<% elsif article.content.length > 2000 %>
+																<strong><i class="fa fa-book" aria-hidden="true"></i> 5 min read</strong>
+														<% end %>		
+														</p>
+
+
+													<!-- Blog Content -->
+														<p>
+															<%= truncate(article.content, :length => 500) %>
+															<% if article.content.length > 500 %>
+																  <strong><%= link_to "Read More", article_path(article) %></strong>
+															<% end %>
+														</p>
+
+
+											</div>
+										</div>
+								<% end %>
+						</div>
+
+												
+													
+
+													<!-- Blog Summary Length -->
+						<!-- 								<div id="blogextras" class="float:left">
+
+												
+														</div> -->
+
+<!-- 
 										</tr>
 									</tbody>
-								</table>
-							</div>
-						</div>
+								</table> -->
+
+						<!-- 	</div>
+						</div> -->
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
 	
+
+	<style>
+		.blogRow{
+			border-bottom: solid 1px #6B7173;
+			margin-bottom: 10px;
+		}
+
+		#blogHeader{
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+
+		.blogButton{
+			margin-right: 31px;
+		}
+
+		.blogTitle{
+			margin-left: 31px;
+		}
+	</style>
