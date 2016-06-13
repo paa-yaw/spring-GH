@@ -47,9 +47,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   	redirect_to admin_articles_path
   end
 
-
-
-
+  
   private
 
   def set_article

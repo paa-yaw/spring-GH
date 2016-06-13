@@ -1,5 +1,5 @@
 class Admin::ClientsController < Admin::ApplicationController
-  before_action :set_client, only: [:show, :edit, :update, :destroy, :update_admin, :send_weekly_newsletter]
+  before_action :set_client, only: [:show, :edit, :update, :destroy, :update_admin]
 
 
   def index
@@ -95,12 +95,18 @@ class Admin::ClientsController < Admin::ApplicationController
   end
 
   def send_weekly_newsletter
+    Client.where(admin: false, subscribe: true).each do |client|
+      SendWeeklyNewsletterJob.set(wait: 1.week).perform_later(client)
+    end
+    
+    flash[:notice] = "all subscribed clients will receive our newsletter a week from now."
+    redirect_to admin_subscribed_clients_path
   end
 
   private
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :email, :password, :location, :phone_number, :tag, :admin)
+    params.require(:client).permit(:first_name, :last_name, :email, :password, :location, :phone_number, :tag, :admin, :subcribe)
   end
 
   def set_client

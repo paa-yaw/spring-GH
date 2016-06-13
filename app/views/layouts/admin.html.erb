@@ -12,6 +12,11 @@
   <script type="text/javascript" src="app/assets/javascripts/jquery.raty.min.js"></script>
 </head>
 <body>
+<% flash.each do |key, message| %>
+    <p style="position:absolute; z-index:10000; margin:0 auto;left:0; right:0; width:40%; background:#BDE5F8; color:#00529B; padding:10px;" class="well well-sm text-center" id="flashmessage">
+      <%= message %>
+    </p>
+ <% end %>
   <!-- container section start -->
   <section id="container" class="">
      
@@ -170,6 +175,15 @@
             
           
   </section>
+  <script>
+
+    setTimeout(fade_out, 5000);
+
+    function fade_out() {
+     $("#flashmessage").fadeOut().empty();
+   }
+
+ </script>
   
   </body>
 
