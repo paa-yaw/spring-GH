@@ -11,6 +11,17 @@ class ApplicationController < ActionController::Base
     Client.current = current_client
   end
 
+  def subscribe
+    if current_client
+      current_client.subscribe_to_newsletter
+      flash[:notice] = "you just subscribed to our weekly newsletter."
+      redirect_to articles_path
+    else
+      flash[:notice] = "you sign up to be able to subscribe to our weekly newsletter."
+      redirect_to new_client_registration_path
+    end
+  end
+
   
 
   protected
