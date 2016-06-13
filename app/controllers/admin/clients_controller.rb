@@ -1,5 +1,5 @@
 class Admin::ClientsController < Admin::ApplicationController
-  before_action :set_client, only: [:show, :edit, :update, :destroy, :update_admin]
+  before_action :set_client, only: [:show, :edit, :update, :destroy, :update_admin, :send_weekly_newsletter]
 
 
   def index
@@ -88,6 +88,13 @@ class Admin::ClientsController < Admin::ApplicationController
   end
 
   def client_requests
+  end
+
+  def client_subscription_status
+    @clients = Client.all.where(admin: false)
+  end
+
+  def send_weekly_newsletter
   end
 
   private
