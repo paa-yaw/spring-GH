@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609194200) do
+ActiveRecord::Schema.define(version: 20160613104437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160609194200) do
     t.string   "referral_code"
     t.string   "referrer_code"
     t.integer  "points",                 default: 0
+    t.boolean  "subscribe",              default: false
   end
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
@@ -134,16 +135,16 @@ ActiveRecord::Schema.define(version: 20160609194200) do
     t.integer  "kitchens",                                    default: 0
     t.integer  "hall",                                        default: 0
     t.string   "weekdays",                                    default: [],                        array: true
-    t.string   "extra_services",                              default: [],                        array: true
+    t.decimal  "extra_services",                              default: [],                        array: true
     t.string   "status",                                      default: "unresolved"
     t.string   "email"
     t.string   "phone_number"
     t.text     "location"
     t.decimal  "frequency",          precision: 6,  scale: 2
-    t.boolean  "terms",                                       default: false
     t.decimal  "total_cost",         precision: 10, scale: 2
     t.integer  "total_rooms"
     t.decimal  "extra_services_sum", precision: 10, scale: 2
+    t.boolean  "terms",                                       default: false
     t.string   "ref_code"
     t.string   "promocode"
     t.string   "date"
