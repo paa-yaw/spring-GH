@@ -155,6 +155,7 @@ Rails.application.routes.draw do
 
 
   get 'application/subscribe', to: 'application#subscribe', as: :subscribe_to_newsletter
+  get 'application/unsubscribe', to: 'application#unsubscribe', as: :unsubscribe_from_newsletter
   
 
   # get 'move/', to: 'admin/workers#move', as: :move

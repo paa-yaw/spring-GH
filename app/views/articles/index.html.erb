@@ -9,10 +9,12 @@
 					<h1><strong>Blog Posts
 					<% if current_client %>
 					  <% if current_client.subscribe == false %>
-					  <%= link_to "Subscribe to our weekly newsletter", subscribe_to_newsletter_path, class: "btn btn-info pull-right" %></strong></h1> 
+					  <%= link_to fa_icon("envelope")  + " Subscribe to our weekly newsletter", subscribe_to_newsletter_path, class: "btn btn-info pull-right" %></strong></h1> 
+					  <% else %>
+					  <%= link_to fa_icon("ban") +" Unsubscribe from our weekly newsletter", unsubscribe_from_newsletter_path, class: "btn btn-danger pull-right" %></strong></h1> 
 					  <% end %>
 					<% else %>
-					<%= link_to "Subscribe to our weekly newsletter", subscribe_to_newsletter_path, class: "btn btn-info pull-right" %></strong></h1> 
+					<%= link_to fa_icon("envelope") +" Subscribe to our weekly newsletter", subscribe_to_newsletter_path, class: "btn btn-info pull-right" %></strong></h1> 
 					<% end %>
 				</div>
 				<div class="panel-body">

@@ -22,6 +22,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def unsubscribe
+    if current_client
+      current_client.unsubscribe_from_newsletter
+      flash[:notice] = "you have successfully unsubscribed from our weekly newsletter"
+      redirect_to articles_path
+    end
+  end
+
   
 
   protected
