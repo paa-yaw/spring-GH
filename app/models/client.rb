@@ -45,5 +45,5 @@ class Client < ActiveRecord::Base
 
   def unsubscribe_from_newsletter
     self.update(subscribe: false)
-  end
+  end 
 end
