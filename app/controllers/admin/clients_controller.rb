@@ -95,20 +95,21 @@ class Admin::ClientsController < Admin::ApplicationController
   end
 
   def send_weekly_newsletter
-    
-    # Client.where(admin: false, subscribe: true).each do |client|
-    #   SendNewsletterJob.set(wait: 1.week).perform_later(client)
-    # end
-    # testing email
     @articles = []
 
     Article.all.order(created_at: :desc).each do |article|
       @articles << article
     end
-
+    
     Client.where(admin: false, subscribe: true).each do |client|
-      SendNewsletterJob.set(wait: 1.second).perform_later(client, @articles)
+      SendNewsletterJob.set(wait: 1.week).perform_later(client)
     end
+
+
+    # testing email 
+    # Client.where(admin: false, subscribe: true).each do |client|
+    #   SendNewsletterJob.set(wait: 1.second).perform_later(client, @articles)
+    # end
     
     flash[:notice] = "all subscribed clients will receive our newsletter a week from now."
     redirect_to admin_subscribed_clients_path
