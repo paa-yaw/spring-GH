@@ -72,6 +72,9 @@ Rails.application.routes.draw do
 
     get 'clients/:client_id/referrals', to: 'referrals#view', as: :client_referrals
 
+    get 'clients/client_subscription_status', to: 'clients#client_subscription_status', as: :subscribed_clients
+    get 'clients/send_weekly_newsletter', to: 'clients#send_weekly_newsletter', as: :send_weekly_newsletter
+
 
 
     resources :clients do
