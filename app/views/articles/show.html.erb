@@ -15,8 +15,7 @@
 
              <!--  <table class="table table-user-information">
                 <tbody> -->
-                <h1><strong><%= @article.caption%></strong></h1>
-              <p><strong><i class="fa fa-user" aria-hidden="true"></i> written by <%= @article.client.first_name %> <%= @article.client.last_name %>, <%= @article.created_at.strftime("%A, %d %B %Y") %></strong></p>
+                <h2 class="panel-title text-center"><strong><%= @article.caption%></strong></h2>
                 <p>
                   <%= link_to (image_tag @article.caption_photo_url(:wide)), @article.caption_photo.url %>
                 </p>
@@ -24,9 +23,10 @@
                    
                     <h4><%= simple_format(@article.content) %></h4>
 
+                  <p><strong><i class="fa fa-user" aria-hidden="true"></i> written by <%= @article.client.first_name %> <%= @article.client.last_name %>, <%= @article.created_at.strftime("%A, %d %B %Y") %></strong></p>
                 </tbody>
               </table>
-              <p><strong><i class="fa fa-user" aria-hidden="true"></i> written by <%= @article.client.first_name %> <%= @article.client.last_name %>, <%= @article.created_at.strftime("%A, %d %B %Y") %></strong></p>
+<!--               <p><strong><i class="fa fa-user" aria-hidden="true"></i> written by <%= @article.client.first_name %> <%= @article.client.last_name %>, <%#= @article.created_at.strftime("%A, %d %B %Y") %></strong></p> -->
             </div>
           </div>
           <% if current_client %>
@@ -45,3 +45,13 @@
     </div>
   </div>
 </div>
+
+
+<style>
+/*  .icon-instagram,
+  .icon-facebook,
+  .icon-twitter
+  {
+    color:#fff;
+  }*/
+</style>

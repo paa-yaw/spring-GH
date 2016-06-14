@@ -3,8 +3,8 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Storystrap Template</title>
-		<meta name="generator" content="Bootply" />
+		<title>Spring - Blog</title>
+		<!-- <meta name="generator" content="Bootply" /> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
@@ -31,33 +31,58 @@
 
 <div id="masthead">  
   <div class="container">
+
     <div class="row">
-      <div class="col-md-7">
-        <h1>Blog
+
+      <div class="col-md-12">
           <p class="lead">
-          </p>
-        </h1>
-        
-      </div>
-      <div class="col-md-5">
+            <h1 style="margin-top:5px;">Blog
+          <!-- </p>          -->
+      
+
+      <!-- <div class="col-md-5"> -->
+        <!-- <p class="lead"> -->
+         <div class="pull-right" style="vertical-align:middle;">
+               <a class="btn btn-twitter btn-lg" href="https://twitter.com/spring_ghana"><i class="icon-twitter icon-large"></i></a>
+               <a class="btn btn-facebook btn-lg" href="https://www.facebook.com/springghhome/?ref=br_rs"><i class="icon-facebook icon-large"></i></a>
+               <a class="btn btn-google-plus btn-lg" href="https://www.instagram.com/spring_ghana/"><i class="icon-instagram icon-large"></i></a>
+               <%= link_to "Subscribe to our weekly newsletter", root_path, class: "btn btn-info pull-right", :style=>"margin-top:8px;" %>
+         </div>
+         </h1>
+        </p>
+      <!-- </div> -->
+
       </div>
     </div> 
+
   </div><!-- /cont -->
-  
+  </div>
+
+    <!-- start -->
+    <section id="faq" class="section-intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- faq intro end -->
+
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="top-spacer"> </div>
+        <div class="top-spacer"></div>
       </div>
     </div> 
   </div><!-- /cont -->  
-</div>
+<!-- </div> -->
 
 
 <div class="container">
   <div class="row">
     
-    <div class="col-md-12"> 
+    <div class="col-md-10 col-md-offset-1"> 
       
       <div class="panel">
         <div class="panel-body">
@@ -67,39 +92,41 @@
           <div class="row">    
           	<% @articles.each do |article| %>
             <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><%= link_to (image_tag article.caption_photo_url(:thumb), width:"100%", class:"img-rounded"), article_path(article) %></a>
+            <div class="col-md-3 col-sm-3 text-center">
+              <a class="story-title" href="#"><%= link_to (image_tag article.caption_photo_url(:thumb), width:"100%", class:"img-square"), article_path(article) %></a>
             </div>
 
-            <div class="col-md-10 col-sm-9">
+            <div class="col-md-9 col-sm-9">
               <h3 style="margin-top:0px;"><%= link_to article.caption, article_path(article) %></h3>
               <div class="row">
                 <div class="col-xs-9">
 
                   <h4><span class="label label-default"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;
-											by <%= article.client.first_name %> <%= article.client.last_name %>, <%= article.created_at.strftime("%A, %d %B %Y") %></span></h4>
+											by <%= article.client.first_name %> <%= article.client.last_name %></span></h4>
 
 									<h4>
 
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%= article.created_at.strftime("%A, %d %B %Y") %>  • 
+                  <small style="font-family:'Lato';" class="text-muted">
+
+                  <%= article.created_at.strftime("%A, %d %B %Y") %>  • 
                   <% if article.content.length < 1000 %>
-										<p class="text-muted" style="white-space:nowrap;"></i> 1 min read</p>
+										<small class="text-muted"><i class="fa fa-book" aria-hidden="true"></i> 1 min read</small>
 										<% elsif article.content.length > 1000 && article.content.length < 2000 %>
-										<p class="text-muted" style="white-space:nowrap;"></i> 2 min read</p>
+										<small class="text-muted"><i class="fa fa-book" aria-hidden="true"></i> 2 min read</small>
 										<% elsif article.content.length > 2000 %>
-										<p class="text-muted" style="white-space:nowrap;"></i> 5 min read</p>
+										<small class="text-muted"><i class="fa fa-book" aria-hidden="true"></i> 5 min read</small>
 										<% end %>	
-										</small>
+									</small>
 
                   </h4>
 
-                  <p class="text-muted">
-										<%= truncate(article.content, :length => 500) %>
-										<% if article.content.length > 500 %>
-										<strong><%= link_to "Read More", article_path(article) %></strong>
-										<% end %>
+                <!--   <p class="text-muted">
+										<%#= truncate(article.content, :length => 500) %>
+										<#% if article.content.length > 500 %>
+										<strong><%#= link_to "Read More", article_path(article) %></strong>
+									</p> -->
+										<%# end %>
 
-									</p>
                   </div>
                 <div class="col-xs-3"></div>
               </div>
@@ -153,10 +180,7 @@
     <div class="container">
       <div class="copyright text-center">
         <p>
-        	
-     <a class="btn btn-twitter btn-lg" href="https://twitter.com/spring_ghana"><i class="icon-twitter icon-large"></i>@spring_ghana</a>
-     <a class="btn btn-facebook btn-lg" href="https://www.facebook.com/springghhome/?ref=br_rs"><i class="icon-facebook icon-large"></i>Spring, Ghana</a>
-     <a class="btn btn-google-plus btn-lg" href="https://www.instagram.com/spring_ghana/"><i class="icon-instagram icon-large"></i> spring_ghana</a>
+
         </p>
         <p class="fa fa-copyright">Spring 2016</p>
       </div>
