@@ -60,7 +60,7 @@ class RequestsController < ApplicationController
       @client.first_name = @client.email[/[^@]+/]
       @client.last_name = " "
 
-      if Client.where(admin: false).pluck(:email).include?(@request.email)
+      if Client.where(admin: false).pluck(:email).include?(@request.email) or Client.where(admin: true).pluck(:email).include?(@request.email)
         flash[:notice] = "#{@request.email} already exists."
         @request.destroy
         render 'new'

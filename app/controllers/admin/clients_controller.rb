@@ -90,15 +90,39 @@ class Admin::ClientsController < Admin::ApplicationController
   def client_requests
   end
 
+  def client_subscription_status
+    @clients = Client.all.where(admin: false)
+  end
+
+  def send_weekly_newsletter
+    @articles = []
+
+    Article.all.order(created_at: :desc).each do |article|
+      @articles << article
+    end
+    
+    # Client.where(admin: false, subscribe: true).each do |client|
+    #   SendNewsletterJob.set(wait: 1.week).perform_later(client)
+    # end
+
+    # testing email   
+    Client.where(admin: false, subscribe: true).each do |client|
+      SendNewsletterJob.set(wait: 1.second).perform_later(client, @articles)
+    end
+    
+    flash[:notice] = "all subscribed clients will receive our newsletter a week from now."
+    redirect_to admin_subscribed_clients_path
+  end
+
   private
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :email, :password, :location, :phone_number, :tag, :admin)
+    params.require(:client).permit(:first_name, :last_name, :email, :password, :location, :phone_number, :tag, :admin, :subcribe)
   end
 
   def set_client
     @client = Client.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to errors_not_found_path
+  # rescue ActiveRecord::RecordNotFound
+  #   redirect_to errors_not_found_path
   end
 end
