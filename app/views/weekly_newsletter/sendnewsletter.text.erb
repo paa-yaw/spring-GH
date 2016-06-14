@@ -1,8 +1,9 @@
-Hi, <%= @client.email %>
+<% customer = "Valued Customer" %>
+Dear <%= @client.first_name || customer %>, Welcome to Spring
 ===============================================
  
-Your weekly newsletter. Please login here:
-      <%= @url %>
-
+You have successfully signed up to springgh.com.
  
-Thank you for using springgh. Have a great day!
+To login to the site, just follow this link: <%= link_to "Sign in", @url %>.
+ 
+Thanks for joining and have a great day!

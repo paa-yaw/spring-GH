@@ -30,11 +30,11 @@ class RequestsController < ApplicationController
         @request.business_algorithm          
 
         # sends email to client to acknowledge receipt of request(s)
-        SendAcknowledgementJob.set(wait: 2.seconds).perform_later(@client)
+        SendAcknowledgementJob.set(wait: 2.seconds).perform_later(current_client)
 
-        # sends email to admin after a logged in client places a request
+        # sends email to admin after a logged-in client places a request
         Client.where(admin: true).each do |recipient|
-          NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient)
+          NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient, current_client)
         end
 
         redirect_to confirmation_path(@request)
