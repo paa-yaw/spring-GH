@@ -9,7 +9,7 @@
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<!-- <link href="css/styles.css" rel="stylesheet"> -->
 	</head>
 	<body>
 
@@ -32,12 +32,12 @@
 
     <div class="row">
 
-      <div class="col-md-10 col-md-offset-1 col-xs-12">
+      <div class="col-md-10 col-md-offset-1 col-sm-12">
           <p class="lead">
             <h1 style="margin-top:5px; color:#fff;">Blog
 
          <div class="pull-right buttons-bar" style="vertical-align:middle;">
-               <%= link_to "Subscribe to our weekly newsletter", root_path, class: "btn btn-info pull-right", :style=>"margin-top:8px;" %>
+               <%= link_to fa_icon("envelope") + "Subscribe to our weekly newsletter", root_path, class: "btn btn-info pull-right", :style=>"margin-top:8px;" %>
          </div>
          </h1>
         </p>
@@ -46,28 +46,9 @@
     </div> 
 
   </div><!-- /cont -->
-  </div>
+</div>
 
-    <!-- start -->
-    <section id="faq" class="section-intro">
-    <div class="overlay">
-      <div class="container">
-        <div class="row">
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- faq intro end -->
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="top-spacer"></div>
-      </div>
-    </div> 
-  </div><!-- /cont -->  
-<!-- </div> -->
-
+         <br>
 
 <div class="container">
   <div class="row">
@@ -97,64 +78,43 @@
 									<h4>
 
                   <small style="font-family:'Lato';" class="text-muted">
-
-                  <%= article.created_at.strftime("%A, %d %B %Y") %>  • 
+                  <%= article.created_at.strftime("%A, %d %B %Y") %></small>  • 
                   <% if article.content.length < 1000 %>
-										<small class="text-muted"><i class="fa fa-book" aria-hidden="true"></i> 1 min read</small>
+										<small style="font-family:'Lato';" class="text-muted"><i class="fa fa-book" aria-hidden="true"></i> 1 min read</small>
 										<% elsif article.content.length > 1000 && article.content.length < 2000 %>
-										<small class="text-muted"><i class="fa fa-book" aria-hidden="true"></i> 2 min read</small>
+										<small style="font-family:'Lato';" class="text-muted"><i class="fa fa-book" aria-hidden="true"></i> 2 min read</small>
 										<% elsif article.content.length > 2000 %>
-										<small class="text-muted"><i class="fa fa-book" aria-hidden="true"></i> 5 min read</small>
+										<small style="font-family:'Lato';" class="text-muted"><i class="fa fa-book" aria-hidden="true"></i> 5 min read</small>
 										<% end %>	
-									</small>
+									
 
                   </h4>
 
-                <!--   <p class="text-muted">
-										<%#= truncate(article.content, :length => 500) %>
-										<#% if article.content.length > 500 %>
-										<strong><%#= link_to "Read More", article_path(article) %></strong>
-									</p> -->
-										<%# end %>
+                  <p class="text-muted">
+										<%= truncate(article.content, :length => 500) %>
+										<% if article.content.length > 500 %>
+										<strong><%= link_to "Read More", article_path(article) %></strong>
+									</p>
+										<% end %>
 
                   </div>
-                <div class="col-xs-3"></div>
+	                <div class="col-xs-3"></div>
               </div>
-              <br><br>
             </div>
+
           </div>
           <hr>
 
           <% end %>
           
-     <!--      <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="http://api.randomuser.me/portraits/thumb/women/56.jpg" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3>14 Useful Sites for Designers</h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default">devgarage.com</span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">Yesterday • <a href="#" class="text-muted">Read More</a></small>
-                  </h4></div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div> -->
-          <!-- <hr> -->
-          <!-- <hr> -->
-          <!-- <hr> -->
-          <!-- <hr> -->
           <!--/stories-->
           
           
-          <a href="/" class="btn btn-primary pull-right btnNext">More </a>
-        
+          <!-- <br> -->
           
         </div>
+          <a href="/" class="btn btn-primary pull-right btnNext">More </a>
+          <br>
       </div>
                                                                                        
                                                   
