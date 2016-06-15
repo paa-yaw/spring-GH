@@ -142,6 +142,8 @@ Rails.application.routes.draw do
   resources :comments, only: [:new, :create, :show, :edit, :update]
   resources :articles, only: [:index, :show]
 
+  resources :orders, only: [:new, :create, :show, :edit, :update]
+
 
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
   get 'my_requests/', to: 'requests#my_requests', as: :my_requests
