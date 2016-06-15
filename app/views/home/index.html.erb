@@ -7,7 +7,7 @@
           <div class="main-text">
             <h1 class="wow fadeInUp"><span>On - Demand</span> Cleaning Service</h1>
             <h2 class="wow fadeInUp" data-wow-delay=".7s">Trustworthy, Quality & Reliable Cleaners</h2>
-            <div class="wow fadeInUp" data-wow-delay="1.5s"><%= link_to "Book a Cleaning", new_request_path, class: "btn btn-border btn-lg", id:"bookButton" %></div>
+            <div class="wow fadeInUp" data-wow-delay="1.5s"><%= link_to "Book a Cleaning", new_order_path, class: "btn btn-border btn-lg", id:"bookButton" %></div>
       
           </div>
         </div>
@@ -31,7 +31,7 @@
                   <br>
                   With Spring you are assured of cleaner you can trust and who would do a quality and reliable job for you.
                 </p>
-                  <%= link_to "Book a Cleaner", new_request_path, class: "btn btn-border" %>
+                  <%= link_to "Book a Cleaning", new_order_path, class: "btn btn-border" %>
                   <%= link_to "Become a Cleaner", new_worker_path, class: "btn btn-border" %>
               </div>
 
@@ -360,7 +360,7 @@
       <div class="row">
         <h2 class="section-title wow fadeInUp" data-wow-delay=".2s">Stay Connected</h2>   
         <h3 class="discription wow fadeIn" data-wow-delay=".2s">Do you have any questions or concerns?</h3>
-        <div class="wow fadeInUp" data-wow-delay=".2s"><a class="btn btn-border btn-lg" style=" border-color: white;" href="/requests/new">Book a Cleaner</a></div>
+        <div class="wow fadeInUp" data-wow-delay=".2s"><a class="btn btn-border btn-lg" style=" border-color: white;" href="/orders/new">Book a Cleaner</a></div>
         <hr>
         <div class="connected-wrapper text-center">
           <div class="col-sm-6 col-md-3 wow fadeInUp" data-wow-delay="0.2s">
