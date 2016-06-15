@@ -1,48 +1,96 @@
 <%= simple_form_for(order) do |f| %>
-<div class="row">
-	<h4 class="text-center">Which rooms do you want cleaned? </h4><br>
-	<div onchange="calculatePricing()"> 
-
-		<div class="col-md-3 col-sm-12 col-xs-12 text-center">
-			<label>Bedrooms</label>
-			<%= f.select :bedrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
+<div class="panel-info" style="background:#fff;">
+		<div class="panel-heading panel-title order-title">
+      <h2 class="text-center panel-title">Cleaning Request</h2>
 		</div>
+	<!-- <div onchange="calculatePricing()">  -->
+    <div class="panel-body">
+    <div class="container-fluid">
+    	
+    
+    	<div class="row">
 
-		<div class="col-md-3 col-sm-12 col-xs-12 text-center">
-			<label>Bathrooms</label>
-			<%= f.select :bathrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bathrooms),{},{:class => "btn btn-default"} %>
-		</div>
-	</div>
+			<u><h4 class="text-center">Room Information</h4></u>
 
-	<div class="col-md-12 col-sm-12">
-		<div class="row">
+<div>
+	
 
-			<div class="col-md-6 col-md-offset-3 col-sm-12">
-				<%= f.input :email, placeholder:"your email", label: "email" %>
-			</div>
+				<div class="col-md-2 col-md-offset-3 col-sm-12" id="bedroom">
+					<label>Bedrooms</label>
+					<%= f.select :bedrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
+				</div>
 
-			<div class="col-md-6 col-md-offset-3 col-sm-12">
-				<%= f.input :phone_number, maxlength: "10", placeholder:"024 123 4567", label: "phone number" %>
-			</div>
-
-			<div class="col-md-6 col-md-offset-3 col-sm-12">
-				<%= f.input :location, maxlength: "55", placeholder:"House No., Area, or Landmark", label: "location" %>
-			</div>
-		</div>
-	</div>
+				<div class="col-md-2 col-md-offset-1 col-sm-12 col-sm-12" id="bathroom">	
+					<label>Bathrooms</label>
+					<%= f.select :bathrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bathrooms),{},{:class => "btn btn-default"} %>
+				</div>
 </div>
 
-<div class="panel-body">
-	<div class="col-md-12 col-sm-12 col-xs-12">
-		<label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path, target: '_blank' %></label>
-		<%= f.input :terms, label: "I Have Carefully Read And Fully Agreed To The Terms of Service", :selected => order.terms %> 
-	</div>
-</div>
+			</div>
+	<!-- </div> -->
+<br>
+			<u><h4 class="text-center">Contact Information </h4></u>
 
-<div class="panel-body" style="padding:0px 0px 20px;">
-	<div class="col-xs-12">
-		<%= f.button :submit, "Book A Cleaning", :class=>"btn btn-block submit_button  col-md-3",:id =>"cleanButton" %>
-	</div>
-</div>
+	<!-- <div class="col-md-12 col-sm-12"> -->
+			<div class="row">
+					<div class="col-md-6 col-md-offset-3 col-sm-12">
+						<%= f.input :email, placeholder:"your email", label: "Email" %>
+					</div>
 
+					<div class="col-md-6 col-md-offset-3 col-sm-12">
+						<%= f.input :phone_number, maxlength: "10", placeholder:"024 123 4567", label: "Phone number" %>
+					</div>
+
+					<div class="col-md-6 col-md-offset-3 col-sm-12">
+						<%= f.input :location, maxlength: "55", placeholder:"House No., Area, or Landmark", label: "Location" %>
+					</div>
+			</div>
+
+		  <div class="row">
+				<div class="col-md-8 col-md-offset-2 col-sm-12">
+					<label><%= link_to "READ OUR TERMS OF SERVICE HERE", terms_of_service_path, target: '_blank' %></label>
+					<%= f.input :terms, label: "I Have Carefully Read And Fully Agreed To The Terms of Service", :selected => order.terms %> 
+				</div>
+		  </div>
+
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 col-sm-12">
+					<%= f.button :submit, "Book A Cleaning", :class=>"btn btn-block submit_button  col-md-3",:id =>"cleanButton" %>
+				</div>
+			</div>
+			</div>
+		</div>
+</div>
 <% end %>
+
+
+<style>
+	select#order_bedrooms.btn.btn-default,
+	select#order_bathrooms.btn.btn-default{
+		width: 106px;
+	}
+
+	#bathroom{
+		/*margin-left: 60px;*/
+	}
+
+	div.panel-heading.panel-title.order-title{
+		background: rgba(24, 186, 219, 1);
+		border-bottom-color: rgba(24, 186, 219, 1);  
+	}
+
+	.order-title h2{
+		color: #fff;
+		background: rgba(24, 186, 219, 1);
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+
+/*	@media only screen 
+and (max-device-height : 768px) 
+and (max-device-width : 1024px)
+{
+
+}*/
+</style>
+
