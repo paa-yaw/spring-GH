@@ -122,7 +122,7 @@ class Admin::ClientsController < Admin::ApplicationController
 
   def set_client
     @client = Client.find(params[:id])
-  # rescue ActiveRecord::RecordNotFound
-  #   redirect_to errors_not_found_path
+  rescue ActiveRecord::RecordNotFound
+    redirect_to errors_not_found_path
   end
 end
