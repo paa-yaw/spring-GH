@@ -217,6 +217,7 @@ function calculatePricing() {
       document.getElementById('extraRooms').innerHTML = extraRoom;
 
     var extraRoomValue = (roomTotal() + roomFactor);
+    
     var extraRoomPrice = "GHS "+((extraRoomValue)*5 )+".00";
 
       document.getElementById('extraRoomPrice').innerHTML = extraRoomPrice;
