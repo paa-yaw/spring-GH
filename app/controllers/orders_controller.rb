@@ -25,9 +25,6 @@ class OrdersController < ApplicationController
   	  @client.save
 
   	  @request = Request.new
-  	  # @request.email = @order.email
-  	  # @request.phone_number = @order.phone_number
-  	  # @request.location = @order.location
   	  @request.terms = true
   	  @request.resolved = false
   	  @request.bathrooms = @order.bathrooms
@@ -48,7 +45,7 @@ class OrdersController < ApplicationController
   	   SendEmailJob.set(wait: 2.seconds).perform_later(@client, @secure_password)
 
 
-  	  flash[:notice] = "you have request has been successfully sent."
+  	  # flash[:notice] = "you have request has been successfully sent."
   	  redirect_to message_path(@order)
   	else
   	  flash.now[:alert] = "your request was not successfully"
