@@ -52,22 +52,22 @@
 
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
             <label>Bedrooms</label>
-            <%= f.select :bedrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
+            <%= f.select :bedrooms, options_for_select([["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bedrooms),{},{:class => "btn btn-default"}%>
           </div>
 
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
             <label>Bathrooms</label>
-            <%= f.select :bathrooms, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bathrooms),{},{:class => "btn btn-default"} %>
+            <%= f.select :bathrooms, options_for_select([["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.bathrooms),{},{:class => "btn btn-default"} %>
           </div>
 
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
             <label>Kitchens</label><br>
-            <%= f.select :kitchens, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.kitchens),{},{:class => "btn btn-default"} %> 
+            <%= f.select :kitchens, options_for_select([["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.kitchens),{},{:class => "btn btn-default"} %> 
           </div>
 
           <div class="col-md-3 col-sm-12 col-xs-12 text-center">
             <label>Living Room</label>
-            <%= f.select :hall, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.hall),{},{:class => "btn btn-default"} %>
+            <%= f.select :hall, options_for_select([["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5+", 5]], :selected => f.object.hall),{},{:class => "btn btn-default"} %>
           </div>
 
         </div>

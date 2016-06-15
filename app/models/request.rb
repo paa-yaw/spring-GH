@@ -14,6 +14,13 @@ class Request < ActiveRecord::Base
   validate :forbidden_dates
   # validate :day_and_date_match
   validate :length_of_phone_number
+  validate :choose_at_least_one_room
+
+  def choose_at_least_one_room
+    if bathrooms == 0 && bedrooms == 0 && hall == 0 && kitchens == 0
+      errors.add(:bathrooms, "please choose at least one room")
+    end
+  end
 
     def length_of_phone_number
       if phone_number.present?
