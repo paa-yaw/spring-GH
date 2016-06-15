@@ -109,8 +109,13 @@ class RequestsController < ApplicationController
           flash[:notice] = "Hi #{current_client.email}, Welcome to Spring."
           redirect_to confirmation_path(@request)              
         else  
-          flash.now[:alert] = "something went wrong. Kindly make sure you complete the form before submitting."
-          render 'new'
+          if @request.bathrooms == 0 && @request.bedrooms == 0 && @request.kitchens == 0 && @request.hall == 0
+            flash[:alert] = "Your house should at least have one room"
+            render 'new'
+          else
+            flash.now[:alert] = "something went wrong. Kindly make sure you complete the form before submitting."
+            render 'new'
+          end
         end
       end
     end
