@@ -15,7 +15,8 @@
                    <%= pluralize(@request.bedrooms, "bedroom")%>,
                       <%= pluralize(@request.bathrooms, "bathroom")%>,
                       <%= pluralize(@request.hall, "living room")%>, 
-                      <%= pluralize(@request.kitchens, "kitchen") %>
+                      <%= pluralize(@request.kitchens, "kitchen") %></br>
+                      (GHS <%= (@request.bathrooms + @request.bedrooms + @request.kitchens + @request.hall) * 5 %>.00)
                       </b>
                        </p>
                       <br>
