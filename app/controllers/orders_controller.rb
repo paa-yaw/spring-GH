@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
   	  @request.hall = 0
   	  @request.weekdays = [""]
   	  @request.extra_services = [nil]
-  	  @request.date = "2016/06/17"
+  	  @request.date = 1.day.from_now.to_s
   	  @request.frequency = 150.0
   	  @request.time = 1.day.from_now - 14.hours
   	  @request.status = "unresolved"
