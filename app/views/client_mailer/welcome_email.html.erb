@@ -166,11 +166,11 @@
                                           <h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Hi <%= @client.first_name || customer %>,</h3>
                                           <div mc:edit="body" style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">You have successfully signed up to springgh.com.<br>
 
-                                          <% if @client.requests.empty? %>
-                                          <% else %>
+                                          <%# if @client.requests.empty? %>
+                                          <%# else %>
                                           <p>Use the following password to login
                                           PASSWORD: <%= @password %></p>
-                                          <% end %>
+                                          <%# end %>
 
                                           <br>To login to the site, just click on this <a href="https://www.springgh.com/clients/sign_in" target="_blank">link</a><br><br>
                                           <p>Thanks for joining Spring and have a great day!</p>

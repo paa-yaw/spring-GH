@@ -143,6 +143,7 @@ Rails.application.routes.draw do
   resources :articles, only: [:index, :show]
 
   resources :orders, only: [:new, :create, :show, :edit, :update]
+  get 'orders/:id/message', to: 'orders#message', as: :message
 
 
   get 'requests/:id/display_request', to: 'requests#display_request', as: :display_request
