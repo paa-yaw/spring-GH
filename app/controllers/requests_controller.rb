@@ -133,8 +133,13 @@ class RequestsController < ApplicationController
         @request.business_algorithm
         redirect_to confirmation_path(@request)
       else
-        flash.now[:alert] = "An update of your request failed!"
-        render 'edit'
+        if @request.bathrooms == 0 && @request.bedrooms == 0 && @request.kitchens == 0 && @request.hall == 0
+          flash[:alert] = "Your house should at least have one room"
+          render 'new'
+        else
+          flash.now[:alert] = "An update of your request failed!"
+          render 'edit'
+        end
       end
     end 
 

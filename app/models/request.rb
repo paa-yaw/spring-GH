@@ -105,7 +105,7 @@ class Request < ActiveRecord::Base
        monthly_package = 500.00
 
        if self.frequency == one_off_package
-        total = one_off_package + (rooms - 4)*5 + extra_services
+        total = one_off_package + rooms*5 + extra_services
         total = total.round
         if self.promocode == "mothersday2016"
          discount = total * 0.85
@@ -119,7 +119,7 @@ class Request < ActiveRecord::Base
         end
 
        elsif self.frequency == weekly_package
-        total = one_off_package + (rooms - 4)*5 + extra_services
+        total = weekly_package + rooms*5 + extra_services
         total = total.round
         if self.promocode == "mothersday2016"
           discount = total * 0.85
