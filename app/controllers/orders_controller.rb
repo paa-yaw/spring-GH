@@ -11,6 +11,12 @@ class OrdersController < ApplicationController
   def create 
   	@order = Order.new(order_params)
 
+  	if Client.pluck(:email).include?(@order.email)
+  	  flash[:notice] = "#{@order.email} already exists."
+  	  @order.destroy
+  	  render 'new'
+  	else
+
 
   	if @order.save
   	  @client = Client.new
@@ -44,6 +50,11 @@ class OrdersController < ApplicationController
   	   # sends email notification to client after sign up 
   	   SendEmailJob.set(wait: 2.seconds).perform_later(@client, @secure_password)
 
+  	   # sends email notification to admin after client sign up
+  	   Client.where(admin: true).each do |recipient|
+  	   	NotifyAdminJob.set(wait: 2.seconds).perform_later(recipient, @client)
+  	   end
+
 
   	  # flash[:notice] = "you have request has been successfully sent."
   	  redirect_to message_path(@order)
@@ -51,6 +62,7 @@ class OrdersController < ApplicationController
   	  flash.now[:alert] = "your request was not successfully"
   	  render "new"
   	end
+  end
   end
 
   def edit
