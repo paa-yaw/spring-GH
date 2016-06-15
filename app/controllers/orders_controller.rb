@@ -25,15 +25,20 @@ class OrdersController < ApplicationController
   	  @client.save
 
   	  @request = Request.new
+  	  # @request.email = @order.email
+  	  # @request.phone_number = @order.phone_number
+  	  # @request.location = @order.location
+  	  @request.terms = true
+  	  @request.resolved = false
   	  @request.bathrooms = @order.bathrooms
   	  @request.bedrooms = @order.bedrooms
   	  @request.kitchens = 0
   	  @request.hall = 0
   	  @request.weekdays = [""]
   	  @request.extra_services = [nil]
-  	  @request.date = 2.days.from_now
-  	  @request.frequency = 150.00
-  	  @request.time = 2.days.from_now
+  	  @request.date = "2016/06/17"
+  	  @request.frequency = 150.0
+  	  @request.time = 1.day.from_now - 14.hours
   	  @request.status = "unresolved"
   	  @request.save
   	  @client.requests << @request
@@ -70,7 +75,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-  	params.require(:order).permit(:bathrooms, :bedrooms, :email, :phone_number, :location)
+  	params.require(:order).permit(:bathrooms, :bedrooms, :email, :phone_number, :location, :terms)
   end
 
   def set_order

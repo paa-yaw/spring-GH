@@ -9,9 +9,9 @@ class Request < ActiveRecord::Base
   validates :phone_number, format: { with: /\A[-+]?[0-9]*\.?[0-9]+\Z/, message: "only allows numbers" }, allow_blank: true
   validates_format_of :email,:with => Devise::email_regexp, allow_blank: true
   validate :terms_of_service
-  validate :weekday_array_cannot_be_empty
-  validate :restrict_selection
-  validate :forbidden_dates
+  # validate :weekday_array_cannot_be_empty
+  # validate :restrict_selection
+  # validate :forbidden_dates
   # validate :day_and_date_match
   validate :length_of_phone_number
   validate :choose_at_least_one_room
