@@ -204,8 +204,36 @@ function calculatePricing() {
   var roomFactor = 0;
   var totalPrice = 0;
 
-  //case of these three possible conditions
-  if( getFrequency() == 0 || getFrequency() == 200.00 || getFrequency() == 150.00 ) {
+  //case of these four possible conditions: freq 0, freq 150, freq 200, freq 500
+  if (getFrequency() == 0 ) {
+    var roomFactor = 0;
+
+    var freq = parseInt(getFrequency());
+
+      document.getElementById('packagePrice').innerHTML = "GHS " +freq+".00";
+
+    var extraRoom = (roomTotal() + roomFactor);
+
+      document.getElementById('extraRooms').innerHTML = extraRoom;
+      // document.getElementById('roomNumber').innerHTML = "0";
+
+    var extraRoomValue = (roomTotal() + roomFactor);
+
+    var extraRoomPrice = "GHS " + ((extraRoomValue)*5)+".00";
+
+      document.getElementById('extraRoomPrice').innerHTML = extraRoomPrice;
+      document.getElementById('navExtraRoomPrice').innerHTML = extraRoomPrice;
+
+    var extraService = getExtraServices();
+
+      document.getElementById('extraServicePrice').innerHTML = "GHS "+extraService+".00";
+      document.getElementById('navExtraServicePrice').innerHTML = "GHS "+extraService+".00";
+
+    var totalPrice = ( ( (roomTotal() + roomFactor)*5 ) + getExtraServices() + parseInt(getFrequency()) );
+      document.getElementById('PricingValue').innerHTML = "GHS "+totalPrice+".00";
+      document.getElementById('navPricingValue').innerHTML = "GHS "+totalPrice+".00";
+ 
+  } else if( getFrequency() == 200.00 || getFrequency() == 150.00 ) {
     var roomFactor = -4;
 
     var freq = parseInt(getFrequency());
@@ -217,7 +245,7 @@ function calculatePricing() {
       document.getElementById('extraRooms').innerHTML = extraRoom;
 
     var extraRoomValue = (roomTotal() + roomFactor);
-    
+
     var extraRoomPrice = "GHS "+((extraRoomValue)*5 )+".00";
 
       document.getElementById('extraRoomPrice').innerHTML = extraRoomPrice;
