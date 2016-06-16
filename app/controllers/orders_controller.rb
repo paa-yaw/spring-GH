@@ -12,9 +12,30 @@ class OrdersController < ApplicationController
   	@order = Order.new(order_params)
 
   	if Client.pluck(:email).include?(@order.email)
-  	  flash[:notice] = "#{@order.email} already exists."
-  	  @order.destroy
-  	  render 'new'
+  	  # flash[:notice] = "#{@order.email} already exists."
+  	  # @order.destroy
+  	  # render 'new'
+  	  @client = Client.find_by(email: @order.email)
+
+  	  @request = Request.new
+  	  @request.terms = true
+  	  @request.resolved = false
+  	  @request.bathrooms = @order.bathrooms
+  	  @request.bedrooms = @order.bedrooms
+  	  @request.kitchens = 0
+  	  @request.hall = 0
+  	  @request.weekdays = [""]
+  	  @request.extra_services = [nil]
+  	  @request.date = 1.day.from_now.to_s
+  	  @request.frequency = 150.0
+  	  @request.time = 1.day.from_now - 14.hours
+  	  @request.status = "unresolved"
+  	  @request.save
+  	  @client.requests << @request
+  	  @client.save
+  	  @order.save
+
+  	  redirect_to message_path(@order)
   	else
 
 
