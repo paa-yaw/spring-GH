@@ -26,13 +26,13 @@ class RegistrationsController < Devise::RegistrationsController
   	      end
 
   	      # display_request_path(Request.last)
-          new_request_path
+          new_order_path
         end  	  	
   end
 
   def after_update_path_for(resource)
     if current_client
-      new_request_path
+      new_order_path
     end
   end
   

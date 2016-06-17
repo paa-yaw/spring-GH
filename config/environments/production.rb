@@ -95,8 +95,8 @@ Rails.application.configure do
    :address              => "smtp.gmail.com",
    :port                 => 587,
    :domain               => "springgh.com",
-   :user_name            => "hello@springgh.com",
-   :password             => "hello_spring2016",
+   :user_name            => ENV['EMAIL_USERNAME'],
+   :password             => ENV['EMAIL_PASSWORD'],
    :authentication       => "plain",
    :enable_starttls_auto => true
 }

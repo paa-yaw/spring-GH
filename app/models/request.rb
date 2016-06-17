@@ -180,19 +180,23 @@ class Request < ActiveRecord::Base
 
 	def resolve
 	  self.update(status: "resolved")
+    save
 	end
 
 
 	def close_request
 	  self.update(status: "done")
+    save
 	end
 
 	def reopen_request
 	  self.update(status:"redo")
+    save
 	end
 
   def unresolve_request
     self.update(status: "unresolved")
+    save
   end
 
 
