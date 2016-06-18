@@ -77,21 +77,21 @@ function getFrequency(){
   var monthFrequency = 0;
 
   if (document.getElementById("request_frequency_1500").checked) {
-    document.getElementById("roomNumber").innerHTML = "one-time";
+    document.getElementById("roomNumber").innerHTML = "One-time";
     dayFrequency = parseFloat(document.getElementById("request_frequency_1500").value);
   } else {
     dayFrequency = 0;
   }
                                
   if (document.getElementById("request_frequency_2000").checked) {
-    document.getElementById("roomNumber").innerHTML = "weekly";
+    document.getElementById("roomNumber").innerHTML = "Weekly";
     weekFrequency = parseFloat(document.getElementById("request_frequency_2000").value);
   } else {
     weekFrequency = 0;  
   }
 
   if (document.getElementById("request_frequency_5000").checked) {
-     document.getElementById("roomNumber").innerHTML = "monthly";
+     document.getElementById("roomNumber").innerHTML = "Monthly";
      monthFrequency = parseFloat(document.getElementById("request_frequency_5000").value);
   } else {
      monthFrequency = 0;
